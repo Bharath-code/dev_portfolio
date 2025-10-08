@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-slate-50 text-slate-950 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
+	}
+}
+
+@layer components {
+	.skip-link {
+		@apply absolute left-4 top-4 -translate-y-16 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white shadow-lg transition focus-visible:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:focus-visible:outline-brand;
+	}
+}

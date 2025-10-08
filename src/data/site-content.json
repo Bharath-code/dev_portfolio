@@ -1,0 +1,219 @@
+{
+	"projects": [
+		{
+			"meta": "2024 · Product AI",
+			"badge": "Stealth",
+			"title": "Adaptive AI Operations Console",
+			"descriptionHtml": "Architected a data-driven control center that orchestrates LLM prompts, monitoring, and human-in-the-loop QA. Delivered <span class=\"font-semibold text-slate-900 dark:text-white\">38%</span> faster incident resolution.",
+			"tags": ["Next.js", "LangChain", "Supabase"],
+			"spotlight": {
+				"headline": "From LLM chaos to measurable action",
+				"overview": "Built a unified cockpit for incident-response analysts that connected prompt management, evaluations, and human reviews into one workflow.",
+				"roles": ["Product strategy", "Lead engineering", "AI safety"],
+				"highlights": [
+					"Shipped a modular prompt registry with automated regression alerts",
+					"Deployed a human-in-the-loop review queue with SLA-aware routing",
+					"Instrumented dashboards wiring OpenTelemetry traces into business KPIs"
+				],
+				"outcomes": [
+					{"label": "Incident resolution", "value": "38% faster"},
+					{"label": "Playbook reuse", "value": "+2.6×"},
+					{"label": "Prompt defects", "value": "-41%"}
+				]
+			}
+		},
+		{
+			"meta": "2023 · SaaS",
+			"badge": "Prodigy",
+			"title": "Realtime Insights Platform",
+			"descriptionHtml": "Designed and delivered a collaborative analytics portal with predictive scoring and automated alerts, boosting retention by <span class=\"font-semibold text-slate-900 dark:text-white\">22%</span>.",
+			"tags": ["TypeScript", "GraphQL", "AWS"],
+			"spotlight": {
+				"headline": "Turning fragmented telemetry into activation wins",
+				"overview": "Unblocked revenue teams with an always-on analytics hub that fuses predictive scoring, collaboration, and alerting into one shared surface.",
+				"roles": ["Product discovery", "Systems design", "Full-stack delivery"],
+				"highlights": [
+					"Delivered schema-driven insight templates editable by go-to-market teams",
+					"Launched collaborative alerting with comment threads and slack sync",
+					"Optimized GraphQL resolvers and caching for sub-second dashboard loads"
+				],
+				"outcomes": [
+					{"label": "Retention uplift", "value": "+22%"},
+					{"label": "Alert acknowledgement", "value": "3.4× faster"},
+					{"label": "Support tickets", "value": "-27%"}
+				]
+			}
+		},
+		{
+			"meta": "2022 · Fintech",
+			"badge": "Nova",
+			"title": "Intelligent Revenue Advisor",
+			"descriptionHtml": "Led cross-functional delivery of a microservice suite providing smart nudges, anomaly detection, and dynamic pricing experiments for growth teams.",
+			"tags": ["Node.js", "Python", "Snowflake"],
+			"spotlight": {
+				"headline": "AI copilots for high-stakes revenue decisions",
+				"overview": "Partnered with growth, finance, and data science leaders to automate experiment design and anomaly detection across billions in ARR.",
+				"roles": ["Technical leadership", "Experimentation design", "Data platform"],
+				"highlights": [
+					"Built a simulation harness validating price changes against historical cohorts",
+					"Delivered a feature-flagged rollout mesh with governance guardrails",
+					"Standardized experimentation telemetry feeding a central insights lake"
+				],
+				"outcomes": [
+					{"label": "Pricing cycle time", "value": "-35 days"},
+					{"label": "ARR influenced", "value": "$48M"},
+					{"label": "Experiment velocity", "value": "+3×"}
+				]
+			}
+		}
+	],
+	"services": [
+		{
+			"title": "AI product acceleration",
+			"description": "Translate ambiguous AI ideas into validated product bets with guardrails, telemetry, and measurable ROI.",
+			"highlights": [
+				"LLM capability audits & roadmap",
+				"Pilot-to-prod launch playbooks",
+				"Evaluation harnesses & safety rails"
+			],
+			"metric": "Launch AI experiences 3× faster without sacrificing trust"
+		},
+		{
+			"title": "Design-to-code systems",
+			"description": "Build resilient component libraries and tooling that keep design, product, and engineering in tight feedback loops.",
+			"highlights": [
+				"Design tokens & theming",
+				"Accessibility instrumentation",
+				"Storybook + CI pipelines"
+		],
+			"metric": "Ship interface updates in days, not sprints"
+		},
+		{
+			"title": "Data-informed delivery",
+			"description": "Wire experimentation, analytics, and automation into day-to-day workflows so teams iterate with confidence.",
+			"highlights": [
+				"Event models & tracking plans",
+				"Experimentation frameworks",
+				"Operational analytics dashboards"
+			],
+			"metric": "Prove impact with instrumentation baked into every launch"
+		}
+	],
+	"skills": [
+		{
+			"title": "Frontend craft",
+			"description": "Design systems, component architecture, accessibility, performance profiling, animations.",
+			"tags": ["React", "Next.js", "Tailwind", "GSAP"]
+		},
+		{
+			"title": "Backend & AI",
+			"description": "API design, microservices, data pipelines, LLM orchestration, evaluation, and guardrails.",
+			"tags": ["Node.js", "Python", "LangChain", "Vector DBs"]
+		},
+		{
+			"title": "Product strategy",
+			"description": "Product discovery, roadmap definition, stakeholder facilitation, metric-driven iteration.",
+			"tags": ["Experimentation", "Design Sprints", "Delivery"]
+		},
+		{
+			"title": "Leadership",
+			"description": "Leading squads, mentoring engineers, establishing best practices, scaling quality.",
+			"tags": ["Team Health", "Hiring", "Coaching"]
+		}
+	],
+	"experience": [
+		{
+			"title": "Lead Full-stack Engineer · Lumen AI",
+			"description": "Owning the end-to-end delivery of an AI copilot platform for enterprise operations teams, emphasizing velocity, trust, and measurable ROI.",
+			"period": "2022 — Present · Remote"
+		},
+		{
+			"title": "Senior Product Engineer · Orbit Labs",
+			"description": "Established a shared component library, piloted AI-powered onboarding assistants, and helped improve activation by 18% within two quarters.",
+			"period": "2019 — 2022 · Hybrid"
+		},
+		{
+			"title": "Product Engineer · DeltaWorks",
+			"description": "Partnered with designers and data scientists to deliver intelligent growth tooling and experimentation frameworks at scale.",
+			"period": "2017 — 2019 · Onsite"
+		}
+	],
+	"workingStyle": [
+		{
+			"phase": "Co-discover",
+			"tag": "Week 0–1",
+			"summary": "Align on the north star, success criteria, and constraints with structured workshops.",
+			"details": [
+				"Map current journeys and systems",
+				"Define measurable outcomes and guardrails",
+				"Prototype concepts with stakeholders"
+			]
+		},
+		{
+			"phase": "Co-design",
+			"tag": "Week 1–3",
+			"summary": "Co-create the architecture, UX flows, and delivery plan so teams can execute confidently.",
+			"details": [
+				"Shape experience maps and service blueprints",
+				"Break work into thin slices ready for iteration",
+				"Set up instrumentation and experiment hooks"
+			]
+		},
+		{
+			"phase": "Co-build",
+			"tag": "Week 3+",
+			"summary": "Lead implementation, coach teams, and evolve the plan using data from real usage.",
+			"details": [
+				"Pair with engineers to deliver critical paths",
+				"Run playtests and usability checkpoints",
+				"Publish release notes, dashboards, and learnings"
+			]
+		}
+	],
+	"testimonials": [
+		{
+			"quote": "“Bharath is a product-minded engineer who sweats the details. He anticipates edge cases, keeps stakeholders aligned, and consistently ships polished features that move key metrics.”",
+			"attribution": "VP Product · Lumen AI",
+			"company": "Lumen AI",
+			"role": "Product leadership",
+			"category": "Product",
+			"badge": "LA",
+			"badgeColor": "bg-indigo-500"
+		},
+		{
+			"quote": "“From design system foundations to AI integrations, Bharath operates with ownership and brings a calm, methodical presence to high-stakes launches.”",
+			"attribution": "Director of Engineering · Orbit Labs",
+			"company": "Orbit Labs",
+			"role": "Engineering leadership",
+			"category": "Engineering",
+			"badge": "OL",
+			"badgeColor": "bg-emerald-500"
+		},
+		{
+			"quote": "“He met founders where we were—helping us craft an AI product vision, sequencing scope ruthlessly, and building the first version alongside us. We closed two lighthouse customers within a quarter.”",
+			"attribution": "Co-founder · Proxima",
+			"company": "Proxima",
+			"role": "Founder",
+			"category": "Founder",
+			"badge": "PX",
+			"badgeColor": "bg-amber-500"
+		}
+	],
+	"contactLinks": [
+		{
+			"label": "Book a discovery call",
+			"href": "mailto:hello@bharath.dev?subject=Discovery%20call",
+			"variant": "primary"
+		},
+		{
+			"label": "LinkedIn",
+			"href": "https://linkedin.com/in/bharath",
+			"variant": "secondary"
+		},
+		{
+			"label": "GitHub",
+			"href": "https://github.com/bharath",
+			"variant": "secondary"
+		}
+	]
+}

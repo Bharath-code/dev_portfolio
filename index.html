@@ -10,9 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/src/main.css" />
     <script>
       const theme = localStorage.getItem("theme-preference");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -20,43 +29,21 @@
         document.documentElement.classList.add("dark");
       }
     </script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Space Grotesk", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-            },
-            colors: {
-              brand: {
-                light: "#22d3ee",
-                DEFAULT: "#0ea5e9",
-                dark: "#0f172a",
-              },
-            },
-            boxShadow: {
-              glow: "0 25px 50px -12px rgba(14, 165, 233, 0.35)",
-            },
-            backgroundImage: {
-              grid: "radial-gradient(circle at 1px 1px, rgba(14,165,233,0.15) 1px, transparent 0)",
-            },
-          },
-        },
-      };
-    </script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-950 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="top" class="sr-only" aria-hidden="true"></div>
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 bg-grid [background-size:32px_32px] opacity-40 dark:opacity-20"></div>
     <header class="sticky top-0 z-40 border-b border-slate-200/70 backdrop-blur-lg transition-colors duration-300 dark:border-slate-800/60">
       <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" class="text-lg font-semibold tracking-tight">bharath<span class="text-brand">.</span></a>
-        <nav class="hidden items-center gap-8 text-sm font-medium md:flex">
-          <a href="#work" class="transition hover:text-brand">Work</a>
-          <a href="#skills" class="transition hover:text-brand">Skills</a>
-          <a href="#experience" class="transition hover:text-brand">Experience</a>
-          <a href="#contact" class="transition hover:text-brand">Contact</a>
+        <nav class="hidden items-center gap-8 text-sm font-medium md:flex" aria-label="Primary navigation">
+          <a href="#work" class="transition hover:text-brand" data-nav-link>Work</a>
+          <a href="#services" class="transition hover:text-brand" data-nav-link>Services</a>
+          <a href="#skills" class="transition hover:text-brand" data-nav-link>Skills</a>
+          <a href="#experience" class="transition hover:text-brand" data-nav-link>Experience</a>
+          <a href="#process" class="transition hover:text-brand" data-nav-link>Process</a>
+          <a href="#contact" class="transition hover:text-brand" data-nav-link>Contact</a>
         </nav>
         <div class="flex items-center gap-3">
           <button
@@ -92,7 +79,7 @@
       </div>
     </header>
 
-    <main id="top" class="mx-auto w-full max-w-6xl px-6 pb-24">
+    <main id="main-content" class="mx-auto w-full max-w-6xl px-6 pb-24">
       <section class="grid grid-cols-1 gap-12 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
         <div class="space-y-8">
           <span class="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand">
@@ -157,7 +144,20 @@
           </div>
           <a href="mailto:hello@bharath.dev" class="text-sm font-medium text-brand hover:underline">Request full case studies →</a>
         </div>
-        <div id="projects-list" class="grid gap-8 lg:grid-cols-3"></div>
+        <ul id="projects-list" class="grid list-none gap-8 lg:grid-cols-3" aria-live="polite"></ul>
+      </section>
+
+      <section id="services" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">How I help</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Engagements built to prove impact fast.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            Every offering fuses product strategy with hands-on engineering so you can move from idea to measurable outcomes without losing speed or quality.
+          </p>
+        </div>
+        <ul id="services-list" class="grid list-none gap-6 md:grid-cols-3" aria-live="polite"></ul>
       </section>
 
       <section id="skills" class="space-y-12 py-20">
@@ -170,7 +170,7 @@
             I move ideas from Figma to production with a systems mindset—shipping thoughtful experiences, optimizing performance, and instrumenting AI-driven feedback loops.
           </p>
         </div>
-        <div id="skills-list" class="grid gap-6 md:grid-cols-2"></div>
+        <ul id="skills-list" class="grid list-none gap-6 md:grid-cols-2" aria-live="polite"></ul>
       </section>
 
       <section id="experience" class="space-y-12 py-20">
@@ -183,7 +183,20 @@
             I collaborate with cross-functional partners to ship net-positive solutions while mentoring engineers and refining delivery operations.
           </p>
         </div>
-        <div id="experience-list" class="space-y-6"></div>
+        <ul id="experience-list" class="space-y-6 list-none" aria-live="polite"></ul>
+      </section>
+
+      <section id="process" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Working style</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">A partner who ships with you.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            From discovery through launch, I embed with your team, keep stakeholders aligned, and measure what matters so you can move with conviction.
+          </p>
+        </div>
+        <ol id="working-style-list" class="space-y-8" aria-live="polite"></ol>
       </section>
 
       <section class="space-y-12 py-20">
@@ -192,8 +205,25 @@
             <p class="text-sm uppercase tracking-[0.3em] text-brand">Testimonials</p>
             <h2 class="mt-2 text-3xl font-semibold tracking-tight">What partners say.</h2>
           </div>
+          <div class="flex flex-wrap items-center gap-2" id="testimonial-filters" role="tablist" aria-label="Testimonial filters"></div>
         </div>
-        <div id="testimonials-list" class="grid gap-6 md:grid-cols-2"></div>
+        <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-500/10 transition-colors dark:border-slate-800 dark:bg-slate-900/80" aria-live="polite">
+          <div class="flex items-start gap-6">
+            <div class="flex h-14 w-14 items-center justify-center rounded-full text-lg font-semibold text-white" id="testimonial-badge" aria-hidden="true"></div>
+            <div class="flex-1 space-y-4">
+              <p class="text-lg leading-relaxed text-slate-700 dark:text-slate-200" id="testimonial-quote"></p>
+              <div>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white" id="testimonial-attribution"></p>
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500" id="testimonial-role"></p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex items-center justify-between text-sm text-slate-500">
+            <button type="button" id="testimonial-prev" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 font-medium transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700">Previous</button>
+            <div class="flex items-center gap-2" id="testimonial-pagination" aria-live="polite"></div>
+            <button type="button" id="testimonial-next" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 font-medium transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700">Next</button>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -204,13 +234,56 @@
         <p class="max-w-2xl text-sm text-slate-600 dark:text-slate-300">
           Whether you need a trusted lead engineer, a product partner, or someone to translate AI breakthroughs into market-ready features, I’d love to connect.
         </p>
-        <div id="contact-links" class="flex flex-wrap items-center justify-center gap-3"></div>
+        <ul id="contact-links" class="flex list-none flex-wrap items-center justify-center gap-3" aria-live="polite"></ul>
       </div>
     </section>
 
     <footer class="border-t border-slate-200/70 bg-slate-50 py-6 text-center text-xs text-slate-500 transition-colors dark:border-slate-800/60 dark:bg-slate-950/90 dark:text-slate-400">
       <p>© <span id="year"></span> Bharath. Crafted with intent in JavaScript, Tailwind CSS, and a dash of AI curiosity.</p>
     </footer>
+
+    <div id="project-modal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" data-modal-overlay></div>
+      <div
+        class="relative mx-auto flex h-full max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white/95 p-8 shadow-2xl shadow-brand/20 transition-colors dark:border-slate-800/70 dark:bg-slate-900/95"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
+      >
+        <button
+          type="button"
+          id="project-modal-close"
+          class="absolute right-6 top-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:text-slate-300 dark:hover:text-white"
+          aria-label="Close project spotlight"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="m7 7 10 10M17 7 7 17" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="mt-4 flex flex-col gap-6 overflow-y-auto pr-2" tabindex="-1" id="project-modal-content">
+          <div class="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-brand">
+            <span id="project-modal-meta" class="text-slate-500 dark:text-slate-400"></span>
+            <span id="project-modal-badge" class="rounded-full bg-brand/10 px-3 py-1 text-brand"></span>
+          </div>
+          <div class="space-y-4">
+            <h3 id="project-modal-title" class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white"></h3>
+            <p id="project-modal-overview" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300"></p>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand">Roles</p>
+            <ul id="project-modal-roles" class="flex list-none flex-wrap gap-2"></ul>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand">Highlights</p>
+            <ul id="project-modal-highlights" class="list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300"></ul>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand">Outcomes</p>
+            <ul id="project-modal-outcomes" class="grid list-none gap-3 md:grid-cols-3"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
