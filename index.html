@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bharath – Full-stack JavaScript & AI engineer building immersive, high-performance products." />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+    <title>Bharath | Full-stack AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      const theme = localStorage.getItem("theme-preference");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (theme === "dark" || (!theme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Space Grotesk", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                light: "#22d3ee",
+                DEFAULT: "#0ea5e9",
+                dark: "#0f172a",
+              },
+            },
+            boxShadow: {
+              glow: "0 25px 50px -12px rgba(14, 165, 233, 0.35)",
+            },
+            backgroundImage: {
+              grid: "radial-gradient(circle at 1px 1px, rgba(14,165,233,0.15) 1px, transparent 0)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-950 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 bg-grid [background-size:32px_32px] opacity-40 dark:opacity-20"></div>
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 backdrop-blur-lg transition-colors duration-300 dark:border-slate-800/60">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+        <a href="#top" class="text-lg font-semibold tracking-tight">bharath<span class="text-brand">.</span></a>
+        <nav class="hidden items-center gap-8 text-sm font-medium md:flex">
+          <a href="#work" class="transition hover:text-brand">Work</a>
+          <a href="#skills" class="transition hover:text-brand">Skills</a>
+          <a href="#experience" class="transition hover:text-brand">Experience</a>
+          <a href="#contact" class="transition hover:text-brand">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:shadow hover:shadow-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            aria-label="Toggle color mode"
+          >
+            <span class="sr-only">Toggle color mode</span>
+            <svg
+              id="theme-icon"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 3v2.4M12 18.6V21M4.8 12H3M21 12h-2.4M5.636 5.636 7.124 7.124M18.364 18.364 16.876 16.876M5.636 18.364l1.488-1.488M18.364 5.636l-1.488 1.488M12 8.4a3.6 3.6 0 1 1 0 7.2 3.6 3.6 0 0 1 0-7.2Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <a
+            href="mailto:hello@bharath.dev"
+            class="hidden rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:bg-white dark:text-slate-900 md:inline-block"
+          >
+            Let’s talk
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="mx-auto w-full max-w-6xl px-6 pb-24">
+      <section class="grid grid-cols-1 gap-12 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
+        <div class="space-y-8">
+          <span class="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand">
+            <span class="h-2 w-2 rounded-full bg-brand"></span>
+            Available for product engineering roles
+          </span>
+          <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Full-stack JavaScript engineer crafting AI-driven experiences with measurable business impact.
+          </h1>
+          <p class="text-lg text-slate-600 dark:text-slate-300">
+            I design and build resilient web applications that fuse real-time intelligence with delightful product experiences. From rapid prototypes to production AI integrations, I partner with teams to ship meaningful value.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href="#work"
+              class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:shadow-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              View selected work
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 12h14" stroke-linecap="round" />
+                <path d="m12 5 7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a
+              href="/assets/bharath-resume.pdf"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:text-slate-100"
+            >
+              Download resume
+            </a>
+          </div>
+          <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+            <div>
+              <span class="font-semibold text-slate-900 dark:text-white">6+</span> years shipping production-grade web products
+            </div>
+            <div>
+              <span class="font-semibold text-slate-900 dark:text-white">Focused on:</span> design systems, LLM integrations, automation pipelines
+            </div>
+          </div>
+        </div>
+        <div class="relative flex items-end">
+          <div class="group relative w-full overflow-hidden rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-xl shadow-slate-500/10 transition duration-500 hover:-translate-y-2 hover:shadow-glow dark:border-slate-800 dark:bg-slate-900/80">
+            <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand/20 via-transparent to-brand/0 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"></div>
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Current focus</p>
+            <h2 class="mt-4 text-2xl font-semibold">Human-centered AI systems</h2>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Building resilient platforms that weave AI copilots into daily workflows. I optimize model pipelines, design delightful in-app journeys, and craft delightful micro-interactions that make advanced intelligence feel human.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>LLM-first product strategy</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>Design-to-code systems thinking</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>Real-time analytics and automation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Featured work</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Selected projects that blend design, engineering, and AI.</h2>
+          </div>
+          <a href="mailto:hello@bharath.dev" class="text-sm font-medium text-brand hover:underline">Request full case studies →</a>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-3">
+          <article class="group flex flex-col rounded-3xl border border-slate-200 bg-white/80 p-6 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/20 dark:border-slate-800 dark:bg-slate-900/80">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-500">
+              <span>2024 · Product AI</span>
+              <span class="font-medium text-brand">Stealth</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold">Adaptive AI Operations Console</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Architected a data-driven control center that orchestrates LLM prompts, monitoring, and human-in-the-loop QA. Delivered <span class="font-semibold text-slate-900 dark:text-white">38%</span> faster incident resolution.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Next.js</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">LangChain</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Supabase</span>
+            </div>
+          </article>
+          <article class="group flex flex-col rounded-3xl border border-slate-200 bg-white/80 p-6 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/20 dark:border-slate-800 dark:bg-slate-900/80">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-500">
+              <span>2023 · SaaS</span>
+              <span class="font-medium text-brand">Prodigy</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold">Realtime Insights Platform</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Designed and delivered a collaborative analytics portal with predictive scoring and automated alerts, boosting retention by <span class="font-semibold text-slate-900 dark:text-white">22%</span>.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">TypeScript</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">GraphQL</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">AWS</span>
+            </div>
+          </article>
+          <article class="group flex flex-col rounded-3xl border border-slate-200 bg-white/80 p-6 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/20 dark:border-slate-800 dark:bg-slate-900/80">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-500">
+              <span>2022 · Fintech</span>
+              <span class="font-medium text-brand">Nova</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold">Intelligent Revenue Advisor</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Led cross-functional delivery of a microservice suite providing smart nudges, anomaly detection, and dynamic pricing experiments for growth teams.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Node.js</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Python</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Snowflake</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Capabilities</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Engineering depth, product empathy, and AI acceleration.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            I move ideas from Figma to production with a systems mindset—shipping thoughtful experiences, optimizing performance, and instrumenting AI-driven feedback loops.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 dark:border-slate-800 dark:bg-slate-900/80">
+            <h3 class="text-lg font-semibold">Frontend craft</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Design systems, component architecture, accessibility, performance profiling, animations.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">React</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Next.js</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Tailwind</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">GSAP</span>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 dark:border-slate-800 dark:bg-slate-900/80">
+            <h3 class="text-lg font-semibold">Backend & AI</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              API design, microservices, data pipelines, LLM orchestration, evaluation, and guardrails.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Node.js</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Python</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">LangChain</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Vector DBs</span>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 dark:border-slate-800 dark:bg-slate-900/80">
+            <h3 class="text-lg font-semibold">Product strategy</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Product discovery, roadmap definition, stakeholder facilitation, metric-driven iteration.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Experimentation</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Design Sprints</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Delivery</span>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 dark:border-slate-800 dark:bg-slate-900/80">
+            <h3 class="text-lg font-semibold">Leadership</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Leading squads, mentoring engineers, establishing best practices, scaling quality.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Team Health</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Hiring</span>
+              <span class="rounded-full bg-brand/10 px-3 py-1 text-brand">Coaching</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Experience</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Trusted by startups and global teams.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            I collaborate with cross-functional partners to ship net-positive solutions while mentoring engineers and refining delivery operations.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 md:flex-row md:items-center md:justify-between dark:border-slate-800 dark:bg-slate-900/80">
+            <div>
+              <h3 class="text-xl font-semibold">Lead Full-stack Engineer · Lumen AI</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Owning the end-to-end delivery of an AI copilot platform for enterprise operations teams, emphasizing velocity, trust, and measurable ROI.
+              </p>
+            </div>
+            <div class="text-xs uppercase tracking-[0.3em] text-slate-500">2022 — Present · Remote</div>
+          </article>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 md:flex-row md:items-center md:justify-between dark:border-slate-800 dark:bg-slate-900/80">
+            <div>
+              <h3 class="text-xl font-semibold">Senior Product Engineer · Orbit Labs</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Established a shared component library, piloted AI-powered onboarding assistants, and helped improve activation by 18% within two quarters.
+              </p>
+            </div>
+            <div class="text-xs uppercase tracking-[0.3em] text-slate-500">2019 — 2022 · Hybrid</div>
+          </article>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 md:flex-row md:items-center md:justify-between dark:border-slate-800 dark:bg-slate-900/80">
+            <div>
+              <h3 class="text-xl font-semibold">Product Engineer · DeltaWorks</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Partnered with designers and data scientists to deliver intelligent growth tooling and experimentation frameworks at scale.
+              </p>
+            </div>
+            <div class="text-xs uppercase tracking-[0.3em] text-slate-500">2017 — 2019 · Onsite</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Testimonials</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">What partners say.</h2>
+          </div>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <blockquote class="rounded-3xl border border-slate-200 bg-white/80 p-6 text-sm leading-relaxed text-slate-600 shadow-lg shadow-slate-500/5 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300">
+            “Bharath is a product-minded engineer who sweats the details. He anticipates edge cases, keeps stakeholders aligned, and consistently ships polished features that move key metrics.”
+            <footer class="mt-4 text-xs uppercase tracking-[0.3em] text-slate-500">VP Product · Lumen AI</footer>
+          </blockquote>
+          <blockquote class="rounded-3xl border border-slate-200 bg-white/80 p-6 text-sm leading-relaxed text-slate-600 shadow-lg shadow-slate-500/5 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300">
+            “From design system foundations to AI integrations, Bharath operates with ownership and brings a calm, methodical presence to high-stakes launches.”
+            <footer class="mt-4 text-xs uppercase tracking-[0.3em] text-slate-500">Director of Engineering · Orbit Labs</footer>
+          </blockquote>
+        </div>
+      </section>
+    </main>
+
+    <section id="contact" class="border-t border-slate-200/70 bg-white/80 py-20 transition-colors dark:border-slate-800/60 dark:bg-slate-900/80">
+      <div class="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-6 text-center">
+        <p class="text-sm uppercase tracking-[0.3em] text-brand">Let’s build what’s next</p>
+        <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Ready to start a conversation?</h2>
+        <p class="max-w-2xl text-sm text-slate-600 dark:text-slate-300">
+          Whether you need a trusted lead engineer, a product partner, or someone to translate AI breakthroughs into market-ready features, I’d love to connect.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="mailto:hello@bharath.dev"
+            class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:shadow-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            hello@bharath.dev
+          </a>
+          <a
+            href="https://linkedin.com/in/bharath"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:text-slate-100"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/bharath"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:text-slate-100"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-200/70 bg-slate-50 py-6 text-center text-xs text-slate-500 transition-colors dark:border-slate-800/60 dark:bg-slate-950/90 dark:text-slate-400">
+      <p>© <span id="year"></span> Bharath. Crafted with intent in JavaScript, Tailwind CSS, and a dash of AI curiosity.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>
