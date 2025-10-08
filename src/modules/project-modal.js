@@ -11,9 +11,185 @@ const projectModalOutcomes = document.getElementById("project-modal-outcomes");
 const projectModalCloseButton = document.getElementById("project-modal-close");
 const projectModalOverlay = projectModal?.querySelector("[data-modal-overlay]");
 const projectModalContent = document.getElementById("project-modal-content");
+const projectModalWalkthroughWrapper = document.getElementById("project-modal-walkthrough-wrapper");
+const projectModalWalkthroughTabs = document.getElementById("project-modal-walkthrough-tabs");
+const projectModalWalkthroughTitle = document.getElementById("project-modal-walkthrough-title");
+const projectModalWalkthroughSummary = document.getElementById("project-modal-walkthrough-summary");
+const projectModalWalkthroughMetric = document.getElementById("project-modal-walkthrough-metric");
+const projectModalWalkthroughMetricLabel = document.getElementById("project-modal-walkthrough-metric-label");
+const projectModalWalkthroughMetricValue = document.getElementById("project-modal-walkthrough-metric-value");
+const projectModalWalkthroughCode = document.getElementById("project-modal-walkthrough-code");
+const projectModalSandboxWrapper = document.getElementById("project-modal-sandbox-wrapper");
+const projectModalSandboxTitle = document.getElementById("project-modal-sandbox-title");
+const projectModalSandboxDescription = document.getElementById("project-modal-sandbox-description");
+const projectModalSandboxFrame = document.getElementById("project-modal-sandbox-frame");
+const projectModalSandboxLink = document.getElementById("project-modal-sandbox-link");
 
 let lastFocusedTrigger = null;
 let previousBodyOverflow = "";
+let walkthroughSteps = [];
+let currentWalkthroughIndex = 0;
+
+const hideWalkthrough = () => {
+	if (projectModalWalkthroughWrapper) {
+		projectModalWalkthroughWrapper.classList.add("hidden");
+	}
+	if (projectModalWalkthroughTabs) {
+		clearChildren(projectModalWalkthroughTabs);
+	}
+	if (projectModalWalkthroughTitle) {
+		projectModalWalkthroughTitle.textContent = "";
+	}
+	if (projectModalWalkthroughSummary) {
+		projectModalWalkthroughSummary.textContent = "";
+	}
+	if (projectModalWalkthroughMetric) {
+		projectModalWalkthroughMetric.classList.add("hidden");
+	}
+	if (projectModalWalkthroughMetricLabel) {
+		projectModalWalkthroughMetricLabel.textContent = "";
+	}
+	if (projectModalWalkthroughMetricValue) {
+		projectModalWalkthroughMetricValue.textContent = "";
+	}
+	if (projectModalWalkthroughCode) {
+		projectModalWalkthroughCode.textContent = "";
+	}
+	walkthroughSteps = [];
+	currentWalkthroughIndex = 0;
+};
+
+const updateWalkthroughActiveState = () => {
+	if (!projectModalWalkthroughTabs) return;
+	const buttons = projectModalWalkthroughTabs.querySelectorAll("[data-walkthrough-index]");
+	for (const button of buttons) {
+		const index = Number.parseInt(button.getAttribute("data-walkthrough-index"), 10);
+		button.className =
+			"inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700";
+		if (index === currentWalkthroughIndex) {
+			button.classList.add("bg-brand", "text-white", "border-brand");
+		} else {
+			button.classList.add("text-slate-600", "hover:border-brand", "hover:text-brand", "dark:text-slate-300");
+		}
+	}
+};
+
+const renderWalkthroughStep = (step) => {
+	if (!step) return;
+	if (projectModalWalkthroughTitle) {
+		projectModalWalkthroughTitle.textContent = step.label ?? "Milestone";
+	}
+	if (projectModalWalkthroughSummary) {
+		projectModalWalkthroughSummary.textContent = step.summary ?? "";
+	}
+	const hasMetric = Boolean(step.metricLabel || step.metricValue);
+	if (projectModalWalkthroughMetric) {
+		projectModalWalkthroughMetric.classList.toggle("hidden", !hasMetric);
+	}
+	if (projectModalWalkthroughMetricLabel) {
+		projectModalWalkthroughMetricLabel.textContent = step.metricLabel ?? "Impact";
+	}
+	if (projectModalWalkthroughMetricValue) {
+		projectModalWalkthroughMetricValue.textContent = step.metricValue ?? "";
+	}
+	if (projectModalWalkthroughCode) {
+		projectModalWalkthroughCode.textContent = step.code ?? "";
+		if (step.language) {
+			projectModalWalkthroughCode.setAttribute("data-language", step.language);
+		}
+		projectModalWalkthroughCode.parentElement?.classList.toggle("hidden", !step.code);
+	}
+};
+
+const handleWalkthroughTabClick = (event) => {
+	const target = event.currentTarget;
+	const index = Number.parseInt(target.getAttribute("data-walkthrough-index"), 10);
+	if (Number.isNaN(index) || !walkthroughSteps[index]) return;
+	currentWalkthroughIndex = index;
+	updateWalkthroughActiveState();
+	renderWalkthroughStep(walkthroughSteps[index]);
+};
+
+const renderWalkthrough = (steps) => {
+	if (!projectModalWalkthroughWrapper || !projectModalWalkthroughTabs) return;
+	if (!Array.isArray(steps) || steps.length === 0) {
+		hideWalkthrough();
+		return;
+	}
+	projectModalWalkthroughWrapper.classList.remove("hidden");
+	clearChildren(projectModalWalkthroughTabs);
+	walkthroughSteps = steps;
+	currentWalkthroughIndex = 0;
+	steps.forEach((step, index) => {
+		const button = document.createElement("button");
+		button.type = "button";
+		button.setAttribute("data-walkthrough-index", index.toString());
+		button.className =
+			"inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700 dark:text-slate-300";
+		button.textContent = step.label ?? `Step ${index + 1}`;
+		button.addEventListener("click", handleWalkthroughTabClick);
+		projectModalWalkthroughTabs.append(button);
+	});
+	updateWalkthroughActiveState();
+	renderWalkthroughStep(steps[0]);
+};
+
+const resetSandbox = () => {
+	if (projectModalSandboxWrapper) {
+		projectModalSandboxWrapper.classList.add("hidden");
+	}
+	if (projectModalSandboxTitle) {
+		projectModalSandboxTitle.textContent = "";
+	}
+	if (projectModalSandboxDescription) {
+		projectModalSandboxDescription.textContent = "";
+	}
+	if (projectModalSandboxFrame) {
+		projectModalSandboxFrame.setAttribute("src", "");
+		projectModalSandboxFrame.setAttribute("hidden", "true");
+	}
+	if (projectModalSandboxLink) {
+		projectModalSandboxLink.classList.add("hidden");
+		projectModalSandboxLink.setAttribute("href", "#");
+	}
+};
+
+const renderSandbox = (project, spotlight) => {
+	if (!projectModalSandboxWrapper) return;
+	const sandbox = spotlight?.sandbox;
+	const demoHref = project?.demo?.href ?? sandbox?.src;
+	if (!sandbox?.src && !demoHref) {
+		resetSandbox();
+		return;
+	}
+	projectModalSandboxWrapper.classList.remove("hidden");
+	if (projectModalSandboxTitle) {
+		projectModalSandboxTitle.textContent = sandbox?.title ?? "Interactive demo";
+	}
+	if (projectModalSandboxDescription) {
+		projectModalSandboxDescription.textContent = sandbox?.description ?? "Explore the workflow in an embedded sandbox.";
+	}
+	if (projectModalSandboxFrame) {
+		if (sandbox?.src) {
+			projectModalSandboxFrame.setAttribute("src", sandbox.src);
+			projectModalSandboxFrame.removeAttribute("hidden");
+		} else {
+			projectModalSandboxFrame.setAttribute("hidden", "true");
+		}
+	}
+	if (projectModalSandboxLink) {
+		if (demoHref) {
+			projectModalSandboxLink.classList.remove("hidden");
+			projectModalSandboxLink.href = demoHref;
+			projectModalSandboxLink.setAttribute(
+				"aria-label",
+				`Open demo for ${project?.title ?? spotlight?.headline ?? "project"} in a new tab`,
+			);
+		} else {
+			projectModalSandboxLink.classList.add("hidden");
+		}
+	}
+};
 
 const handleProjectModalKeydown = (event) => {
 	if (event.key === "Escape") {
@@ -52,6 +228,8 @@ export const closeProjectModal = () => {
 		lastFocusedTrigger.focus();
 	}
 	lastFocusedTrigger = null;
+	hideWalkthrough();
+	resetSandbox();
 };
 
 export const openProjectModal = (project, trigger) => {
@@ -139,6 +317,9 @@ export const openProjectModal = (project, trigger) => {
 		fallback.textContent = "Outcomes to be published soon.";
 		projectModalOutcomes?.append(fallback);
 	}
+
+	renderWalkthrough(Array.isArray(spotlight.walkthrough) ? spotlight.walkthrough : []);
+	renderSandbox(project, spotlight);
 
 	if (projectModalContent) {
 		projectModalContent.scrollTop = 0;

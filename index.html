@@ -38,11 +38,13 @@
       <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" class="text-lg font-semibold tracking-tight">bharath<span class="text-brand">.</span></a>
         <nav class="hidden items-center gap-8 text-sm font-medium md:flex" aria-label="Primary navigation">
+          <a href="#impact" class="transition hover:text-brand" data-nav-link>Impact</a>
           <a href="#work" class="transition hover:text-brand" data-nav-link>Work</a>
           <a href="#services" class="transition hover:text-brand" data-nav-link>Services</a>
           <a href="#skills" class="transition hover:text-brand" data-nav-link>Skills</a>
           <a href="#experience" class="transition hover:text-brand" data-nav-link>Experience</a>
           <a href="#process" class="transition hover:text-brand" data-nav-link>Process</a>
+          <a href="#signals" class="transition hover:text-brand" data-nav-link>Signals</a>
           <a href="#contact" class="transition hover:text-brand" data-nav-link>Contact</a>
         </nav>
         <div class="flex items-center gap-3">
@@ -136,6 +138,19 @@
         </div>
       </section>
 
+      <section id="impact" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Scorecard</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Proof that products ship with measurable outcomes.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            Metrics from the last wave of launches show how engineering craft, AI orchestration, and product strategy pair together to drive revenue and reliability.
+          </p>
+        </div>
+        <ul id="impact-metrics" class="grid list-none gap-6 md:grid-cols-2 xl:grid-cols-4" aria-live="polite"></ul>
+      </section>
+
       <section id="work" class="space-y-12 py-20">
         <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -171,6 +186,7 @@
           </p>
         </div>
         <ul id="skills-list" class="grid list-none gap-6 md:grid-cols-2" aria-live="polite"></ul>
+        <div id="skill-radar" class="mt-10" aria-live="polite"></div>
       </section>
 
       <section id="experience" class="space-y-12 py-20">
@@ -199,6 +215,34 @@
         <ol id="working-style-list" class="space-y-8" aria-live="polite"></ol>
       </section>
 
+      <section id="signals" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Signals</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Social proof that hiring me accelerates outcomes.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            Real-world endorsements, open-source traction, and an always-on activity feed show how I partner with teams and keep shipping.
+          </p>
+        </div>
+        <div class="grid gap-10 xl:grid-cols-[1.1fr_0.9fr]">
+          <div class="space-y-6">
+            <h3 class="text-base font-semibold text-slate-900 dark:text-white">Earned trust</h3>
+            <ul id="signal-featured" class="space-y-4" aria-live="polite"></ul>
+          </div>
+          <div class="space-y-8 rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-lg shadow-slate-500/10 transition-colors dark:border-slate-800 dark:bg-slate-900/80">
+            <div class="space-y-3">
+              <p class="text-xs uppercase tracking-[0.3em] text-brand">Live shipping log</p>
+              <div id="activity-feed" class="space-y-3" aria-live="polite"></div>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs uppercase tracking-[0.3em] text-brand">Recent writing</p>
+              <ul id="signal-writing" class="space-y-3" aria-live="polite"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="space-y-12 py-20">
         <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -224,6 +268,19 @@
             <button type="button" id="testimonial-next" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 font-medium transition hover:border-brand hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand dark:border-slate-700">Next</button>
           </div>
         </div>
+      </section>
+
+      <section id="recruiter" class="space-y-12 py-20">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">Fast-track hiring</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight">Get everything you need to make the hiring call.</h2>
+          </div>
+          <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            Book a 20-minute working session tailored to your roadmap, walk through impact metrics, and leave with a decision-ready scorecard and one-page resume.
+          </p>
+        </div>
+        <div id="recruiter-cta" aria-live="polite"></div>
       </section>
     </main>
 
@@ -280,6 +337,52 @@
           <div class="space-y-3">
             <p class="text-xs uppercase tracking-[0.3em] text-brand">Outcomes</p>
             <ul id="project-modal-outcomes" class="grid list-none gap-3 md:grid-cols-3"></ul>
+          </div>
+          <div id="project-modal-walkthrough-wrapper" class="hidden space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand">Interactive walkthrough</p>
+            <div id="project-modal-walkthrough-tabs" class="flex flex-wrap gap-2"></div>
+            <div class="space-y-4 rounded-3xl border border-slate-200 bg-white/90 p-6 dark:border-slate-800 dark:bg-slate-950/40">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <h4 id="project-modal-walkthrough-title" class="text-xl font-semibold text-slate-900 dark:text-white"></h4>
+                <div id="project-modal-walkthrough-metric" class="hidden rounded-full border border-brand/40 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+                  <span id="project-modal-walkthrough-metric-label"></span>
+                  <span class="mx-1 opacity-60">·</span>
+                  <span id="project-modal-walkthrough-metric-value"></span>
+                </div>
+              </div>
+              <p id="project-modal-walkthrough-summary" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300"></p>
+              <pre class="overflow-x-auto rounded-2xl bg-slate-950/90 p-4 text-xs text-slate-100" aria-label="Code snippet"><code id="project-modal-walkthrough-code" class="whitespace-pre leading-relaxed"></code></pre>
+            </div>
+          </div>
+          <div id="project-modal-sandbox-wrapper" class="hidden space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand">Live sandbox</p>
+            <div class="space-y-4 rounded-3xl border border-slate-200 bg-white/90 p-4 dark:border-slate-800 dark:bg-slate-950/40">
+              <div class="space-y-2">
+                <h4 id="project-modal-sandbox-title" class="text-lg font-semibold text-slate-900 dark:text-white"></h4>
+                <p id="project-modal-sandbox-description" class="text-sm leading-relaxed text-slate-600 dark:text-slate-300"></p>
+              </div>
+              <div class="aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-slate-950/80 dark:border-slate-800">
+                <iframe
+                  id="project-modal-sandbox-frame"
+                  class="h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; ambient-light-sensor; autoplay; clipboard-read; clipboard-write; encrypted-media; gyroscope; microphone; midi; vr"
+                  allowfullscreen
+                  sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+              <a
+                id="project-modal-sandbox-link"
+                class="hidden inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:gap-3"
+                target="_blank"
+                rel="noreferrer noopener"
+                href="#"
+              >
+                Open in new tab
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

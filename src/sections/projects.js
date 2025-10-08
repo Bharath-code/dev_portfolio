@@ -47,7 +47,7 @@ export const renderProjects = (projects) => {
 		}
 
 		const actions = document.createElement("div");
-		actions.className = "mt-6 flex items-center justify-start";
+		actions.className = "mt-6 flex flex-wrap items-center gap-3";
 		const moreDetails = document.createElement("button");
 		moreDetails.type = "button";
 		moreDetails.className =
@@ -61,6 +61,17 @@ export const renderProjects = (projects) => {
 			openProjectModal(project, moreDetails);
 		});
 		actions.append(moreDetails);
+		if (project.demo?.href) {
+			const demoLink = document.createElement("a");
+			demoLink.href = project.demo.href;
+			demoLink.target = "_blank";
+			demoLink.rel = "noreferrer noopener";
+			demoLink.className =
+				"inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand transition hover:bg-brand/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand";
+			demoLink.textContent = project.demo.label ?? "Live demo";
+			demoLink.setAttribute("aria-label", `Open live demo for ${project.title ?? "project"}`);
+			actions.append(demoLink);
+		}
 
 		article.append(metaRow, title, description, tagsWrapper, actions);
 		item.append(article);

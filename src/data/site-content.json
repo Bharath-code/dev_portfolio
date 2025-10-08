@@ -1,4 +1,26 @@
 {
+	"impactHighlights": [
+		{
+			"label": "Revenue influenced",
+			"value": "$48M",
+			"description": "from AI-driven pricing experiments and activation programs"
+		},
+		{
+			"label": "Retention uplift",
+			"value": "22%",
+			"description": "avg. improvement across SaaS clients in the last 18 months"
+		},
+		{
+			"label": "MTTR reduction",
+			"value": "38%",
+			"description": "faster incident resolution after shipping observability copilots"
+		},
+		{
+			"label": "Playbooks automated",
+			"value": "42",
+			"description": "mission-critical flows orchestrated with guardrails in production"
+		}
+	],
 	"projects": [
 		{
 			"meta": "2024 · Product AI",
@@ -6,6 +28,10 @@
 			"title": "Adaptive AI Operations Console",
 			"descriptionHtml": "Architected a data-driven control center that orchestrates LLM prompts, monitoring, and human-in-the-loop QA. Delivered <span class=\"font-semibold text-slate-900 dark:text-white\">38%</span> faster incident resolution.",
 			"tags": ["Next.js", "LangChain", "Supabase"],
+			"demo": {
+				"label": "Explore live command center",
+				"href": "https://stackblitz.com/fork/github/stackblitz-labs/nextjs-starter?file=README.md&view=preview"
+			},
 			"spotlight": {
 				"headline": "From LLM chaos to measurable action",
 				"overview": "Built a unified cockpit for incident-response analysts that connected prompt management, evaluations, and human reviews into one workflow.",
@@ -19,7 +45,38 @@
 					{"label": "Incident resolution", "value": "38% faster"},
 					{"label": "Playbook reuse", "value": "+2.6×"},
 					{"label": "Prompt defects", "value": "-41%"}
-				]
+				],
+				"walkthrough": [
+					{
+						"label": "Prioritize incident debt",
+						"summary": "Clustered failing prompts by business impact and surfaced guardrail breaches so ops leaders could triage in minutes instead of sifting through spreadsheets.",
+						"metricLabel": "MTTR",
+						"metricValue": "82 → 51 min",
+						"code": "const incidents = await registry.recentFailures({ hours: 24 });\nconst grouped = groupBy(incidents, 'playbookId');\nreturn ranked(grouped, ({ slaBreachRate }) => slaBreachRate).slice(0, 5);",
+						"language": "ts"
+					},
+					{
+						"label": "Human-in-the-loop QA",
+						"summary": "Sequenced analysts through risky conversations with context-aware prompts and auto-logging, tightening the feedback loop between ops teams and prompt owners.",
+						"metricLabel": "Review throughput",
+						"metricValue": "4.3×",
+						"code": "export const nextReview = queue.take({\n  specialty: analyst.skills,\n  slaMinutes: 15,\n});\nawait journal.append(nextReview.feedback);",
+						"language": "ts"
+					},
+					{
+						"label": "Telemetry into KPIs",
+						"summary": "Connected OpenTelemetry spans to executive dashboards, letting leadership watch incident cost burn-down and reassign teams dynamically.",
+						"metricLabel": "Exec dashboards",
+						"metricValue": "18 live",
+						"code": "otel.span('llm.run', {\n  customerTier,\n  promptId,\n}).setAttribute('business.kpi', 'incident_cost');",
+						"language": "ts"
+					}
+				],
+				"sandbox": {
+					"title": "Scenario rehearsal sandbox",
+					"description": "Click through a pre-wired workflow that shows how prompts escalate across roles with guardrails applied.",
+					"src": "https://stackblitz.com/fork/github/stackblitz-labs/nextjs-starter?embed=1&file=README.md&hideNavigation=1&view=preview"
+				}
 			}
 		},
 		{
@@ -28,6 +85,10 @@
 			"title": "Realtime Insights Platform",
 			"descriptionHtml": "Designed and delivered a collaborative analytics portal with predictive scoring and automated alerts, boosting retention by <span class=\"font-semibold text-slate-900 dark:text-white\">22%</span>.",
 			"tags": ["TypeScript", "GraphQL", "AWS"],
+			"demo": {
+				"label": "Open growth analytics workspace",
+				"href": "https://stackblitz.com/fork/github/stackblitz-labs/react-ts?file=src/App.tsx&view=preview"
+			},
 			"spotlight": {
 				"headline": "Turning fragmented telemetry into activation wins",
 				"overview": "Unblocked revenue teams with an always-on analytics hub that fuses predictive scoring, collaboration, and alerting into one shared surface.",
@@ -41,7 +102,38 @@
 					{"label": "Retention uplift", "value": "+22%"},
 					{"label": "Alert acknowledgement", "value": "3.4× faster"},
 					{"label": "Support tickets", "value": "-27%"}
-				]
+				],
+				"walkthrough": [
+					{
+						"label": "Predict activation risk",
+						"summary": "Trained a churn model and surfaced high-risk accounts directly where CS teams collaborate, paired with recommended next actions.",
+						"metricLabel": "Risk precision",
+						"metricValue": "0.81",
+						"code": "const score = riskModel.predict(accountSignals);\nreturn score > 0.7 ? plan.nextBestAction(accountId) : null;",
+						"language": "ts"
+					},
+					{
+						"label": "Collaborative alerts",
+						"summary": "Synced alerts to Slack and in-app threads so GTM teams could swarm around opportunities with context-rich playbooks.",
+						"metricLabel": "ACK speed",
+						"metricValue": "3.4× faster",
+						"code": "await alerts.publish({\n  channel: 'slack',\n  threadId,\n  payload: renderPlaybook(insight),\n});",
+						"language": "ts"
+					},
+					{
+						"label": "Query once, share everywhere",
+						"summary": "Introduced reusable GraphQL fragments and caching so analysts could build dashboards that load in under a second.",
+						"metricLabel": "Dashboard loads",
+						"metricValue": "< 900ms",
+						"code": "const insight = await graph.fetch({\n  query: InsightQuery,\n  cache: 'analytics:team',\n});",
+						"language": "ts"
+					}
+				],
+				"sandbox": {
+					"title": "Forecast scenario sandbox",
+					"description": "Adjust retention levers and watch the workspace recalc KPIs in real time.",
+					"src": "https://stackblitz.com/fork/github/stackblitz-labs/react-ts?embed=1&file=src/App.tsx&view=preview"
+				}
 			}
 		},
 		{
@@ -50,6 +142,10 @@
 			"title": "Intelligent Revenue Advisor",
 			"descriptionHtml": "Led cross-functional delivery of a microservice suite providing smart nudges, anomaly detection, and dynamic pricing experiments for growth teams.",
 			"tags": ["Node.js", "Python", "Snowflake"],
+			"demo": {
+				"label": "Simulate pricing experiment",
+				"href": "https://stackblitz.com/fork/github/stackblitz-labs/node-http-server?file=index.js&view=preview"
+			},
 			"spotlight": {
 				"headline": "AI copilots for high-stakes revenue decisions",
 				"overview": "Partnered with growth, finance, and data science leaders to automate experiment design and anomaly detection across billions in ARR.",
@@ -63,7 +159,38 @@
 					{"label": "Pricing cycle time", "value": "-35 days"},
 					{"label": "ARR influenced", "value": "$48M"},
 					{"label": "Experiment velocity", "value": "+3×"}
-				]
+				],
+				"walkthrough": [
+					{
+						"label": "Sense anomalies early",
+						"summary": "Tracked revenue trends across cohorts and auto-escalated anomalies with the story behind the spike for finance partners.",
+						"metricLabel": "Detection lead",
+						"metricValue": "24h sooner",
+						"code": "const anomaly = detector.scan(windowedRevenue);\nif (anomaly.score > 0.8) notify('finance', anomaly);",
+						"language": "ts"
+					},
+					{
+						"label": "Design safe experiments",
+						"summary": "Generated experiment templates with guardrail metrics so PMs could ship pricing tests without waiting on data science.",
+						"metricLabel": "Experiment velocity",
+						"metricValue": "+3×",
+						"code": "export const template = buildExperiment({\n  audience: 'self_serve',\n  guardrails: ['churn', 'ltv'],\n});",
+						"language": "ts"
+					},
+					{
+						"label": "Govern rollouts",
+						"summary": "Coordinated feature flags, anomaly detection, and finance approvals so price changes stayed within risk tolerances.",
+						"metricLabel": "Approval time",
+						"metricValue": "-35 days",
+						"code": "await rollout.mesh.push({\n  cohortId,\n  variant,\n  approvals: ['finance', 'growth'],\n});",
+						"language": "ts"
+					}
+				],
+				"sandbox": {
+					"title": "Pricing experiment simulator",
+					"description": "Toggle guardrails and observe how the advisor recommends next best actions.",
+					"src": "https://stackblitz.com/fork/github/stackblitz-labs/node-http-server?embed=1&file=index.js&view=preview"
+				}
 			}
 		}
 	],
@@ -85,7 +212,7 @@
 				"Design tokens & theming",
 				"Accessibility instrumentation",
 				"Storybook + CI pipelines"
-		],
+			],
 			"metric": "Ship interface updates in days, not sprints"
 		},
 		{
@@ -121,6 +248,16 @@
 			"tags": ["Team Health", "Hiring", "Coaching"]
 		}
 	],
+	"skillMatrix": {
+		"areas": [
+			{"label": "Frontend systems", "current": 4.6, "target": 5, "focus": "Advancing motion systems & design token automation"},
+			{"label": "AI orchestration", "current": 4.4, "target": 5, "focus": "Reinforcement feedback loops & eval harnesses"},
+			{"label": "Data platforms", "current": 4.1, "target": 4.8, "focus": "Streaming models & governance"},
+			{"label": "Experimentation", "current": 4.3, "target": 4.9, "focus": "Adaptive experimentation & causal inference"},
+			{"label": "Leadership", "current": 4.2, "target": 4.7, "focus": "Scaling squads & performance rituals"}
+		],
+		"note": "Current proficiency vs. active growth focus scored 1–5"
+	},
 	"experience": [
 		{
 			"title": "Lead Full-stack Engineer · Lumen AI",
@@ -170,6 +307,46 @@
 			]
 		}
 	],
+	"signalHighlights": {
+		"featured": [
+			{
+				"title": "Speaker · AI Reliability Summit",
+				"description": "Workshop on instrumenting LLM copilots with measurable guardrails.",
+				"link": "https://airisummit.com",
+				"tag": "Speaking"
+			},
+			{
+				"title": "Founder testimony · Proxima",
+				"description": "Closed two lighthouse customers after shipping v1 together.",
+				"link": "https://proxima.ai",
+				"tag": "Impact"
+			},
+			{
+				"title": "OSS maintainer · prompt-registry",
+				"description": "Open-sourced evaluation harness with 1.5k weekly downloads.",
+				"link": "https://github.com/bharath/prompt-registry",
+				"tag": "Open source"
+			}
+		],
+		"writing": [
+			{
+				"title": "Playbooks for shipping copilots that execs trust",
+				"link": "https://newsletter.bharath.dev/issues/ai-playbooks",
+				"published": "Sep 2024"
+			},
+			{
+				"title": "Designing evaluation loops your GTM team will actually use",
+				"link": "https://newsletter.bharath.dev/issues/eval-loops",
+				"published": "Jun 2024"
+			}
+		]
+	},
+	"activity": {
+		"githubUser": "bharathvellore",
+		"githubLabel": "Live shipping log",
+		"loadingMessage": "Pulling recent commits...",
+		"errorMessage": "GitHub rate limit hit. Visit github.com/bharathvellore for the full stream."
+	},
 	"testimonials": [
 		{
 			"quote": "“Bharath is a product-minded engineer who sweats the details. He anticipates edge cases, keeps stakeholders aligned, and consistently ships polished features that move key metrics.”",
@@ -199,11 +376,28 @@
 			"badgeColor": "bg-amber-500"
 		}
 	],
+	"recruiterCta": {
+		"headline": "Fast-track your hiring decision",
+		"subheading": "Give me 20 minutes to map exactly how I’ll accelerate your roadmap.",
+		"bullets": [
+			"Tailored walkthrough of the most relevant case studies for your product",
+			"Co-design the first 90-day success metrics live on the call",
+			"Leave with a one-page resume PDF and scorecard you can share internally"
+		],
+		"resumeUrl": "/assets/bharath-resume.pdf",
+		"calUrl": "https://cal.com/bharath/fast-hiring-chat",
+		"email": "mailto:hello@bharath.dev?subject=Fast-track%20hiring%20chat"
+	},
 	"contactLinks": [
 		{
-			"label": "Book a discovery call",
-			"href": "mailto:hello@bharath.dev?subject=Discovery%20call",
+			"label": "Schedule a 20-min hiring chat",
+			"href": "https://cal.com/bharath/fast-hiring-chat",
 			"variant": "primary"
+		},
+		{
+			"label": "Download one-page resume",
+			"href": "/assets/bharath-resume.pdf",
+			"variant": "secondary"
 		},
 		{
 			"label": "LinkedIn",
