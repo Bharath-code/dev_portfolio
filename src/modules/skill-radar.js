@@ -135,7 +135,7 @@ export const renderSkillRadar = (matrix) => {
 	heading.textContent = "Active growth focus";
 	const list = document.createElement("ul");
 	list.className = "space-y-3 text-sm text-slate-600 dark:text-slate-300";
-	areas.forEach((area) => {
+	for (const area of areas) {
 		const item = document.createElement("li");
 		const label = document.createElement("p");
 		label.className = "font-semibold text-slate-900 dark:text-white";
@@ -145,7 +145,7 @@ export const renderSkillRadar = (matrix) => {
 		focus.textContent = area.focus ?? "";
 		item.append(label, focus);
 		list.append(item);
-	});
+	}
 	focusWrapper.append(heading, list);
 	card.append(chartWrapper, focusWrapper);
 	container.append(card);

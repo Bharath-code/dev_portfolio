@@ -5,6 +5,7 @@ import { initAnimations } from "./modules/animations.js";
 import { initNavigation } from "./modules/navigation.js";
 import { initProjectModal } from "./modules/project-modal.js";
 import { initTheme } from "./modules/theme.js";
+import { initMicroInteractions } from "./modules/micro-interactions.js";
 import { renderContactLinks } from "./sections/contact.js";
 import { renderExperience } from "./sections/experience.js";
 import { renderImpact } from "./sections/impact.js";
@@ -51,4 +52,5 @@ window.addEventListener("DOMContentLoaded", () => {
 	initProjectModal();
 	initSiteContent();
 	initNavigation();
+	initMicroInteractions();
 });
