@@ -1,0 +1,91 @@
+{
+	"projects": [
+		{
+			"meta": "2024 · Product AI",
+			"badge": "Stealth",
+			"title": "Adaptive AI Operations Console",
+			"descriptionHtml": "Architected a data-driven control center that orchestrates LLM prompts, monitoring, and human-in-the-loop QA. Delivered <span class=\"font-semibold text-slate-900 dark:text-white\">38%</span> faster incident resolution.",
+			"tags": ["Next.js", "LangChain", "Supabase"]
+		},
+		{
+			"meta": "2023 · SaaS",
+			"badge": "Prodigy",
+			"title": "Realtime Insights Platform",
+			"descriptionHtml": "Designed and delivered a collaborative analytics portal with predictive scoring and automated alerts, boosting retention by <span class=\"font-semibold text-slate-900 dark:text-white\">22%</span>.",
+			"tags": ["TypeScript", "GraphQL", "AWS"]
+		},
+		{
+			"meta": "2022 · Fintech",
+			"badge": "Nova",
+			"title": "Intelligent Revenue Advisor",
+			"descriptionHtml": "Led cross-functional delivery of a microservice suite providing smart nudges, anomaly detection, and dynamic pricing experiments for growth teams.",
+			"tags": ["Node.js", "Python", "Snowflake"]
+		}
+	],
+	"skills": [
+		{
+			"title": "Frontend craft",
+			"description": "Design systems, component architecture, accessibility, performance profiling, animations.",
+			"tags": ["React", "Next.js", "Tailwind", "GSAP"]
+		},
+		{
+			"title": "Backend & AI",
+			"description": "API design, microservices, data pipelines, LLM orchestration, evaluation, and guardrails.",
+			"tags": ["Node.js", "Python", "LangChain", "Vector DBs"]
+		},
+		{
+			"title": "Product strategy",
+			"description": "Product discovery, roadmap definition, stakeholder facilitation, metric-driven iteration.",
+			"tags": ["Experimentation", "Design Sprints", "Delivery"]
+		},
+		{
+			"title": "Leadership",
+			"description": "Leading squads, mentoring engineers, establishing best practices, scaling quality.",
+			"tags": ["Team Health", "Hiring", "Coaching"]
+		}
+	],
+	"experience": [
+		{
+			"title": "Lead Full-stack Engineer · Lumen AI",
+			"description": "Owning the end-to-end delivery of an AI copilot platform for enterprise operations teams, emphasizing velocity, trust, and measurable ROI.",
+			"period": "2022 — Present · Remote"
+		},
+		{
+			"title": "Senior Product Engineer · Orbit Labs",
+			"description": "Established a shared component library, piloted AI-powered onboarding assistants, and helped improve activation by 18% within two quarters.",
+			"period": "2019 — 2022 · Hybrid"
+		},
+		{
+			"title": "Product Engineer · DeltaWorks",
+			"description": "Partnered with designers and data scientists to deliver intelligent growth tooling and experimentation frameworks at scale.",
+			"period": "2017 — 2019 · Onsite"
+		}
+	],
+	"testimonials": [
+		{
+			"quote": "“Bharath is a product-minded engineer who sweats the details. He anticipates edge cases, keeps stakeholders aligned, and consistently ships polished features that move key metrics.”",
+			"attribution": "VP Product · Lumen AI"
+		},
+		{
+			"quote": "“From design system foundations to AI integrations, Bharath operates with ownership and brings a calm, methodical presence to high-stakes launches.”",
+			"attribution": "Director of Engineering · Orbit Labs"
+		}
+	],
+	"contactLinks": [
+		{
+			"label": "hello@bharath.dev",
+			"href": "mailto:hello@bharath.dev",
+			"variant": "primary"
+		},
+		{
+			"label": "LinkedIn",
+			"href": "https://linkedin.com/in/bharath",
+			"variant": "secondary"
+		},
+		{
+			"label": "GitHub",
+			"href": "https://github.com/bharath",
+			"variant": "secondary"
+		}
+	]
+}
