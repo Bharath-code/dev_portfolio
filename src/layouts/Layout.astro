@@ -1,0 +1,41 @@
+---
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Senior Frontend Architect & AI Engineer Portfolio",
+} = Astro.props;
+import "@/styles/global.css";
+import NavBar from "@/components/ui/NavBar.astro";
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-void-black text-white antialiased">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <title>{title}</title>
+    </head>
+    <body class="selection:bg-signal-emerald selection:text-void-black">
+        <NavBar />
+        <main class="relative z-10">
+            <slot />
+        </main>
+        <div
+            class="fixed inset-0 z-0 pointer-events-none bg-[url('/noise.svg')] opacity-20 mix-blend-overlay"
+        >
+        </div>
+    </body>
+</html>

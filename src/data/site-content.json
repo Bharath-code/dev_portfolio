@@ -226,6 +226,138 @@
 			"metric": "Prove impact with instrumentation baked into every launch"
 		}
 	],
+	"diagnostic": {
+		"eyebrow": "AI readiness diagnostic",
+		"title": "Discover your AI delivery tier",
+		"description": "Answer three quick prompts and get a tailored plan on how we can accelerate your roadmap, tighten guardrails, and start shipping dependable AI assistants.",
+		"questions": [
+			{
+				"id": "strategy",
+				"title": "Where is your AI product strategy today?",
+				"description": "Gauge how defined the outcomes and accountability are across teams.",
+				"options": [
+					{
+						"value": "exploring",
+						"label": "Exploring possibilities",
+						"description": "Collecting ideas and executive asks, no unified charter yet.",
+						"points": 1,
+						"insight": "Clarify the north star narrative and align on success metrics before piloting costly experiments."
+					},
+					{
+						"value": "piloting",
+						"label": "Running a focused pilot",
+						"description": "A single squad is testing or shipping a narrow AI workflow.",
+						"points": 2,
+						"insight": "Codify evaluation loops and stakeholder rituals so learnings compound beyond the pilot team."
+					},
+					{
+						"value": "scaling",
+						"label": "Scaling across multiple bets",
+						"description": "Roadmap and KPIs are reviewed regularly with leadership buy-in.",
+						"points": 3,
+						"insight": "Double-down on shared guardrails and shared componentry so teams stay fast without trading off trust."
+					}
+				]
+			},
+			{
+				"id": "data",
+				"title": "How production-ready is your data foundation?",
+				"description": "Look at data access, observability, and privacy readiness for AI copilots.",
+				"options": [
+					{
+						"value": "fragmented",
+						"label": "Fragmented and manual",
+						"description": "Data is siloed or needs heavy analyst support.",
+						"points": 1,
+						"insight": "Stand up a thin data contract and automated logging so AI experiments can run on governed signals."
+					},
+					{
+						"value": "partial",
+						"label": "Partially automated",
+						"description": "Primary systems are instrumented, but gaps surface during launches.",
+						"points": 2,
+						"insight": "Invest in telemetry coverage maps and evaluation harnesses that catch regressions before they impact users."
+					},
+					{
+						"value": "governed",
+						"label": "Governed and observable",
+						"description": "Data pipelines, feature stores, and quality alerts are baked-in.",
+						"points": 3,
+						"insight": "Layer real-time analytics into decision loops so AI recommendations tie directly to commercial outcomes."
+					}
+				]
+			},
+			{
+				"id": "delivery",
+				"title": "What delivery guardrails exist today?",
+				"description": "Consider evaluation cadence, risk reviews, and deployment rituals.",
+				"options": [
+					{
+						"value": "ad-hoc",
+						"label": "Ad-hoc and reactive",
+						"description": "Manual QA follows incidents; no proactive reviews yet.",
+						"points": 1,
+						"insight": "Introduce a lightweight scorecard and weekly reviews to catch misses before they reach customers."
+					},
+					{
+						"value": "recurring",
+						"label": "Recurring reviews",
+						"description": "Evaluations and red-team drills happen around major releases.",
+						"points": 2,
+						"insight": "Automate evaluation harnesses and wire insights to the teams running daily operations."
+					},
+					{
+						"value": "embedded",
+						"label": "Embedded guardrails",
+						"description": "Continuous evaluations and incident playbooks guide every launch.",
+						"points": 3,
+						"insight": "Scale governance via playbooks, human-in-the-loop queues, and shared telemetry views for leadership."
+					}
+				]
+			}
+		],
+		"tiers": [
+			{
+				"id": "explorer",
+				"label": "Explorers",
+				"range": [3, 4],
+				"summary": "You’re assembling the first AI squad and need momentum without burning trust.",
+				"actions": [
+					"Run an AI vision sprint to frame the first lighthouse use case",
+					"Instrument baseline telemetry and evaluation metrics before building",
+					"Prototype workflows with stakeholders to de-risk adoption"
+				]
+			},
+			{
+				"id": "accelerator",
+				"label": "Accelerators",
+				"range": [5, 7],
+				"summary": "Pilots are landing. Now it’s about standardizing evaluation and scaling delivery rituals.",
+				"actions": [
+					"Codify an evaluation harness and guardrail scorecard",
+					"Stand up shared design-to-code systems for faster iteration",
+					"Map analytics dashboards to exec-level KPIs"
+				]
+			},
+			{
+				"id": "operator",
+				"label": "Operators",
+				"range": [8, 9],
+				"summary": "Multiple squads are shipping AI features. Focus on governance, automation, and compounding learnings.",
+				"actions": [
+					"Automate incident triage with human-in-the-loop workflows",
+					"Expand telemetry to correlate AI impact with revenue and retention",
+					"Mentor teams on experimentation velocity with guardrails baked in"
+				]
+			}
+		],
+		"cta": {
+			"primaryLabel": "Book AI roadmap jam",
+			"primaryHref": "https://cal.com/bharath/fast-hiring-chat",
+			"secondaryLabel": "Download diagnostic summary",
+			"secondaryHref": "/assets/bharath-resume.pdf"
+		}
+	},
 	"skills": [
 		{
 			"title": "Frontend craft",

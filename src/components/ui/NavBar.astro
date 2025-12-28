@@ -1,0 +1,58 @@
+---
+import { siteContent } from "@/content/site-content";
+
+const links = siteContent.navigation;
+---
+
+<nav
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300 border-b border-transparent data-[scrolled=true]:border-white/10 data-[scrolled=true]:bg-void-black/80 data-[scrolled=true]:backdrop-blur-md"
+    id="navbar"
+>
+    <div
+        class="mx-auto flex w-full max-w-[1400px] items-center justify-between"
+    >
+        <a
+            href="/"
+            class="text-xl font-display font-bold text-white tracking-tighter"
+        >
+            BHARATH
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            {
+                links.map((link) => (
+                    <a
+                        href={link.href}
+                        class="text-sm font-medium text-gray-400 transition-colors hover:text-white"
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
+        </div>
+
+        <a
+            href={siteContent.contact.socials[0].href}
+            target="_blank"
+            class="md:hidden text-white"
+        >
+            <!-- Simple mobile fallback to social or contact, later can add hamburger -->
+            <span class="sr-only">Contact</span>
+        </a>
+    </div>
+</nav>
+
+<script>
+    const nav = document.getElementById("navbar");
+
+    function updateNav() {
+        if (window.scrollY > 20) {
+            nav?.setAttribute("data-scrolled", "true");
+        } else {
+            nav?.removeAttribute("data-scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", updateNav);
+    updateNav();
+</script>
