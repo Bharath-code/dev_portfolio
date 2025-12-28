@@ -1,0 +1,69 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/ui/Heading.astro";
+import BlogCard from "@/components/ui/BlogCard.astro";
+import { getLatestPosts } from "@/lib/blog";
+import { siteContent } from "@/content/site-content";
+
+// Fetch all posts
+const allPosts = await getLatestPosts(siteContent.blogConfig, 20);
+
+// Segregate by platform
+const devtoPosts = allPosts.filter((p) => p.platform === "Dev.to");
+const mediumPosts = allPosts.filter((p) => p.platform === "Medium");
+---
+
+<Layout title="Blog | Bharath">
+    <section class="px-4 py-32 md:px-8">
+        <div class="mx-auto max-w-[1400px]">
+            <div class="mb-16">
+                <Heading variant="section">Writing</Heading>
+                <p class="max-w-xl text-lg text-gray-400 mt-4">
+                    Thoughts on software architecture, engineering leadership,
+                    and open source.
+                </p>
+            </div>
+
+            {
+                mediumPosts.length > 0 && (
+                    <div class="mb-20">
+                        <div class="mb-8 flex items-end gap-4 border-b border-white/10 pb-4">
+                            <h2 class="font-display text-2xl text-white">
+                                From Medium
+                            </h2>
+                            <span class="text-sm text-gray-400 pb-1">
+                                Thought Leadership & Opinion
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {mediumPosts.map((post) => (
+                                <BlogCard {...post} />
+                            ))}
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                devtoPosts.length > 0 && (
+                    <div>
+                        <div class="mb-8 flex items-end gap-4 border-b border-white/10 pb-4">
+                            <h2 class="font-display text-2xl text-white">
+                                From Dev.to
+                            </h2>
+                            <span class="text-sm text-gray-400 pb-1">
+                                Technical Tutorials & Code
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {devtoPosts.map((post) => (
+                                <BlogCard {...post} />
+                            ))}
+                        </div>
+                    </div>
+                )
+            }
+        </div>
+    </section>
+</Layout>
+```

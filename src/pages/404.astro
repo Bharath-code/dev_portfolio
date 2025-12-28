@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/ui/Heading.astro";
+---
+
+<Layout title="404 | Signal Lost">
+    <div
+        class="flex h-[80vh] flex-col items-center justify-center px-4 text-center"
+    >
+        <h1
+            class="font-display text-[12rem] leading-none text-white/5 md:text-[20rem]"
+        >
+            404
+        </h1>
+        <div class="relative -mt-16 md:-mt-32">
+            <Heading variant="display">Signal Lost</Heading>
+            <p class="mt-4 max-w-md text-lg text-gray-400">
+                The requested frequency is seemingly out of range. Return to the
+                known universe.
+            </p>
+            <div class="mt-8">
+                <a
+                    href="/"
+                    class="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 transition-all hover:bg-white/10 hover:scale-105"
+                >
+                    <span class="font-medium text-white">Return Home</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>

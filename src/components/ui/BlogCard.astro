@@ -1,0 +1,64 @@
+---
+import { ArrowUpRight } from "lucide-react";
+
+interface Props {
+    title: string;
+    description: string;
+    date: string;
+    url: string;
+    platform: "Dev.to" | "Medium";
+    image?: string;
+}
+
+const { title, description, date, url, platform, image } = Astro.props;
+
+const platformColors = {
+    "Dev.to": "bg-black border-white/20",
+    Medium: "bg-black border-white/20", // Simplify to dark theme consistent with portfolio
+};
+---
+
+<a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/10 hover:-translate-y-1"
+>
+    <div>
+        <div class="mb-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span
+                    class={`rounded-full border border-white/10 bg-white/5 px-2 py-1 text-xs font-medium text-gray-400`}
+                >
+                    {platform}
+                </span>
+                <span class="text-xs text-gray-500">{date}</span>
+            </div>
+            <ArrowUpRight
+                className="h-4 w-4 text-gray-500 transition-colors group-hover:text-signal-emerald"
+            />
+        </div>
+
+        <h3
+            class="mb-2 font-display text-xl text-white group-hover:text-signal-emerald transition-colors line-clamp-2"
+        >
+            {title}
+        </h3>
+
+        <p class="mb-4 text-sm leading-relaxed text-gray-400 line-clamp-3">
+            {description}
+        </p>
+    </div>
+
+    {
+        image && (
+            <div class="mt-auto h-32 w-full overflow-hidden rounded-lg opacity-60 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0">
+                <img
+                    src={image}
+                    alt={title}
+                    class="h-full w-full object-cover"
+                />
+            </div>
+        )
+    }
+</a>

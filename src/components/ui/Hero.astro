@@ -52,21 +52,35 @@ import { siteContent } from "@/content/site-content";
 <script>
     import { gsap } from "gsap";
 
-    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    function animateHero() {
+        if (!document.querySelector(".hero-text")) return;
 
-    tl.to(".hero-text", {
-        y: 0,
-        opacity: 1,
-        duration: 1.5,
-        stagger: 0.1,
-        delay: 0.2,
-    }).to(
-        ".hero-meta",
-        {
+        const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+        tl.to(".hero-text", {
+            y: 0,
             opacity: 1,
-            y: -20,
-            duration: 1,
-        },
-        "-=1",
-    );
+            duration: 1.5,
+            stagger: 0.1,
+            delay: 0.2,
+        }).to(
+            ".hero-meta",
+            {
+                opacity: 1,
+                y: -20,
+                duration: 1,
+            },
+            "-=1",
+        );
+    }
+
+    // Run on initial load
+    animateHero();
+
+    // Run on view transition navigation
+    document.addEventListener("astro:page-load", () => {
+        // We need to ensure elements are reset if they persisted (though they are usually replaced)
+        // If they are new elements, they start with the CSS class state opacity-0
+        animateHero();
+    });
 </script>

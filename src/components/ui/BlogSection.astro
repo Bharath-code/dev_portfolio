@@ -1,0 +1,35 @@
+---
+import BlogCard from "./BlogCard.astro";
+import Heading from "./Heading.astro";
+import { getLatestPosts } from "@/lib/blog";
+import { siteContent } from "@/content/site-content";
+
+const posts = await getLatestPosts(siteContent.blogConfig);
+---
+
+{
+    posts.length > 0 && (
+        <section
+            id="blog"
+            class="px-4 py-32 md:px-8 bg-surface-dark/50 border-t border-white/10"
+        >
+            <div class="mx-auto max-w-[1400px]">
+                <div class="mb-16 md:flex md:items-end md:justify-between">
+                    <div>
+                        <Heading variant="section">Writing</Heading>
+                        <p class="max-w-xl text-lg text-gray-400">
+                            Thoughts on software architecture, engineering
+                            leadership, and open source.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {posts.map((post) => (
+                        <BlogCard {...post} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}

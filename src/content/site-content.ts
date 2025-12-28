@@ -4,10 +4,15 @@ export const siteContent = {
         subtitle: "Open Source • TUI • Full Stack",
         bio: "I am a software developer based in India, dedicated to building impactful software solutions and exploring the cutting edge of technology. I thrive in collaborative environments and love contributing to open-source projects that solve real-world problems."
     },
+    blogConfig: {
+        devto: "iam_pbk",
+        medium: "@kumarbharath63" // derived from readme link
+    },
     navigation: [
         { label: "Home", href: "/" },
-        { label: "Work", href: "#work" },
-        { label: "Experience", href: "#experience" },
+        { label: "Work", href: "/#work" },
+        { label: "Experience", href: "/#experience" },
+        { label: "Blog", href: "/blog" },
         { label: "Contact", href: "mailto:kumarbharath63@icloud.com" }
     ],
     impactHighlights: [

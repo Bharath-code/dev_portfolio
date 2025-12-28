@@ -10,6 +10,11 @@ const {
 } = Astro.props;
 import "@/styles/global.css";
 import NavBar from "@/components/ui/NavBar.astro";
+import { ViewTransitions } from "astro:transitions";
+import "@fontsource/archivo-black";
+import "@fontsource/inter";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
 ---
 
 <!doctype html>
@@ -58,13 +63,8 @@ import NavBar from "@/components/ui/NavBar.astro";
             }
         </script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap"
-            rel="stylesheet"
-        />
         <title>{title}</title>
+        <ViewTransitions />
     </head>
     <body class="selection:bg-signal-emerald selection:text-void-black">
         <NavBar />
