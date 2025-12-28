@@ -13,7 +13,7 @@ const links = siteContent.navigation;
     >
         <a
             href="/"
-            class="text-xl font-display font-bold text-white tracking-tighter"
+            class="relative z-50 text-xl font-display font-bold text-white tracking-tighter"
         >
             BHARATH
         </a>
@@ -31,19 +31,73 @@ const links = siteContent.navigation;
             }
         </div>
 
-        <a
-            href={siteContent.contact.socials[0].href}
-            target="_blank"
-            class="md:hidden text-white"
+        <button
+            id="menu-toggle"
+            class="relative z-50 flex h-8 w-8 flex-col justify-center gap-1.5 md:hidden"
+            aria-label="Toggle Menu"
         >
-            <!-- Simple mobile fallback to social or contact, later can add hamburger -->
-            <span class="sr-only">Contact</span>
-        </a>
+            <span
+                class="h-0.5 w-full bg-white transition-all duration-300 origin-center"
+                id="line-1"></span>
+            <span
+                class="h-0.5 w-full bg-white transition-all duration-300 origin-center"
+                id="line-2"></span>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div
+            id="mobile-menu"
+            class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-void-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300"
+        >
+            <div class="flex flex-col items-center gap-8">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class="text-3xl font-display font-bold text-white transition-opacity hover:opacity-70"
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
     </div>
 </nav>
 
 <script>
     const nav = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const line1 = document.getElementById("line-1");
+    const line2 = document.getElementById("line-2");
+
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
+            line1?.classList.add("rotate-45", "translate-y-2");
+            line2?.classList.add("-rotate-45", "-translate-y-2");
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        } else {
+            mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+            line1?.classList.remove("rotate-45", "translate-y-2");
+            line2?.classList.remove("-rotate-45", "-translate-y-2");
+            document.body.style.overflow = "";
+        }
+    }
+
+    menuToggle?.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking a link
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
 
     function updateNav() {
         if (window.scrollY > 20) {

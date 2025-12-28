@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-void-black text-tech-white;
+    @apply bg-void-black text-tech-white overflow-x-hidden;
   }
 }
