@@ -34,7 +34,7 @@ const { title, description, badges, metrics, link } = Astro.props;
             }
         </div>
         <ArrowUpRight
-            className="h-6 w-6 text-gray-500 transition-colors group-hover:text-signal-emerald"
+            className="h-6 w-6 text-gray-400 transition-colors group-hover:text-signal-emerald"
         />
     </div>
 
@@ -52,7 +52,7 @@ const { title, description, badges, metrics, link } = Astro.props;
         {
             metrics.map((metric) => (
                 <div>
-                    <p class="text-xs font-medium uppercase tracking-wider text-gray-500 mb-1">
+                    <p class="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">
                         {metric.label}
                     </p>
                     <p class="font-display text-xl text-white">

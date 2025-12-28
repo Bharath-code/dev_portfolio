@@ -35,7 +35,7 @@ export const ImpactMetrics = ({ metrics }: HighlightProps) => {
                         <div className="mb-2 font-display text-4xl md:text-5xl lg:text-6xl text-white">
                             {metric.value}
                         </div>
-                        <p className="text-sm leading-relaxed text-gray-500 group-hover:text-gray-300 transition-colors">
+                        <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
                             {metric.description}
                         </p>
                     </div>

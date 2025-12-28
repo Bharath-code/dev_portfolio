@@ -24,18 +24,18 @@ const { items } = Astro.props;
            <div class="hidden md:block">
               <h3 class="font-display text-2xl text-white">{item.company}</h3>
               <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-              <p class="text-gray-400 text-sm">{item.period}</p>
+              <p class="text-gray-300 text-sm">{item.period}</p>
            </div>
         )}
          {index % 2 !== 0 && (
             <div class="block md:hidden"> <!-- Mobile View for Right Side -->
                 <h3 class="font-display text-2xl text-white">{item.company}</h3>
                 <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-                <p class="text-gray-400 text-sm">{item.period}</p>
+                <p class="text-gray-300 text-sm">{item.period}</p>
             </div>
          )}
          {index % 2 !== 0 && (
-             <div class="hidden md:block text-left text-gray-400 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+             <div class="hidden md:block text-left text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
                 {item.description}
              </div>
          )}
@@ -50,24 +50,24 @@ const { items } = Astro.props;
            <div class="hidden md:block">
               <h3 class="font-display text-2xl text-white">{item.company}</h3>
               <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-              <p class="text-gray-400 text-sm">{item.period}</p>
+              <p class="text-gray-300 text-sm">{item.period}</p>
            </div>
         )}
          {index % 2 === 0 && (
             <div class="block md:hidden"> <!-- Mobile View for Left Side -->
                 <h3 class="font-display text-2xl text-white">{item.company}</h3>
                 <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-                <p class="text-gray-400 text-sm">{item.period}</p>
+                <p class="text-gray-300 text-sm">{item.period}</p>
             </div>
          )}
         {index % 2 === 0 && (
-             <div class="text-gray-400 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+             <div class="text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
                 {item.description}
              </div>
          )}
          {/* Mobile description for odd items if not shown above */}
          {index % 2 !== 0 && (
-            <div class="block md:hidden text-gray-400 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors mt-4">
+            <div class="block md:hidden text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors mt-4">
                  {item.description}
             </div>
          )}
