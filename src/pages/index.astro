@@ -13,7 +13,9 @@ import { ArrowUpRight } from "lucide-react";
 <Layout title="Bharath | Senior Frontend Architect">
     <Hero />
 
-    <section class="px-4 py-20 md:px-8 border-b border-white/10">
+    <section
+        class="px-4 py-20 md:px-8 border-b border-black/10 dark:border-white/10"
+    >
         <div class="mx-auto max-w-[1000px] text-center">
             <Heading variant="section">Skills & Technologies</Heading>
             <div class="mt-8">
@@ -22,11 +24,11 @@ import { ArrowUpRight } from "lucide-react";
         </div>
     </section>
 
-    <section class="px-4 py-20 md:px-8 bg-surface-dark/50">
+    <section class="px-4 py-20 md:px-8 bg-black/5 dark:bg-surface-dark/50">
         <div class="mx-auto max-w-[1400px]">
             <div class="mb-16">
                 <Heading variant="section">Engineered Impact</Heading>
-                <p class="max-w-xl text-lg text-gray-400">
+                <p class="max-w-xl text-lg text-gray-600 dark:text-gray-400">
                     Measurable results from systems I've architected and teams
                     I've led.
                 </p>
@@ -45,7 +47,9 @@ import { ArrowUpRight } from "lucide-react";
             >
                 <div>
                     <Heading variant="section">Selected Work</Heading>
-                    <p class="max-w-xl text-lg text-gray-400">
+                    <p
+                        class="max-w-xl text-lg text-gray-600 dark:text-gray-400"
+                    >
                         Architectural initiatives and developer tooling that
                         solve scale.
                     </p>
@@ -53,7 +57,7 @@ import { ArrowUpRight } from "lucide-react";
                 <a
                     href="https://github.com/Bharath-code"
                     target="_blank"
-                    class="text-signal-emerald hover:text-white transition-colors flex items-center gap-2"
+                    class="text-signal-emerald hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
                 >
                     View GitHub <ArrowUpRight className="w-4 h-4" />
                 </a>

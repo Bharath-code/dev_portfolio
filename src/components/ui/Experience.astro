@@ -13,66 +13,42 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="relative space-y-12">
-  <div class="absolute left-[15px] top-2 h-full w-[1px] bg-white/10 md:left-1/2 md:-ml-[0.5px]"></div>
-
-  {items.map((item, index) => (
-    <div class={`relative flex flex-col gap-8 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-      
-      <div class="flex-1 md:text-right">
-        {index % 2 === 0 && (
-           <div class="hidden md:block">
-              <h3 class="font-display text-2xl text-white">{item.company}</h3>
-              <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-              <p class="text-gray-300 text-sm">{item.period}</p>
-           </div>
-        )}
-         {index % 2 !== 0 && (
-            <div class="block md:hidden"> <!-- Mobile View for Right Side -->
-                <h3 class="font-display text-2xl text-white">{item.company}</h3>
-                <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-                <p class="text-gray-300 text-sm">{item.period}</p>
-            </div>
-         )}
-         {index % 2 !== 0 && (
-             <div class="hidden md:block text-left text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                {item.description}
-             </div>
-         )}
+<div class="relative space-y-24 before:absolute before:left-0 before:top-4 before:h-[calc(100%-1rem)] before:w-[1px] before:bg-black/10 dark:before:bg-white/10 md:before:left-[200px]">
+  {items.map((item) => (
+    <div class="relative flex flex-col md:flex-row gap-8 md:gap-16">
+      <!-- Period Column -->
+      <div class="md:w-[200px] shrink-0">
+        <div class="md:pr-12 md:text-right">
+           <span class="text-sm font-medium uppercase tracking-widest text-signal-emerald">
+            {item.period}
+          </span>
+        </div>
       </div>
 
-      <div class="absolute left-0 flex h-8 w-8 items-center justify-center rounded-full bg-void-black border border-white/20 md:relative md:left-auto">
-        <div class="h-2 w-2 rounded-full bg-signal-emerald shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-      </div>
+      <!-- Content Column -->
+      <div class="flex-1 relative">
+        <!-- Dot on the line -->
+        <div class="absolute -left-[32px] md:-left-[64px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-void-black dark:bg-white ring-4 ring-tech-white dark:ring-void-black">
+          <div class="h-1.5 w-1.5 rounded-full bg-signal-emerald"></div>
+        </div>
 
-      <div class="flex-1 pl-12 md:pl-0">
-          {index % 2 !== 0 && (
-           <div class="hidden md:block">
-              <h3 class="font-display text-2xl text-white">{item.company}</h3>
-              <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-              <p class="text-gray-300 text-sm">{item.period}</p>
-           </div>
-        )}
-         {index % 2 === 0 && (
-            <div class="block md:hidden"> <!-- Mobile View for Left Side -->
-                <h3 class="font-display text-2xl text-white">{item.company}</h3>
-                <p class="text-signal-emerald font-medium mb-2">{item.role}</p>
-                <p class="text-gray-300 text-sm">{item.period}</p>
-            </div>
-         )}
-        {index % 2 === 0 && (
-             <div class="text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                {item.description}
-             </div>
-         )}
-         {/* Mobile description for odd items if not shown above */}
-         {index % 2 !== 0 && (
-            <div class="block md:hidden text-gray-300 leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors mt-4">
-                 {item.description}
-            </div>
-         )}
+        <div class="group">
+          <div class="flex flex-col mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-black dark:text-white group-hover:text-signal-emerald transition-colors duration-300">
+              {item.company}
+            </h3>
+            <span class="text-lg font-medium text-black/60 dark:text-white/60">
+              {item.role}
+            </span>
+          </div>
+          
+          <div class="max-w-2xl">
+            <p class="text-lg leading-relaxed text-black/80 dark:text-white/80">
+              {item.description}
+            </p>
+          </div>
+        </div>
       </div>
-      
     </div>
   ))}
 </div>

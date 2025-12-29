@@ -1,11 +1,15 @@
 ---
 import { siteContent } from "@/content/site-content";
+import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 
 const links = siteContent.navigation;
 ---
 
 <nav
-    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300 border-b border-transparent data-[scrolled=true]:border-white/10 data-[scrolled=true]:bg-void-black/80 data-[scrolled=true]:backdrop-blur-md"
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between
+px-6 py-4 transition-all duration-300 border-b border-transparent
+data-[scrolled=true]:border-black/5 dark:data-[scrolled=true]:border-white/10
+bg-white/80 dark:bg-void-black/80 backdrop-blur-md"
     id="navbar"
 >
     <div
@@ -13,50 +17,62 @@ const links = siteContent.navigation;
     >
         <a
             href="/"
-            class="relative z-50 text-xl font-display font-bold text-white tracking-tighter"
+            class="relative z-50 text-xl font-display font-bold text-black
+dark:text-white tracking-tighter"
         >
             BHARATH
         </a>
-
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex
+items-center gap-8">
             {
-                links.map((link) => (
+                links.map((link: { href: string; label: string }) => (
                     <a
                         href={link.href}
-                        class="text-sm font-medium text-gray-400 transition-colors hover:text-white"
+                        class="text-sm font-medium text-gray-600 dark:text-gray-400
+transition-colors hover:text-black dark:hover:text-white"
                     >
-                        {link.label}
+                        {" "}
+                        {link.label}{" "}
                     </a>
                 ))
             }
+            <ThemeToggle />
         </div>
-
-        <button
-            id="menu-toggle"
-            class="relative z-50 flex h-8 w-8 flex-col justify-center gap-1.5 md:hidden"
-            aria-label="Toggle Menu"
-        >
-            <span
-                class="h-0.5 w-full bg-white transition-all duration-300 origin-center"
-                id="line-1"></span>
-            <span
-                class="h-0.5 w-full bg-white transition-all duration-300 origin-center"
-                id="line-2"></span>
-        </button>
-
+        <div class="flex items-center gap-4 md:hidden relative
+z-50">
+            <ThemeToggle />
+            <button
+                id="menu-toggle"
+                class="flex h-8 w-8 flex-col
+justify-center gap-1.5"
+                aria-label="Toggle Menu"
+            >
+                <span
+                    class="h-0.5 w-full
+bg-black dark:bg-white transition-all duration-300 origin-center"
+                    id="line-1"></span>
+                <span
+                    class="h-0.5 w-full bg-black dark:bg-white
+transition-all duration-300 origin-center"
+                    id="line-2"></span>
+            </button>
+        </div>
         <!-- Mobile Menu Overlay -->
         <div
             id="mobile-menu"
-            class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-void-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300"
+            class="fixed inset-0 z-40
+flex flex-col items-center justify-center bg-white/95 dark:bg-void-black/95
+backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300"
         >
             <div class="flex flex-col items-center gap-8">
                 {
-                    links.map((link) => (
+                    links.map((link: { href: string; label: string }) => (
                         <a
                             href={link.href}
-                            class="text-3xl font-display font-bold text-white transition-opacity hover:opacity-70"
+                            class="text-3xl font-display
+font-bold text-black dark:text-white transition-opacity hover:opacity-70"
                         >
-                            {link.label}
+                            {link.label}{" "}
                         </a>
                     ))
                 }
@@ -64,41 +80,32 @@ const links = siteContent.navigation;
         </div>
     </div>
 </nav>
-
 <script>
     const nav = document.getElementById("navbar");
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     const line1 = document.getElementById("line-1");
     const line2 = document.getElementById("line-2");
-
     let isMenuOpen = false;
-
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
-
         if (isMenuOpen) {
             mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
             line1?.classList.add("rotate-45", "translate-y-2");
             line2?.classList.add("-rotate-45", "-translate-y-2");
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-        } else {
+            document.body.style.overflow = "hidden"; // Prevent scrolling } else {
             mobileMenu?.classList.add("opacity-0", "pointer-events-none");
             line1?.classList.remove("rotate-45", "translate-y-2");
             line2?.classList.remove("-rotate-45", "-translate-y-2");
             document.body.style.overflow = "";
         }
     }
-
-    menuToggle?.addEventListener("click", toggleMenu);
-
-    // Close menu when clicking a link
+    menuToggle?.addEventListener("click", toggleMenu); // Close menu when clicking a link
     mobileMenu?.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
             if (isMenuOpen) toggleMenu();
         });
     });
-
     function updateNav() {
         if (window.scrollY > 20) {
             nav?.setAttribute("data-scrolled", "true");
@@ -106,7 +113,6 @@ const links = siteContent.navigation;
             nav?.removeAttribute("data-scrolled");
         }
     }
-
     window.addEventListener("scroll", updateNav);
     updateNav();
 </script>

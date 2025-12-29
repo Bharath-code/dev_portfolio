@@ -7,38 +7,68 @@ import { siteContent } from "@/content/site-content";
     class="relative flex min-h-[90vh] flex-col justify-center pt-20 overflow-hidden"
 >
     <div class="relative z-10 mx-auto max-w-[1400px] w-full px-4 md:px-8">
-        <div class="overflow-hidden">
-            <Heading
-                as="h1"
-                variant="display"
-                class="hero-text translate-y-[110%] opacity-0"
-            >
-                {siteContent.hero.title}
-            </Heading>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="overflow-hidden">
+                    <Heading
+                        as="h1"
+                        variant="display"
+                        class="hero-text translate-y-[110%] opacity-0 leading-[0.9]"
+                    >
+                        {siteContent.hero.title.split(" ")[0]}<br />
+                        <span class="text-signal-emerald"
+                            >{
+                                siteContent.hero.title
+                                    .split(" ")
+                                    .slice(1)
+                                    .join(" ")
+                            }</span
+                        >
+                    </Heading>
+                </div>
 
-        <div class="mt-12 flex max-w-2xl flex-col gap-6 opacity-0 hero-meta">
-            <p class="text-lg md:text-xl leading-relaxed text-gray-400">
-                {siteContent.hero.bio}
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <a
-                    href="#work"
-                    class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-6 py-3 text-black transition-transform hover:scale-105 active:scale-95"
+                <div
+                    class="mt-12 flex max-w-2xl flex-col gap-6 opacity-0 hero-meta"
                 >
-                    <span class="relative z-10 font-medium">View Work</span>
+                    <p
+                        class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-400"
+                    >
+                        {siteContent.hero.bio}
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a
+                            href="#work"
+                            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black dark:bg-white px-8 py-4 text-white dark:text-black transition-transform hover:scale-105 active:scale-95"
+                        >
+                            <span class="relative z-10 font-medium"
+                                >View Work</span
+                            >
+                            <div
+                                class="absolute inset-0 -z-0 translate-y-[100%] bg-signal-emerald transition-transform duration-300 group-hover:translate-y-0"
+                            >
+                            </div>
+                        </a>
+                        <a
+                            href={`mailto:${siteContent.contact.email}`}
+                            class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-8 py-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
+                        >
+                            <span class="font-medium">Contact Me</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:block relative h-full min-h-[400px]">
+                <!-- Reserved for future assets: photo/3D/animation -->
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-20"
+                >
                     <div
-                        class="absolute inset-0 -z-0 translate-y-[100%] bg-signal-emerald transition-transform duration-300 group-hover:translate-y-0"
+                        class="w-64 h-64 border-2 border-dashed border-signal-emerald/50 rounded-full animate-pulse"
                     >
                     </div>
-                </a>
-                <a
-                    href={`mailto:${siteContent.contact.email}`}
-                    class="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-colors hover:bg-white/5"
-                >
-                    <span class="font-medium">Contact Me</span>
-                </a>
+                </div>
             </div>
         </div>
     </div>

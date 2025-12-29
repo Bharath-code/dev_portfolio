@@ -20,22 +20,22 @@ export const ImpactMetrics = ({ metrics }: HighlightProps) => {
                 <div
                     key={i}
                     className={clsx(
-                        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-500",
-                        hoveredIndex === i ? "border-white/30 bg-white/10" : "hover:border-white/20"
+                        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 transition-all duration-500",
+                        hoveredIndex === i ? "border-black/20 dark:border-white/30 bg-black/10 dark:bg-white/10" : "hover:border-black/20 dark:hover:border-white/20"
                     )}
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
                 >
                     <div className="mb-4">
-                        <span className="text-sm font-medium uppercase tracking-wider text-gray-400">
+                        <span className="text-sm font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400">
                             {metric.label}
                         </span>
                     </div>
                     <div>
-                        <div className="mb-2 font-display text-4xl md:text-5xl lg:text-6xl text-white">
+                        <div className="mb-2 font-display text-4xl md:text-5xl lg:text-6xl text-black dark:text-white">
                             {metric.value}
                         </div>
-                        <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
+                        <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors">
                             {metric.description}
                         </p>
                     </div>
