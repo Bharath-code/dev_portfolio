@@ -14,19 +14,21 @@ import { ArrowUpRight } from "lucide-react";
     <Hero />
 
     <section
-        class="px-4 py-20 md:px-8 border-b border-black/10 dark:border-white/10"
+        class="reveal px-4 py-24 md:px-8 border-b border-black/10 dark:border-white/10"
     >
         <div class="mx-auto max-w-[1000px] text-center">
             <Heading variant="section">Skills & Technologies</Heading>
-            <div class="mt-8">
+            <div class="mt-6">
                 <Skills items={siteContent.skills} />
             </div>
         </div>
     </section>
 
-    <section class="px-4 py-20 md:px-8 bg-black/5 dark:bg-surface-dark/50">
+    <section
+        class="reveal px-4 py-24 md:px-8 bg-black/5 dark:bg-surface-dark/50"
+    >
         <div class="mx-auto max-w-[1400px]">
-            <div class="mb-16">
+            <div class="mb-10">
                 <Heading variant="section">Engineered Impact</Heading>
                 <p class="max-w-xl text-lg text-gray-600 dark:text-gray-400">
                     Measurable results from systems I've architected and teams
@@ -40,10 +42,10 @@ import { ArrowUpRight } from "lucide-react";
         </div>
     </section>
 
-    <section id="work" class="px-4 py-32 md:px-8">
+    <section id="work" class="reveal px-4 py-24 md:px-8">
         <div class="mx-auto max-w-[1400px]">
             <div
-                class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6"
+                class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
             >
                 <div>
                     <Heading variant="section">Selected Work</Heading>
@@ -66,16 +68,21 @@ import { ArrowUpRight } from "lucide-react";
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     siteContent.projects.map((project) => (
-                        <ProjectCard {...project} />
+                        <div class="reveal">
+                            <ProjectCard {...project} />
+                        </div>
                     ))
                 }
             </div>
         </div>
     </section>
 
-    <section id="experience" class="px-4 py-32 md:px-8 bg-surface-dark/30">
+    <section
+        id="experience"
+        class="reveal px-4 py-24 md:px-8 bg-surface-dark/30"
+    >
         <div class="mx-auto max-w-[1000px]">
-            <div class="mb-20 text-center">
+            <div class="mb-12 text-center">
                 <Heading variant="section">Experience</Heading>
                 <p class="text-gray-400">
                     A timeline of technical leadership and delivery.
@@ -89,7 +96,7 @@ import { ArrowUpRight } from "lucide-react";
         class="h-[30vh] flex items-center justify-center border-t border-white/10"
     >
         <div class="text-center">
-            <h2 class="font-display text-4xl mb-6">Ready to scale?</h2>
+            <Heading variant="section" class="mb-6">Ready to scale?</Heading>
             <a
                 href="mailto:kumarbharath63@icloud.com"
                 class="inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-4 text-black transition-transform hover:scale-105 active:scale-95 font-medium"

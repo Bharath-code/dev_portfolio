@@ -12,9 +12,10 @@ import "@/styles/global.css";
 import NavBar from "@/components/ui/NavBar.astro";
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource/archivo-black";
-import "@fontsource/inter";
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/600.css";
+import "@fontsource/manrope";
+import "@fontsource/manrope/500.css";
+import "@fontsource/manrope/600.css";
+import "@fontsource/manrope/800.css";
 ---
 
 <!doctype html>
@@ -100,9 +101,47 @@ import "@fontsource/inter/600.css";
         <main class="relative z-10">
             <slot />
         </main>
-        <div
-            class="fixed inset-0 z-0 pointer-events-none bg-[url('/noise.svg')] opacity-20 mix-blend-overlay"
-        >
-        </div>
+        <style is:global>
+            .reveal {
+                opacity: 0;
+                transform: translateY(20px);
+                transition:
+                    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+
+        <script>
+            function initScrollReveal() {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: 0.1,
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                            // Optional: unobserve after reveal
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll(".reveal");
+                revealElements.forEach((el) => observer.observe(el));
+            }
+
+            // Run on initial load
+            initScrollReveal();
+
+            // Run on view transition navigation
+            document.addEventListener("astro:page-load", initScrollReveal);
+        </script>
     </body>
 </html>

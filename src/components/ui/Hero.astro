@@ -9,6 +9,26 @@ import { siteContent } from "@/content/site-content";
     <div class="relative z-10 mx-auto max-w-[1400px] w-full px-4 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
+                <!-- Availability Badge -->
+                <div class="mb-6 opacity-0 hero-meta">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-signal-emerald/10 border border-signal-emerald/20"
+                    >
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal-emerald opacity-75"
+                            ></span>
+                            <span
+                                class="relative inline-flex rounded-full h-2 w-2 bg-signal-emerald"
+                            ></span>
+                        </span>
+                        <span
+                            class="text-xs font-black tracking-widest uppercase text-signal-emerald"
+                            >Open to New Opportunities</span
+                        >
+                    </div>
+                </div>
+
                 <div class="overflow-hidden">
                     <Heading
                         as="h1"
@@ -28,7 +48,7 @@ import { siteContent } from "@/content/site-content";
                 </div>
 
                 <div
-                    class="mt-12 flex max-w-2xl flex-col gap-6 opacity-0 hero-meta"
+                    class="mt-6 flex max-w-2xl flex-col gap-4 opacity-0 hero-meta"
                 >
                     <p
                         class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-400"
@@ -39,7 +59,7 @@ import { siteContent } from "@/content/site-content";
                     <div class="flex flex-wrap gap-4">
                         <a
                             href="#work"
-                            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black dark:bg-white px-8 py-4 text-white dark:text-black transition-transform hover:scale-105 active:scale-95"
+                            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black dark:bg-white px-6 py-3 text-white dark:text-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/5 dark:shadow-white/5"
                         >
                             <span class="relative z-10 font-medium"
                                 >View Work</span
@@ -50,10 +70,11 @@ import { siteContent } from "@/content/site-content";
                             </div>
                         </a>
                         <a
-                            href={`mailto:${siteContent.contact.email}`}
-                            class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-8 py-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
+                            href="/resume.pdf"
+                            target="_blank"
+                            class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-6 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
                         >
-                            <span class="font-medium">Contact Me</span>
+                            <span class="font-medium">Download Resume</span>
                         </a>
                     </div>
                 </div>
@@ -97,7 +118,7 @@ import { siteContent } from "@/content/site-content";
             ".hero-meta",
             {
                 opacity: 1,
-                y: -20,
+                y: 0,
                 duration: 1,
             },
             "-=1",

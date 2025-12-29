@@ -17,8 +17,8 @@ bg-white/80 dark:bg-void-black/80 backdrop-blur-md"
     >
         <a
             href="/"
-            class="relative z-50 text-xl font-display font-bold text-black
-dark:text-white tracking-tighter"
+            class="group relative z-[70] text-xl font-display font-bold text-black
+dark:text-white tracking-tighter transition-transform hover:scale-105 active:scale-95"
         >
             BHARATH
         </a>
@@ -28,18 +28,19 @@ items-center gap-8">
                 links.map((link: { href: string; label: string }) => (
                     <a
                         href={link.href}
-                        class="text-sm font-medium text-gray-600 dark:text-gray-400
+                        class="group relative text-sm font-medium text-gray-600 dark:text-gray-400
 transition-colors hover:text-black dark:hover:text-white"
                     >
                         {" "}
                         {link.label}{" "}
+                        <span class="absolute -bottom-1 left-0 h-[1px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full" />
                     </a>
                 ))
             }
             <ThemeToggle />
         </div>
         <div class="flex items-center gap-4 md:hidden relative
-z-50">
+z-[70]">
             <ThemeToggle />
             <button
                 id="menu-toggle"
@@ -57,62 +58,101 @@ transition-all duration-300 origin-center"
                     id="line-2"></span>
             </button>
         </div>
-        <!-- Mobile Menu Overlay -->
-        <div
-            id="mobile-menu"
-            class="fixed inset-0 z-40
-flex flex-col items-center justify-center bg-white/95 dark:bg-void-black/95
-backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300"
-        >
-            <div class="flex flex-col items-center gap-8">
-                {
-                    links.map((link: { href: string; label: string }) => (
-                        <a
-                            href={link.href}
-                            class="text-3xl font-display
-font-bold text-black dark:text-white transition-opacity hover:opacity-70"
-                        >
-                            {link.label}{" "}
-                        </a>
-                    ))
-                }
-            </div>
-        </div>
     </div>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div
+    id="mobile-menu"
+    class="fixed inset-0 z-[60]
+flex flex-col items-center justify-center bg-white dark:bg-void-black
+transition-all duration-500 opacity-0 pointer-events-none"
+>
+    <div class="flex flex-col items-center gap-10">
+        {
+            links.map((link: { href: string; label: string }) => (
+                <a
+                    href={link.href}
+                    class="text-4xl font-display
+font-black uppercase tracking-widest text-black dark:text-white transition-all hover:text-signal-emerald"
+                >
+                    {link.label}{" "}
+                </a>
+            ))
+        }
+    </div>
+</div>
+
 <script>
-    const nav = document.getElementById("navbar");
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const line1 = document.getElementById("line-1");
-    const line2 = document.getElementById("line-2");
-    let isMenuOpen = false;
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-            mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
-            line1?.classList.add("rotate-45", "translate-y-2");
-            line2?.classList.add("-rotate-45", "-translate-y-2");
-            document.body.style.overflow = "hidden"; // Prevent scrolling } else {
-            mobileMenu?.classList.add("opacity-0", "pointer-events-none");
-            line1?.classList.remove("rotate-45", "translate-y-2");
-            line2?.classList.remove("-rotate-45", "-translate-y-2");
-            document.body.style.overflow = "";
+    let scrollBound = false;
+
+    function initNav() {
+        const nav = document.getElementById("navbar");
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const line1 = document.getElementById("line-1");
+        const line2 = document.getElementById("line-2");
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu?.classList.remove(
+                    "opacity-0",
+                    "pointer-events-none",
+                );
+                mobileMenu?.classList.add("opacity-100");
+                line1?.classList.add("rotate-45", "translate-y-2");
+                line2?.classList.add("-rotate-45", "-translate-y-2");
+                document.body.style.overflow = "hidden";
+            } else {
+                mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+                mobileMenu?.classList.remove("opacity-100");
+                line1?.classList.remove("rotate-45", "translate-y-2");
+                line2?.classList.remove("-rotate-45", "-translate-y-2");
+                document.body.style.overflow = "";
+            }
         }
-    }
-    menuToggle?.addEventListener("click", toggleMenu); // Close menu when clicking a link
-    mobileMenu?.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
+
+        // Dedicated close function to ensure consistency
+        function closeMenu() {
             if (isMenuOpen) toggleMenu();
-        });
-    });
-    function updateNav() {
-        if (window.scrollY > 20) {
-            nav?.setAttribute("data-scrolled", "true");
-        } else {
-            nav?.removeAttribute("data-scrolled");
         }
+
+        menuToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when clicking a link
+        mobileMenu?.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        // Close menu when clicking the background
+        mobileMenu?.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) closeMenu();
+        });
+
+        function updateNav() {
+            if (window.scrollY > 20) {
+                nav?.setAttribute("data-scrolled", "true");
+            } else {
+                nav?.removeAttribute("data-scrolled");
+            }
+        }
+
+        if (!scrollBound) {
+            window.addEventListener("scroll", updateNav);
+            scrollBound = true;
+        }
+
+        updateNav();
     }
-    window.addEventListener("scroll", updateNav);
-    updateNav();
+
+    // Run on initial load
+    initNav();
+
+    // Run on view transition navigation
+    document.addEventListener("astro:page-load", initNav);
 </script>

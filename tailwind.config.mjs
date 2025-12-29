@@ -12,7 +12,7 @@ export default {
                 'surface-dark': '#18181B',
             },
             fontFamily: {
-                sans: ['"Inter"', 'sans-serif'],
+                sans: ['"Manrope"', 'sans-serif'],
                 display: ['"Archivo Black"', 'sans-serif'],
             },
             animation: {
