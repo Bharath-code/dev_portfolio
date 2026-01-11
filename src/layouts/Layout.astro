@@ -10,6 +10,7 @@ const {
 } = Astro.props;
 import "@/styles/global.css";
 import NavBar from "@/components/ui/NavBar.astro";
+import Footer from "@/components/ui/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
@@ -101,6 +102,7 @@ import "@fontsource/manrope/800.css";
         <main class="relative z-10">
             <slot />
         </main>
+        <Footer />
         <style is:global>
             .reveal {
                 opacity: 0;

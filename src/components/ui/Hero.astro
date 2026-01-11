@@ -70,23 +70,75 @@ import { siteContent } from "@/content/site-content";
                             </div>
                         </a>
                         <a
-                            href="/resume.pdf"
+                            href="https://linkedin.com/in/bharathkumar-palanisamy"
                             target="_blank"
                             class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-6 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
                         >
-                            <span class="font-medium">Download Resume</span>
+                            <span class="font-medium">View LinkedIn</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="hidden lg:block relative h-full min-h-[400px]">
-                <!-- Reserved for future assets: photo/3D/animation -->
-                <div
-                    class="absolute inset-0 flex items-center justify-center opacity-20"
-                >
+            <div
+                class="hidden lg:flex relative h-full min-h-[400px] items-center justify-center"
+            >
+                <!-- Animated geometric visual -->
+                <div class="hero-visual relative w-80 h-80">
+                    <!-- Outer rotating ring -->
                     <div
-                        class="w-64 h-64 border-2 border-dashed border-signal-emerald/50 rounded-full animate-pulse"
+                        class="absolute inset-0 rounded-full border-2 border-signal-emerald/30 animate-[spin_20s_linear_infinite]"
+                    >
+                    </div>
+                    <!-- Middle pulsing ring -->
+                    <div
+                        class="absolute inset-4 rounded-full border border-signal-emerald/20 animate-pulse"
+                    >
+                    </div>
+                    <!-- Inner static ring -->
+                    <div
+                        class="absolute inset-8 rounded-full border border-signal-emerald/40"
+                    >
+                    </div>
+                    <!-- Center dot cluster -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center"
+                    >
+                        <div class="relative">
+                            <div
+                                class="w-4 h-4 rounded-full bg-signal-emerald animate-ping absolute"
+                            >
+                            </div>
+                            <div
+                                class="w-4 h-4 rounded-full bg-signal-emerald relative"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Orbiting dots -->
+                    <div
+                        class="absolute inset-0 animate-[spin_8s_linear_infinite]"
+                    >
+                        <div
+                            class="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-signal-emerald/60"
+                        >
+                        </div>
+                    </div>
+                    <div
+                        class="absolute inset-0 animate-[spin_12s_linear_infinite_reverse]"
+                    >
+                        <div
+                            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-signal-emerald/40"
+                        >
+                        </div>
+                    </div>
+                    <!-- Corner accents -->
+                    <div
+                        class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-signal-emerald/30 rounded-tr-lg"
+                    >
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-signal-emerald/30 rounded-bl-lg"
                     >
                     </div>
                 </div>

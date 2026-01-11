@@ -1,0 +1,172 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BookCard from "@/components/ui/BookCard.astro";
+import Heading from "@/components/ui/Heading.astro";
+import booksData from "@/data/books.json";
+
+interface RawBook {
+    Name: string;
+    Author: string[];
+    Genre: string[];
+    Link?: string;
+    "Score /5"?: string;
+    Status: string;
+    Summary?: string;
+    Priority?: string;
+}
+
+const mappedBooks = (booksData as RawBook[]).map((raw) => {
+    // Extract URL from markdown [text](url)
+    const linkMatch = raw.Link ? raw.Link.match(/\[.*?\]\((.*?)\)/) : null;
+    const link = linkMatch ? linkMatch[1] : raw.Link || "#";
+
+    // Count ⭐️ characters
+    const rating = raw["Score /5"]
+        ? (raw["Score /5"].match(/⭐️/g) || []).length
+        : 0;
+
+    let status: "recommended" | "read" | "want-to-read";
+    if (rating === 5 || raw.Priority === "Highest") {
+        status = "recommended";
+    } else if (raw.Status === "Finished") {
+        status = "read";
+    } else {
+        status = "want-to-read";
+    }
+
+    return {
+        title: raw.Name,
+        author: raw.Author ? raw.Author.join(", ") : "Unknown Author",
+        genre: raw.Genre ? raw.Genre.join(", ") : "General",
+        link,
+        rating,
+        review: raw.Summary,
+        status,
+    };
+});
+
+const books = mappedBooks;
+
+const categories = [
+    { id: "all", label: "All Books" },
+    { id: "recommended", label: "Recommended" },
+    { id: "read", label: "Already Read" },
+    { id: "want-to-read", label: "Reading List" },
+];
+---
+
+<Layout
+    title="Books | Bharathkumar Palanisamy"
+    description="Books recommended, read, or on the reading list of Bharathkumar Palanisamy."
+>
+    <div class="pt-32 pb-20 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            <div
+                class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
+            >
+                <div class="max-w-2xl">
+                    <Heading title="The Library" />
+                    <p
+                        class="text-lg text-black/60 dark:text-white/60 mt-4 leading-relaxed font-medium reveal"
+                    >
+                        A curated collection of books that have shaped my
+                        thinking on software architecture, product design, and
+                        human behavior. From technical deep-dives to
+                        philosophical inquiries.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2 reveal">
+                    {
+                        categories.map((cat) => (
+                            <button
+                                data-filter={cat.id}
+                                class="filter-btn px-6 py-3 text-[10px] font-black uppercase tracking-widest border transition-all duration-300
+                     data-[active=true]:bg-black data-[active=true]:text-white data-[active=true]:border-black
+                     dark:data-[active=true]:bg-white dark:data-[active=true]:text-void-black dark:data-[active=true]:border-white
+                     data-[active=false]:bg-transparent data-[active=false]:text-black/40 data-[active=false]:border-black/10
+                     dark:data-[active=false]:text-white/40 dark:data-[active=false]:border-white/10
+                     hover:border-black dark:hover:border-white"
+                                data-active={cat.id === "all"}
+                            >
+                                {cat.label}
+                            </button>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5"
+                id="books-grid"
+            >
+                {
+                    books.map((book) => (
+                        <div
+                            class="book-item bg-white dark:bg-void-black"
+                            data-status={book.status}
+                        >
+                            <BookCard {...book} />
+                        </div>
+                    ))
+                }
+            </div>
+
+            {
+                books.length === 0 && (
+                    <div class="py-20 text-center reveal">
+                        <p class="text-black/40 dark:text-white/40 font-medium">
+                            No books found in this category.
+                        </p>
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</Layout>
+
+<script>
+    function initFilters() {
+        const buttons = document.querySelectorAll(".filter-btn");
+        const items = document.querySelectorAll(".book-item");
+        const grid = document.getElementById("books-grid");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const filter = btn.getAttribute("data-filter");
+
+                // Update buttons
+                buttons.forEach((b) =>
+                    b.setAttribute("data-active", (b === btn).toString()),
+                );
+
+                // Filter items
+                items.forEach((item) => {
+                    const status = item.getAttribute("data-status");
+                    if (filter === "all" || status === filter) {
+                        (item as HTMLElement).style.display = "block";
+                        item.classList.add("reveal", "active");
+                    } else {
+                        (item as HTMLElement).style.display = "none";
+                    }
+                });
+            });
+        });
+    }
+
+    // Run on initial load
+    initFilters();
+
+    // Run on view transition navigation
+    document.addEventListener("astro:page-load", initFilters);
+</script>
+
+<style>
+    #books-grid {
+        /* Create the "Swiss Pane Grid" look by using gap-px and background color */
+    }
+
+    .book-item {
+        transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+</style>
