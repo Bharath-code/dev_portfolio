@@ -1,0 +1,56 @@
+---
+import type { MappedBook } from "@/lib/books";
+
+interface Props {
+    books: MappedBook[];
+}
+
+const { books } = Astro.props;
+
+const totalBooks = books.length;
+const readBooks = books.filter((b) => b.status !== "want-to-read").length;
+const topRated = books.filter((b) => b.rating === 5).length;
+
+// Find top genre
+const genreCounts = books.reduce(
+    (acc, book) => {
+        acc[book.genre] = (acc[book.genre] || 0) + 1;
+        return acc;
+    },
+    {} as Record<string, number>,
+);
+
+const topGenre =
+    Object.entries(genreCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "None";
+
+const stats = [
+    { label: "Collection", value: totalBooks, sub: "Books total" },
+    {
+        label: "Completed",
+        value: readBooks,
+        sub: `${Math.round((readBooks / totalBooks) * 100)}% of library`,
+    },
+    { label: "Masterpieces", value: topRated, sub: "5-star rated" },
+    { label: "Top Genre", value: topGenre, sub: "Most read category" },
+];
+---
+
+<div
+    class="grid grid-cols-2 md:grid-cols-4 gap-px bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 mb-16 reveal"
+>
+    {
+        stats.map((stat) => (
+            <div class="bg-white dark:bg-void-black p-8">
+                <div class="text-[10px] font-black uppercase tracking-widest text-black/40 dark:text-white/40 mb-2">
+                    {stat.label}
+                </div>
+                <div class="text-3xl font-display text-black dark:text-white mb-1">
+                    {stat.value}
+                </div>
+                <div class="text-[10px] font-medium text-black/60 dark:text-white/60 uppercase tracking-tight">
+                    {stat.sub}
+                </div>
+            </div>
+        ))
+    }
+</div>
