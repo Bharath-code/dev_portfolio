@@ -358,3 +358,12 @@ export function getProjectBySlug(slug: string): Project | undefined {
 export function getAllProjectSlugs(): string[] {
     return siteContent.projects.map(p => p.slug);
 }
+
+// Helper to find the next project for kinetic navigation
+export function getNextProject(currentSlug: string): Project | undefined {
+    const currentIndex = siteContent.projects.findIndex(p => p.slug === currentSlug);
+    if (currentIndex === -1) return undefined;
+
+    const nextIndex = (currentIndex + 1) % siteContent.projects.length;
+    return siteContent.projects[nextIndex];
+}

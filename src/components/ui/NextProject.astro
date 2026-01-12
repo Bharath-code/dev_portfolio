@@ -1,0 +1,64 @@
+---
+import Heading from "./Heading.astro";
+import type { Project } from "@/content/site-content";
+import { ArrowRight } from "lucide-react";
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<section
+    class="relative mt-32 border-t border-black/10 dark:border-white/10 overflow-hidden group"
+>
+    <a
+        href={`/projects/${project.slug}`}
+        class="block py-24 md:py-32 px-6 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
+    >
+        <div
+            class="max-w-[1400px] mx-auto flex flex-col items-center text-center"
+        >
+            <span
+                class="text-xs font-black uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500 mb-8 block reveal"
+            >
+                Next Project
+            </span>
+
+            <div class="relative">
+                <Heading
+                    as="h2"
+                    variant="display"
+                    class="group-hover:text-signal-emerald transition-colors duration-500 reveal"
+                >
+                    {project.title}
+                </Heading>
+
+                <div
+                    class="absolute -right-12 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500 hidden md:block"
+                >
+                    <ArrowRight className="w-12 h-12 text-signal-emerald" />
+                </div>
+            </div>
+
+            <p
+                class="mt-8 text-gray-500 dark:text-gray-400 max-w-md mx-auto reveal"
+            >
+                {project.description}
+            </p>
+        </div>
+    </a>
+
+    <!-- Kinetic background text -->
+    <div
+        class="absolute inset-0 -z-10 flex items-center justify-center opacity-[0.03] dark:opacity-[0.05] pointer-events-none select-none"
+    >
+        <span
+            class="text-[20vw] font-black uppercase tracking-tighter whitespace-nowrap group-hover:scale-110 transition-transform duration-[2s]"
+        >
+            {project.title}
+            {project.title}
+        </span>
+    </div>
+</section>

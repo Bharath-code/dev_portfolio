@@ -1,0 +1,81 @@
+<svg
+    id="custom-cursor"
+    class="fixed top-0 left-0 pointer-events-none z-[10000] opacity-0 transition-opacity duration-300"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+>
+    <circle
+        cx="20"
+        cy="20"
+        r="8"
+        stroke="currentColor"
+        stroke-width="2"
+        class="text-signal-emerald"></circle>
+</svg>
+
+<style>
+    #custom-cursor {
+        will-change: transform;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    function initCursor() {
+        const cursor = document.getElementById("custom-cursor");
+        const circle = cursor?.querySelector("circle");
+        if (!cursor || !circle) return;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        window.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.opacity = "1";
+        });
+
+        // Smooth cursor movement
+        gsap.ticker.add(() => {
+            const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
+            cursorX += (mouseX - cursorX) * dt;
+            cursorY += (mouseY - cursorY) * dt;
+
+            gsap.set(cursor, {
+                x: cursorX - 20,
+                y: cursorY - 20,
+            });
+        });
+
+        // Magnetic effect
+        const magnets = document.querySelectorAll("[data-magnetic]");
+        magnets.forEach((magnet) => {
+            magnet.addEventListener("mouseenter", () => {
+                gsap.to(circle, {
+                    attr: { r: 18 },
+                    duration: 0.3,
+                    ease: "power2.out",
+                });
+            });
+
+            magnet.addEventListener("mouseleave", () => {
+                gsap.to(circle, {
+                    attr: { r: 8 },
+                    duration: 0.3,
+                    ease: "power2.out",
+                });
+            });
+        });
+    }
+
+    // Run on initial load
+    initCursor();
+
+    // Run on view transition navigation
+    document.addEventListener("astro:page-load", initCursor);
+</script>

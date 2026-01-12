@@ -11,7 +11,8 @@ const {
 import "@/styles/global.css";
 import NavBar from "@/components/ui/NavBar.astro";
 import Footer from "@/components/ui/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import CustomCursor from "@/components/ui/CustomCursor.astro";
+import { ClientRouter } from "astro:transitions";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
 import "@fontsource/manrope/500.css";
@@ -95,15 +96,40 @@ import "@fontsource/manrope/800.css";
         </script>
 
         <title>{title}</title>
-        <ViewTransitions />
+        <ClientRouter />
     </head>
-    <body class="selection:bg-signal-emerald selection:text-void-black">
+    <body
+        class="selection:bg-signal-emerald selection:text-void-black relative"
+    >
+        <CustomCursor />
+        <!-- Noise Texture Overlay -->
+        <div class="grain-overlay"></div>
+
         <NavBar />
         <main class="relative z-10">
             <slot />
         </main>
         <Footer />
         <style is:global>
+            /* Smooth background transitions */
+            body {
+                transition: background-color 0.5s ease;
+            }
+
+            .grain-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                pointer-events: none;
+                opacity: 0.035;
+                mix-blend-mode: overlay;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            }
+
+            .dark .grain-overlay {
+                opacity: 0.05;
+            }
+
             .reveal {
                 opacity: 0;
                 transform: translateY(20px);
@@ -118,7 +144,13 @@ import "@fontsource/manrope/800.css";
         </style>
 
         <script>
-            function initScrollReveal() {
+            import { gsap } from "gsap";
+            import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            function initScrollAnimations() {
+                // Scroll Reveal
                 const observerOptions = {
                     root: null,
                     rootMargin: "0px",
@@ -129,21 +161,36 @@ import "@fontsource/manrope/800.css";
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("active");
-                            // Optional: unobserve after reveal
-                            // observer.unobserve(entry.target);
                         }
                     });
                 }, observerOptions);
 
                 const revealElements = document.querySelectorAll(".reveal");
                 revealElements.forEach((el) => observer.observe(el));
+
+                // Parallax Headings
+                const parallaxHeadings =
+                    document.querySelectorAll("[data-parallax]");
+                parallaxHeadings.forEach((el) => {
+                    const speed = el.getAttribute("data-parallax") || "0.1";
+                    gsap.to(el, {
+                        y: 50 * parseFloat(speed),
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true,
+                        },
+                    });
+                });
             }
 
             // Run on initial load
-            initScrollReveal();
+            initScrollAnimations();
 
             // Run on view transition navigation
-            document.addEventListener("astro:page-load", initScrollReveal);
+            document.addEventListener("astro:page-load", initScrollAnimations);
         </script>
     </body>
 </html>
