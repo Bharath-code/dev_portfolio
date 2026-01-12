@@ -1,0 +1,113 @@
+---
+/**
+ * Repository Showcase
+ * Displays top repositories from GitHub (excluding curated projects)
+ */
+import Heading from "./Heading.astro";
+import { fetchTopRepositories, GITHUB_USERNAME_EXPORT } from "@/lib/github";
+import { siteContent } from "@/content/site-content";
+import { Star, GitFork, ArrowUpRight } from "lucide-react";
+
+// Get repo names from curated projects to exclude them
+const curatedRepoNames = siteContent.projects
+    .map((p) => {
+        const match = p.link.match(/github\.com\/[^/]+\/([^/]+)/);
+        return match ? match[1].replace(/\.git$/, "").toLowerCase() : null;
+    })
+    .filter(Boolean) as string[];
+
+// Fetch more repos to account for filtering
+const allRepos = await fetchTopRepositories(12);
+
+// Filter out repos that are already in Selected Work
+const filteredRepos = allRepos
+    .filter((repo) => !curatedRepoNames.includes(repo.name.toLowerCase()))
+    .slice(0, 6);
+
+// Fallback mock data if API fails or no repos after filtering
+const displayRepos =
+    filteredRepos.length > 0
+        ? filteredRepos
+        : [
+              {
+                  name: "example-repo",
+                  description: "Example repository",
+                  url: "#",
+                  stargazerCount: 0,
+                  forkCount: 0,
+                  primaryLanguage: { name: "TypeScript", color: "#3178c6" },
+                  updatedAt: "2024-01-01",
+              },
+          ];
+
+// Only show section if we have repos to display (that aren't in Selected Work)
+const shouldShow = filteredRepos.length > 0;
+---
+
+{
+    shouldShow && (
+        <section class="reveal px-4 py-24 md:px-8 bg-black/5 dark:bg-surface-dark/50">
+            <div class="mx-auto max-w-[1400px]">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                    <div>
+                        <Heading variant="section">More Projects</Heading>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">
+                            Other open source work
+                        </p>
+                    </div>
+                    <a
+                        href={`https://github.com/${GITHUB_USERNAME_EXPORT}?tab=repositories`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-500 hover:text-signal-emerald transition-colors inline-flex items-center gap-1"
+                    >
+                        View all repositories{" "}
+                        <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {displayRepos.map((repo) => (
+                        <a
+                            href={repo.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group block p-6 rounded-xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 transition-all duration-300 hover:border-signal-emerald/50 hover:-translate-y-1 hover:shadow-lg"
+                        >
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="font-display text-lg font-bold text-black dark:text-white group-hover:text-signal-emerald transition-colors">
+                                    {repo.name}
+                                </h3>
+                                <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-signal-emerald transition-colors" />
+                            </div>
+
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 min-h-[2.5rem]">
+                                {repo.description || "No description"}
+                            </p>
+
+                            <div class="flex items-center gap-4 text-sm text-gray-500">
+                                {repo.primaryLanguage && (
+                                    <span class="flex items-center gap-1">
+                                        <span
+                                            class="w-3 h-3 rounded-full"
+                                            style={`background-color: ${repo.primaryLanguage.color}`}
+                                        />
+                                        {repo.primaryLanguage.name}
+                                    </span>
+                                )}
+                                <span class="flex items-center gap-1">
+                                    <Star className="w-4 h-4" />
+                                    {repo.stargazerCount}
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <GitFork className="w-4 h-4" />
+                                    {repo.forkCount}
+                                </span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}

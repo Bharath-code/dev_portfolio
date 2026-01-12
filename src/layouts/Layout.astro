@@ -12,6 +12,8 @@ import "@/styles/global.css";
 import NavBar from "@/components/ui/NavBar.astro";
 import Footer from "@/components/ui/Footer.astro";
 import CustomCursor from "@/components/ui/CustomCursor.astro";
+import Preloader from "@/components/ui/Preloader.astro";
+import RecruiterPanel from "@/components/ui/RecruiterPanel.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
@@ -101,6 +103,7 @@ import "@fontsource/manrope/800.css";
     <body
         class="selection:bg-signal-emerald selection:text-void-black relative"
     >
+        <Preloader />
         <CustomCursor />
         <!-- Noise Texture Overlay -->
         <div class="grain-overlay"></div>
@@ -109,6 +112,7 @@ import "@fontsource/manrope/800.css";
         <main class="relative z-10">
             <slot />
         </main>
+        <RecruiterPanel />
         <Footer />
         <style is:global>
             /* Smooth background transitions */

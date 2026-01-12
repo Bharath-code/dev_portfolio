@@ -1,0 +1,269 @@
+---
+/**
+ * GitHub Activity Heatmap with Streak Stats
+ * Fetches contribution data and renders a year-long activity visualization
+ */
+import Heading from "./Heading.astro";
+import {
+    fetchContributionStats,
+    calculateStreaks,
+    GITHUB_USERNAME_EXPORT,
+} from "@/lib/github";
+
+interface ContributionDay {
+    date: string;
+    contributionCount: number;
+    color: string;
+}
+
+interface ContributionWeek {
+    contributionDays: ContributionDay[];
+}
+
+function generateMockData(): ContributionWeek[] {
+    const weeks: ContributionWeek[] = [];
+    const today = new Date();
+
+    for (let w = 52; w >= 0; w--) {
+        const days: ContributionDay[] = [];
+        for (let d = 0; d < 7; d++) {
+            const date = new Date(today);
+            date.setDate(date.getDate() - (w * 7 + (6 - d)));
+            const count =
+                Math.random() > 0.3 ? Math.floor(Math.random() * 10) : 0;
+            days.push({
+                date: date.toISOString().split("T")[0],
+                contributionCount: count,
+                color: getColorForCount(count),
+            });
+        }
+        weeks.push({ contributionDays: days });
+    }
+    return weeks;
+}
+
+function getColorForCount(count: number): string {
+    if (count === 0) return "var(--color-empty)";
+    if (count <= 2) return "var(--color-low)";
+    if (count <= 5) return "var(--color-medium)";
+    if (count <= 8) return "var(--color-high)";
+    return "var(--color-max)";
+}
+
+// Fetch real data or use mock
+const contributionData = await fetchContributionStats();
+const weeks = contributionData?.weeks || generateMockData();
+const totalContributions =
+    contributionData?.totalContributions ||
+    weeks.reduce(
+        (sum, week) =>
+            sum +
+            week.contributionDays.reduce((s, d) => s + d.contributionCount, 0),
+        0,
+    );
+
+// Calculate streaks
+const streaks = calculateStreaks(weeks);
+---
+
+<section
+    class="reveal px-4 py-24 md:px-8 border-b border-black/10 dark:border-white/10"
+>
+    <div class="mx-auto max-w-[1000px]">
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8"
+        >
+            <div>
+                <Heading variant="section">Activity</Heading>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">
+                    <span class="text-2xl font-display text-signal-emerald"
+                        >{totalContributions.toLocaleString()}</span
+                    >
+                    <span class="ml-2">contributions in the last year</span>
+                </p>
+            </div>
+            <a
+                href={`https://github.com/${GITHUB_USERNAME_EXPORT}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-gray-500 hover:text-signal-emerald transition-colors"
+            >
+                @{GITHUB_USERNAME_EXPORT} →
+            </a>
+        </div>
+
+        <!-- Streak Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div
+                class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
+            >
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Total
+                </p>
+                <p class="text-2xl font-display text-black dark:text-white">
+                    {totalContributions.toLocaleString()}
+                </p>
+            </div>
+            <div
+                class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
+            >
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Current Streak
+                </p>
+                <p class="text-2xl font-display text-signal-emerald">
+                    {streaks.current} days
+                </p>
+            </div>
+            <div
+                class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
+            >
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Longest Streak
+                </p>
+                <p class="text-2xl font-display text-black dark:text-white">
+                    {streaks.longest} days
+                </p>
+            </div>
+            <div
+                class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
+            >
+                <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Avg / Week
+                </p>
+                <p class="text-2xl font-display text-black dark:text-white">
+                    {Math.round(totalContributions / 52)}
+                </p>
+            </div>
+        </div>
+
+        <div class="heatmap-container overflow-x-auto pb-4">
+            <svg
+                class="heatmap"
+                width={weeks.length * 14 + 40}
+                height={7 * 14 + 20}
+                role="img"
+                aria-label="GitHub contribution heatmap"
+            >
+                <!-- Day labels -->
+                <g class="day-labels" transform="translate(0, 20)">
+                    <text x="0" y="8" class="text-[10px] fill-gray-400"
+                        >Mon</text
+                    >
+                    <text x="0" y="36" class="text-[10px] fill-gray-400"
+                        >Wed</text
+                    >
+                    <text x="0" y="64" class="text-[10px] fill-gray-400"
+                        >Fri</text
+                    >
+                </g>
+
+                <!-- Contribution cells -->
+                <g transform="translate(30, 10)">
+                    {
+                        weeks.map((week, weekIndex) => (
+                            <g transform={`translate(${weekIndex * 14}, 0)`}>
+                                {week.contributionDays.map((day, dayIndex) => (
+                                    <rect
+                                        x="0"
+                                        y={dayIndex * 14}
+                                        width="11"
+                                        height="11"
+                                        rx="2"
+                                        class="contribution-cell"
+                                        data-count={day.contributionCount}
+                                        data-date={day.date}
+                                        style={`fill: ${day.color || getColorForCount(day.contributionCount)}`}
+                                    >
+                                        <title>
+                                            {day.date}: {day.contributionCount}{" "}
+                                            contribution
+                                            {day.contributionCount !== 1
+                                                ? "s"
+                                                : ""}
+                                        </title>
+                                    </rect>
+                                ))}
+                            </g>
+                        ))
+                    }
+                </g>
+            </svg>
+        </div>
+
+        <!-- Legend -->
+        <div
+            class="flex items-center justify-end gap-2 mt-4 text-xs text-gray-500"
+        >
+            <span>Less</span>
+            <div class="flex gap-1">
+                <div
+                    class="w-3 h-3 rounded-sm"
+                    style="background: var(--color-empty)"
+                >
+                </div>
+                <div
+                    class="w-3 h-3 rounded-sm"
+                    style="background: var(--color-low)"
+                >
+                </div>
+                <div
+                    class="w-3 h-3 rounded-sm"
+                    style="background: var(--color-medium)"
+                >
+                </div>
+                <div
+                    class="w-3 h-3 rounded-sm"
+                    style="background: var(--color-high)"
+                >
+                </div>
+                <div
+                    class="w-3 h-3 rounded-sm"
+                    style="background: var(--color-max)"
+                >
+                </div>
+            </div>
+            <span>More</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --color-empty: rgba(0, 0, 0, 0.05);
+        --color-low: #9be9a8;
+        --color-medium: #40c463;
+        --color-high: #30a14e;
+        --color-max: #216e39;
+    }
+
+    :root.dark {
+        --color-empty: rgba(255, 255, 255, 0.05);
+        --color-low: #0e4429;
+        --color-medium: #006d32;
+        --color-high: #26a641;
+        --color-max: #39d353;
+    }
+
+    .contribution-cell {
+        transition: transform 0.1s ease;
+    }
+
+    .contribution-cell:hover {
+        transform: scale(1.2);
+        stroke: currentColor;
+        stroke-width: 1;
+    }
+
+    .heatmap-container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .heatmap-container::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .heatmap-container::-webkit-scrollbar-thumb {
+        background: rgba(128, 128, 128, 0.3);
+        border-radius: 3px;
+    }
+</style>

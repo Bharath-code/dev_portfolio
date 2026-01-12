@@ -1,0 +1,453 @@
+---
+/**
+ * Recruiter Mode Panel
+ * A floating panel with quick-access information for recruiters
+ */
+import { siteContent } from "@/content/site-content";
+
+// Calculate years of experience from first job
+const firstJobYear = 2019; // Update based on your experience
+const yearsOfExperience = new Date().getFullYear() - firstJobYear;
+
+// Core technologies (top 5)
+const coreStack = ["React", "TypeScript", "Node.js", "Python", "AWS"];
+---
+
+<div id="recruiter-panel" class="recruiter-panel">
+    <div class="panel-backdrop"></div>
+    <div class="panel-content">
+        <!-- Header -->
+        <div class="panel-header">
+            <div>
+                <h2 class="text-lg font-display font-bold text-white">
+                    Recruiter Quick View
+                </h2>
+                <p class="text-xs text-gray-400">Key information at a glance</p>
+            </div>
+            <button
+                id="close-recruiter"
+                class="close-btn"
+                aria-label="Close recruiter panel"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <svg
+                    class="w-4 h-4 text-signal-emerald"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                </svg>
+                <div>
+                    <span class="stat-value">{yearsOfExperience}+ Years</span>
+                    <span class="stat-label">Experience</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <svg
+                    class="w-4 h-4 text-signal-emerald"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <div>
+                    <span class="stat-value">India</span>
+                    <span class="stat-label">Location</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <svg
+                    class="w-4 h-4 text-signal-emerald"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                    <span class="stat-value available">Available</span>
+                    <span class="stat-label">Status</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="section">
+            <h3 class="section-title">Core Stack</h3>
+            <div class="tech-tags">
+                {coreStack.map((tech) => <span class="tech-tag">{tech}</span>)}
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <a href="/resume.pdf" download class="action-btn primary">
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    ></path>
+                </svg>
+                Download Resume
+            </a>
+            <a
+                href="https://calendly.com/bharathkumar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="action-btn secondary"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                </svg>
+                Schedule Call
+            </a>
+            <a
+                href="mailto:kumarbharath63@icloud.com"
+                class="action-btn secondary"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                </svg>
+                Send Email
+            </a>
+        </div>
+
+        <!-- Footer Note -->
+        <p class="footer-note">
+            Open to full-time roles, contracts, and consulting
+        </p>
+    </div>
+</div>
+
+<!-- Toggle Button (Fixed Position) -->
+<button
+    id="recruiter-toggle"
+    class="recruiter-toggle"
+    aria-label="Toggle recruiter mode"
+>
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        ></path>
+    </svg>
+    <span>For Recruiters</span>
+</button>
+
+<style>
+    .recruiter-panel {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .recruiter-panel.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .panel-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+    }
+
+    .panel-content {
+        position: relative;
+        width: 90%;
+        max-width: 400px;
+        background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transform: translateY(20px) scale(0.95);
+        transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .recruiter-panel.open .panel-content {
+        transform: translateY(0) scale(1);
+    }
+
+    .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .close-btn {
+        color: #888;
+        transition: color 0.2s;
+        padding: 0.25rem;
+    }
+
+    .close-btn:hover {
+        color: white;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .stat-value {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 0.875rem;
+        color: white;
+    }
+
+    .stat-value.available {
+        color: #10b981;
+    }
+
+    .stat-label {
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #666;
+    }
+
+    .section {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #666;
+        margin-bottom: 0.75rem;
+    }
+
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        padding: 0.375rem 0.75rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        color: #10b981;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .action-btn.primary {
+        background: #10b981;
+        color: black;
+    }
+
+    .action-btn.primary:hover {
+        background: #059669;
+        transform: translateY(-1px);
+    }
+
+    .action-btn.secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .action-btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-note {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #666;
+        font-style: italic;
+    }
+
+    /* Toggle Button */
+    .recruiter-toggle {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 9997;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 9999px;
+        color: #10b981;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .recruiter-toggle:hover {
+        border-color: #10b981;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(16, 185, 129, 0.2);
+    }
+
+    .recruiter-toggle.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    @media (max-width: 640px) {
+        .recruiter-toggle span {
+            display: none;
+        }
+        .recruiter-toggle {
+            padding: 0.875rem;
+        }
+    }
+</style>
+
+<script>
+    function initRecruiterPanel() {
+        const panelEl = document.getElementById("recruiter-panel");
+        const toggleEl = document.getElementById("recruiter-toggle");
+        const closeBtn = document.getElementById("close-recruiter");
+
+        if (!panelEl || !toggleEl) return;
+
+        const panel = panelEl;
+        const toggle = toggleEl;
+        const backdrop = panel.querySelector(".panel-backdrop");
+
+        function openPanel() {
+            panel.classList.add("open");
+            toggle.classList.add("hidden");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closePanel() {
+            panel.classList.remove("open");
+            toggle.classList.remove("hidden");
+            document.body.style.overflow = "";
+        }
+
+        toggle.addEventListener("click", openPanel);
+        if (closeBtn) closeBtn.addEventListener("click", closePanel);
+        if (backdrop) backdrop.addEventListener("click", closePanel);
+
+        // ESC key to close
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && panel.classList.contains("open")) {
+                closePanel();
+            }
+        });
+    }
+
+    initRecruiterPanel();
+    document.addEventListener("astro:page-load", initRecruiterPanel);
+</script>

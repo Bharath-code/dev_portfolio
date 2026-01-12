@@ -1,9 +1,15 @@
 ---
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star, GitFork, Clock } from "lucide-react";
 
 interface Metric {
     label: string;
     value: string;
+}
+
+interface GitHubStats {
+    stargazerCount: number;
+    forkCount: number;
+    updatedAt: string;
 }
 
 interface Props {
@@ -13,11 +19,32 @@ interface Props {
     badges: string[];
     metrics: Metric[];
     link: string;
+    githubStats?: GitHubStats;
 }
 
-const { slug, title, description, badges, metrics, link } = Astro.props;
+const { slug, title, description, badges, metrics, link, githubStats } =
+    Astro.props;
 const href = slug ? `/projects/${slug}` : link;
 const isExternal = !slug;
+
+// Format relative time for "Last Updated"
+function formatRelativeTime(dateStr: string): string {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return "today";
+    if (diffDays === 1) return "yesterday";
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+    return `${Math.floor(diffDays / 365)} years ago`;
+}
+
+const lastUpdated = githubStats?.updatedAt
+    ? formatRelativeTime(githubStats.updatedAt)
+    : null;
 ---
 
 <a
@@ -42,6 +69,21 @@ const isExternal = !slug;
                         </span>
                     ))
                 }
+                {/* GitHub Stats Badges */}
+                {
+                    githubStats && (
+                        <>
+                            <span class="rounded-full border border-signal-emerald/30 bg-signal-emerald/10 px-3 py-1 text-xs font-medium text-signal-emerald flex items-center gap-1">
+                                <Star className="w-3 h-3" />
+                                {githubStats.stargazerCount}
+                            </span>
+                            <span class="rounded-full border border-signal-emerald/30 bg-signal-emerald/10 px-3 py-1 text-xs font-medium text-signal-emerald flex items-center gap-1">
+                                <GitFork className="w-3 h-3" />
+                                {githubStats.forkCount}
+                            </span>
+                        </>
+                    )
+                }
             </div>
             <ArrowUpRight
                 className="h-6 w-6 text-gray-500 dark:text-gray-400 transition-all duration-300 group-hover:text-signal-emerald group-hover:scale-110"
@@ -61,10 +103,10 @@ const isExternal = !slug;
         </p>
 
         <div
-            class="grid grid-cols-2 gap-4 border-t border-black/10 dark:border-white/10 pt-6"
+            class="grid grid-cols-2 md:grid-cols-3 gap-4 border-t border-black/10 dark:border-white/10 pt-6"
         >
             {
-                metrics.map((metric) => (
+                metrics.slice(0, githubStats ? 2 : 4).map((metric) => (
                     <div>
                         <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1">
                             {metric.label}
@@ -74,6 +116,20 @@ const isExternal = !slug;
                         </p>
                     </div>
                 ))
+            }
+            {/* GitHub Stats in Metrics Grid */}
+            {
+                githubStats && lastUpdated && (
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1 flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            Updated
+                        </p>
+                        <p class="font-display text-lg font-bold text-black dark:text-white transition-colors group-hover:text-signal-emerald">
+                            {lastUpdated}
+                        </p>
+                    </div>
+                )
             }
         </div>
     </div>

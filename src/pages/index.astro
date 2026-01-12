@@ -5,9 +5,25 @@ import ProjectCard from "@/components/ui/ProjectCard.astro";
 import Experience from "@/components/ui/Experience.astro";
 import Heading from "@/components/ui/Heading.astro";
 import Skills from "@/components/ui/Skills.astro";
+import GitHubHeatmap from "@/components/ui/GitHubHeatmap.astro";
+import LanguageChart from "@/components/ui/LanguageChart.astro";
+import RepoShowcase from "@/components/ui/RepoShowcase.astro";
 import { ImpactMetrics } from "@/components/ui/ImpactMetrics";
 import { siteContent } from "@/content/site-content";
+import { fetchRepoStatsByUrls } from "@/lib/github";
 import { ArrowUpRight } from "lucide-react";
+
+// Fetch GitHub stats for curated projects at build time
+const projectUrls = siteContent.projects.map((p) => p.link);
+const repoStatsMap = await fetchRepoStatsByUrls(projectUrls);
+
+// Helper to get stats for a project
+function getStatsForProject(link: string) {
+    const match = link.match(/github\.com\/[^/]+\/([^/]+)/);
+    if (!match) return undefined;
+    const repoName = match[1].replace(/\.git$/, "").toLowerCase();
+    return repoStatsMap.get(repoName);
+}
 ---
 
 <Layout title="Bharath | Senior Frontend Architect">
@@ -49,27 +65,31 @@ import { ArrowUpRight } from "lucide-react";
             >
                 <div>
                     <Heading variant="section">Selected Work</Heading>
-                    <p
-                        class="max-w-xl text-lg text-gray-600 dark:text-gray-400"
-                    >
-                        Architectural initiatives and developer tooling that
-                        solve scale.
+                    <p class="text-gray-600 dark:text-gray-400 max-w-xl">
+                        A curated selection of projects demonstrating
+                        architectural thinking and technical execution.
                     </p>
                 </div>
                 <a
                     href="https://github.com/Bharath-code"
                     target="_blank"
-                    class="text-signal-emerald hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
+                    rel="noopener noreferrer"
+                    class="group inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-signal-emerald"
                 >
-                    View GitHub <ArrowUpRight className="w-4 h-4" />
+                    View All Projects
+                    <ArrowUpRight
+                        className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
                 </a>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid gap-6 md:grid-cols-2">
                 {
                     siteContent.projects.map((project) => (
                         <div class="reveal">
-                            <ProjectCard {...project} />
+                            <ProjectCard
+                                {...project}
+                                githubStats={getStatsForProject(project.link)}
+                            />
                         </div>
                     ))
                 }
@@ -91,6 +111,11 @@ import { ArrowUpRight } from "lucide-react";
             <Experience items={siteContent.experience} />
         </div>
     </section>
+
+    <!-- GitHub Activity Section -->
+    <GitHubHeatmap />
+    <LanguageChart />
+    <RepoShowcase />
 
     <section
         class="h-[30vh] flex items-center justify-center border-t border-white/10"
