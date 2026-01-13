@@ -173,8 +173,8 @@ const accentColors = [
     }
 </style>
 
-<script>
-    function initThemeCustomizer() {
+<script is:inline>
+    (function initThemeCustomizer() {
         const toggle = document.getElementById("theme-toggle");
         const panel = document.getElementById("color-panel");
         const options = document.querySelectorAll(".color-option");
@@ -185,30 +185,37 @@ const accentColors = [
         const savedAccent = localStorage.getItem("accent-color");
         if (savedAccent) {
             document.documentElement.classList.add(savedAccent);
-            options.forEach((opt) => {
+            options.forEach(function (opt) {
                 if (opt.getAttribute("data-accent") === savedAccent) {
                     opt.classList.add("active");
                 }
             });
         }
 
+        // Cleanup previous listeners to avoid duplicates on re-init
+        const newToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(newToggle, toggle);
+
         // Toggle panel
-        toggle.addEventListener("click", () => {
+        newToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
             panel.classList.toggle("open");
         });
 
         // Close on outside click
-        document.addEventListener("click", (e) => {
-            const target = e.target as HTMLElement;
-            if (!target.closest("#theme-customizer")) {
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest("#theme-customizer")) {
                 panel.classList.remove("open");
             }
         });
 
-        // Color selection
-        options.forEach((option) => {
-            option.addEventListener("click", () => {
-                const accent = option.getAttribute("data-accent");
+        // Color selection - clone to remove old listeners
+        options.forEach(function (option) {
+            const newOption = option.cloneNode(true);
+            option.parentNode.replaceChild(newOption, option);
+
+            newOption.addEventListener("click", function () {
+                const accent = newOption.getAttribute("data-accent");
                 if (!accent) return;
 
                 // Remove all accent classes
@@ -225,12 +232,69 @@ const accentColors = [
                 localStorage.setItem("accent-color", accent);
 
                 // Update active state
-                options.forEach((opt) => opt.classList.remove("active"));
-                option.classList.add("active");
+                document
+                    .querySelectorAll(".color-option")
+                    .forEach(function (opt) {
+                        opt.classList.remove("active");
+                    });
+                newOption.classList.add("active");
             });
         });
-    }
+    })();
 
-    initThemeCustomizer();
-    document.addEventListener("astro:page-load", initThemeCustomizer);
+    document.addEventListener("astro:page-load", function () {
+        const toggle = document.getElementById("theme-toggle");
+        const panel = document.getElementById("color-panel");
+        const options = document.querySelectorAll(".color-option");
+
+        if (!toggle || !panel) return;
+
+        // Load saved accent
+        const savedAccent = localStorage.getItem("accent-color");
+        if (savedAccent) {
+            document.documentElement.classList.add(savedAccent);
+            options.forEach(function (opt) {
+                if (opt.getAttribute("data-accent") === savedAccent) {
+                    opt.classList.add("active");
+                }
+            });
+        }
+
+        // Cleanup previous listeners
+        const newToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(newToggle, toggle);
+
+        newToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            panel.classList.toggle("open");
+        });
+
+        options.forEach(function (option) {
+            const newOption = option.cloneNode(true);
+            option.parentNode.replaceChild(newOption, option);
+
+            newOption.addEventListener("click", function () {
+                const accent = newOption.getAttribute("data-accent");
+                if (!accent) return;
+
+                document.documentElement.classList.remove(
+                    "accent-emerald",
+                    "accent-blue",
+                    "accent-purple",
+                    "accent-rose",
+                    "accent-amber",
+                );
+
+                document.documentElement.classList.add(accent);
+                localStorage.setItem("accent-color", accent);
+
+                document
+                    .querySelectorAll(".color-option")
+                    .forEach(function (opt) {
+                        opt.classList.remove("active");
+                    });
+                newOption.classList.add("active");
+            });
+        });
+    });
 </script>

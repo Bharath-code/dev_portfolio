@@ -56,6 +56,12 @@ import "@fontsource/manrope/800.css";
                 } else {
                     document.documentElement.classList.remove("dark");
                 }
+
+                // Initialize accent color to prevent FOUC
+                const savedAccent = localStorage.getItem("accent-color");
+                if (savedAccent) {
+                    document.documentElement.classList.add(savedAccent);
+                }
             })();
         </script>
         <meta name="viewport" content="width=device-width" />
