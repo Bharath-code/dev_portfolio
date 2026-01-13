@@ -1,0 +1,275 @@
+---
+/**
+ * Terminal About Section
+ * Interactive CLI-style component where visitors can type commands
+ */
+import { siteContent } from "@/content/site-content";
+
+const commands = {
+    about: `Hi! I'm Bharath, a Senior Frontend Architect with ${new Date().getFullYear() - 2019}+ years of experience.
+I specialize in building scalable web applications and AI-powered tools.
+Currently focused on React, TypeScript, and modern frontend architecture.`,
+    skills: siteContent.skills.join(" • "),
+    contact: `Email: kumarbharath63@icloud.com
+GitHub: github.com/Bharath-code
+LinkedIn: linkedin.com/in/bharath-kumar`,
+    experience: siteContent.experience
+        .map((e) => `${e.role} @ ${e.company} (${e.period})`)
+        .join("\n"),
+    help: `Available commands:
+  about     - Learn about me
+  skills    - View my tech stack
+  contact   - Get my contact info
+  experience - See my work history
+  clear     - Clear the terminal
+  help      - Show this help`,
+};
+---
+
+<section class="reveal px-4 py-24 md:px-8">
+    <div class="mx-auto max-w-[800px]">
+        <div class="terminal">
+            <!-- Terminal Header -->
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-maximize"></span>
+                </div>
+                <span class="terminal-title">bharath@portfolio ~ </span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div id="terminal-output" class="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="command typing">help</span>
+                </div>
+                <div
+                    class="output"
+                    set:html={commands.help.replace(/\n/g, "<br>")}
+                />
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="command typing" style="animation-delay: 2s;"
+                        >about</span
+                    >
+                </div>
+                <div
+                    class="output"
+                    style="animation-delay: 2.5s;"
+                    set:html={commands.about.replace(/\n/g, "<br>")}
+                />
+            </div>
+
+            <!-- Input -->
+            <div class="terminal-input-wrapper">
+                <span class="prompt">$</span>
+                <input
+                    type="text"
+                    id="terminal-input"
+                    class="terminal-input"
+                    placeholder="Type a command... (try: about, skills, contact)"
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .terminal {
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        font-family: "JetBrains Mono", "Fira Code", monospace;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        background: #1a1a1a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .terminal-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .terminal-buttons span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .btn-close {
+        background: #ff5f57;
+    }
+    .btn-minimize {
+        background: #febc2e;
+    }
+    .btn-maximize {
+        background: #28c840;
+    }
+
+    .terminal-title {
+        font-size: 0.75rem;
+        color: #666;
+    }
+
+    .terminal-body {
+        padding: 1rem;
+        min-height: 200px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .terminal-line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .prompt {
+        color: #10b981;
+        font-weight: bold;
+    }
+
+    .command {
+        color: #fff;
+    }
+
+    .typing {
+        overflow: hidden;
+        animation: typing 0.5s steps(10) forwards;
+        opacity: 0;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes typing {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .output {
+        color: #888;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        opacity: 0;
+        animation: fadeIn 0.3s ease forwards;
+        animation-delay: 1s;
+    }
+
+    .output:last-of-type {
+        animation-delay: 3s;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    .terminal-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: #0d0d0d;
+    }
+
+    .terminal-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: white;
+        font-family: inherit;
+        font-size: 0.875rem;
+        outline: none;
+    }
+
+    .terminal-input::placeholder {
+        color: #444;
+    }
+
+    /* Scrollbar */
+    .terminal-body::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .terminal-body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .terminal-body::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 3px;
+    }
+</style>
+
+<script define:vars={{ commands }}>
+    function initTerminal() {
+        const input = document.getElementById("terminal-input");
+        const output = document.getElementById("terminal-output");
+
+        if (!input || !output) return;
+
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                const cmd = input.value.trim().toLowerCase();
+                input.value = "";
+
+                if (!cmd) return;
+
+                // Add command line
+                const cmdLine = document.createElement("div");
+                cmdLine.className = "terminal-line";
+                cmdLine.innerHTML = `<span class="prompt">$</span><span class="command">${cmd}</span>`;
+                output.appendChild(cmdLine);
+
+                // Process command
+                let result = "";
+                if (cmd === "clear") {
+                    output.innerHTML = "";
+                    return;
+                } else if (commands[cmd]) {
+                    result = commands[cmd];
+                } else {
+                    result = `Command not found: ${cmd}. Type 'help' for available commands.`;
+                }
+
+                // Add output
+                const outputLine = document.createElement("div");
+                outputLine.className = "output";
+                outputLine.style.opacity = "1";
+                outputLine.innerHTML = result.replace(/\n/g, "<br>");
+                output.appendChild(outputLine);
+
+                // Scroll to bottom
+                output.scrollTop = output.scrollHeight;
+            }
+        });
+
+        // Focus input on terminal click
+        document.querySelector(".terminal")?.addEventListener("click", () => {
+            input.focus();
+        });
+    }
+
+    initTerminal();
+    document.addEventListener("astro:page-load", initTerminal);
+</script>

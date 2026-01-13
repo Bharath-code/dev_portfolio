@@ -1,0 +1,236 @@
+---
+/**
+ * Theme Customizer
+ * Lets visitors toggle accent colors
+ */
+const accentColors = [
+    { name: "Emerald", value: "#10b981", class: "accent-emerald" },
+    { name: "Blue", value: "#3b82f6", class: "accent-blue" },
+    { name: "Purple", value: "#8b5cf6", class: "accent-purple" },
+    { name: "Rose", value: "#f43f5e", class: "accent-rose" },
+    { name: "Amber", value: "#f59e0b", class: "accent-amber" },
+];
+---
+
+<div id="theme-customizer" class="theme-customizer">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Customize theme">
+        <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            ></path>
+        </svg>
+    </button>
+
+    <div id="color-panel" class="color-panel">
+        <span class="panel-title">Accent Color</span>
+        <div class="color-options">
+            {
+                accentColors.map((color) => (
+                    <button
+                        class="color-option"
+                        data-accent={color.class}
+                        style={`background-color: ${color.value}`}
+                        aria-label={`Set ${color.name} accent`}
+                        title={color.name}
+                    />
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .theme-customizer {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9995;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .theme-toggle {
+        padding: 0.75rem;
+        background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .theme-toggle:hover {
+        color: white;
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    .color-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(
+            145deg,
+            rgba(26, 26, 26, 0.95),
+            rgba(13, 13, 13, 0.95)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2rem;
+        backdrop-filter: blur(12px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .color-panel.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .panel-title {
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #666;
+    }
+
+    .color-options {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .color-option {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .color-option:hover {
+        transform: scale(1.2);
+    }
+
+    .color-option.active {
+        border-color: white;
+        box-shadow: 0 0 10px currentColor;
+    }
+
+    @media (max-width: 640px) {
+        .theme-customizer {
+            bottom: 1rem;
+        }
+    }
+</style>
+
+<style is:global>
+    /* Accent Color Variants */
+    :root.accent-emerald {
+        --color-accent: #10b981;
+    }
+    :root.accent-blue {
+        --color-accent: #3b82f6;
+    }
+    :root.accent-purple {
+        --color-accent: #8b5cf6;
+    }
+    :root.accent-rose {
+        --color-accent: #f43f5e;
+    }
+    :root.accent-amber {
+        --color-accent: #f59e0b;
+    }
+
+    /* Apply accent color to signal-emerald */
+    :root[class*="accent-"] .text-signal-emerald {
+        color: var(--color-accent) !important;
+    }
+    :root[class*="accent-"] .bg-signal-emerald {
+        background-color: var(--color-accent) !important;
+    }
+    :root[class*="accent-"] .border-signal-emerald {
+        border-color: var(--color-accent) !important;
+    }
+    :root[class*="accent-"] .hover\:text-signal-emerald:hover {
+        color: var(--color-accent) !important;
+    }
+</style>
+
+<script>
+    function initThemeCustomizer() {
+        const toggle = document.getElementById("theme-toggle");
+        const panel = document.getElementById("color-panel");
+        const options = document.querySelectorAll(".color-option");
+
+        if (!toggle || !panel) return;
+
+        // Load saved accent
+        const savedAccent = localStorage.getItem("accent-color");
+        if (savedAccent) {
+            document.documentElement.classList.add(savedAccent);
+            options.forEach((opt) => {
+                if (opt.getAttribute("data-accent") === savedAccent) {
+                    opt.classList.add("active");
+                }
+            });
+        }
+
+        // Toggle panel
+        toggle.addEventListener("click", () => {
+            panel.classList.toggle("open");
+        });
+
+        // Close on outside click
+        document.addEventListener("click", (e) => {
+            const target = e.target as HTMLElement;
+            if (!target.closest("#theme-customizer")) {
+                panel.classList.remove("open");
+            }
+        });
+
+        // Color selection
+        options.forEach((option) => {
+            option.addEventListener("click", () => {
+                const accent = option.getAttribute("data-accent");
+                if (!accent) return;
+
+                // Remove all accent classes
+                document.documentElement.classList.remove(
+                    "accent-emerald",
+                    "accent-blue",
+                    "accent-purple",
+                    "accent-rose",
+                    "accent-amber",
+                );
+
+                // Add new accent
+                document.documentElement.classList.add(accent);
+                localStorage.setItem("accent-color", accent);
+
+                // Update active state
+                options.forEach((opt) => opt.classList.remove("active"));
+                option.classList.add("active");
+            });
+        });
+    }
+
+    initThemeCustomizer();
+    document.addEventListener("astro:page-load", initThemeCustomizer);
+</script>

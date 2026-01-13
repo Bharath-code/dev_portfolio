@@ -14,6 +14,8 @@ import Footer from "@/components/ui/Footer.astro";
 import CustomCursor from "@/components/ui/CustomCursor.astro";
 import Preloader from "@/components/ui/Preloader.astro";
 import RecruiterPanel from "@/components/ui/RecruiterPanel.astro";
+import CurrentlyBuilding from "@/components/ui/CurrentlyBuilding.astro";
+import ThemeCustomizer from "@/components/ui/ThemeCustomizer.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
@@ -113,6 +115,8 @@ import "@fontsource/manrope/800.css";
             <slot />
         </main>
         <RecruiterPanel />
+        <CurrentlyBuilding />
+        <ThemeCustomizer />
         <Footer />
         <style is:global>
             /* Smooth background transitions */
@@ -144,6 +148,45 @@ import "@fontsource/manrope/800.css";
             .reveal.active {
                 opacity: 1;
                 transform: translateY(0);
+            }
+
+            /* View Transition Animations */
+            @keyframes fadeSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeSlideOut {
+                from {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+            }
+
+            ::view-transition-old(root) {
+                animation: fadeSlideOut 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            ::view-transition-new(root) {
+                animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            /* Disable transitions for reduced motion */
+            @media (prefers-reduced-motion: reduce) {
+                ::view-transition-old(root),
+                ::view-transition-new(root) {
+                    animation: none;
+                }
             }
         </style>
 
