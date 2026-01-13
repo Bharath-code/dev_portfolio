@@ -23,7 +23,28 @@ const spotlight = project.spotlight;
 const nextProject = getNextProject(slug as string);
 ---
 
-<Layout title={`${project.title} | Bharath`} description={project.description}>
+<Layout 
+    title={`${project.title} | Bharath`} 
+    description={project.description}
+    ogImage={`/og/${project.slug}.png`}
+>
+    <!-- Schema.org SoftwareApplication for AEO -->
+    <script type="application/ld+json" is:inline define:vars={{ project }}>
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": project.title,
+            "description": project.description,
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cross-platform",
+            "author": {
+                "@type": "Person",
+                "name": "Bharathkumar Palanisamy",
+                "url": "https://www.bharathkumar.dev"
+            },
+            "url": `https://www.bharathkumar.dev/projects/${project.slug}`
+        }
+    </script>
     <div class="pt-32 pb-20 px-4 md:px-8">
         <div class="max-w-[1000px] mx-auto">
             <!-- Back navigation -->

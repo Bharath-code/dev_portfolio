@@ -127,7 +127,7 @@ export const siteContent: SiteContent = {
             slug: "git-scope",
             title: "git-scope",
             badges: ["Go", "Bubbletea", "TUI"],
-            description: "A fast TUI for managing multiple Git repositories. Features contribution graphs, time machine history, and batch operations.",
+            description: "Fast TUI for managing Git repositories. Features contribution graphs, time machine history, and batch operations for high-velocity developer workflows.",
             metrics: [
                 { label: "Role", value: "Creator" },
                 { label: "Downloads", value: "Active" }
@@ -177,7 +177,7 @@ export const siteContent: SiteContent = {
             slug: "debugg",
             title: "debugg",
             badges: ["TypeScript", "NPM"],
-            description: "A comprehensive error handling library for TypeScript applications.",
+            description: "Comprehensive error handling library for TypeScript. Simplifies debugging with structured errors, stack traces, and context preservation for robust apps.",
             metrics: [
                 { label: "Type", value: "Library" },
                 { label: "Stack", value: "TS/Node" }
@@ -219,7 +219,7 @@ export const siteContent: SiteContent = {
             slug: "smart-crisis-counselor",
             title: "Smart Crisis Counselor",
             badges: ["AI", "RAG", "Python"],
-            description: "An intelligent system for handling crisis situations using LLMs.",
+            description: "Intelligent RAG-based system for crisis counseling. Uses LLMs to provide context-aware response suggestions and knowledge retrieval for sensitive scenarios.",
             metrics: [
                 { label: "Domain", value: "AI" },
                 { label: "Status", value: "Prototype" }
@@ -261,7 +261,7 @@ export const siteContent: SiteContent = {
             slug: "youtube-companion",
             title: "YouTube Companion",
             badges: ["Next.js", "Dashboard"],
-            description: "A dashboard that enhances the YouTube experience for creators and viewers.",
+            description: "Actionable analytics dashboard for YouTube creators. Beyond Studio metrics with real-time trend analysis, recommendations, and competitor benchmarking.",
             metrics: [
                 { label: "Platform", value: "Web" },
                 { label: "Data", value: "Real-time" }
