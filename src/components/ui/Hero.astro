@@ -1,6 +1,7 @@
 ---
 import Heading from "./Heading.astro";
 import { siteContent } from "@/content/site-content";
+import ThreeVisual from "./ThreeVisual.astro";
 ---
 
 <section
@@ -33,17 +34,36 @@ import { siteContent } from "@/content/site-content";
                     <Heading
                         as="h1"
                         variant="display"
-                        class="hero-text translate-y-[110%] opacity-0 leading-[0.9]"
+                        class="hero-text leading-[0.9] overflow-hidden"
                     >
-                        {siteContent.hero.title.split(" ")[0]}<br />
-                        <span class="text-signal-emerald"
-                            >{
+                        <div class="line overflow-hidden py-1">
+                            {
+                                siteContent.hero.title
+                                    .split(" ")[0]
+                                    .split("")
+                                    .map((char) => (
+                                        <span class="char inline-block translate-y-full opacity-0">
+                                            {char}
+                                        </span>
+                                    ))
+                            }
+                        </div>
+                        <div
+                            class="line overflow-hidden py-1 text-signal-emerald"
+                        >
+                            {
                                 siteContent.hero.title
                                     .split(" ")
                                     .slice(1)
                                     .join(" ")
-                            }</span
-                        >
+                                    .split("")
+                                    .map((char) => (
+                                        <span class="char inline-block translate-y-full opacity-0">
+                                            {char === " " ? "\u00A0" : char}
+                                        </span>
+                                    ))
+                            }
+                        </div>
                     </Heading>
                 </div>
 
@@ -83,67 +103,14 @@ import { siteContent } from "@/content/site-content";
             </div>
 
             <div
-                class="hidden lg:flex relative h-full min-h-[400px] items-center justify-center"
+                class="relative h-[300px] lg:h-full lg:min-h-[500px] flex items-center justify-center overflow-visible order-first lg:order-last"
             >
-                <!-- Animated geometric visual -->
-                <div class="hero-visual relative w-80 h-80">
-                    <!-- Outer rotating ring -->
-                    <div
-                        class="absolute inset-0 rounded-full border-2 border-signal-emerald/30 animate-[spin_20s_linear_infinite]"
-                    >
-                    </div>
-                    <!-- Middle pulsing ring -->
-                    <div
-                        class="absolute inset-4 rounded-full border border-signal-emerald/20 animate-pulse"
-                    >
-                    </div>
-                    <!-- Inner static ring -->
-                    <div
-                        class="absolute inset-8 rounded-full border border-signal-emerald/40"
-                    >
-                    </div>
-                    <!-- Center dot cluster -->
-                    <div
-                        class="absolute inset-0 flex items-center justify-center"
-                    >
-                        <div class="relative">
-                            <div
-                                class="w-4 h-4 rounded-full bg-signal-emerald animate-ping absolute"
-                            >
-                            </div>
-                            <div
-                                class="w-4 h-4 rounded-full bg-signal-emerald relative"
-                            >
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Orbiting dots -->
-                    <div
-                        class="absolute inset-0 animate-[spin_8s_linear_infinite]"
-                    >
-                        <div
-                            class="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-signal-emerald/60"
-                        >
-                        </div>
-                    </div>
-                    <div
-                        class="absolute inset-0 animate-[spin_12s_linear_infinite_reverse]"
-                    >
-                        <div
-                            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-signal-emerald/40"
-                        >
-                        </div>
-                    </div>
-                    <!-- Corner accents -->
-                    <div
-                        class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-signal-emerald/30 rounded-tr-lg"
-                    >
-                    </div>
-                    <div
-                        class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-signal-emerald/30 rounded-bl-lg"
-                    >
-                    </div>
+                <!-- Subtle background glow for the 3D element -->
+                <div
+                    class="absolute inset-0 bg-signal-emerald/5 blur-3xl rounded-full scale-75 -z-10 animate-pulse"
+                >
                 </div>
+                <ThreeVisual />
             </div>
         </div>
     </div>
@@ -160,20 +127,48 @@ import { siteContent } from "@/content/site-content";
     function animateHero() {
         if (!document.querySelector(".hero-text")) return;
 
-        const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-        tl.to(".hero-text", {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            stagger: 0.1,
-            delay: 0.2,
-        }).to(
+        // Reset states for re-running
+        gsap.set(".char", { y: "110%", opacity: 0 });
+        gsap.set(".hero-meta", { y: 20, opacity: 0 });
+        gsap.set("#three-container", { scale: 0.8, opacity: 0 });
+
+        // Phase 1: 3D Entrance
+        (window as any).heroScene?.playEntrance();
+
+        tl.to(
+            "#three-container",
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 2,
+            },
+            0,
+        );
+
+        // Phase 2: Staggered Character Reveal
+        tl.to(
+            ".char",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                stagger: 0.02,
+                ease: "expo.out",
+            },
+            "-=1.8",
+        );
+
+        // Phase 3: Meta Info Reveal
+        tl.to(
             ".hero-meta",
             {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: 1.2,
+                stagger: 0.1,
+                ease: "power3.out",
             },
             "-=1",
         );
@@ -184,8 +179,6 @@ import { siteContent } from "@/content/site-content";
 
     // Run on view transition navigation
     document.addEventListener("astro:page-load", () => {
-        // We need to ensure elements are reset if they persisted (though they are usually replaced)
-        // If they are new elements, they start with the CSS class state opacity-0
         animateHero();
     });
 </script>

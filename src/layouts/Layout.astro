@@ -246,6 +246,42 @@ import "@fontsource/manrope/800.css";
 
             gsap.registerPlugin(ScrollTrigger);
 
+            function setupMagneticButtons() {
+                const magneticElements =
+                    document.querySelectorAll("[data-magnetic]");
+
+                magneticElements.forEach((el: any) => {
+                    el.addEventListener("mousemove", (e: any) => {
+                        // Performance/UX: Only apply magnetic effect for non-touch pointers
+                        if (e.pointerType === "touch") return;
+
+                        const rect = el.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+
+                        gsap.to(el, {
+                            x: x * 0.35,
+                            y: y * 0.35,
+                            scale: 1.05,
+                            duration: 0.6,
+                            ease: "power3.out",
+                        });
+                    });
+
+                    el.addEventListener("mouseleave", (e: any) => {
+                        if (e.pointerType === "touch") return;
+
+                        gsap.to(el, {
+                            x: 0,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.8,
+                            ease: "elastic.out(1, 0.4)",
+                        });
+                    });
+                });
+            }
+
             function initScrollAnimations() {
                 // Scroll Reveal
                 const observerOptions = {
@@ -285,9 +321,13 @@ import "@fontsource/manrope/800.css";
 
             // Run on initial load
             initScrollAnimations();
+            setupMagneticButtons();
 
             // Run on view transition navigation
-            document.addEventListener("astro:page-load", initScrollAnimations);
+            document.addEventListener("astro:page-load", () => {
+                initScrollAnimations();
+                setupMagneticButtons();
+            });
         </script>
     </body>
 </html>
