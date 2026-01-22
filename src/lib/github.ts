@@ -66,6 +66,21 @@ async function fetchGraphQL<T>(query: string, variables: Record<string, unknown>
             body: JSON.stringify({ query, variables }),
         });
 
+        if (!response.ok) {
+            const errorText = await response.text().catch(() => "Could not read error response");
+            console.error(`GitHub API HTTP error: ${response.status} ${response.statusText}`);
+            console.error(`Response body snippet: ${errorText.substring(0, 500)}...`);
+            return null;
+        }
+
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            const errorText = await response.text().catch(() => "Could not read error response");
+            console.error(`GitHub API returned non-JSON response: ${contentType}`);
+            console.error(`Response body snippet: ${errorText.substring(0, 200)}...`);
+            return null;
+        }
+
         const data = await response.json();
         if (data.errors) {
             console.error("GitHub API errors:", data.errors);
