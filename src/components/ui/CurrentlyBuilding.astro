@@ -99,7 +99,8 @@ const currentProject = {
         background: linear-gradient(45deg, #10b981, #059669);
         opacity: 0;
         z-index: -1;
-        animation: pulse 2s ease-in-out infinite;
+        /* Reduced intensity - more subtle now */
+        animation: pulse 4s ease-in-out infinite;
     }
 
     @keyframes pulse {
@@ -109,8 +110,8 @@ const currentProject = {
             transform: scale(1);
         }
         50% {
-            opacity: 0.1;
-            transform: scale(1.02);
+            opacity: 0.05;
+            transform: scale(1.01);
         }
     }
 

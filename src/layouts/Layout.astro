@@ -21,12 +21,14 @@ import Preloader from "@/components/ui/Preloader.astro";
 import RecruiterPanel from "@/components/ui/RecruiterPanel.astro";
 import CurrentlyBuilding from "@/components/ui/CurrentlyBuilding.astro";
 import ThemeCustomizer from "@/components/ui/ThemeCustomizer.astro";
+import EasterEggs from "@/components/ui/EasterEggs.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/600.css";
 import "@fontsource/manrope/800.css";
+import "@fontsource/jetbrains-mono";
 ---
 
 <!doctype html>
@@ -169,6 +171,7 @@ import "@fontsource/manrope/800.css";
         <RecruiterPanel />
         <CurrentlyBuilding />
         <ThemeCustomizer />
+        <EasterEggs />
         <Footer />
         <style is:global>
             /* Smooth background transitions */

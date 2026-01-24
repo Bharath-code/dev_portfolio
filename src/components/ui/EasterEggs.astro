@@ -1,0 +1,719 @@
+---
+/**
+ * Easter Eggs Component
+ * Hidden delightful features for curious visitors:
+ *
+ * 1. Konami Code (↑↑↓↓←→←→BA) - Triggers matrix rain effect
+ * 2. Logo Click Counter - 7 clicks unlocks disco mode
+ * 3. Secret Terminal Commands - Type 'sudo hire' in terminal
+ * 4. Dev Mode Toggle - Press Ctrl+Shift+D for dev stats
+ * 5. Coffee Counter - Press 'C' to see coffee consumed today
+ */
+---
+
+<!-- Matrix Rain Canvas (Hidden by default) -->
+<canvas id="matrix-rain" class="matrix-canvas" aria-hidden="true"></canvas>
+
+<!-- Disco Mode Overlay -->
+<div id="disco-mode" class="disco-overlay" aria-hidden="true">
+    <div class="disco-ball"></div>
+</div>
+
+<!-- Dev Stats Panel -->
+<div id="dev-stats" class="dev-stats-panel">
+    <div class="stats-header">
+        <span class="stats-title">⚡ Dev Mode</span>
+        <button id="close-dev-stats" class="close-stats">×</button>
+    </div>
+    <div class="stats-content">
+        <div class="stat-row">
+            <span>Framework</span>
+            <span class="stat-val">Astro 5.x</span>
+        </div>
+        <div class="stat-row">
+            <span>Styling</span>
+            <span class="stat-val">Tailwind CSS</span>
+        </div>
+        <div class="stat-row">
+            <span>3D</span>
+            <span class="stat-val">Three.js</span>
+        </div>
+        <div class="stat-row">
+            <span>Animations</span>
+            <span class="stat-val">GSAP</span>
+        </div>
+        <div class="stat-row">
+            <span>Deployed</span>
+            <span class="stat-val">Vercel Edge</span>
+        </div>
+        <div class="stat-row highlight">
+            <span>Easter Eggs Found</span>
+            <span class="stat-val" id="eggs-found">0/5</span>
+        </div>
+        <div class="hints-section">
+            <span class="hints-title">🥚 Hidden Secrets</span>
+            <ul class="hints-list">
+                <li><kbd>.</kbd> Dev Mode ✓</li>
+                <li><kbd>C</kbd> Coffee Count</li>
+                <li><kbd>↑↑↓↓←→←→BA</kbd> Matrix</li>
+                <li>Click logo 7×</li>
+                <li>Check console...</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Coffee Toast -->
+<div id="coffee-toast" class="coffee-toast">
+    <span class="coffee-icon">☕</span>
+    <span class="coffee-text"
+        >Coffees today: <strong id="coffee-count">3</strong></span
+    >
+</div>
+
+<!-- Achievement Toast -->
+<div id="achievement-toast" class="achievement-toast">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-content">
+        <span class="achievement-title">Achievement Unlocked!</span>
+        <span class="achievement-name" id="achievement-name"
+            >Curious Explorer</span
+        >
+    </div>
+</div>
+
+<style>
+    /* Matrix Rain */
+    .matrix-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .matrix-canvas.active {
+        opacity: 1;
+    }
+
+    /* Disco Mode */
+    .disco-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99998;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        background: linear-gradient(
+            45deg,
+            rgba(255, 0, 128, 0.1),
+            rgba(0, 255, 255, 0.1),
+            rgba(255, 255, 0, 0.1)
+        );
+    }
+
+    .disco-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        animation: discoColors 2s linear infinite;
+    }
+
+    @keyframes discoColors {
+        0% {
+            background: linear-gradient(
+                45deg,
+                rgba(255, 0, 128, 0.15),
+                transparent
+            );
+        }
+        25% {
+            background: linear-gradient(
+                45deg,
+                rgba(0, 255, 255, 0.15),
+                transparent
+            );
+        }
+        50% {
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 0, 0.15),
+                transparent
+            );
+        }
+        75% {
+            background: linear-gradient(
+                45deg,
+                rgba(128, 0, 255, 0.15),
+                transparent
+            );
+        }
+        100% {
+            background: linear-gradient(
+                45deg,
+                rgba(255, 0, 128, 0.15),
+                transparent
+            );
+        }
+    }
+
+    .disco-ball {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle at 30% 30%, #fff, #888, #333);
+        border-radius: 50%;
+        box-shadow:
+            0 0 60px rgba(255, 255, 255, 0.5),
+            inset 0 0 30px rgba(0, 0, 0, 0.3);
+        animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            transform: translateX(-50%) rotate(360deg);
+        }
+    }
+
+    /* Dev Stats Panel */
+    .dev-stats-panel {
+        position: fixed;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%) translateX(120%);
+        z-index: 99997;
+        background: rgba(0, 0, 0, 0.95);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        min-width: 240px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    .dev-stats-panel.active {
+        transform: translateY(-50%) translateX(0);
+    }
+
+    .stats-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stats-title {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #10b981;
+    }
+
+    .close-stats {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        border-radius: 50%;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .close-stats:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        font-size: 0.75rem;
+        color: #888;
+    }
+
+    .stat-val {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .stat-row.highlight {
+        margin-top: 0.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #10b981;
+    }
+
+    .stat-row.highlight .stat-val {
+        color: #10b981;
+        font-weight: 700;
+    }
+
+    .hints-section {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hints-title {
+        display: block;
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #fbbf24;
+        margin-bottom: 0.75rem;
+    }
+
+    .hints-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.7rem;
+        color: #666;
+    }
+
+    .hints-list li {
+        padding: 0.25rem 0;
+    }
+
+    .hints-list kbd {
+        display: inline-block;
+        padding: 0.15rem 0.4rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.625rem;
+        color: #10b981;
+        margin-right: 0.5rem;
+    }
+
+    /* Coffee Toast */
+    .coffee-toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        z-index: 99996;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.5rem;
+        background: rgba(139, 69, 19, 0.95);
+        border: 1px solid rgba(210, 105, 30, 0.5);
+        border-radius: 9999px;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .coffee-toast.active {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .coffee-icon {
+        font-size: 1.5rem;
+    }
+
+    .coffee-text {
+        font-size: 0.875rem;
+        color: #fff;
+    }
+
+    /* Achievement Toast */
+    .achievement-toast {
+        position: fixed;
+        top: 5rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(-200px);
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        border-radius: 1rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .achievement-toast.active {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .achievement-icon {
+        font-size: 2rem;
+        animation: bounce 0.5s ease infinite;
+    }
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .achievement-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .achievement-title {
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: rgba(255, 215, 0, 0.8);
+    }
+
+    .achievement-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+    }
+</style>
+
+<script>
+    interface EasterEggState {
+        eggsFound: Set<string>;
+        logoClicks: number;
+        konamiProgress: number;
+        discoActive: boolean;
+        matrixActive: boolean;
+    }
+
+    const state: EasterEggState = {
+        eggsFound: new Set(),
+        logoClicks: 0,
+        konamiProgress: 0,
+        discoActive: false,
+        matrixActive: false,
+    };
+
+    const KONAMI_CODE = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "KeyB",
+        "KeyA",
+    ];
+
+    function initEasterEggs() {
+        setupKonamiCode();
+        setupLogoClicks();
+        setupDevMode();
+        setupCoffeeCounter();
+        setupTerminalListener();
+        setupTerminalSecrets(); // Console hints
+
+        // Load saved state
+        const saved = localStorage.getItem("portfolio-eggs");
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            state.eggsFound = new Set(parsed.eggsFound || []);
+            updateEggsCounter();
+        }
+    }
+
+    // Listen for easter eggs triggered from other components (like Terminal)
+    function setupTerminalListener() {
+        window.addEventListener("easter-egg-found", ((e: CustomEvent) => {
+            const { id, name } = e.detail;
+            unlockEgg(id, name);
+        }) as EventListener);
+    }
+
+    function saveState() {
+        localStorage.setItem(
+            "portfolio-eggs",
+            JSON.stringify({
+                eggsFound: Array.from(state.eggsFound),
+            }),
+        );
+    }
+
+    function unlockEgg(eggId: string, achievementName: string) {
+        if (state.eggsFound.has(eggId)) return;
+
+        state.eggsFound.add(eggId);
+        saveState();
+        showAchievement(achievementName);
+        updateEggsCounter();
+    }
+
+    function updateEggsCounter() {
+        const counter = document.getElementById("eggs-found");
+        if (counter) {
+            counter.textContent = `${state.eggsFound.size}/5`;
+        }
+    }
+
+    function showAchievement(name: string) {
+        const toast = document.getElementById("achievement-toast");
+        const nameEl = document.getElementById("achievement-name");
+        if (!toast || !nameEl) return;
+
+        nameEl.textContent = name;
+        toast.classList.add("active");
+
+        // Play sound if available
+        try {
+            const audio = new Audio(
+                "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2telewtFsOLZmkEAGZHb6JtQBj6j5ux5HQBK...",
+            );
+            audio.volume = 0.2;
+            audio.play().catch(() => {});
+        } catch (e) {}
+
+        setTimeout(() => {
+            toast.classList.remove("active");
+        }, 4000);
+    }
+
+    // 1. Konami Code
+    function setupKonamiCode() {
+        document.addEventListener("keydown", (e) => {
+            if (e.code === KONAMI_CODE[state.konamiProgress]) {
+                state.konamiProgress++;
+                if (state.konamiProgress === KONAMI_CODE.length) {
+                    triggerMatrixRain();
+                    unlockEgg("konami", "The Matrix Has You");
+                    state.konamiProgress = 0;
+                }
+            } else {
+                state.konamiProgress = 0;
+            }
+        });
+    }
+
+    function triggerMatrixRain() {
+        const canvas = document.getElementById(
+            "matrix-rain",
+        ) as HTMLCanvasElement;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        // Create non-null reference for closure
+        const context = ctx;
+
+        state.matrixActive = true;
+        canvas.classList.add("active");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars =
+            "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops: number[] = Array(columns).fill(1);
+
+        function draw() {
+            if (!state.matrixActive) return;
+
+            context.fillStyle = "rgba(0, 0, 0, 0.05)";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = "#10b981";
+            context.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                context.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                if (
+                    drops[i] * fontSize > canvas.height &&
+                    Math.random() > 0.975
+                ) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+
+        setTimeout(() => {
+            state.matrixActive = false;
+            canvas.classList.remove("active");
+        }, 8000);
+    }
+
+    // 2. Logo Clicks
+    function setupLogoClicks() {
+        // Look for the logo element - using the navbar logo link
+        setTimeout(() => {
+            const logos = document.querySelectorAll('a[href="/"]');
+            logos.forEach((logo) => {
+                const logoText = logo.textContent?.toLowerCase() || "";
+                // Check for BHARATH or font-display class (case-insensitive)
+                if (
+                    logoText.includes("bharath") ||
+                    logo.classList.contains("font-display") ||
+                    logo.querySelector("img[alt]")
+                ) {
+                    // Add a data attribute to track that we've set this up
+                    if (logo.hasAttribute("data-easter-egg-bound")) return;
+                    logo.setAttribute("data-easter-egg-bound", "true");
+
+                    logo.addEventListener("click", (e) => {
+                        state.logoClicks++;
+                        console.log(`🥚 Logo clicked: ${state.logoClicks}/7`);
+
+                        if (state.logoClicks >= 7) {
+                            e.preventDefault();
+                            triggerDiscoMode();
+                            unlockEgg("disco", "Party Mode Activated");
+                            state.logoClicks = 0;
+                        }
+                    });
+                    console.log("🥚 Logo easter egg bound to:", logo);
+                }
+            });
+        }, 1000);
+    }
+
+    function triggerDiscoMode() {
+        const disco = document.getElementById("disco-mode");
+        if (!disco) return;
+
+        state.discoActive = true;
+        disco.classList.add("active");
+        document.body.style.animation = "shake 0.1s linear infinite";
+
+        setTimeout(() => {
+            state.discoActive = false;
+            disco.classList.remove("active");
+            document.body.style.animation = "";
+        }, 5000);
+    }
+
+    // 3. Dev Mode (Press '.' period key)
+    function setupDevMode() {
+        console.log("🥚 Easter eggs initialized! Press '.' for dev mode");
+
+        document.addEventListener("keydown", (e) => {
+            // Use period key - universal and simple
+            const isPeriod = e.key === "." || e.code === "Period";
+
+            if (isPeriod) {
+                // Don't trigger if typing in an input
+                if (
+                    document.activeElement?.tagName === "INPUT" ||
+                    document.activeElement?.tagName === "TEXTAREA"
+                )
+                    return;
+
+                e.preventDefault();
+                const panel = document.getElementById("dev-stats");
+                if (!panel) {
+                    console.log("🥚 Dev panel not found!");
+                    return;
+                }
+
+                panel.classList.toggle("active");
+                console.log(
+                    "🥚 Dev mode toggled:",
+                    panel.classList.contains("active"),
+                );
+
+                if (panel.classList.contains("active")) {
+                    unlockEgg("devmode", "Developer Insight");
+                }
+            }
+        });
+
+        const closeBtn = document.getElementById("close-dev-stats");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                document
+                    .getElementById("dev-stats")
+                    ?.classList.remove("active");
+            });
+        }
+    }
+
+    // 4. Coffee Counter (Press C)
+    function setupCoffeeCounter() {
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "KeyC" && !e.ctrlKey && !e.metaKey) {
+                // Don't trigger if typing in an input
+                if (
+                    document.activeElement?.tagName === "INPUT" ||
+                    document.activeElement?.tagName === "TEXTAREA"
+                )
+                    return;
+
+                showCoffeeToast();
+                unlockEgg("coffee", "Caffeine Addict");
+            }
+        });
+    }
+
+    function showCoffeeToast() {
+        const toast = document.getElementById("coffee-toast");
+        const countEl = document.getElementById("coffee-count");
+        if (!toast || !countEl) return;
+
+        // Random coffee count between 2-8
+        const coffeeCount = Math.floor(Math.random() * 7) + 2;
+        countEl.textContent = coffeeCount.toString();
+
+        toast.classList.add("active");
+
+        setTimeout(() => {
+            toast.classList.remove("active");
+        }, 3000);
+    }
+
+    // 5. Terminal Secrets
+    function setupTerminalSecrets() {
+        // Add hints in browser console for curious devs
+        console.log(
+            "%c👀 Curious, are we?",
+            "color: #10b981; font-size: 16px; font-weight: bold;",
+        );
+        console.log(
+            "%c💡 Try: Press '.' for dev mode, 'C' for coffee, or scroll to the terminal and type 'sudo hire'",
+            "color: #888; font-size: 12px;",
+        );
+        console.log(
+            "%c🎮 Konami Code works here too: ↑↑↓↓←→←→BA",
+            "color: #fbbf24; font-size: 12px;",
+        );
+    }
+
+    // Initialize
+    initEasterEggs();
+    document.addEventListener("astro:page-load", initEasterEggs);
+
+    // Add shake animation
+    const style = document.createElement("style");
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px) rotate(-0.5deg); }
+            75% { transform: translateX(2px) rotate(0.5deg); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>

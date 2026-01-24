@@ -17,6 +17,7 @@
 		"@astrojs/tailwind": "^6.0.2",
 		"@fontsource/archivo-black": "^5.2.8",
 		"@fontsource/inter": "^5.2.8",
+		"@fontsource/jetbrains-mono": "^5.2.8",
 		"@fontsource/manrope": "^5.2.8",
 		"@fontsource/space-grotesk": "^5.2.10",
 		"@types/three": "^0.182.0",

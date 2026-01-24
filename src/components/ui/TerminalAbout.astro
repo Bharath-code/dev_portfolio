@@ -246,6 +246,47 @@ LinkedIn: linkedin.com/in/bharath-kumar`,
                 if (cmd === "clear") {
                     output.innerHTML = "";
                     return;
+                } else if (cmd === "sudo hire" || cmd === "sudo hire me") {
+                    // 🥚 Easter Egg: Secret command!
+                    result = `<span style="color: #10b981; font-weight: bold;">
+🚀 ACCESS GRANTED!
+</span>
+<span style="color: #fbbf24;">You've discovered a secret command!</span>
+<br><br>
+Initiating recruitment protocol...
+<br>
+<span style="color: #10b981;">→ Email: kumarbharath63@icloud.com</span>
+<br>
+<span style="color: #10b981;">→ LinkedIn: linkedin.com/in/bharathkumar-palanisamy</span>
+<br><br>
+<span style="color: #888;">Hint: There are more secrets hidden on this page. Try pressing '.' or clicking the logo 7 times!</span>`;
+
+                    // Dispatch custom event for easter egg tracking
+                    window.dispatchEvent(
+                        new CustomEvent("easter-egg-found", {
+                            detail: { id: "terminal", name: "Root Access" },
+                        }),
+                    );
+
+                    // Scroll to contact after a delay
+                    setTimeout(() => {
+                        document
+                            .querySelector("#contact")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                    }, 2000);
+                } else if (
+                    cmd === "hack" ||
+                    cmd === "sudo" ||
+                    cmd === "rm -rf"
+                ) {
+                    result = `<span style="color: #ef4444;">Nice try! 😉</span>`;
+                } else if (cmd === "ls" || cmd === "dir") {
+                    result = `about.txt  skills.json  projects/  contact.md`;
+                } else if (cmd === "cat secret.txt" || cmd === "cat secret") {
+                    result = `<span style="color: #fbbf24;">🔐 The secrets are hidden in plain sight...</span>
+<br>Try: <span style="color: #10b981;">sudo hire</span>`;
+                } else if (cmd === "whoami") {
+                    result = `A curious developer exploring this portfolio 👀`;
                 } else if (commands[cmd]) {
                     result = commands[cmd];
                 } else {
