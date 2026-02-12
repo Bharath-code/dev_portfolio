@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ui/ProjectCard.astro";
 import Experience from "@/components/ui/Experience.astro";
 import Heading from "@/components/ui/Heading.astro";
 import Skills from "@/components/ui/Skills.astro";
+import AiToolkit from "@/components/ui/AiToolkit.astro";
 import GitHubHeatmap from "@/components/ui/GitHubHeatmap.astro";
 import LanguageChart from "@/components/ui/LanguageChart.astro";
 import RepoShowcase from "@/components/ui/RepoShowcase.astro";
@@ -39,6 +40,14 @@ function getStatsForProject(link: string) {
             <div class="mt-6">
                 <Skills items={siteContent.skills} />
             </div>
+        </div>
+    </section>
+
+    <section
+        class="reveal px-4 py-24 md:px-8 bg-black/[0.02] dark:bg-white/[0.02]"
+    >
+        <div class="mx-auto max-w-[1200px]">
+            <AiToolkit {...siteContent.aiToolkit} />
         </div>
     </section>
 

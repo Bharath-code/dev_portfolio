@@ -1,0 +1,106 @@
+---
+import Heading from "./Heading.astro";
+
+interface Props {
+    headline: string;
+    subtitle: string;
+    categories: { label: string; tools: string[] }[];
+}
+
+const { headline, subtitle, categories } = Astro.props;
+
+// Tool → emoji mapping for distinctive, zero-dependency icons
+const toolEmoji: Record<string, string> = {
+    Claude: "🟠",
+    "GPT-4o": "🟢",
+    Gemini: "🔵",
+    Llama: "🦙",
+    Cursor: "⚡",
+    Copilot: "✈️",
+    v0: "▲",
+    Bolt: "⚡",
+    LangChain: "🔗",
+    LangGraph: "📊",
+    CrewAI: "🤖",
+    "Vercel AI SDK": "▲",
+    Pinecone: "🌲",
+    ChromaDB: "🎨",
+    "Hugging Face": "🤗",
+    Replicate: "🔄",
+};
+---
+
+<div>
+    <div class="text-center mb-16">
+        <Heading variant="section">{headline}</Heading>
+        <p
+            class="mt-4 text-lg text-black/60 dark:text-white/60 max-w-2xl mx-auto"
+        >
+            {subtitle}
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+            categories.map((category) => (
+                <div class="reveal ai-category">
+                    <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-signal-emerald mb-6">
+                        {category.label}
+                    </h3>
+                    <div class="space-y-3">
+                        {category.tools.map((tool) => (
+                            <div class="ai-tool-pill group flex items-center gap-3 px-4 py-3 rounded-xl bg-black/5 dark:bg-white/5 border border-transparent hover:border-signal-emerald/30 transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 cursor-default">
+                                <span class="text-lg flex-shrink-0 transition-transform duration-300 group-hover:scale-125">
+                                    {toolEmoji[tool] || "🔧"}
+                                </span>
+                                <span class="text-sm font-medium text-black/80 dark:text-white/80 group-hover:text-black dark:group-hover:text-white transition-colors">
+                                    {tool}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <!-- Workflow callout -->
+    <div class="mt-16 reveal">
+        <div
+            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-signal-emerald/5 to-transparent border border-signal-emerald/10 p-8 md:p-10"
+        >
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div
+                    class="flex-shrink-0 w-12 h-12 rounded-xl bg-signal-emerald/10 flex items-center justify-center text-2xl"
+                >
+                    🧠
+                </div>
+                <div>
+                    <h3
+                        class="font-display text-xl font-bold text-black dark:text-white mb-2"
+                    >
+                        My AI Workflow
+                    </h3>
+                    <p
+                        class="text-black/60 dark:text-white/60 leading-relaxed max-w-2xl"
+                    >
+                        I use AI as a <span
+                            class="text-signal-emerald font-semibold"
+                            >force multiplier</span
+                        >, not a crutch. From system design with Claude, to
+                        rapid prototyping with Cursor, to building RAG pipelines
+                        with LangChain — AI handles the repetitive work so I can
+                        focus on <span class="text-signal-emerald font-semibold"
+                            >architecture, taste, and shipping</span
+                        >.
+                    </p>
+                </div>
+            </div>
+            <!-- Decorative corner -->
+            <div
+                class="absolute -top-8 -right-8 w-32 h-32 bg-signal-emerald/5 rounded-full blur-2xl pointer-events-none"
+            >
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,11 +22,13 @@ const variants = {
     title: "font-sans text-xl font-medium text-black dark:text-white",
 };
 const parallaxSpeed = parallax ? (variant === "display" ? "0.2" : "0.1") : null;
+const shouldAnimateHeading = variant === "section";
 ---
 
 <Tag
     class:list={[variants[variant as keyof typeof variants], className]}
     data-parallax={parallaxSpeed}
+    data-animate-heading={shouldAnimateHeading ? "" : undefined}
 >
     <slot />
 </Tag>

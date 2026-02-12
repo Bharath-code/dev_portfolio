@@ -1,7 +1,7 @@
 ---
 /**
  * Preloader / Welcome Animation
- * Shows a premium intro animation on first visit
+ * Uses GSAP timeline for choreographed intro + curtain wipe exit
  */
 ---
 
@@ -9,13 +9,13 @@
     <div class="preloader-content">
         <!-- Animated Logo/Name -->
         <div class="preloader-text">
-            <span class="char">B</span>
-            <span class="char">H</span>
-            <span class="char">A</span>
-            <span class="char">R</span>
-            <span class="char">A</span>
-            <span class="char">T</span>
-            <span class="char">H</span>
+            <span class="preloader-char">B</span>
+            <span class="preloader-char">H</span>
+            <span class="preloader-char">A</span>
+            <span class="preloader-char">R</span>
+            <span class="preloader-char">A</span>
+            <span class="preloader-char">T</span>
+            <span class="preloader-char">H</span>
         </div>
         <div class="preloader-subtitle">
             <span>Software Architect</span>
@@ -33,14 +33,10 @@
         align-items: center;
         justify-content: center;
         background: #0a0a0a;
-        transition:
-            opacity 0.6s ease,
-            visibility 0.6s ease;
+        clip-path: inset(0 0 0% 0);
     }
 
     .preloader.hidden {
-        opacity: 0;
-        visibility: hidden;
         pointer-events: none;
     }
 
@@ -60,40 +56,10 @@
         overflow: hidden;
     }
 
-    .char {
+    .preloader-char {
         display: inline-block;
         opacity: 0;
         transform: translateY(100%);
-        animation: charReveal 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    }
-
-    .char:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-    .char:nth-child(2) {
-        animation-delay: 0.15s;
-    }
-    .char:nth-child(3) {
-        animation-delay: 0.2s;
-    }
-    .char:nth-child(4) {
-        animation-delay: 0.25s;
-    }
-    .char:nth-child(5) {
-        animation-delay: 0.3s;
-    }
-    .char:nth-child(6) {
-        animation-delay: 0.35s;
-    }
-    .char:nth-child(7) {
-        animation-delay: 0.4s;
-    }
-
-    @keyframes charReveal {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .preloader-subtitle {
@@ -105,14 +71,6 @@
         letter-spacing: 0.3em;
         color: #10b981;
         opacity: 0;
-        animation: fadeIn 0.6s ease forwards;
-        animation-delay: 0.6s;
-    }
-
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
-        }
     }
 
     .preloader-line {
@@ -122,62 +80,89 @@
         background: #10b981;
         transform: scaleX(0);
         transform-origin: left;
-        animation: lineExpand 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-        animation-delay: 0.8s;
-    }
-
-    @keyframes lineExpand {
-        to {
-            transform: scaleX(1);
-        }
     }
 
     /* Reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
-        .char {
-            animation: none;
+        .preloader-char {
             opacity: 1;
             transform: none;
         }
         .preloader-subtitle {
-            animation: none;
             opacity: 1;
         }
         .preloader-line {
-            animation: none;
             transform: scaleX(1);
         }
     }
 </style>
 
 <script>
+    import { gsap } from "gsap";
+
     function initPreloader() {
         const preloader = document.getElementById("preloader");
         if (!preloader) return;
 
-        // Check if this is a page navigation (not first load)
+        // Skip preloader on subsequent navigations
         const isPageNavigation = sessionStorage.getItem("visited");
-
         if (isPageNavigation) {
-            // Skip preloader on subsequent navigations
             preloader.remove();
             return;
         }
 
-        // Mark as visited
         sessionStorage.setItem("visited", "true");
 
-        // Hide preloader after animation completes
-        const hideDelay = 2000; // 2 seconds total animation time
+        // Skip animation for reduced motion
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
 
-        setTimeout(() => {
-            preloader.classList.add("hidden");
+        if (prefersReducedMotion) {
+            preloader.remove();
+            return;
+        }
 
-            // Remove from DOM after transition
-            setTimeout(() => {
-                preloader.remove();
-            }, 600);
-        }, hideDelay);
+        // GSAP Timeline choreography
+        const tl = gsap.timeline({
+            onComplete: () => {
+                preloader.classList.add("hidden");
+                setTimeout(() => preloader.remove(), 100);
+            },
+        });
+
+        tl.from(".preloader-char", {
+            y: "110%",
+            opacity: 0,
+            stagger: 0.04,
+            ease: "expo.out",
+            duration: 0.7,
+        })
+            .to(
+                ".preloader-subtitle",
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                },
+                "-=0.3",
+            )
+            .to(
+                ".preloader-line",
+                {
+                    scaleX: 1,
+                    duration: 0.6,
+                    ease: "expo.out",
+                },
+                "-=0.2",
+            )
+            .to("#preloader", {
+                clipPath: "inset(0 0 100% 0)",
+                duration: 0.8,
+                ease: "expo.inOut",
+                delay: 0.4,
+            });
     }
 
     // Run on initial load

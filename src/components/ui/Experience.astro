@@ -13,9 +13,12 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="relative space-y-24 before:absolute before:left-0 before:top-4 before:h-[calc(100%-1rem)] before:w-[1px] before:bg-black/10 dark:before:bg-white/10 md:before:left-[200px]">
+<div class="relative space-y-24">
+  <!-- Real line element for GSAP animation -->
+  <div class="experience-line absolute left-0 top-4 w-[1px] h-[calc(100%-1rem)] bg-black/10 dark:bg-white/10 origin-top scale-y-0 md:left-[200px]"></div>
+
   {items.map((item) => (
-    <div class="relative flex flex-col md:flex-row gap-8 md:gap-16">
+    <div class="experience-entry relative flex flex-col md:flex-row gap-8 md:gap-16">
       <!-- Period Column -->
       <div class="md:w-[200px] shrink-0">
         <div class="md:pr-12 md:text-right">

@@ -148,8 +148,9 @@
                     
                     void main() {
                         vec3 baseColor = vec3(0.06, 0.72, 0.5); 
-                        float alpha = smoothstep(-1.0, 1.0, vDisplacement) * 0.5;
-                        vec3 finalColor = baseColor + (vDisplacement * 0.3);
+                        float alpha = smoothstep(-1.0, 1.0, vDisplacement) * 0.3;
+                        vec3 finalColor = baseColor + (vDisplacement * 0.12);
+                        finalColor = clamp(finalColor, 0.0, 1.0);
                         gl_FragColor = vec4(finalColor, alpha);
                     }
                 `,

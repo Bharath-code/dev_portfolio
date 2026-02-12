@@ -95,6 +95,8 @@ font-black uppercase tracking-widest text-black dark:text-white transition-all h
 </div>
 
 <script>
+    import { gsap } from "gsap";
+
     let scrollBound = false;
 
     function initNav() {
@@ -105,17 +107,53 @@ font-black uppercase tracking-widest text-black dark:text-white transition-all h
         const line2 = document.getElementById("line-2");
         let isMenuOpen = false;
 
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu?.classList.remove(
-                    "opacity-0",
-                    "pointer-events-none",
-                );
-                mobileMenu?.classList.add("opacity-100");
-                line1?.classList.add("rotate-45", "translate-y-2");
-                line2?.classList.add("-rotate-45", "-translate-y-2");
-                document.body.style.overflow = "hidden";
+        function openMenu() {
+            isMenuOpen = true;
+            mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
+            mobileMenu?.classList.add("opacity-100");
+            line1?.classList.add("rotate-45", "translate-y-2");
+            line2?.classList.add("-rotate-45", "-translate-y-2");
+            document.body.style.overflow = "hidden";
+
+            // GSAP stagger animation for menu links
+            const links = mobileMenu?.querySelectorAll("a");
+            if (links?.length) {
+                gsap.from(links, {
+                    y: 40,
+                    opacity: 0,
+                    stagger: 0.08,
+                    duration: 0.5,
+                    ease: "power3.out",
+                    overwrite: true,
+                });
+            }
+        }
+
+        function closeMenu() {
+            if (!isMenuOpen) return;
+            isMenuOpen = false;
+
+            const links = mobileMenu?.querySelectorAll("a");
+            if (links?.length) {
+                gsap.to(links, {
+                    y: -20,
+                    opacity: 0,
+                    stagger: 0.04,
+                    duration: 0.25,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        mobileMenu?.classList.add(
+                            "opacity-0",
+                            "pointer-events-none",
+                        );
+                        mobileMenu?.classList.remove("opacity-100");
+                        line1?.classList.remove("rotate-45", "translate-y-2");
+                        line2?.classList.remove("-rotate-45", "-translate-y-2");
+                        document.body.style.overflow = "";
+                        // Reset link positions for next open
+                        gsap.set(links, { y: 0, opacity: 1 });
+                    },
+                });
             } else {
                 mobileMenu?.classList.add("opacity-0", "pointer-events-none");
                 mobileMenu?.classList.remove("opacity-100");
@@ -125,14 +163,9 @@ font-black uppercase tracking-widest text-black dark:text-white transition-all h
             }
         }
 
-        // Dedicated close function to ensure consistency
-        function closeMenu() {
-            if (isMenuOpen) toggleMenu();
-        }
-
         menuToggle?.addEventListener("click", (e) => {
             e.stopPropagation();
-            toggleMenu();
+            isMenuOpen ? closeMenu() : openMenu();
         });
 
         // Close menu when clicking a link

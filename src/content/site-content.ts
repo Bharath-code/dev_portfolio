@@ -53,6 +53,17 @@ export interface Skill {
     tags: string[];
 }
 
+export interface AiToolkitCategory {
+    label: string;
+    tools: string[];
+}
+
+export interface AiToolkit {
+    headline: string;
+    subtitle: string;
+    categories: AiToolkitCategory[];
+}
+
 export interface ImpactHighlight {
     label: string;
     value: string;
@@ -76,6 +87,7 @@ export interface SiteContent {
     skillCategories: Skill[];
     experience: Experience[];
     testimonials: any[];
+    aiToolkit: AiToolkit;
     contact: {
         email: string;
         socials: { label: string; href: string }[];
@@ -323,6 +335,28 @@ export const siteContent: SiteContent = {
             tags: ["Docker", "AWS", "Vercel", "GitHub Actions"]
         }
     ],
+    aiToolkit: {
+        headline: "AI-Augmented Developer",
+        subtitle: "I leverage AI at every stage — from ideation to shipping. These are the tools and frameworks in my daily workflow.",
+        categories: [
+            {
+                label: "LLM Providers",
+                tools: ["Claude", "GPT-4o", "Gemini", "Llama"]
+            },
+            {
+                label: "Dev Tools",
+                tools: ["Cursor", "Copilot", "v0", "Bolt"]
+            },
+            {
+                label: "Frameworks",
+                tools: ["LangChain", "LangGraph", "CrewAI", "Vercel AI SDK"]
+            },
+            {
+                label: "Infrastructure",
+                tools: ["Pinecone", "ChromaDB", "Hugging Face", "Replicate"]
+            }
+        ]
+    },
     experience: [
         {
             company: "Accenture",

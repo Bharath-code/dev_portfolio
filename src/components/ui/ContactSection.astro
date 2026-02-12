@@ -236,17 +236,13 @@ import { siteContent } from "@/content/site-content";
         display: block;
         opacity: 0;
         transform: translateY(40px);
-        animation: revealLine 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     }
 
     .contact-heading .line:nth-child(1) {
-        animation-delay: 0.2s;
     }
     .contact-heading .line:nth-child(2) {
-        animation-delay: 0.35s;
     }
     .contact-heading .line:nth-child(3) {
-        animation-delay: 0.5s;
     }
 
     .contact-heading .accent {
@@ -254,13 +250,6 @@ import { siteContent } from "@/content/site-content";
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-    }
-
-    @keyframes revealLine {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .contact-subtext {
@@ -370,17 +359,6 @@ import { siteContent } from "@/content/site-content";
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 1rem;
         transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        animation: fadeInCard 0.6s ease forwards;
-        animation-delay: var(--delay);
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    @keyframes fadeInCard {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .social-card:hover {
@@ -577,6 +555,11 @@ import { siteContent } from "@/content/site-content";
 </style>
 
 <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
     // Animated mesh background using Canvas
     function initContactMesh() {
         const canvas = document.getElementById(
@@ -686,23 +669,76 @@ import { siteContent } from "@/content/site-content";
         });
     }
 
-    // Reveal animations
+    // GSAP-powered reveal animations
     function initContactReveal() {
-        const elements = document.querySelectorAll(".reveal-contact");
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add("active");
-                        }, index * 100);
-                    }
+        const section = document.querySelector(".contact-section");
+        if (!section) return;
+
+        // Set initial state
+        gsap.set(".reveal-contact", { opacity: 0, y: 30 });
+
+        // Contact heading lines — staggered reveal
+        gsap.to(".contact-heading .line", {
+            y: 0,
+            opacity: 1,
+            stagger: 0.15,
+            duration: 0.9,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 70%",
+                once: true,
+            },
+        });
+
+        // All other reveal-contact elements
+        ScrollTrigger.batch(".reveal-contact", {
+            onEnter: (batch) => {
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    overwrite: true,
                 });
             },
-            { threshold: 0.1 },
-        );
+            start: "top 85%",
+            once: true,
+        });
 
-        elements.forEach((el) => observer.observe(el));
+        // Social cards stagger
+        gsap.from(".social-card", {
+            y: 25,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".social-grid",
+                start: "top 85%",
+                once: true,
+            },
+        });
+
+        // Corner accent parallax
+        gsap.to(".corner-accent.top-left", {
+            x: 30,
+            y: 30,
+            scrollTrigger: {
+                trigger: section,
+                scrub: 1.5,
+            },
+        });
+
+        gsap.to(".corner-accent.bottom-right", {
+            x: -30,
+            y: -30,
+            scrollTrigger: {
+                trigger: section,
+                scrub: 1.5,
+            },
+        });
     }
 
     initContactMesh();

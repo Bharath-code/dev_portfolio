@@ -11,7 +11,7 @@ import ThreeVisual from "./ThreeVisual.astro";
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <!-- Availability Badge -->
-                <div class="mb-6 opacity-0 hero-meta">
+                <div class="mb-6 opacity-0 hero-meta hero-availability">
                     <div
                         class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-signal-emerald/10 border border-signal-emerald/20"
                     >
@@ -123,6 +123,9 @@ import ThreeVisual from "./ThreeVisual.astro";
 
 <script>
     import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
 
     function animateHero() {
         if (!document.querySelector(".hero-text")) return;
@@ -130,9 +133,17 @@ import ThreeVisual from "./ThreeVisual.astro";
         const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
         // Reset states for re-running
-        gsap.set(".char", { y: "110%", opacity: 0 });
+        gsap.set(".hero-text .char", {
+            y: "110%",
+            opacity: 0,
+            rotateX: 90,
+        });
         gsap.set(".hero-meta", { y: 20, opacity: 0 });
         gsap.set("#three-container", { scale: 0.8, opacity: 0 });
+        gsap.set(".hero-availability", {
+            clipPath: "inset(0 100% 0 0)",
+            opacity: 0,
+        });
 
         // Phase 1: 3D Entrance
         (window as any).heroScene?.playEntrance();
@@ -147,20 +158,33 @@ import ThreeVisual from "./ThreeVisual.astro";
             0,
         );
 
-        // Phase 2: Staggered Character Reveal
+        // Phase 2: Availability badge wipe-in
         tl.to(
-            ".char",
+            ".hero-availability",
+            {
+                clipPath: "inset(0 0% 0 0)",
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+            },
+            0.3,
+        );
+
+        // Phase 3: Staggered Character Reveal with 3D flip
+        tl.to(
+            ".hero-text .char",
             {
                 y: 0,
                 opacity: 1,
+                rotateX: 0,
                 duration: 1.2,
                 stagger: 0.02,
                 ease: "expo.out",
             },
-            "-=1.8",
+            "-=1.5",
         );
 
-        // Phase 3: Meta Info Reveal
+        // Phase 4: Meta Info Reveal
         tl.to(
             ".hero-meta",
             {
@@ -174,11 +198,29 @@ import ThreeVisual from "./ThreeVisual.astro";
         );
     }
 
+    function setupHeroParallax() {
+        const threeContainer = document.getElementById("three-container");
+        if (!threeContainer) return;
+
+        gsap.to(threeContainer, {
+            y: 120,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero-text",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.5,
+            },
+        });
+    }
+
     // Run on initial load
     animateHero();
+    setupHeroParallax();
 
     // Run on view transition navigation
     document.addEventListener("astro:page-load", () => {
         animateHero();
+        setupHeroParallax();
     });
 </script>
