@@ -14,6 +14,7 @@ export default {
             fontFamily: {
                 sans: ['"Manrope"', 'sans-serif'],
                 display: ['"Archivo Black"', 'sans-serif'],
+                serif: ['"Instrument Serif"', 'Georgia', 'serif'],
             },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-out forwards',

@@ -96,9 +96,9 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
     hero: {
-        title: "Software Architect",
-        subtitle: "Open Source • TUI • Full Stack",
-        bio: "I am a software developer based in India, dedicated to building impactful software solutions and exploring the cutting edge of technology. I thrive in collaborative environments and love contributing to open-source projects that solve real-world problems."
+        title: "I ship production-grade frontends",
+        subtitle: "React · Next.js · TypeScript — accelerated by AI",
+        bio: "Full-stack engineer specializing in the JavaScript ecosystem. I use Claude, Cursor, and LangChain daily to ship what used to take weeks in days."
     },
     blogConfig: {
         devto: "iam_pbk",
@@ -114,24 +114,24 @@ export const siteContent: SiteContent = {
     ],
     impactHighlights: [
         {
-            label: "Open Source",
-            value: "Active",
-            description: "Maintainer of git-scope & debugg"
+            label: "Open Source Tools",
+            value: "4",
+            description: "Shipped & maintained on GitHub"
         },
         {
-            label: "Tech Stack",
-            value: "Modern",
-            description: "React, Node.js, Go, Rust, AWS"
+            label: "CI/CD Optimization",
+            value: "60%",
+            description: "Faster deployment pipelines at Accenture"
         },
         {
-            label: "Problem Solver",
-            value: "Creative",
-            description: "Building tools that solve real dev pain points"
+            label: "Backend Performance",
+            value: "+40%",
+            description: "Redis caching at Infosys"
         },
         {
             label: "Experience",
-            value: "5+ Years",
-            description: "Delivering production-grade software"
+            value: "6+ yrs",
+            description: "Production-grade software delivery"
         }
     ],
     projects: [
@@ -336,24 +336,24 @@ export const siteContent: SiteContent = {
         }
     ],
     aiToolkit: {
-        headline: "AI-Augmented Developer",
-        subtitle: "I leverage AI at every stage — from ideation to shipping. These are the tools and frameworks in my daily workflow.",
+        headline: "My AI Stack",
+        subtitle: "The tools I use daily to move faster — from writing code to deploying production systems.",
         categories: [
             {
-                label: "LLM Providers",
-                tools: ["Claude", "GPT-4o", "Gemini", "Llama"]
+                label: "AI Assistants",
+                tools: ["Claude", "GPT-4o", "Gemini", "Cursor"]
             },
             {
-                label: "Dev Tools",
-                tools: ["Cursor", "Copilot", "v0", "Bolt"]
+                label: "Shipping Tools",
+                tools: ["Copilot", "v0", "Bolt", "Vercel AI SDK"]
             },
             {
-                label: "Frameworks",
-                tools: ["LangChain", "LangGraph", "CrewAI", "Vercel AI SDK"]
+                label: "Agent Frameworks",
+                tools: ["LangChain", "LangGraph", "CrewAI", "MCP"]
             },
             {
-                label: "Infrastructure",
-                tools: ["Pinecone", "ChromaDB", "Hugging Face", "Replicate"]
+                label: "AI Infrastructure",
+                tools: ["Pinecone", "Hugging Face", "Replicate", "RAG"]
             }
         ]
     },

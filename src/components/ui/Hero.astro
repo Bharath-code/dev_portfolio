@@ -1,226 +1,187 @@
 ---
 import Heading from "./Heading.astro";
 import { siteContent } from "@/content/site-content";
-import ThreeVisual from "./ThreeVisual.astro";
 ---
 
 <section
     class="relative flex min-h-[90vh] flex-col justify-center pt-20 overflow-hidden"
 >
-    <div class="relative z-10 mx-auto max-w-[1400px] w-full px-4 md:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <!-- Availability Badge -->
-                <div class="mb-6 opacity-0 hero-meta hero-availability">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-signal-emerald/10 border border-signal-emerald/20"
-                    >
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal-emerald opacity-75"
-                            ></span>
-                            <span
-                                class="relative inline-flex rounded-full h-2 w-2 bg-signal-emerald"
-                            ></span>
-                        </span>
-                        <span
-                            class="text-xs font-black tracking-widest uppercase text-signal-emerald"
-                            >Open to New Opportunities</span
-                        >
-                    </div>
-                </div>
-
-                <div>
-                    <Heading
-                        as="h1"
-                        variant="display"
-                        class="hero-text leading-[0.9] overflow-hidden"
-                    >
-                        <div class="line overflow-hidden py-1">
-                            {
-                                siteContent.hero.title
-                                    .split(" ")[0]
-                                    .split("")
-                                    .map((char) => (
-                                        <span class="char inline-block translate-y-full opacity-0">
-                                            {char}
-                                        </span>
-                                    ))
-                            }
-                        </div>
-                        <div
-                            class="line overflow-hidden py-1 text-signal-emerald"
-                        >
-                            {
-                                siteContent.hero.title
-                                    .split(" ")
-                                    .slice(1)
-                                    .join(" ")
-                                    .split("")
-                                    .map((char) => (
-                                        <span class="char inline-block translate-y-full opacity-0">
-                                            {char === " " ? "\u00A0" : char}
-                                        </span>
-                                    ))
-                            }
-                        </div>
-                    </Heading>
-                </div>
-
-                <div
-                    class="mt-6 flex max-w-2xl flex-col gap-4 opacity-0 hero-meta"
-                >
-                    <p
-                        class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-400"
-                    >
-                        {siteContent.hero.bio}
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a
-                            href="#work"
-                            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black dark:bg-white px-6 py-3 text-white dark:text-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/5 dark:shadow-white/5"
-                            data-magnetic
-                        >
-                            <span class="relative z-10 font-medium"
-                                >View Work</span
-                            >
-                            <div
-                                class="absolute inset-0 -z-0 translate-y-[100%] bg-signal-emerald transition-transform duration-300 group-hover:translate-y-0"
-                            >
-                            </div>
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/bharathkumar-palanisamy"
-                            target="_blank"
-                            class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-6 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
-                            data-magnetic
-                        >
-                            <span class="font-medium">View LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+    <div class="relative z-10 mx-auto max-w-[900px] w-full px-4 md:px-8">
+        <!-- Availability Badge -->
+        <div class="mb-8 opacity-0 hero-meta hero-availability">
             <div
-                class="relative h-[300px] lg:h-full lg:min-h-[500px] flex items-center justify-center overflow-visible order-first lg:order-last"
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-signal-emerald/10 border border-signal-emerald/20"
             >
-                <!-- Subtle background glow for the 3D element -->
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal-emerald opacity-75"
+                    ></span>
+                    <span
+                        class="relative inline-flex rounded-full h-2 w-2 bg-signal-emerald"
+                    ></span>
+                </span>
+                <span
+                    class="text-xs font-black tracking-widest uppercase text-signal-emerald"
+                    >Open to New Opportunities</span
+                >
+            </div>
+        </div>
+
+        <!-- Editorial Display Heading -->
+        <div>
+            <h1 class="hero-text leading-[1.05] tracking-tight">
+                <span class="line overflow-hidden block">
+                    {
+                        siteContent.hero.title
+                            .split(" ")
+                            .slice(0, 2)
+                            .map((word) => (
+                                <span class="char inline-block translate-y-full opacity-0 font-serif italic text-5xl md:text-7xl lg:text-8xl text-black dark:text-white">
+                                    {word}&nbsp;
+                                </span>
+                            ))
+                    }
+                </span>
+                <span class="line overflow-hidden block mt-1">
+                    {
+                        siteContent.hero.title
+                            .split(" ")
+                            .slice(2)
+                            .map((word) => (
+                                <span class="char inline-block translate-y-full opacity-0 font-display text-5xl md:text-7xl lg:text-8xl text-signal-emerald">
+                                    {word}&nbsp;
+                                </span>
+                            ))
+                    }
+                </span>
+            </h1>
+        </div>
+
+        <!-- Subtitle + Bio -->
+        <div class="mt-8 flex flex-col gap-5 opacity-0 hero-meta">
+            <p
+                class="text-sm font-semibold uppercase tracking-[0.3em] text-black/40 dark:text-white/40"
+            >
+                {siteContent.hero.subtitle}
+            </p>
+            <p
+                class="text-lg md:text-xl leading-relaxed text-black/70 dark:text-white/60 max-w-xl"
+            >
+                {siteContent.hero.bio}
+            </p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-10 flex flex-wrap gap-4 opacity-0 hero-meta">
+            <a
+                href="#work"
+                class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black dark:bg-white px-6 py-3 text-white dark:text-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/5 dark:shadow-white/5"
+                data-magnetic
+            >
+                <span class="relative z-10 font-medium">View Work</span>
                 <div
-                    class="absolute inset-0 bg-signal-emerald/5 blur-3xl rounded-full scale-75 -z-10 animate-pulse"
+                    class="absolute inset-0 -z-0 translate-y-[100%] bg-signal-emerald transition-transform duration-300 group-hover:translate-y-0"
                 >
                 </div>
-                <ThreeVisual />
-            </div>
+            </a>
+            <a
+                href="https://linkedin.com/in/bharathkumar-palanisamy"
+                target="_blank"
+                class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-6 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
+                data-magnetic
+            >
+                <span class="font-medium">LinkedIn</span>
+            </a>
+            <a
+                href="https://github.com/Bharath-code"
+                target="_blank"
+                class="group inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/20 px-6 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white"
+                data-magnetic
+            >
+                <span class="font-medium">GitHub</span>
+            </a>
         </div>
     </div>
 
+    <!-- Subtle background accent -->
     <div
-        class="absolute right-0 top-1/2 -z-10 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/3 rounded-full bg-signal-emerald opacity-[0.03] blur-[120px]"
+        class="absolute right-0 top-1/3 -z-10 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/3 rounded-full bg-signal-emerald opacity-[0.03] blur-[120px]"
+    >
+    </div>
+    <div
+        class="absolute left-0 bottom-0 -z-10 h-[300px] w-[300px] translate-y-1/3 -translate-x-1/3 rounded-full bg-signal-emerald opacity-[0.02] blur-[80px]"
     >
     </div>
 </section>
 
 <script>
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(ScrollTrigger);
+    function initHeroAnimation() {
+        const heroText = document.querySelector(".hero-text");
+        if (!heroText) return;
 
-    function animateHero() {
-        if (!document.querySelector(".hero-text")) return;
+        const chars = heroText.querySelectorAll(".char");
+        const metas = document.querySelectorAll(".hero-meta");
 
-        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        // Check for prefers-reduced-motion
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.set(chars, { y: 0, opacity: 1, rotateX: 0 });
+            gsap.set(metas, { opacity: 1 });
+            return;
+        }
 
-        // Reset states for re-running
-        gsap.set(".hero-text .char", {
-            y: "110%",
-            opacity: 0,
-            rotateX: 90,
+        // Build entrance timeline
+        const tl = gsap.timeline({
+            defaults: { ease: "expo.out" },
+            delay: 0.3,
         });
-        gsap.set(".hero-meta", { y: 20, opacity: 0 });
-        gsap.set("#three-container", { scale: 0.8, opacity: 0 });
-        gsap.set(".hero-availability", {
-            clipPath: "inset(0 100% 0 0)",
-            opacity: 0,
+
+        // Check if preloader has already run
+        const preloaderDone =
+            sessionStorage.getItem("preloaderDone") === "true";
+        if (!preloaderDone) {
+            tl.delay(2.2);
+        }
+
+        tl.to(chars, {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            duration: 1.2,
+            stagger: 0.06,
+            ease: "expo.out",
         });
 
-        // Phase 1: 3D Entrance
-        (window as any).heroScene?.playEntrance();
+        // Availability badge clip-path wipe
+        const badge = document.querySelector(".hero-availability");
+        if (badge) {
+            tl.fromTo(
+                badge,
+                { clipPath: "inset(0 100% 0 0)" },
+                {
+                    clipPath: "inset(0 0% 0 0)",
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power3.inOut",
+                },
+                "-=0.6",
+            );
+        }
 
         tl.to(
-            "#three-container",
+            metas,
             {
-                scale: 1,
                 opacity: 1,
-                duration: 2,
-            },
-            0,
-        );
-
-        // Phase 2: Availability badge wipe-in
-        tl.to(
-            ".hero-availability",
-            {
-                clipPath: "inset(0 0% 0 0)",
-                opacity: 1,
+                y: 0,
                 duration: 0.8,
-                ease: "power3.out",
-            },
-            0.3,
-        );
-
-        // Phase 3: Staggered Character Reveal with 3D flip
-        tl.to(
-            ".hero-text .char",
-            {
-                y: 0,
-                opacity: 1,
-                rotateX: 0,
-                duration: 1.2,
-                stagger: 0.02,
-                ease: "expo.out",
-            },
-            "-=1.5",
-        );
-
-        // Phase 4: Meta Info Reveal
-        tl.to(
-            ".hero-meta",
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
                 stagger: 0.1,
                 ease: "power3.out",
             },
-            "-=1",
+            "-=0.4",
         );
     }
 
-    function setupHeroParallax() {
-        const threeContainer = document.getElementById("three-container");
-        if (!threeContainer) return;
-
-        gsap.to(threeContainer, {
-            y: 120,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".hero-text",
-                start: "top top",
-                end: "bottom top",
-                scrub: 1.5,
-            },
-        });
-    }
-
-    // Run on initial load
-    animateHero();
-    setupHeroParallax();
-
-    // Run on view transition navigation
-    document.addEventListener("astro:page-load", () => {
-        animateHero();
-        setupHeroParallax();
-    });
+    initHeroAnimation();
+    document.addEventListener("astro:page-load", initHeroAnimation);
 </script>

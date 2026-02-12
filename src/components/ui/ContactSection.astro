@@ -32,9 +32,9 @@ import { siteContent } from "@/content/site-content";
                 </h2>
 
                 <p class="contact-subtext reveal-contact">
-                    Whether you're looking for a technical co-founder, a senior
-                    engineer to scale your team, or want to collaborate on
-                    open-source — I'm always open to interesting conversations.
+                    Looking for a frontend engineer who ships fast with AI?
+                    Whether it's scaling your team or building something new —
+                    let's talk.
                 </p>
 
                 <div class="contact-methods reveal-contact">
@@ -674,52 +674,59 @@ import { siteContent } from "@/content/site-content";
         const section = document.querySelector(".contact-section");
         if (!section) return;
 
-        // Set initial state
-        gsap.set(".reveal-contact", { opacity: 0, y: 30 });
-
         // Contact heading lines — staggered reveal
-        gsap.to(".contact-heading .line", {
-            y: 0,
-            opacity: 1,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: "expo.out",
-            scrollTrigger: {
-                trigger: section,
-                start: "top 70%",
-                once: true,
+        gsap.fromTo(
+            ".contact-heading .line",
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.15,
+                duration: 0.9,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 70%",
+                    once: true,
+                },
             },
-        });
+        );
 
         // All other reveal-contact elements
-        ScrollTrigger.batch(".reveal-contact", {
-            onEnter: (batch) => {
-                gsap.to(batch, {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.1,
-                    duration: 0.8,
-                    ease: "power3.out",
-                    overwrite: true,
-                });
+        gsap.fromTo(
+            ".reveal-contact",
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 75%",
+                    once: true,
+                },
             },
-            start: "top 85%",
-            once: true,
-        });
+        );
 
         // Social cards stagger
-        gsap.from(".social-card", {
-            y: 25,
-            opacity: 0,
-            stagger: 0.08,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".social-grid",
-                start: "top 85%",
-                once: true,
+        gsap.fromTo(
+            ".social-card",
+            { y: 25, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.08,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".social-grid",
+                    start: "top 85%",
+                    once: true,
+                },
             },
-        });
+        );
 
         // Corner accent parallax
         gsap.to(".corner-accent.top-left", {
