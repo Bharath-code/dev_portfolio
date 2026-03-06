@@ -1,0 +1,56 @@
+---
+import type { MappedBook } from "@/lib/books";
+import { ArrowUpRight, BookOpenText, Star } from "lucide-react";
+
+interface Props {
+    book: MappedBook;
+}
+
+const { book } = Astro.props;
+---
+
+<article class="surface-card bookshelf-card">
+    <div class="flex items-start justify-between gap-4">
+        <div>
+            <p class="card-kicker">{book.genre}</p>
+            <h3 class="card-title text-[1.35rem]">{book.title}</h3>
+            <p class="meta-note mt-2">{book.author}</p>
+        </div>
+        <span class="status-pill">{book.status.replaceAll("-", " ")}</span>
+    </div>
+
+    {book.review && <p class="card-copy mt-5">{book.review}</p>}
+
+    <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+        <div class="metric-row">
+            <dt class="inline-flex items-center gap-2">
+                <Star className="h-3.5 w-3.5" />
+                Rating
+            </dt>
+            <dd>{book.rating || "n/a"}/5</dd>
+        </div>
+        <div class="metric-row">
+            <dt class="inline-flex items-center gap-2">
+                <BookOpenText className="h-3.5 w-3.5" />
+                Pages
+            </dt>
+            <dd>{book.pages || "n/a"}</dd>
+        </div>
+        <div class="metric-row">
+            <dt>Finished</dt>
+            <dd>{book.year || "Reading list"}</dd>
+        </div>
+    </dl>
+
+    {book.link !== "#" && (
+        <a
+            class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--ink)] transition-transform duration-200 hover:translate-x-1"
+            href={book.link}
+            target="_blank"
+            rel="noreferrer"
+        >
+            Find book
+            <ArrowUpRight className="h-4 w-4" />
+        </a>
+    )}
+</article>

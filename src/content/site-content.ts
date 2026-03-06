@@ -37,6 +37,7 @@ export interface Project {
     description: string;
     metrics: Metric[];
     link: string;
+    proofPoints?: string[];
     spotlight?: Spotlight;
 }
 
@@ -64,6 +65,18 @@ export interface AiToolkit {
     categories: AiToolkitCategory[];
 }
 
+export interface OpportunityRole {
+    title: string;
+    summary: string;
+}
+
+export interface SecondaryProject {
+    title: string;
+    href: string;
+    category: string;
+    summary: string;
+}
+
 export interface ImpactHighlight {
     label: string;
     value: string;
@@ -83,6 +96,13 @@ export interface SiteContent {
     navigation: { label: string; href: string }[];
     impactHighlights: ImpactHighlight[];
     projects: Project[];
+    opportunities: {
+        headline: string;
+        summary: string;
+        roles: OpportunityRole[];
+        preferences: string[];
+    };
+    secondaryProjects: SecondaryProject[];
     skills: string[];
     skillCategories: Skill[];
     experience: Experience[];
@@ -96,21 +116,20 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
     hero: {
-        title: "I ship production-grade frontends",
-        subtitle: "React · Next.js · TypeScript — accelerated by AI",
-        bio: "Full-stack engineer specializing in the JavaScript ecosystem. I use Claude, Cursor, and LangChain daily to ship what used to take weeks in days."
+        title: "I build developer tools and AI-integrated products that ship fast and hold up in production",
+        subtitle: "Software Engineer · Developer Tools · AI-Augmented Builder",
+        bio: "India-based software engineer building developer tools, full-stack products, and AI-assisted workflows. I use AI to move faster, but the bar stays the same: useful products, clear interfaces, and engineering decisions that survive real usage."
     },
     blogConfig: {
         devto: "iam_pbk",
         medium: "@kumarbharath63"
     },
     navigation: [
-        { label: "Home", href: "/" },
         { label: "Work", href: "/#work" },
         { label: "Experience", href: "/#experience" },
-        { label: "Blog", href: "/blog" },
-        { label: "Books", href: "/books" },
-        { label: "Contact", href: "mailto:kumarbharath63@icloud.com" }
+        { label: "Writing", href: "/blog" },
+        { label: "Library", href: "/books" },
+        { label: "Contact", href: "/#contact" }
     ],
     impactHighlights: [
         {
@@ -142,9 +161,14 @@ export const siteContent: SiteContent = {
             description: "Fast TUI for managing Git repositories. Features contribution graphs, time machine history, and batch operations for high-velocity developer workflows.",
             metrics: [
                 { label: "Role", value: "Creator" },
-                { label: "Downloads", value: "Active" }
+                { label: "Distribution", value: "Homebrew + npm" }
             ],
             link: "https://github.com/Bharath-code/git-scope",
+            proofPoints: [
+                "71+ GitHub stars and 15 releases shipped in 10 weeks",
+                "Homebrew distribution with multi-repo workflows built for daily use",
+                "Scans 50+ repositories with fuzzy search, workspace switching, and dirty filters"
+            ],
             spotlight: {
                 headline: "Managing multiple repos without context switching",
                 overview: "Built a terminal-first workflow tool that gives developers instant visibility into their entire Git ecosystem without leaving the terminal.",
@@ -195,6 +219,11 @@ export const siteContent: SiteContent = {
                 { label: "Stack", value: "TS/Node" }
             ],
             link: "https://github.com/Bharath-code/debugg",
+            proofPoints: [
+                "Universal TypeScript error handling for browser and Node runtimes",
+                "Routes rich context to Sentry and webhook pipelines",
+                "Designed for type-safe severity classification and structured debugging"
+            ],
             spotlight: {
                 headline: "Error handling that doesn't suck",
                 overview: "Created a developer-friendly error handling library that makes debugging easier with structured errors, stack traces, and context preservation.",
@@ -234,9 +263,14 @@ export const siteContent: SiteContent = {
             description: "Intelligent RAG-based system for crisis counseling. Uses LLMs to provide context-aware response suggestions and knowledge retrieval for sensitive scenarios.",
             metrics: [
                 { label: "Domain", value: "AI" },
-                { label: "Status", value: "Prototype" }
+                { label: "Response", value: "< 800ms" }
             ],
             link: "https://github.com/Bharath-code/smart-crisis-councelor",
+            proofPoints: [
+                "Voice-first AI flow with real-time transcript handling",
+                "Sub-800ms response time with Gemini and ElevenLabs in the loop",
+                "Sensitive-mode features like 911 auto-call, breathing support, and privacy controls"
+            ],
             spotlight: {
                 headline: "AI-powered crisis response",
                 overview: "Developed a RAG-based system that helps crisis counselors respond effectively with context-aware suggestions and knowledge retrieval.",
@@ -279,6 +313,11 @@ export const siteContent: SiteContent = {
                 { label: "Data", value: "Real-time" }
             ],
             link: "https://github.com/Bharath-code/youtube_companion_dashboard",
+            proofPoints: [
+                "Full-stack dashboard with Google OAuth and audit logging",
+                "Searchable tagging and content workflows for creator operations",
+                "Built as an end-to-end product surface, not just an analytics mock"
+            ],
             spotlight: {
                 headline: "YouTube analytics made simple",
                 overview: "Built a companion dashboard that provides YouTube creators with actionable insights beyond the standard YouTube Studio.",
@@ -310,6 +349,67 @@ export const siteContent: SiteContent = {
                     src: "https://github.com/Bharath-code/youtube_companion_dashboard"
                 }
             }
+        }
+    ],
+    opportunities: {
+        headline: "Open to opportunities where I can build products end-to-end and use AI as a force multiplier.",
+        summary: "Best fit for teams building developer tools, B2B SaaS, or AI products and looking for someone who can move from system design to shipped UI without losing rigor.",
+        roles: [
+            {
+                title: "Developer Tools Engineer",
+                summary: "CLIs, SDKs, terminal UX, and workflow tooling shipped to real developers."
+            },
+            {
+                title: "Full-Stack Engineer",
+                summary: "Go, TypeScript, React, PostgreSQL, and end-to-end ownership across product surfaces."
+            },
+            {
+                title: "AI/ML Engineer",
+                summary: "LLM integrations, voice AI, structured outputs, and AI-augmented product workflows."
+            }
+        ],
+        preferences: [
+            "Based in India and open to remote, hybrid, or onsite roles globally",
+            "Strong fit for early-stage to growth-stage startups",
+            "Looking for teams that value speed, product ownership, and public iteration"
+        ]
+    },
+    secondaryProjects: [
+        {
+            title: "snip",
+            href: "https://github.com/Bharath-code/snip",
+            category: "CLI & Developer Tools",
+            summary: "Terminal snippet manager for saving, searching, sharing, and running reusable code."
+        },
+        {
+            title: "resume-cli",
+            href: "https://github.com/Bharath-code/resume-cli",
+            category: "CLI & Developer Tools",
+            summary: "Generate and manage resume content from the command line."
+        },
+        {
+            title: "rivaleye",
+            href: "https://github.com/Bharath-code/rivaleye",
+            category: "SaaS & AI",
+            summary: "Competitor intelligence and monitoring SaaS for market tracking."
+        },
+        {
+            title: "salesIQ",
+            href: "https://github.com/Bharath-code/salesIQ",
+            category: "SaaS & AI",
+            summary: "AI-powered sales coaching with transcript analysis and workflow support."
+        },
+        {
+            title: "tabZero",
+            href: "https://github.com/Bharath-code/tabZero",
+            category: "Browser Extensions",
+            summary: "Svelte-based new-tab replacement extension with a stronger daily workflow focus."
+        },
+        {
+            title: "how_the_web_works",
+            href: "https://github.com/Bharath-code/how_the_web_works",
+            category: "Frontend & Education",
+            summary: "Interactive Astro project explaining web fundamentals through productized visuals."
         }
     ],
     skills: ["Go", "HTML", "CSS", "Docker", "React", "Node.js", "Rust", "Git", "MySQL", "AWS", "Linux", "Astro", "Tailwind", "Vercel", "Supabase", "Postgres", "Bun", "Vite", "Vitest", "Next.js", "Netlify", "Express", "Redis", "Svelte"],
@@ -362,22 +462,21 @@ export const siteContent: SiteContent = {
             company: "Accenture",
             role: "Full-Stack Engineer",
             period: "2019 — 2021",
-            description: "Built enterprise code scanning platforms and optimized CI/CD pipelines, reducing deployment times by 60%."
+            description: "Built enterprise code scanning platforms, improved delivery workflows, and reduced deployment time by 60% through CI/CD redesign."
         },
         {
             company: "Infosys",
             role: "Full-Stack Engineer",
             period: "2015 — 2019",
-            description: "Delivered secure banking features for national clients. Improved backend performance by 40% using Redis caching."
+            description: "Delivered banking software for high-trust environments and improved backend performance by 40% with targeted caching and service optimizations."
         }
     ],
     testimonials: [],
     contact: {
-        email: "kumarbharath63@icloud.com",
+        email: "kumarbharath63@gmail.com",
         socials: [
-            { label: "Twitter", href: "https://x.com/iam_pbk" },
+            { label: "X", href: "https://x.com/iam_pbk" },
             { label: "GitHub", href: "https://github.com/Bharath-code/" },
-            { label: "Portfolio", href: "https://www.bharathkumar.dev" },
             { label: "LinkedIn", href: "https://linkedin.com/in/bharathkumar-palanisamy" }
         ]
     }

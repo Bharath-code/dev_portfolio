@@ -1,68 +1,72 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Heading from "@/components/ui/Heading.astro";
-import BlogCard from "@/components/ui/BlogCard.astro";
+import SectionIntro from "@/components/site/SectionIntro.astro";
+import PostCard from "@/components/site/PostCard.astro";
 import { getLatestPosts } from "@/lib/blog";
 import { siteContent } from "@/content/site-content";
 
-// Fetch all posts
-const allPosts = await getLatestPosts(siteContent.blogConfig, 20);
-
-// Segregate by platform
-const devtoPosts = allPosts.filter((p) => p.platform === "Dev.to");
-const mediumPosts = allPosts.filter((p) => p.platform === "Medium");
+const posts = await getLatestPosts(siteContent.blogConfig, 18);
+const mediumPosts = posts.filter((post) => post.platform === "Medium");
+const devtoPosts = posts.filter((post) => post.platform === "Dev.to");
 ---
 
-<Layout title="Blog | Bharath">
-    <section class="px-4 py-32 md:px-8">
-        <div class="mx-auto max-w-[1400px]">
-            <div class="mb-16">
-                <Heading variant="section">Writing</Heading>
-                <p class="max-w-xl text-lg text-gray-400 mt-4">
-                    Thoughts on software architecture, engineering leadership,
-                    and open source.
-                </p>
-            </div>
+<Layout
+    title="Writing | Bharathkumar Palanisamy"
+    description="Engineering writing from Bharathkumar Palanisamy on architecture, frontend systems, and practical software delivery."
+>
+    <section class="section-shell">
+        <div class="shell grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_340px] xl:items-end">
+            <SectionIntro
+                eyebrow="Writing"
+                title="I write to make my engineering taste inspectable."
+                description="The articles below cover architecture, tooling, and the habits behind reliable shipping. This is where I slow down and explain the decisions, not just the outcomes."
+            />
 
-            {
-                mediumPosts.length > 0 && (
-                    <div class="mb-20">
-                        <div class="mb-8 flex items-end gap-4 border-b border-white/10 pb-4">
-                            <h2 class="font-display text-2xl text-white">
-                                From Medium
-                            </h2>
-                            <span class="text-sm text-gray-400 pb-1">
-                                Thought Leadership & Opinion
-                            </span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {mediumPosts.map((post) => (
-                                <BlogCard {...post} />
-                            ))}
-                        </div>
-                    </div>
-                )
-            }
-
-            {
-                devtoPosts.length > 0 && (
-                    <div>
-                        <div class="mb-8 flex items-end gap-4 border-b border-white/10 pb-4">
-                            <h2 class="font-display text-2xl text-white">
-                                From Dev.to
-                            </h2>
-                            <span class="text-sm text-gray-400 pb-1">
-                                Technical Tutorials & Code
-                            </span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {devtoPosts.map((post) => (
-                                <BlogCard {...post} />
-                            ))}
-                        </div>
-                    </div>
-                )
-            }
+            <aside class="surface-card content-auto">
+                <p class="card-kicker">What to expect</p>
+                <div class="space-y-3">
+                    <p class="card-copy">
+                        I focus on practical lessons, implementation details,
+                        and patterns that teams can reuse.
+                    </p>
+                    <p class="card-copy">
+                        Medium holds the broader essays. Dev.to carries the
+                        more tactical engineering walkthroughs.
+                    </p>
+                </div>
+            </aside>
         </div>
     </section>
+
+    {mediumPosts.length > 0 && (
+        <section class="section-shell-tight section-surface">
+            <div class="shell space-y-10">
+                <SectionIntro
+                    eyebrow="Medium"
+                    title="Longer-form writing on product, architecture, and engineering clarity."
+                />
+                <div class="grid gap-6 lg:grid-cols-2">
+                    {mediumPosts.map((post) => (
+                        <PostCard post={post} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    )}
+
+    {devtoPosts.length > 0 && (
+        <section class="section-shell">
+            <div class="shell space-y-10">
+                <SectionIntro
+                    eyebrow="Dev.to"
+                    title="Hands-on technical writing with a stronger implementation bias."
+                />
+                <div class="grid gap-6 lg:grid-cols-2">
+                    {devtoPosts.map((post) => (
+                        <PostCard post={post} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    )}
 </Layout>

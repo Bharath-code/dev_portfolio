@@ -5,506 +5,170 @@ interface Props {
     ogImage?: string;
 }
 
-const {
-    title,
-    description = "Developer tools, open-source CLIs, and AI-augmented engineering by Bharathkumar Palanisamy",
-    ogImage = "/og-image.png",
-} = Astro.props;
-
 import "@/styles/global.css";
-import NavBar from "@/components/ui/NavBar.astro";
-import Footer from "@/components/ui/Footer.astro";
-import CustomCursor from "@/components/ui/CustomCursor.astro";
-import Preloader from "@/components/ui/Preloader.astro";
-import RecruiterPanel from "@/components/ui/RecruiterPanel.astro";
-import CurrentlyBuilding from "@/components/ui/CurrentlyBuilding.astro";
-import ThemeCustomizer from "@/components/ui/ThemeCustomizer.astro";
-import EasterEggs from "@/components/ui/EasterEggs.astro";
-import { ClientRouter } from "astro:transitions";
+import { siteContent } from "@/content/site-content";
 import "@fontsource/archivo-black";
 import "@fontsource/manrope";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/600.css";
-import "@fontsource/manrope/800.css";
-import "@fontsource/jetbrains-mono";
+import "@fontsource/manrope/700.css";
 import "@fontsource/instrument-serif";
 import "@fontsource/instrument-serif/400-italic.css";
+
+const {
+    title,
+    description = "Bharathkumar Palanisamy is a software engineer building developer tools, AI-integrated products, and fast, credible web experiences.",
+    ogImage = "/og-image.png",
+} = Astro.props;
+
+const currentUrl = Astro.url;
+const currentPath = currentUrl.pathname;
+const currentYear = new Date().getFullYear();
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://www.bharathkumar.dev/#person",
+            name: "Bharathkumar Palanisamy",
+            url: "https://www.bharathkumar.dev",
+            image: "https://www.bharathkumar.dev/profile-pic-2.png",
+            sameAs: [
+                "https://github.com/Bharath-code",
+                "https://x.com/iam_pbk",
+                "https://linkedin.com/in/bharathkumar-palanisamy",
+            ],
+            jobTitle: "Software Engineer",
+            description,
+            knowsAbout: [
+                "Developer tools",
+                "Frontend engineering",
+                "Design systems",
+                "TypeScript",
+                "React",
+                "Astro",
+                "Node.js",
+                "AI-assisted development",
+                "LLM integrations",
+            ],
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://www.bharathkumar.dev/#website",
+            url: "https://www.bharathkumar.dev",
+            name: "Bharathkumar Palanisamy Portfolio",
+            inLanguage: "en-US",
+            publisher: {
+                "@id": "https://www.bharathkumar.dev/#person",
+            },
+        },
+    ],
+};
 ---
 
 <!doctype html>
-<html
-    lang="en"
-    class="scroll-smooth bg-white text-black dark:bg-void-black dark:text-white antialiased overflow-x-hidden"
->
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
-        <script is:inline>
-            // Initialize theme to prevent FOUC
-            (() => {
-                const getTheme = () => {
-                    if (
-                        typeof localStorage !== "undefined" &&
-                        localStorage.getItem("theme")
-                    ) {
-                        return localStorage.getItem("theme");
-                    }
-                    if (
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches
-                    ) {
-                        return "dark";
-                    }
-                    return "light";
-                };
-
-                if (getTheme() === "dark") {
-                    document.documentElement.classList.add("dark");
-                } else {
-                    document.documentElement.classList.remove("dark");
-                }
-
-                // Initialize accent color to prevent FOUC
-                const savedAccent = localStorage.getItem("accent-color");
-                if (savedAccent) {
-                    document.documentElement.classList.add(savedAccent);
-                }
-            })();
-        </script>
-        <meta name="viewport" content="width=device-width" />
         <meta
             name="keywords"
-            content="developer tools, open source, Go, TypeScript, React, AI, CLI, full stack"
+            content="software engineer, developer tools, full-stack engineer, Astro portfolio, TypeScript, React, AI engineering, CLI tools"
         />
-        <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+        <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content="#f4ecdf" />
         <link rel="icon" type="image/png" href="/profile-pic-2.png?v=1" />
         <link rel="apple-touch-icon" href="/profile-pic-2.png?v=1" />
-        <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={currentUrl} />
 
-        <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={Astro.site} />
+        <meta property="og:url" content={currentUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL(ogImage, Astro.url)} />
+        <meta property="og:image" content={new URL(ogImage, currentUrl)} />
 
-        <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={Astro.site} />
+        <meta property="twitter:url" content={currentUrl} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
+        <meta property="twitter:image" content={new URL(ogImage, currentUrl)} />
 
-        <link rel="canonical" href={Astro.url} />
-
-        <!-- AEO: Advanced JSON-LD @graph for Entity Recognition & Relationship Mapping -->
         <script type="application/ld+json" is:inline>
-            {
-                "@context": "https://schema.org",
-                "@graph": [
-                    {
-                        "@type": "Person",
-                        "@id": "https://www.bharathkumar.dev/#person",
-                        "name": "Bharathkumar Palanisamy",
-                        "url": "https://www.bharathkumar.dev",
-                        "image": "https://www.bharathkumar.dev/profile-pic-2.png",
-                        "sameAs": [
-                            "https://github.com/Bharath-code",
-                            "https://x.com/iam_pbk",
-                            "https://linkedin.com/in/bharathkumar-palanisamy"
-                        ],
-                        "jobTitle": "Senior Software Architect",
-                        "description": "Senior Frontend Architect & AI Engineer specializing in high-performance web systems and AI integration.",
-                        "knowsAbout": [
-                            "Frontend Architecture",
-                            "React",
-                            "TypeScript",
-                            "Node.js",
-                            "AI/ML",
-                            "TUI Development",
-                            "Go",
-                            "Rust"
-                        ]
-                    },
-                    {
-                        "@type": "WebSite",
-                        "@id": "https://www.bharathkumar.dev/#website",
-                        "url": "https://www.bharathkumar.dev",
-                        "name": "Bharath's Portfolio",
-                        "publisher": {
-                            "@id": "https://www.bharathkumar.dev/#person"
-                        },
-                        "inLanguage": "en-US"
-                    },
-                    {
-                        "@type": "ProfessionalService",
-                        "name": "Bharathkumar Palanisamy - Technical Consulting",
-                        "image": "https://www.bharathkumar.dev/profile-pic-2.png",
-                        "@id": "https://www.bharathkumar.dev/#service",
-                        "url": "https://www.bharathkumar.dev",
-                        "telephone": "",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "India",
-                            "addressCountry": "IN"
-                        },
-                        "founder": {
-                            "@id": "https://www.bharathkumar.dev/#person"
-                        }
-                    }
-                ]
-            }
+            {JSON.stringify(jsonLd)}
         </script>
-
         <title>{title}</title>
-        <ClientRouter />
     </head>
-    <body
-        class="selection:bg-signal-emerald selection:text-void-black relative"
-    >
-        <Preloader />
-        <CustomCursor />
-        <!-- Noise Texture Overlay -->
-        <div class="grain-overlay"></div>
+    <body>
+        <a href="#content" class="skip-link">Skip to content</a>
+        <div class="page-shell">
+            <header class="site-header">
+                <div class="shell site-header-inner">
+                    <a class="brand-mark" href="/" aria-label="Go to homepage">
+                        <span class="brand-mark-badge">BP</span>
+                        <span class="hidden sm:inline">Bharathkumar Palanisamy</span>
+                    </a>
+                    <nav class="site-nav" aria-label="Primary">
+                        <div class="site-nav-list">
+                            {siteContent.navigation.map((item) => {
+                                const isActive =
+                                    item.href === currentPath ||
+                                    (item.href !== "/" &&
+                                        item.href.startsWith(currentPath) &&
+                                        currentPath !== "/");
 
-        <NavBar />
-        <main class="relative z-10">
-            <slot />
-        </main>
-        <RecruiterPanel />
-        <CurrentlyBuilding />
-        <ThemeCustomizer />
-        <EasterEggs />
-        <Footer />
-        <style is:global>
-            /* Smooth background transitions */
-            body {
-                transition: background-color 0.5s ease;
-            }
+                                return (
+                                    <a
+                                        class:list={[
+                                            "site-nav-link",
+                                            isActive && "is-active",
+                                        ]}
+                                        href={item.href}
+                                    >
+                                        {item.label}
+                                    </a>
+                                );
+                            })}
+                        </div>
+                    </nav>
+                </div>
+            </header>
 
-            .grain-overlay {
-                position: fixed;
-                inset: 0;
-                z-index: 9999;
-                pointer-events: none;
-                opacity: 0.035;
-                mix-blend-mode: overlay;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            }
+            <main id="content" class="site-main">
+                <slot />
+            </main>
 
-            .dark .grain-overlay {
-                opacity: 0.05;
-            }
-
-            .reveal {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            /* View Transition Animations */
-            @keyframes fadeSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes fadeSlideOut {
-                from {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-            }
-
-            ::view-transition-old(root) {
-                animation: fadeSlideOut 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            }
-
-            ::view-transition-new(root) {
-                animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            }
-
-            /* Disable transitions for reduced motion */
-            @media (prefers-reduced-motion: reduce) {
-                ::view-transition-old(root),
-                ::view-transition-new(root) {
-                    animation: none;
-                }
-            }
-        </style>
-
-        <script>
-            import { gsap } from "gsap";
-            import { ScrollTrigger } from "gsap/ScrollTrigger";
-            import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-            // ─── Magnetic Buttons ───
-            function setupMagneticButtons() {
-                const magneticElements =
-                    document.querySelectorAll("[data-magnetic]");
-
-                magneticElements.forEach((el: any) => {
-                    el.addEventListener("mousemove", (e: any) => {
-                        if (e.pointerType === "touch") return;
-                        const rect = el.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-                        gsap.to(el, {
-                            x: x * 0.35,
-                            y: y * 0.35,
-                            scale: 1.05,
-                            duration: 0.6,
-                            ease: "power3.out",
-                        });
-                    });
-
-                    el.addEventListener("mouseleave", (e: any) => {
-                        if (e.pointerType === "touch") return;
-                        gsap.to(el, {
-                            x: 0,
-                            y: 0,
-                            scale: 1,
-                            duration: 0.8,
-                            ease: "elastic.out(1, 0.4)",
-                        });
-                    });
-                });
-            }
-
-            // ─── GSAP ScrollTrigger Batch for .reveal ───
-            function initScrollAnimations() {
-                // Kill old triggers to avoid duplicates on view transitions
-                ScrollTrigger.getAll().forEach((t) => t.kill());
-
-                // Set initial state for all reveal elements
-                gsap.set(".reveal", { opacity: 0, y: 30 });
-
-                // Batch reveal: stagger elements that enter viewport together
-                ScrollTrigger.batch(".reveal", {
-                    onEnter: (batch) => {
-                        gsap.to(batch, {
-                            opacity: 1,
-                            y: 0,
-                            stagger: 0.12,
-                            duration: 0.9,
-                            ease: "power3.out",
-                            overwrite: true,
-                        });
-                    },
-                    start: "top 88%",
-                    once: true,
-                });
-
-                // ─── Section Heading Word Reveals ───
-                document
-                    .querySelectorAll("[data-animate-heading]")
-                    .forEach((heading) => {
-                        const text = heading.textContent || "";
-                        const words = text.trim().split(/\s+/);
-                        heading.innerHTML = words
-                            .map(
-                                (w) =>
-                                    `<span class="inline-block overflow-hidden"><span class="heading-word inline-block" style="transform:translateY(110%);opacity:0">${w}</span></span>`,
-                            )
-                            .join('<span class="inline-block">&nbsp;</span>');
-
-                        gsap.to(heading.querySelectorAll(".heading-word"), {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.9,
-                            stagger: 0.06,
-                            ease: "expo.out",
-                            scrollTrigger: {
-                                trigger: heading,
-                                start: "top 85%",
-                                once: true,
-                            },
-                        });
-                    });
-
-                // ─── Experience Timeline Draw ───
-                const expLine = document.querySelector(".experience-line");
-                if (expLine) {
-                    gsap.to(expLine, {
-                        scaleY: 1,
-                        duration: 1.5,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: expLine,
-                            start: "top 80%",
-                            once: true,
-                        },
-                    });
-
-                    gsap.fromTo(
-                        ".experience-entry",
-                        { x: -40, opacity: 0 },
-                        {
-                            x: 0,
-                            opacity: 1,
-                            stagger: 0.2,
-                            duration: 0.9,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: expLine,
-                                start: "top 80%",
-                                once: true,
-                            },
-                        },
-                    );
-                }
-
-                // ─── Project Card 3D Tilt ───
-                document
-                    .querySelectorAll(".project-card")
-                    .forEach((card: any) => {
-                        card.addEventListener("mousemove", (e: any) => {
-                            const rect = card.getBoundingClientRect();
-                            const x =
-                                ((e.clientX - rect.left) / rect.width - 0.5) *
-                                12;
-                            const y =
-                                ((e.clientY - rect.top) / rect.height - 0.5) *
-                                -12;
-                            gsap.to(card, {
-                                rotateY: x,
-                                rotateX: y,
-                                transformPerspective: 800,
-                                duration: 0.4,
-                                ease: "power2.out",
-                            });
-                        });
-                        card.addEventListener("mouseleave", () => {
-                            gsap.to(card, {
-                                rotateY: 0,
-                                rotateX: 0,
-                                duration: 0.7,
-                                ease: "elastic.out(1, 0.5)",
-                            });
-                        });
-                    });
-
-                // ─── Footer Staggered Entrance ───
-                const footerPills = document.querySelectorAll(
-                    "footer a[rel='noopener noreferrer']",
-                );
-                if (footerPills.length) {
-                    gsap.from(footerPills, {
-                        scale: 0.8,
-                        opacity: 0,
-                        stagger: 0.06,
-                        duration: 0.5,
-                        ease: "back.out(1.7)",
-                        scrollTrigger: {
-                            trigger: "footer",
-                            start: "top 92%",
-                            once: true,
-                        },
-                    });
-                }
-
-                // ─── Parallax Headings ───
-                document.querySelectorAll("[data-parallax]").forEach((el) => {
-                    const speed = el.getAttribute("data-parallax") || "0.1";
-                    gsap.to(el, {
-                        y: 50 * parseFloat(speed),
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: el,
-                            start: "top bottom",
-                            end: "bottom top",
-                            scrub: true,
-                        },
-                    });
-                });
-            }
-
-            // ─── Smooth Scroll to Anchors ───
-            function setupSmoothScroll() {
-                document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                    anchor.addEventListener("click", (e) => {
-                        const href = anchor.getAttribute("href");
-                        if (!href || href === "#") return;
-                        e.preventDefault();
-                        gsap.to(window, {
-                            scrollTo: {
-                                y: href,
-                                offsetY: 80,
-                            },
-                            duration: 1.2,
-                            ease: "power3.inOut",
-                        });
-                    });
-                });
-            }
-
-            // ─── Navbar Hide on Scroll Down / Show on Scroll Up ───
-            function setupNavbarBehavior() {
-                const nav = document.getElementById("navbar");
-                if (!nav) return;
-
-                ScrollTrigger.create({
-                    start: "top -100",
-                    end: 99999,
-                    onUpdate: (self) => {
-                        if (self.direction === 1) {
-                            gsap.to(nav, {
-                                y: "-100%",
-                                duration: 0.35,
-                                ease: "power2.in",
-                            });
-                        } else {
-                            gsap.to(nav, {
-                                y: "0%",
-                                duration: 0.4,
-                                ease: "power3.out",
-                            });
-                        }
-                    },
-                });
-            }
-
-            // ─── Respect prefers-reduced-motion ───
-            const prefersReducedMotion = window.matchMedia(
-                "(prefers-reduced-motion: reduce)",
-            ).matches;
-
-            if (!prefersReducedMotion) {
-                initScrollAnimations();
-                setupMagneticButtons();
-                setupSmoothScroll();
-                setupNavbarBehavior();
-            } else {
-                // Just show everything without animation
-                gsap.set(".reveal", { opacity: 1, y: 0 });
-                document
-                    .querySelectorAll("[data-animate-heading]")
-                    .forEach((h) => {
-                        // Leave as-is, no splitting
-                    });
-            }
-
-            // Re-init on view transition navigation
-            document.addEventListener("astro:page-load", () => {
-                if (prefersReducedMotion) {
-                    gsap.set(".reveal", { opacity: 1, y: 0 });
-                    return;
-                }
-                initScrollAnimations();
-                setupMagneticButtons();
-                setupSmoothScroll();
-                setupNavbarBehavior();
-            });
-        </script>
+            <footer class="site-footer">
+                <div class="shell footer-grid">
+                    <div class="space-y-4">
+                        <p class="section-kicker">Currently open to strong product teams</p>
+                        <h2 class="max-w-2xl font-serif text-3xl leading-tight md:text-4xl">
+                            I build developer tools, product UI, and AI-powered
+                            workflows that teams can rely on in production.
+                        </h2>
+                        <a class="button-primary" href={`mailto:${siteContent.contact.email}`}>
+                            {siteContent.contact.email}
+                        </a>
+                    </div>
+                    <div class="flex flex-col gap-3 text-sm text-[var(--muted)]">
+                        {siteContent.contact.socials.map((social) => (
+                            <a
+                                class="resource-link"
+                                href={social.href}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {social.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+                <div class="shell flex flex-col gap-2 border-t py-5 text-sm text-[var(--muted)] md:flex-row md:items-center md:justify-between" style="border-color: var(--line);">
+                    <p>© {currentYear} Bharathkumar Palanisamy</p>
+                    <p>Built with Astro, purposeful motion, and a smaller JavaScript budget.</p>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>

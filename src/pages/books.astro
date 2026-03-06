@@ -1,273 +1,223 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BookCard from "@/components/ui/BookCard.astro";
-import Heading from "@/components/ui/Heading.astro";
-import LibraryStats from "@/components/ui/LibraryStats.astro";
+import SectionIntro from "@/components/site/SectionIntro.astro";
+import BookShelfCard from "@/components/site/BookShelfCard.astro";
 import booksData from "@/data/books.json";
 import { mapBooks, type RawBook } from "@/lib/books";
 
 const books = mapBooks(booksData as RawBook[]);
+const stats = {
+    total: books.length,
+    recommended: books.filter((book) => book.status === "recommended").length,
+    finished: books.filter((book) => book.status === "read").length,
+    queue: books.filter((book) => book.status === "want-to-read").length,
+};
 
 const categories = [
-    { id: "all", label: "All Books" },
+    { id: "all", label: "All" },
     { id: "recommended", label: "Recommended" },
-    { id: "read", label: "Already Read" },
-    { id: "want-to-read", label: "Reading List" },
+    { id: "read", label: "Finished" },
+    { id: "want-to-read", label: "Reading list" },
 ];
 ---
 
 <Layout
     title="Library | Bharathkumar Palanisamy"
-    description="A collection of books that have shaped my thinking on software, design, and behavior."
+    description="A curated library of books that shape Bharathkumar Palanisamy's thinking on software, business, and behavior."
 >
-    <div class="pt-32 pb-20 px-6">
-        <div class="max-w-[1400px] mx-auto">
-            <div class="mb-16">
-                <Heading title="The Library" />
-                <p
-                    class="text-xl text-black/60 dark:text-white/60 mt-4 max-w-2xl leading-relaxed reveal"
-                >
-                    A curated archive of mental models, technical deep-dives,
-                    and philosophical inquiries. Search, filter, or explore by
-                    recommendation.
-                </p>
-            </div>
+    <section class="section-shell">
+        <div class="shell space-y-10">
+            <SectionIntro
+                eyebrow="Library"
+                title="Reading is part of how I sharpen judgment, not just how I collect ideas."
+                description="This shelf spans software, business, behavior, and adjacent fields. It’s here because the best engineering decisions usually borrow from more than engineering."
+            />
 
-            <LibraryStats books={books} />
-
-            <!-- Discovery Bar -->
-            <div
-                class="flex flex-col lg:flex-row gap-8 justify-between items-start lg:items-center mb-12 pb-8 border-b border-black/10 dark:border-white/10 reveal"
-            >
-                <div class="flex flex-wrap gap-2">
-                    {
-                        categories.map((cat) => (
-                            <button
-                                data-filter={cat.id}
-                                class="filter-btn px-6 py-2.5 text-[10px] font-black uppercase tracking-widest border transition-all duration-300
-                 data-[active=true]:bg-black data-[active=true]:text-white data-[active=true]:border-black
-                 dark:data-[active=true]:bg-white dark:data-[active=true]:text-void-black dark:data-[active=true]:border-white
-                 data-[active=false]:bg-transparent data-[active=false]:text-black/40 data-[active=false]:border-black/10
-                 dark:data-[active=false]:text-white/40 dark:data-[active=false]:border-white/10
-                 hover:border-black dark:hover:border-white"
-                                data-active={cat.id === "all"}
-                            >
-                                {cat.label}
-                            </button>
-                        ))
-                    }
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-                    <!-- Search Input -->
-                    <div class="relative flex-grow sm:w-64">
-                        <input
-                            type="text"
-                            id="book-search"
-                            placeholder="Search by title or author..."
-                            class="w-full bg-transparent border border-black/10 dark:border-white/10 px-4 py-2.5 text-xs font-medium focus:outline-none focus:border-signal-emerald transition-colors"
-                        />
-                    </div>
-
-                    <!-- Sort Dropdown -->
-                    <div class="relative">
-                        <select
-                            id="book-sort"
-                            class="appearance-none bg-transparent border border-black/10 dark:border-white/10 px-4 py-2.5 text-xs font-black uppercase tracking-widest focus:outline-none focus:border-signal-emerald transition-colors cursor-pointer pr-10"
-                        >
-                            <option value="default">Default Sort</option>
-                            <option value="rating">Top Rated</option>
-                            <option value="title">By Title</option>
-                            <option value="year">Recent First</option>
-                        </select>
-                        <div
-                            class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
-                        >
-                            <svg
-                                class="w-3 h-3 text-black/40 dark:text-white/40"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grid -->
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5"
-                id="books-grid"
-            >
-                {
-                    books.map((book) => (
-                        <div
-                            class="book-item bg-white dark:bg-void-black transition-all duration-500"
-                            data-status={book.status}
-                            data-title={book.title.toLowerCase()}
-                            data-author={book.author.toLowerCase()}
-                            data-rating={book.rating}
-                            data-year={book.year || 0}
-                        >
-                            <BookCard {...book} />
-                        </div>
-                    ))
-                }
-            </div>
-
-            <div id="no-results" class="hidden py-32 text-center reveal">
-                <p
-                    class="text-black/40 dark:text-white/40 font-display text-2xl"
-                >
-                    No matching books found.
-                </p>
-                <button
-                    id="reset-discovery"
-                    class="mt-6 text-xs font-black uppercase tracking-widest text-signal-emerald hover:underline"
-                >
-                    Reset all filters
-                </button>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <article class="metric-card">
+                    <strong>{stats.total}</strong>
+                    <span>Total books tracked</span>
+                    <p>A living archive rather than a decorative reading list.</p>
+                </article>
+                <article class="metric-card">
+                    <strong>{stats.recommended}</strong>
+                    <span>Strong recommendations</span>
+                    <p>Books I would gladly point a colleague toward.</p>
+                </article>
+                <article class="metric-card">
+                    <strong>{stats.finished}</strong>
+                    <span>Finished reads</span>
+                    <p>Completed books that actively shaped my thinking.</p>
+                </article>
+                <article class="metric-card">
+                    <strong>{stats.queue}</strong>
+                    <span>Still in queue</span>
+                    <p>Future inputs for better systems and better choices.</p>
+                </article>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="section-shell-tight section-surface">
+        <div class="shell space-y-8">
+            <div class="grid gap-4 xl:grid-cols-[1fr_auto_auto] xl:items-center">
+                <div class="surface-card">
+                    <p class="card-kicker">Discovery controls</p>
+                    <p class="card-copy">
+                        Filter by recommendation status, search by title or
+                        author, or sort for quick scanning.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    {categories.map((category) => (
+                        <button
+                            class:list={[
+                                "filter-button",
+                                category.id === "all"
+                                    ? "button-primary"
+                                    : "button-secondary",
+                            ]}
+                            data-filter={category.id}
+                            data-active={category.id === "all" ? "true" : "false"}
+                            type="button"
+                        >
+                            {category.label}
+                        </button>
+                    ))}
+                </div>
+
+                <div class="grid gap-3 sm:grid-cols-2">
+                    <input
+                        id="book-search"
+                        type="search"
+                        placeholder="Search title or author"
+                        class="rounded-full border border-[var(--line)] bg-white/70 px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                    />
+                    <select
+                        id="book-sort"
+                        class="rounded-full border border-[var(--line)] bg-white/70 px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                    >
+                        <option value="default">Default sort</option>
+                        <option value="rating">Top rated</option>
+                        <option value="title">Title</option>
+                        <option value="year">Recent first</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="books-grid" class="grid gap-6 lg:grid-cols-2">
+                {books.map((book, index) => (
+                    <div
+                        class="book-item"
+                        data-index={index}
+                        data-status={book.status}
+                        data-title={book.title.toLowerCase()}
+                        data-author={book.author.toLowerCase()}
+                        data-rating={book.rating}
+                        data-year={book.year || 0}
+                    >
+                        <BookShelfCard book={book} />
+                    </div>
+                ))}
+            </div>
+
+            <div
+                id="no-results"
+                class="hidden rounded-[32px] border border-[var(--line)] bg-white/60 px-6 py-16 text-center"
+            >
+                <p class="font-serif text-3xl">No matching books found.</p>
+                <p class="mt-3 text-sm text-[var(--muted)]">
+                    Reset the filters or try a different search query.
+                </p>
+            </div>
+        </div>
+    </section>
 </Layout>
 
 <script>
-    function initDiscovery() {
-        const searchInput = document.getElementById(
-            "book-search",
-        ) as HTMLInputElement;
-        const sortSelect = document.getElementById(
-            "book-sort",
-        ) as HTMLSelectElement;
-        const buttons = document.querySelectorAll(".filter-btn");
-        const items = Array.from(
-            document.querySelectorAll(".book-item"),
-        ) as HTMLElement[];
-        const noResults = document.getElementById("no-results");
+    function initLibraryFilters() {
+        const searchInput = document.getElementById("book-search");
+        const sortSelect = document.getElementById("book-sort");
+        const buttons = Array.from(
+            document.querySelectorAll(".filter-button"),
+        );
+        const items = Array.from(document.querySelectorAll(".book-item"));
         const grid = document.getElementById("books-grid");
-        const resetBtn = document.getElementById("reset-discovery");
+        const noResults = document.getElementById("no-results");
+
+        if (!grid || !noResults || !searchInput || !sortSelect || items.length === 0) {
+            return;
+        }
 
         let activeFilter = "all";
-        let searchQuery = "";
+        let query = "";
         let activeSort = "default";
 
-        function updateDisplay() {
-            let visibleCount = 0;
+        function applyState() {
+            const visibleItems = [];
 
-            items.forEach((item) => {
-                const status = item.getAttribute("data-status");
-                const title = item.getAttribute("data-title");
-                const author = item.getAttribute("data-author");
+            for (const item of items) {
+                const status = item.getAttribute("data-status") || "";
+                const title = item.getAttribute("data-title") || "";
+                const author = item.getAttribute("data-author") || "";
+                const matchesFilter = activeFilter === "all" || status === activeFilter;
+                const matchesQuery = title.includes(query) || author.includes(query);
+                const visible = matchesFilter && matchesQuery;
 
-                const matchesFilter =
-                    activeFilter === "all" || status === activeFilter;
-                const matchesSearch =
-                    title.includes(searchQuery) || author.includes(searchQuery);
+                item.toggleAttribute("hidden", !visible);
+                if (visible) visibleItems.push(item);
+            }
 
-                if (matchesFilter && matchesSearch) {
-                    item.style.display = "block";
-                    visibleCount++;
-                } else {
-                    item.style.display = "none";
+            const sortedItems = [...visibleItems].sort((a, b) => {
+                if (activeSort === "rating") {
+                    return Number(b.getAttribute("data-rating")) - Number(a.getAttribute("data-rating"));
                 }
-            });
 
-            if (visibleCount === 0) {
-                noResults?.classList.remove("hidden");
-                grid?.classList.add("hidden");
-            } else {
-                noResults?.classList.add("hidden");
-                grid?.classList.remove("hidden");
-            }
-        }
-
-        function handleSort() {
-            const sortedItems = [...items];
-
-            if (activeSort === "rating") {
-                sortedItems.sort(
-                    (a, b) =>
-                        Number(b.getAttribute("data-rating")) -
-                        Number(a.getAttribute("data-rating")),
-                );
-            } else if (activeSort === "title") {
-                sortedItems.sort((a, b) =>
-                    (a.getAttribute("data-title") || "").localeCompare(
+                if (activeSort === "title") {
+                    return (a.getAttribute("data-title") || "").localeCompare(
                         b.getAttribute("data-title") || "",
-                    ),
-                );
-            } else if (activeSort === "year") {
-                sortedItems.sort(
-                    (a, b) =>
-                        Number(b.getAttribute("data-year")) -
-                        Number(a.getAttribute("data-year")),
-                );
-            }
+                    );
+                }
 
-            sortedItems.forEach((item, index) => {
-                item.style.order = index.toString();
+                if (activeSort === "year") {
+                    return Number(b.getAttribute("data-year")) - Number(a.getAttribute("data-year"));
+                }
+
+                return Number(a.getAttribute("data-index")) - Number(b.getAttribute("data-index"));
             });
+
+            sortedItems.forEach((item) => grid.appendChild(item));
+
+            noResults.classList.toggle("hidden", visibleItems.length > 0);
+            grid.classList.toggle("hidden", visibleItems.length === 0);
         }
 
-        searchInput?.addEventListener("input", (e) => {
-            searchQuery = (e.target as HTMLInputElement).value.toLowerCase();
-            updateDisplay();
-        });
-
-        sortSelect?.addEventListener("change", (e) => {
-            activeSort = (e.target as HTMLSelectElement).value;
-            handleSort();
-        });
-
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                activeFilter = btn.getAttribute("data-filter") || "all";
-                buttons.forEach((b) =>
-                    b.setAttribute("data-active", b === btn ? "true" : "false"),
-                );
-                updateDisplay();
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                activeFilter = button.getAttribute("data-filter") || "all";
+                buttons.forEach((candidate) => {
+                    const isActive = candidate === button;
+                    candidate.setAttribute("data-active", isActive ? "true" : "false");
+                    candidate.classList.toggle("button-primary", isActive);
+                    candidate.classList.toggle("button-secondary", !isActive);
+                });
+                applyState();
             });
         });
 
-        resetBtn?.addEventListener("click", () => {
-            searchQuery = "";
-            activeFilter = "all";
-            activeSort = "default";
+        searchInput.addEventListener("input", (event) => {
+            const target = event.currentTarget as HTMLInputElement;
+            query = target.value.trim().toLowerCase();
+            applyState();
+        });
 
-            if (searchInput) searchInput.value = "";
-            if (sortSelect) sortSelect.value = "default";
-            buttons.forEach((b) =>
-                b.setAttribute(
-                    "data-active",
-                    b.getAttribute("data-filter") === "all" ? "true" : "false",
-                ),
-            );
-
-            handleSort();
-            updateDisplay();
+        sortSelect.addEventListener("change", (event) => {
+            const target = event.currentTarget as HTMLSelectElement;
+            activeSort = target.value;
+            applyState();
         });
     }
 
-    // Run on initial load
-    initDiscovery();
-
-    // Run on view transition navigation
-    document.addEventListener("astro:page-load", initDiscovery);
+    initLibraryFilters();
 </script>
-
-<style>
-    .book-item {
-        /* Support for flexbox/grid ordering via JS */
-    }
-
-    #books-grid {
-        display: grid;
-    }
-</style>

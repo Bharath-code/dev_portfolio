@@ -1,15 +1,15 @@
 {
   "personal": {
     "name": "Bharathkumar Palanisamy",
-    "role": "Full-Stack Engineer (JavaScript / Node.js & React)",
+    "role": "Software Engineer (Developer Tools, Full-Stack, AI-Augmented Products)",
     "location": "Bengaluru, India",
-    "email": "kumarbharath63@icloud.com",
+    "email": "kumarbharath63@gmail.com",
     "phone": "+91 8667861408",
     "linkedin": "https://linkedin.com/in/bharathkumar-palanisamy",
     "github": "https://github.com/Bharath-code/",
     "portfolio": "https://www.bharathkumar.dev"
   },
-  "profile": "Full-Stack Engineer with 5 years of professional experience across the JavaScript ecosystem. I build end-to-end web applications and production APIs using Node.js, Express, React/Next.js and modern databases. I took a planned career break to focus on personal priorities while actively upskilling — building personal projects, contributing to open source, and staying current with modern tooling. Now actively seeking to re-enter the workforce and contribute as a focused, production-minded engineer.",
+  "profile": "Software Engineer with 6+ years of experience building developer tools, full-stack products, and production-ready interfaces. I ship end-to-end web applications, CLIs, and AI-integrated workflows using Go, TypeScript, React, Node.js, and modern databases. I use AI to accelerate delivery, but keep the bar on clarity, resilience, and product quality high.",
   "techStack": [
     "Node.js",
     "Express",

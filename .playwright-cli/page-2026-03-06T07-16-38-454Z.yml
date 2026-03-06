@@ -1,0 +1,410 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Go to homepage" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: BP
+          - generic [ref=e8]: Bharathkumar Palanisamy
+        - navigation "Primary" [ref=e9]:
+          - generic [ref=e10]:
+            - link "Work" [ref=e11] [cursor=pointer]:
+              - /url: /#work
+            - link "Experience" [ref=e12] [cursor=pointer]:
+              - /url: /#experience
+            - link "Writing" [ref=e13] [cursor=pointer]:
+              - /url: /blog
+            - link "Library" [ref=e14] [cursor=pointer]:
+              - /url: /books
+            - link "Contact" [ref=e15] [cursor=pointer]:
+              - /url: /#contact
+    - main [ref=e16]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - paragraph [ref=e20]: Recruiter-first portfolio · open to product engineering roles
+          - generic [ref=e21]:
+            - heading "I build product-grade web experiences that earn trust fast" [level=1] [ref=e22]
+            - paragraph [ref=e23]: Frontend-focused full-stack engineer with 6+ years shipping customer-facing products, internal tools, and developer workflows. I care about speed, clarity, resilience, and interfaces that feel credible the moment a recruiter or hiring manager lands on them.
+          - generic [ref=e24]:
+            - link "See selected work" [ref=e25] [cursor=pointer]:
+              - /url: "#work"
+            - link "Start a conversation" [ref=e26] [cursor=pointer]:
+              - /url: "#contact"
+              - img [ref=e27]
+              - text: Start a conversation
+        - complementary [ref=e30]:
+          - generic [ref=e31]:
+            - img "Portrait of Bharathkumar Palanisamy" [ref=e32]
+            - generic [ref=e33]:
+              - paragraph [ref=e34]: Candidate snapshot
+              - heading "Bharathkumar Palanisamy" [level=2] [ref=e35]
+              - paragraph [ref=e36]: Frontend-focused full-stack engineer with a strong bias for clear UX, solid architecture, and measurable delivery.
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - term [ref=e39]: Core stack
+              - definition [ref=e40]: TypeScript, React, Astro, Node.js
+            - generic [ref=e41]:
+              - term [ref=e42]: Focus
+              - definition [ref=e43]: Design systems, product UI, internal tooling
+            - generic [ref=e44]:
+              - term [ref=e45]:
+                - img [ref=e46]
+                - text: Based in
+              - definition [ref=e49]: India · remote-friendly
+            - generic [ref=e50]:
+              - term [ref=e51]: Availability
+              - definition [ref=e52]: Open to frontend and full-stack roles
+          - generic [ref=e53]:
+            - paragraph [ref=e54]: Why this portfolio exists
+            - paragraph [ref=e55]: "To show how I think about product quality: crisp hierarchy, deliberate motion, resilient implementation, and enough technical depth to back up the polish."
+      - generic [ref=e57]:
+        - article [ref=e58]:
+          - strong [ref=e59]: "4"
+          - generic [ref=e60]: Open Source Tools
+          - paragraph [ref=e61]: Shipped & maintained on GitHub
+        - article [ref=e62]:
+          - strong [ref=e63]: 60%
+          - generic [ref=e64]: CI/CD Optimization
+          - paragraph [ref=e65]: Faster deployment pipelines at Accenture
+        - article [ref=e66]:
+          - strong [ref=e67]: +40%
+          - generic [ref=e68]: Backend Performance
+          - paragraph [ref=e69]: Redis caching at Infosys
+        - article [ref=e70]:
+          - strong [ref=e71]: 6+ yrs
+          - generic [ref=e72]: Experience
+          - paragraph [ref=e73]: Production-grade software delivery
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: Selected work
+          - heading "Products, tools, and systems that show how I solve for both users and engineering teams." [level=2] [ref=e78]
+          - paragraph [ref=e79]: These projects highlight interface craft, technical judgment, and shipping discipline. Each case study is written to be quickly scannable by recruiters and still useful to engineering leaders.
+        - generic [ref=e80]:
+          - article [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - paragraph [ref=e84]: Selected project
+                - generic [ref=e85]:
+                  - heading "git-scope" [level=3] [ref=e86]
+                  - paragraph [ref=e87]: Fast TUI for managing Git repositories. Features contribution graphs, time machine history, and batch operations for high-velocity developer workflows.
+              - link "Open git-scope on GitHub" [ref=e88] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/git-scope
+                - img [ref=e89]
+            - generic [ref=e92]:
+              - generic [ref=e93]: Go
+              - generic [ref=e94]: Bubbletea
+              - generic [ref=e95]: TUI
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - term [ref=e98]: Role
+                - definition [ref=e99]: Creator
+              - generic [ref=e100]:
+                - term [ref=e101]: Downloads
+                - definition [ref=e102]: Active
+              - generic [ref=e103]:
+                - term [ref=e104]:
+                  - img [ref=e105]
+                  - text: Stars
+                - definition [ref=e107]: "73"
+              - generic [ref=e108]:
+                - term [ref=e109]:
+                  - img [ref=e110]
+                  - text: Forks
+                - definition [ref=e115]: "11"
+              - generic [ref=e116]:
+                - term [ref=e117]:
+                  - img [ref=e118]
+                  - text: Updated
+                - definition [ref=e121]: Mar 2026
+            - generic [ref=e122]:
+              - link "View case study" [ref=e123] [cursor=pointer]:
+                - /url: /projects/git-scope
+              - link "Source" [ref=e124] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/git-scope
+                - img [ref=e125]
+                - text: Source
+          - article [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]:
+                - paragraph [ref=e131]: Selected project
+                - generic [ref=e132]:
+                  - heading "debugg" [level=3] [ref=e133]
+                  - paragraph [ref=e134]: Comprehensive error handling library for TypeScript. Simplifies debugging with structured errors, stack traces, and context preservation for robust apps.
+              - link "Open debugg on GitHub" [ref=e135] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/debugg
+                - img [ref=e136]
+            - generic [ref=e139]:
+              - generic [ref=e140]: TypeScript
+              - generic [ref=e141]: NPM
+            - generic [ref=e142]:
+              - generic [ref=e143]:
+                - term [ref=e144]: Type
+                - definition [ref=e145]: Library
+              - generic [ref=e146]:
+                - term [ref=e147]: Stack
+                - definition [ref=e148]: TS/Node
+              - generic [ref=e149]:
+                - term [ref=e150]:
+                  - img [ref=e151]
+                  - text: Stars
+                - definition [ref=e153]: "1"
+              - generic [ref=e154]:
+                - term [ref=e155]:
+                  - img [ref=e156]
+                  - text: Forks
+                - definition [ref=e161]: "0"
+              - generic [ref=e162]:
+                - term [ref=e163]:
+                  - img [ref=e164]
+                  - text: Updated
+                - definition [ref=e167]: Feb 2026
+            - generic [ref=e168]:
+              - link "View case study" [ref=e169] [cursor=pointer]:
+                - /url: /projects/debugg
+              - link "Source" [ref=e170] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/debugg
+                - img [ref=e171]
+                - text: Source
+          - article [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]:
+                - paragraph [ref=e177]: Selected project
+                - generic [ref=e178]:
+                  - heading "Smart Crisis Counselor" [level=3] [ref=e179]
+                  - paragraph [ref=e180]: Intelligent RAG-based system for crisis counseling. Uses LLMs to provide context-aware response suggestions and knowledge retrieval for sensitive scenarios.
+              - link "Open Smart Crisis Counselor on GitHub" [ref=e181] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/smart-crisis-councelor
+                - img [ref=e182]
+            - generic [ref=e185]:
+              - generic [ref=e186]: AI
+              - generic [ref=e187]: RAG
+              - generic [ref=e188]: Python
+            - generic [ref=e189]:
+              - generic [ref=e190]:
+                - term [ref=e191]: Domain
+                - definition [ref=e192]: AI
+              - generic [ref=e193]:
+                - term [ref=e194]: Status
+                - definition [ref=e195]: Prototype
+              - generic [ref=e196]:
+                - term [ref=e197]:
+                  - img [ref=e198]
+                  - text: Stars
+                - definition [ref=e200]: "1"
+              - generic [ref=e201]:
+                - term [ref=e202]:
+                  - img [ref=e203]
+                  - text: Forks
+                - definition [ref=e208]: "0"
+              - generic [ref=e209]:
+                - term [ref=e210]:
+                  - img [ref=e211]
+                  - text: Updated
+                - definition [ref=e214]: Dec 2025
+            - generic [ref=e215]:
+              - link "View case study" [ref=e216] [cursor=pointer]:
+                - /url: /projects/smart-crisis-counselor
+              - link "Source" [ref=e217] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/smart-crisis-councelor
+                - img [ref=e218]
+                - text: Source
+          - article [ref=e221]:
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - paragraph [ref=e224]: Selected project
+                - generic [ref=e225]:
+                  - heading "YouTube Companion" [level=3] [ref=e226]
+                  - paragraph [ref=e227]: Actionable analytics dashboard for YouTube creators. Beyond Studio metrics with real-time trend analysis, recommendations, and competitor benchmarking.
+              - link "Open YouTube Companion on GitHub" [ref=e228] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/youtube_companion_dashboard
+                - img [ref=e229]
+            - generic [ref=e232]:
+              - generic [ref=e233]: Next.js
+              - generic [ref=e234]: Dashboard
+            - generic [ref=e235]:
+              - generic [ref=e236]:
+                - term [ref=e237]: Platform
+                - definition [ref=e238]: Web
+              - generic [ref=e239]:
+                - term [ref=e240]: Data
+                - definition [ref=e241]: Real-time
+              - generic [ref=e242]:
+                - term [ref=e243]:
+                  - img [ref=e244]
+                  - text: Stars
+                - definition [ref=e246]: "2"
+              - generic [ref=e247]:
+                - term [ref=e248]:
+                  - img [ref=e249]
+                  - text: Forks
+                - definition [ref=e254]: "0"
+              - generic [ref=e255]:
+                - term [ref=e256]:
+                  - img [ref=e257]
+                  - text: Updated
+                - definition [ref=e260]: Dec 2025
+            - generic [ref=e261]:
+              - link "View case study" [ref=e262] [cursor=pointer]:
+                - /url: /projects/youtube-companion
+              - link "Source" [ref=e263] [cursor=pointer]:
+                - /url: https://github.com/Bharath-code/youtube_companion_dashboard
+                - img [ref=e264]
+                - text: Source
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - paragraph [ref=e271]: What I bring
+            - heading "A mix of product taste, frontend depth, and delivery focus." [level=2] [ref=e272]
+            - paragraph [ref=e273]: I’m strongest where product quality and implementation quality have to reinforce each other.
+          - generic [ref=e274]:
+            - article [ref=e275]:
+              - generic [ref=e276]:
+                - paragraph [ref=e277]: Frontend craft
+                - heading "Modern frameworks, design systems, accessibility, performance." [level=3] [ref=e278]
+                - generic [ref=e279]:
+                  - generic [ref=e280]: React
+                  - generic [ref=e281]: Next.js
+                  - generic [ref=e282]: Tailwind
+                  - generic [ref=e283]: Astro
+            - article [ref=e284]:
+              - generic [ref=e285]:
+                - paragraph [ref=e286]: Backend & CLI
+                - heading "API design, CLI tools, TUI applications, system programming." [level=3] [ref=e287]
+                - generic [ref=e288]:
+                  - generic [ref=e289]: Go
+                  - generic [ref=e290]: Node.js
+                  - generic [ref=e291]: Rust
+                  - generic [ref=e292]: Bubbletea
+            - article [ref=e293]:
+              - generic [ref=e294]:
+                - paragraph [ref=e295]: AI & Data
+                - heading "LLM integration, RAG systems, vector databases." [level=3] [ref=e296]
+                - generic [ref=e297]:
+                  - generic [ref=e298]: Python
+                  - generic [ref=e299]: LangChain
+                  - generic [ref=e300]: Pinecone
+                  - generic [ref=e301]: OpenAI
+            - article [ref=e302]:
+              - generic [ref=e303]:
+                - paragraph [ref=e304]: DevOps
+                - heading "Containerization, CI/CD, cloud infrastructure." [level=3] [ref=e305]
+                - generic [ref=e306]:
+                  - generic [ref=e307]: Docker
+                  - generic [ref=e308]: AWS
+                  - generic [ref=e309]: Vercel
+                  - generic [ref=e310]: GitHub Actions
+        - complementary [ref=e311]:
+          - generic [ref=e312]:
+            - paragraph [ref=e313]: Modern workflow
+            - heading "AI is part of my delivery system, not a substitute for engineering judgment." [level=2] [ref=e314]
+            - paragraph [ref=e315]: "I use AI where it compounds output: exploration, scaffolding, debugging, test design, and operational automation. The standard stays the same: readable code, durable abstractions, and clear product decisions."
+          - generic [ref=e316]:
+            - generic [ref=e317]:
+              - paragraph [ref=e318]: AI Assistants
+              - generic [ref=e319]:
+                - generic [ref=e320]: Claude
+                - generic [ref=e321]: GPT-4o
+                - generic [ref=e322]: Gemini
+                - generic [ref=e323]: Cursor
+            - generic [ref=e324]:
+              - paragraph [ref=e325]: Shipping Tools
+              - generic [ref=e326]:
+                - generic [ref=e327]: Copilot
+                - generic [ref=e328]: v0
+                - generic [ref=e329]: Bolt
+                - generic [ref=e330]: Vercel AI SDK
+            - generic [ref=e331]:
+              - paragraph [ref=e332]: Agent Frameworks
+              - generic [ref=e333]:
+                - generic [ref=e334]: LangChain
+                - generic [ref=e335]: LangGraph
+                - generic [ref=e336]: CrewAI
+                - generic [ref=e337]: MCP
+            - generic [ref=e338]:
+              - paragraph [ref=e339]: AI Infrastructure
+              - generic [ref=e340]:
+                - generic [ref=e341]: Pinecone
+                - generic [ref=e342]: Hugging Face
+                - generic [ref=e343]: Replicate
+                - generic [ref=e344]: RAG
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - paragraph [ref=e348]: Experience
+          - heading "Experience in environments where reliability, delivery pace, and trust mattered." [level=2] [ref=e349]
+          - paragraph [ref=e350]: I’ve worked on enterprise platforms and banking software, where software quality is visible in both the UI and the operational outcomes.
+        - generic [ref=e351]:
+          - article [ref=e352]:
+            - generic [ref=e353]:
+              - paragraph [ref=e354]: 2019 — 2021
+              - heading "Accenture" [level=3] [ref=e355]
+              - paragraph [ref=e356]: Full-Stack Engineer
+            - paragraph [ref=e357]: Built enterprise code scanning platforms, improved delivery workflows, and reduced deployment time by 60% through CI/CD redesign.
+          - article [ref=e358]:
+            - generic [ref=e359]:
+              - paragraph [ref=e360]: 2015 — 2019
+              - heading "Infosys" [level=3] [ref=e361]
+              - paragraph [ref=e362]: Full-Stack Engineer
+            - paragraph [ref=e363]: Delivered banking software for high-trust environments and improved backend performance by 40% with targeted caching and service optimizations.
+      - generic [ref=e365]:
+        - article [ref=e366]:
+          - generic [ref=e367]:
+            - paragraph [ref=e368]: Writing
+            - heading "I write about engineering, architecture, and shipping with intention." [level=2] [ref=e369]
+            - paragraph [ref=e370]: "Articles are where I make my thinking legible: tradeoffs, patterns, and the systems behind good product work."
+          - link "Browse articles" [ref=e371] [cursor=pointer]:
+            - /url: /blog
+            - text: Browse articles
+            - img [ref=e372]
+        - article [ref=e375]:
+          - generic [ref=e376]:
+            - paragraph [ref=e377]: Reading
+            - heading "Books that shape how I think about software, business, and behavior." [level=2] [ref=e378]
+            - paragraph [ref=e379]: My reading list is part of my operating system. These are a few standouts from the library.
+          - generic [ref=e380]:
+            - generic [ref=e381]:
+              - term [ref=e382]: The Compound Effect
+              - definition [ref=e383]: Darren Hardy
+            - generic [ref=e384]:
+              - term [ref=e385]: Stepping Beyond Khaki
+              - definition [ref=e386]: K Annamalai
+            - generic [ref=e387]:
+              - term [ref=e388]: How Deepak Parekh grew HDFC group exponentially
+              - definition [ref=e389]: R.Gopalakrishnan, Vidyut Lata Dhir
+          - link "Explore the library" [ref=e390] [cursor=pointer]:
+            - /url: /books
+            - text: Explore the library
+            - img [ref=e391]
+      - article [ref=e396]:
+        - generic [ref=e397]:
+          - generic [ref=e398]:
+            - paragraph [ref=e399]: Final signal
+            - heading "If you want someone who cares about both the screen and the system behind it, we should talk." [level=2] [ref=e400]
+            - paragraph [ref=e401]: I’m looking for a team that values product judgment, fast iteration, and engineering standards that hold up in production.
+          - generic [ref=e402]:
+            - link "kumarbharath63@icloud.com" [ref=e403] [cursor=pointer]:
+              - /url: mailto:kumarbharath63@icloud.com
+              - img [ref=e404]
+              - text: kumarbharath63@icloud.com
+            - link "Connect on LinkedIn" [ref=e407] [cursor=pointer]:
+              - /url: https://linkedin.com/in/bharathkumar-palanisamy
+              - img [ref=e408]
+              - text: Connect on LinkedIn
+    - contentinfo [ref=e410]:
+      - generic [ref=e411]:
+        - generic [ref=e412]:
+          - paragraph [ref=e413]: Currently open to strong product teams
+          - heading "I design and ship interfaces that feel clear, fast, and dependable from the first interaction." [level=2] [ref=e414]
+          - link "kumarbharath63@icloud.com" [ref=e415] [cursor=pointer]:
+            - /url: mailto:kumarbharath63@icloud.com
+        - generic [ref=e416]:
+          - link "X" [ref=e417] [cursor=pointer]:
+            - /url: https://x.com/iam_pbk
+          - link "GitHub" [ref=e418] [cursor=pointer]:
+            - /url: https://github.com/Bharath-code/
+          - link "LinkedIn" [ref=e419] [cursor=pointer]:
+            - /url: https://linkedin.com/in/bharathkumar-palanisamy
+      - generic [ref=e420]:
+        - paragraph [ref=e421]: © 2026 Bharathkumar Palanisamy
+        - paragraph [ref=e422]: Built with Astro, purposeful motion, and a smaller JavaScript budget.

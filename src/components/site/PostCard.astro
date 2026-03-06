@@ -1,0 +1,30 @@
+---
+import type { BlogPost } from "@/lib/blog";
+import { ArrowUpRight } from "lucide-react";
+
+interface Props {
+    post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="surface-card article-card">
+    <div class="flex items-center justify-between gap-3">
+        <span class="pill">{post.platform}</span>
+        <span class="meta-note">{post.date}</span>
+    </div>
+    <div class="mt-6 space-y-3">
+        <h3 class="card-title text-[1.45rem]">{post.title}</h3>
+        <p class="card-copy">{post.description}</p>
+    </div>
+    <a
+        class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--ink)] transition-transform duration-200 hover:translate-x-1"
+        href={post.url}
+        target="_blank"
+        rel="noreferrer"
+    >
+        Read article
+        <ArrowUpRight className="h-4 w-4" />
+    </a>
+</article>

@@ -1,0 +1,108 @@
+---
+import type { Project } from "@/content/site-content";
+import type { RepoStats } from "@/lib/github";
+import { ArrowUpRight, Github, Star, GitFork, Clock3 } from "lucide-react";
+
+interface Props {
+    project: Project;
+    githubStats?: RepoStats;
+}
+
+const { project, githubStats } = Astro.props;
+
+const lastUpdated = githubStats?.updatedAt
+    ? new Intl.DateTimeFormat("en-US", {
+          month: "short",
+          year: "numeric",
+      }).format(new Date(githubStats.updatedAt))
+    : null;
+---
+
+<article class="surface-card project-card">
+    <div class="flex items-start justify-between gap-4">
+        <div class="space-y-4">
+            <p class="card-kicker">Selected project</p>
+            <div>
+                <h3 class="card-title">{project.title}</h3>
+                <p class="card-copy mt-3">{project.description}</p>
+            </div>
+        </div>
+        <a
+            href={project.link}
+            class="icon-link hidden md:inline-flex"
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open ${project.title} on GitHub`}
+        >
+            <ArrowUpRight className="h-4 w-4" />
+        </a>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+        {project.badges.map((badge) => (
+            <span class="pill">{badge}</span>
+        ))}
+    </div>
+
+    {project.proofPoints && project.proofPoints.length > 0 && (
+        <ul class="grid gap-3">
+            {project.proofPoints.map((point) => (
+                <li class="flex gap-3 text-sm leading-6 text-[var(--muted)]">
+                    <span class="mt-2 h-2 w-2 flex-none rounded-full bg-[var(--accent)]"></span>
+                    <span>{point}</span>
+                </li>
+            ))}
+        </ul>
+    )}
+
+    <dl class="mt-8 grid gap-4 sm:grid-cols-2">
+        {project.metrics.map((metric) => (
+            <div class="metric-row">
+                <dt>{metric.label}</dt>
+                <dd>{metric.value}</dd>
+            </div>
+        ))}
+        {githubStats && (
+            <>
+                <div class="metric-row">
+                    <dt class="inline-flex items-center gap-2">
+                        <Star className="h-3.5 w-3.5" />
+                        Stars
+                    </dt>
+                    <dd>{githubStats.stargazerCount}</dd>
+                </div>
+                <div class="metric-row">
+                    <dt class="inline-flex items-center gap-2">
+                        <GitFork className="h-3.5 w-3.5" />
+                        Forks
+                    </dt>
+                    <dd>{githubStats.forkCount}</dd>
+                </div>
+                {lastUpdated && (
+                    <div class="metric-row sm:col-span-2">
+                        <dt class="inline-flex items-center gap-2">
+                            <Clock3 className="h-3.5 w-3.5" />
+                            Updated
+                        </dt>
+                        <dd>{lastUpdated}</dd>
+                    </div>
+                )}
+            </>
+        )}
+    </dl>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+        <a class="button-primary" href={`/projects/${project.slug}`}>
+            View case study
+        </a>
+        <a
+            class="button-secondary"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+        >
+            <Github className="h-4 w-4" />
+            Source
+        </a>
+    </div>
+</article>
