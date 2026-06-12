@@ -6,23 +6,24 @@ interface Props {
 }
 
 import "@/styles/global.css";
-import { siteContent } from "@/content/site-content";
-import "@fontsource/archivo-black";
-import "@fontsource/manrope";
+import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/600.css";
 import "@fontsource/manrope/700.css";
+import "@fontsource/archivo-black";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/instrument-serif";
 import "@fontsource/instrument-serif/400-italic.css";
+import content from "@/data/site-content.json";
 
 const {
     title,
-    description = "Bharathkumar Palanisamy is a software engineer building developer tools, AI-integrated products, and fast, credible web experiences.",
+    description = "Bharathkumar Palanisamy — Frontend Engineer building AI-integrated products, developer tools, and polished web experiences with React, TypeScript, and modern AI tooling.",
     ogImage = "/og-image.png",
 } = Astro.props;
 
 const currentUrl = Astro.url;
-const currentPath = currentUrl.pathname;
 const currentYear = new Date().getFullYear();
 
 const jsonLd = {
@@ -39,25 +40,26 @@ const jsonLd = {
                 "https://x.com/iam_pbk",
                 "https://linkedin.com/in/bharathkumar-palanisamy",
             ],
-            jobTitle: "Software Engineer",
+            jobTitle: "Frontend Engineer",
             description,
             knowsAbout: [
-                "Developer tools",
                 "Frontend engineering",
-                "Design systems",
-                "TypeScript",
                 "React",
-                "Astro",
+                "Next.js",
+                "TypeScript",
+                "AI agents",
+                "RAG",
+                "LLM integration",
+                "Developer tools",
+                "Go",
                 "Node.js",
-                "AI-assisted development",
-                "LLM integrations",
             ],
         },
         {
             "@type": "WebSite",
             "@id": "https://www.bharathkumar.dev/#website",
             url: "https://www.bharathkumar.dev",
-            name: "Bharathkumar Palanisamy Portfolio",
+            name: "Bharathkumar Palanisamy",
             inLanguage: "en-US",
             publisher: {
                 "@id": "https://www.bharathkumar.dev/#person",
@@ -75,10 +77,10 @@ const jsonLd = {
         <meta name="description" content={description} />
         <meta
             name="keywords"
-            content="software engineer, developer tools, full-stack engineer, Astro portfolio, TypeScript, React, AI engineering, CLI tools"
+            content="frontend engineer, React, Next.js, TypeScript, AI agents, RAG, LLM integration, developer tools, portfolio"
         />
         <meta name="generator" content={Astro.generator} />
-        <meta name="theme-color" content="#f4ecdf" />
+        <meta name="theme-color" content="#0d0d0b" />
         <link rel="icon" type="image/png" href="/profile-pic-2.png?v=1" />
         <link rel="apple-touch-icon" href="/profile-pic-2.png?v=1" />
         <link rel="canonical" href={currentUrl} />
@@ -89,11 +91,10 @@ const jsonLd = {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={new URL(ogImage, currentUrl)} />
 
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content={currentUrl} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(ogImage, currentUrl)} />
 
         <script type="application/ld+json" is:inline>
             {JSON.stringify(jsonLd)}
@@ -104,34 +105,24 @@ const jsonLd = {
         <a href="#content" class="skip-link">Skip to content</a>
         <div class="page-shell">
             <header class="site-header">
-                <div class="shell site-header-inner">
-                    <a class="brand-mark" href="/" aria-label="Go to homepage">
+                <div class="layout-shell site-header-inner">
+                    <a class="brand-mark" href="/" aria-label="Home">
                         <span class="brand-mark-badge">BP</span>
-                        <span class="hidden sm:inline">Bharathkumar Palanisamy</span>
+                        <span class="hidden sm:inline">Bharathkumar</span>
                     </a>
-                    <nav class="site-nav" aria-label="Primary">
-                        <div class="site-nav-list">
-                            {siteContent.navigation.map((item) => {
-                                const isActive =
-                                    item.href === currentPath ||
-                                    (item.href !== "/" &&
-                                        item.href.startsWith(currentPath) &&
-                                        currentPath !== "/");
-
-                                return (
-                                    <a
-                                        class:list={[
-                                            "site-nav-link",
-                                            isActive && "is-active",
-                                        ]}
-                                        href={item.href}
-                                    >
-                                        {item.label}
-                                    </a>
-                                );
-                            })}
-                        </div>
+                    <nav class="site-nav hidden md:flex" aria-label="Primary">
+                        {content.navigation.map((item) => (
+                            <a class="site-nav-link" href={item.href}>
+                                {item.label}
+                            </a>
+                        ))}
                     </nav>
+                    <a
+                        class="button-primary text-xs md:text-sm"
+                        href={`mailto:${content.contact.email}`}
+                    >
+                        Get in touch
+                    </a>
                 </div>
             </header>
 
@@ -140,33 +131,33 @@ const jsonLd = {
             </main>
 
             <footer class="site-footer">
-                <div class="shell footer-grid">
-                    <div class="space-y-4">
-                        <p class="section-kicker">Currently open to strong product teams</p>
-                        <h2 class="max-w-2xl font-serif text-3xl leading-tight md:text-4xl">
-                            I build developer tools, product UI, and AI-powered
-                            workflows that teams can rely on in production.
-                        </h2>
-                        <a class="button-primary" href={`mailto:${siteContent.contact.email}`}>
-                            {siteContent.contact.email}
-                        </a>
+                <div class="layout-shell">
+                    <div class="grid gap-8 md:grid-cols-[1fr_auto]">
+                        <div class="space-y-3">
+                            <p class="text-sm font-semibold text-[var(--ink)]">
+                                Bharathkumar Palanisamy
+                            </p>
+                            <p class="max-w-sm text-sm leading-6 text-[var(--ink-secondary)]">
+                                Frontend engineer building AI-integrated
+                                products and developer tools.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm">
+                            {content.contact.socials.map((social) => (
+                                <a
+                                    class="text-[var(--ink-secondary)] transition-colors hover:text-[var(--ink)]"
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {social.label}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-3 text-sm text-[var(--muted)]">
-                        {siteContent.contact.socials.map((social) => (
-                            <a
-                                class="resource-link"
-                                href={social.href}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {social.label}
-                            </a>
-                        ))}
+                    <div class="mt-8 border-t py-5 text-sm text-[var(--ink-muted)]" style="border-color: var(--line);">
+                        &copy; {currentYear} Bharathkumar Palanisamy
                     </div>
-                </div>
-                <div class="shell flex flex-col gap-2 border-t py-5 text-sm text-[var(--muted)] md:flex-row md:items-center md:justify-between" style="border-color: var(--line);">
-                    <p>© {currentYear} Bharathkumar Palanisamy</p>
-                    <p>Built with Astro, purposeful motion, and a smaller JavaScript budget.</p>
                 </div>
             </footer>
         </div>

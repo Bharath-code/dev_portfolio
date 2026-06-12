@@ -1,381 +1,278 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import SectionIntro from "@/components/site/SectionIntro.astro";
-import ProjectShowcaseCard from "@/components/site/ProjectShowcaseCard.astro";
-import { siteContent } from "@/content/site-content";
-import { fetchRepoStatsByUrls } from "@/lib/github";
-import booksData from "@/data/books.json";
-import { mapBooks, type RawBook } from "@/lib/books";
-import { ArrowUpRight, Mail, MapPin, Sparkles } from "lucide-react";
+import content from "@/data/site-content.json";
 
-const projectUrls = siteContent.projects.map((project) => project.link);
-const repoStatsMap = await fetchRepoStatsByUrls(projectUrls);
-const books = mapBooks(booksData as RawBook[])
-    .filter((book) => book.status === "recommended")
-    .slice(0, 3);
+const marqueeItems = [
+    "React 19",
+    "TypeScript",
+    "Next.js",
+    "AI Agents",
+    "RAG",
+    "Tool Calling",
+    "GSAP",
+    "Astro",
+    "Svelte 5",
+    "Go",
+    "LLM Guardrails",
+    "Developer Tools",
+];
 
-function getStatsForProject(link: string) {
-    const match = link.match(/github\.com\/[^/]+\/([^/]+)/);
-    if (!match) return undefined;
-    const repoName = match[1].replace(/\.git$/, "").toLowerCase();
-    return repoStatsMap.get(repoName);
-}
+const stats = [
+    { value: 30, suffix: "+", label: "Products shipped" },
+    { value: 98, suffix: "+", label: "GitHub stars · git-scope" },
+    { value: 3, suffix: "", label: "npm packages published" },
+    { value: 10, suffix: "+", label: "Years building" },
+];
 ---
 
-<Layout
-    title="Bharathkumar Palanisamy | Software Engineer"
-    description="Software engineer building developer tools, AI-integrated products, and fast, credible web experiences."
->
-    <section class="section-shell">
-        <div class="shell hero-layout">
-            <div class="space-y-8">
-                <p class="section-kicker fade-up">
-                    Recruiter-first portfolio · open to product engineering roles
-                </p>
-                <div class="space-y-6">
-                    <h1 class="hero-title balance fade-up fade-delay-1">
-                        {siteContent.hero.title}
-                    </h1>
-                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--muted-soft)] fade-up fade-delay-1">
-                        {siteContent.hero.subtitle}
-                    </p>
-                    <p class="hero-copy fade-up fade-delay-2">
-                        {siteContent.hero.bio}
-                    </p>
-                </div>
+<Layout title="Bharathkumar Palanisamy | Frontend Engineer · AI-Integrated Products">
+    <!-- HERO -->
+    <section class="section pt-16 md:pt-24">
+        <div class="layout-shell">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[var(--ink-secondary)] hero-fade">
+                <span class="inline-flex h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
+                {content.availability.status} · {content.availability.location}
+            </div>
 
-                <div class="flex flex-wrap gap-3 fade-up fade-delay-3">
-                    <a class="button-primary" href="#work">See selected work</a>
-                    <a class="button-secondary" href="#contact">
-                        <Mail className="h-4 w-4" />
-                        Start a conversation
+            <h1 class="mt-10">
+                <span class="mask block"><span class="hero-display hero-line block">Frontend</span></span>
+                <span class="mask block"><span class="hero-display hero-line block">Engineer<span class="text-[var(--accent)]">.</span></span></span>
+                <span class="mask block mt-4"><span class="hero-serif hero-line block text-3xl sm:text-4xl md:text-5xl">building AI-integrated products that ship.</span></span>
+            </h1>
+
+            <div class="mt-12 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-end">
+                <p class="max-w-xl text-lg leading-8 text-[var(--ink-secondary)] hero-fade">
+                    {content.hero.bio}
+                </p>
+                <div class="flex flex-wrap gap-3 md:justify-end hero-fade">
+                    <a class="button-primary" href={content.hero.cta.primary.href}>
+                        {content.hero.cta.primary.label}
+                    </a>
+                    <a class="button-secondary" href={content.hero.cta.secondary.href}>
+                        {content.hero.cta.secondary.label}
                     </a>
                 </div>
             </div>
 
-            <aside class="hero-panel fade-up fade-delay-2">
-                <div class="flex items-start gap-5">
-                    <img
-                        src="/profile-pic-2.png"
-                        alt="Portrait of Bharathkumar Palanisamy"
-                        class="h-24 w-24 rounded-[28px] object-cover"
-                        loading="eager"
-                    />
-                    <div class="space-y-2">
-                        <p class="card-kicker">Candidate snapshot</p>
-                        <h2 class="font-serif text-3xl leading-none">
-                            Bharathkumar Palanisamy
-                        </h2>
-                        <p class="card-copy text-sm">
-                            Software engineer focused on developer tools,
-                            full-stack product delivery, and AI-augmented
-                            workflows that move faster without cutting corners.
+            <div class="hero-rule mt-16 hero-fade"></div>
+
+            <div class="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4" data-stagger>
+                {stats.map((stat) => (
+                    <div class="stat-block">
+                        <p class="stat-value">
+                            <span data-count={stat.value}>{stat.value}</span><span class="acc">{stat.suffix}</span>
                         </p>
+                        <p class="stat-label">{stat.label}</p>
                     </div>
-                </div>
-
-                <dl class="mt-8 grid gap-3 sm:grid-cols-2">
-                    <div class="metric-row">
-                        <dt>Core stack</dt>
-                        <dd>Go, TypeScript, React, Node.js</dd>
-                    </div>
-                    <div class="metric-row">
-                        <dt>Focus</dt>
-                        <dd>Developer tools, SaaS, AI product workflows</dd>
-                    </div>
-                    <div class="metric-row">
-                        <dt class="inline-flex items-center gap-2">
-                            <MapPin className="h-3.5 w-3.5" />
-                            Based in
-                        </dt>
-                        <dd>India · remote-friendly</dd>
-                    </div>
-                    <div class="metric-row">
-                        <dt>Availability</dt>
-                        <dd>Open to devtools, full-stack, and AI roles</dd>
-                    </div>
-                </dl>
-
-                <div class="mt-8 rounded-[24px] border border-[var(--line)] bg-white/50 p-5">
-                    <p class="section-kicker">Why this portfolio exists</p>
-                    <p class="mt-3 text-sm leading-7 text-[var(--muted)]">
-                        To show shipped proof, product taste, and technical
-                        range in one place so recruiters can quickly understand
-                        both fit and upside.
-                    </p>
-                </div>
-            </aside>
+                ))}
+            </div>
         </div>
     </section>
 
-    <section class="section-shell-tight">
-        <div class="shell grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {siteContent.impactHighlights.map((highlight) => (
-                <article class="metric-card content-auto">
-                    <strong>{highlight.value}</strong>
-                    <span>{highlight.label}</span>
-                    <p>{highlight.description}</p>
-                </article>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            {[0, 1].map(() => (
+                <>
+                    {marqueeItems.map((item) => (
+                        <>
+                            <span>{item}</span>
+                            <span class="acc">✦</span>
+                        </>
+                    ))}
+                </>
             ))}
         </div>
-    </section>
+    </div>
 
-    <section id="work" class="section-shell section-surface">
-        <div class="shell space-y-12">
-            <SectionIntro
-                eyebrow="Selected work"
-                title="Products, tools, and systems that show how I solve for both users and engineering teams."
-                description="These projects highlight interface craft, technical judgment, and shipping discipline. Each case study is written to be quickly scannable by recruiters and still useful to engineering leaders."
-            />
-
-            <div class="grid gap-6 xl:grid-cols-2">
-                {siteContent.projects.map((project) => (
-                    <ProjectShowcaseCard
-                        project={project}
-                        githubStats={getStatsForProject(project.link)}
-                    />
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <section class="section-shell">
-        <div class="shell grid gap-8 xl:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)]">
-            <div class="space-y-10">
-                <SectionIntro
-                    eyebrow="Open to opportunities"
-                    title={siteContent.opportunities.headline}
-                    description={siteContent.opportunities.summary}
-                />
-
-                <div class="grid gap-5 md:grid-cols-3">
-                    {siteContent.opportunities.roles.map((role) => (
-                        <article class="surface-card content-auto">
-                            <div class="space-y-3">
-                                <p class="card-kicker">Best-fit role</p>
-                                <h3 class="card-title text-[1.65rem]">
-                                    {role.title}
-                                </h3>
-                                <p class="card-copy text-sm">{role.summary}</p>
-                            </div>
-                        </article>
-                    ))}
+    <!-- WORK -->
+    <section id="work" class="section">
+        <div class="layout-shell">
+            <div class="flex items-end justify-between gap-6" data-reveal>
+                <div>
+                    <p class="section-eyebrow">Selected work</p>
+                    <h2 class="section-title">Built, shipped,<br />maintained.</h2>
                 </div>
+                <span class="section-index hidden md:block">01</span>
             </div>
 
-            <aside class="surface-card content-auto">
-                <p class="card-kicker">Location and team fit</p>
-                <div class="space-y-4">
-                    {siteContent.opportunities.preferences.map((item) => (
-                        <div class="metric-row">
-                            <dt>Preference</dt>
-                            <dd>{item}</dd>
+            <div class="mt-14">
+                {content.projects.map((project, i) => (
+                    <a class="project-row" href={`/projects/${project.slug}`} data-reveal>
+                        <span class="project-row-index">{String(i + 1).padStart(2, "0")}</span>
+                        <div class="space-y-3">
+                            <h3 class="project-row-title">{project.title}</h3>
+                            <p class="max-w-md text-sm leading-6 text-[var(--ink-secondary)]">{project.description}</p>
                         </div>
-                    ))}
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <section class="section-shell">
-        <div class="shell grid gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-            <div class="space-y-10">
-                <SectionIntro
-                    eyebrow="What I bring"
-                    title="A mix of product taste, frontend depth, and delivery focus."
-                    description="I’m strongest where product quality and implementation quality have to reinforce each other."
-                />
-
-                <div class="grid gap-5 md:grid-cols-2">
-                    {siteContent.skillCategories.map((category) => (
-                        <article class="surface-card content-auto">
-                            <div class="space-y-4">
-                                <p class="card-kicker">{category.title}</p>
-                                <h3 class="card-title text-[1.8rem]">
-                                    {category.description}
-                                </h3>
-                                <div class="flex flex-wrap gap-2">
-                                    {category.tags.map((tag) => (
-                                        <span class="pill">{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </article>
-                    ))}
-                </div>
-            </div>
-
-            <aside class="surface-card-dark content-auto">
-                <div class="space-y-5">
-                    <p class="section-kicker text-[#cfb7a6]">Modern workflow</p>
-                    <h2 class="font-serif text-4xl leading-tight">
-                        AI is part of my delivery system, not a substitute for
-                        engineering judgment.
-                    </h2>
-                    <p class="text-base leading-7 text-[#d8c8bd]">
-                        I use AI where it compounds output: exploration,
-                        scaffolding, debugging, test design, and operational
-                        automation. The standard stays the same: readable code,
-                        durable abstractions, and clear product decisions.
-                    </p>
-                </div>
-
-                <div class="grid gap-4">
-                    {siteContent.aiToolkit.categories.map((category) => (
-                        <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                            <p class="card-kicker text-[#cfb7a6]">
-                                {category.label}
-                            </p>
-                            <div class="mt-3 flex flex-wrap gap-2">
-                                {category.tools.map((tool) => (
-                                    <span class="rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#f4e7dc]">
-                                        {tool}
-                                    </span>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5">
+                                {project.tags.map((tag) => (
+                                    <span class="pill">{tag}</span>
                                 ))}
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <section id="experience" class="section-shell section-surface">
-        <div class="shell space-y-12">
-            <SectionIntro
-                eyebrow="Experience"
-                title="Experience in environments where reliability, delivery pace, and trust mattered."
-                description="I’ve worked on enterprise platforms and banking software, where software quality is visible in both the UI and the operational outcomes."
-            />
-
-            <div class="space-y-5">
-                {siteContent.experience.map((item) => (
-                    <article class="timeline-item content-auto">
-                        <div class="space-y-2">
-                            <p class="section-kicker">{item.period}</p>
-                            <h3 class="font-serif text-3xl leading-none">
-                                {item.company}
-                            </h3>
-                            <p class="text-base font-semibold text-[var(--ink)]">
-                                {item.role}
+                            <p class="font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+                                {project.metrics.map((m) => `${m.value} ${m.label}`).join(" · ")}
                             </p>
                         </div>
-                        <p class="card-copy">{item.description}</p>
-                    </article>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <section class="section-shell">
-        <div class="shell space-y-10">
-            <SectionIntro
-                eyebrow="Other projects"
-                title="A wider body of work across CLI tools, SaaS ideas, browser extensions, and educational products."
-                description="The flagship projects show depth. This grid shows range and shipping cadence."
-            />
-
-            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {siteContent.secondaryProjects.map((project) => (
-                    <a
-                        class="surface-card content-auto transition-transform duration-200 hover:-translate-y-1"
-                        href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <div class="space-y-4">
-                            <p class="card-kicker">{project.category}</p>
-                            <h3 class="card-title text-[1.7rem]">
-                                {project.title}
-                            </h3>
-                            <p class="card-copy text-sm">{project.summary}</p>
-                        </div>
-                        <span class="resource-link">
-                            View repository
-                            <ArrowUpRight className="h-4 w-4" />
+                        <span class="project-row-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                         </span>
                     </a>
                 ))}
             </div>
-        </div>
-    </section>
 
-    <section class="section-shell section-surface">
-        <div class="shell grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <article class="surface-card content-auto">
-                <SectionIntro
-                    eyebrow="Writing"
-                    title="I write about engineering, architecture, and shipping with intention."
-                    description="Articles are where I make my thinking legible: tradeoffs, patterns, and the systems behind good product work."
-                />
-                <a class="resource-link" href="/blog">
-                    Browse articles
-                    <ArrowUpRight className="h-4 w-4" />
-                </a>
-            </article>
-
-            <article class="surface-card content-auto">
-                <SectionIntro
-                    eyebrow="Reading"
-                    title="Books that shape how I think about software, business, and behavior."
-                    description="My reading list is part of my operating system. These are a few standouts from the library."
-                />
-                <div class="grid gap-3">
-                    {books.map((book) => (
-                        <div class="metric-row">
-                            <dt>{book.title}</dt>
-                            <dd>{book.author}</dd>
-                        </div>
+            <div class="mt-20" data-reveal>
+                <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--ink-muted)] mb-6">More builds</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+                    {content.secondaryProjects.map((project) => (
+                        <a class="mini-card group" href={project.href} target="_blank" rel="noreferrer">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent-text)]">{project.category}</p>
+                            <h3 class="mt-3 font-display text-base uppercase group-hover:text-[var(--accent)] transition-colors">{project.title}</h3>
+                            <p class="mt-2 text-sm leading-6 text-[var(--ink-secondary)]">{project.summary}</p>
+                        </a>
                     ))}
                 </div>
-                <a class="resource-link" href="/books">
-                    Explore the library
-                    <ArrowUpRight className="h-4 w-4" />
-                </a>
-            </article>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="section-shell">
-        <div class="shell">
-            <article class="surface-card-dark">
-                <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_auto] lg:items-end">
-                <div class="space-y-5">
-                    <p class="section-kicker text-[#cfb7a6]">
-                        Final signal
-                    </p>
-                    <h2 class="font-serif text-4xl leading-tight md:text-5xl">
-                        If you need someone who can build product UI, developer
-                        workflows, and AI-assisted features end-to-end, we
-                        should talk.
-                    </h2>
-                    <p class="max-w-2xl text-base leading-7 text-[#d8c8bd]">
-                        I’m looking for teams that value shipping, product
-                        ownership, and using AI as leverage without lowering the
-                        engineering bar.
+    <!-- SKILLS -->
+    <section id="skills" class="section section-border">
+        <div class="layout-shell">
+            <div class="flex items-end justify-between gap-6" data-reveal>
+                <div>
+                    <p class="section-eyebrow">Capabilities</p>
+                    <h2 class="section-title">What I<br />work with.</h2>
+                    <p class="section-copy">
+                        Deep frontend craft, hands-on AI engineering, and enough backend to ship complete products end-to-end.
                     </p>
                 </div>
+                <span class="section-index hidden md:block">02</span>
+            </div>
 
-                    <div class="flex flex-col gap-3">
-                        <a
-                            class="button-primary"
-                            href={`mailto:${siteContent.contact.email}`}
-                        >
-                            <Mail className="h-4 w-4" />
-                            {siteContent.contact.email}
-                        </a>
-                        <a
-                            class="button-secondary border-white/15 bg-white/10 text-[#fff7ef]"
-                            href="https://linkedin.com/in/bharathkumar-palanisamy"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <Sparkles className="h-4 w-4" />
-                            Connect on LinkedIn
-                        </a>
+            <div class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+                {content.skillCategories.map((category) => (
+                    <div class="skill-block">
+                        <h3 class="font-mono text-xs font-medium uppercase tracking-[0.18em] text-[var(--ink)]">{category.title}</h3>
+                        <ul class="mt-5">
+                            {category.tags.map((tag) => (
+                                <li class="skill-tag">{tag}</li>
+                            ))}
+                        </ul>
                     </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section-border">
+        <div class="layout-shell">
+            <div class="flex items-end justify-between gap-6" data-reveal>
+                <div>
+                    <p class="section-eyebrow">Experience</p>
+                    <h2 class="section-title">Where I've<br />shipped.</h2>
                 </div>
-            </article>
+                <span class="section-index hidden md:block">03</span>
+            </div>
+
+            <div class="mt-14">
+                {content.experience.map((item) => (
+                    <div class="xp-row" data-reveal>
+                        <p class="xp-period">{item.period}</p>
+                        <div>
+                            <h3 class="xp-company">{item.company}</h3>
+                            <p class="xp-role">{item.role}</p>
+                            <p class="mt-4 max-w-2xl text-[15px] leading-7 text-[var(--ink-secondary)]">{item.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-border">
+        <div class="layout-shell">
+            <p class="section-eyebrow" data-reveal>{content.availability.status} · {content.availability.roles.join(" / ")}</p>
+            <h2 class="contact-display mt-8" data-reveal>
+                Let's ship<br />something<span class="text-[var(--accent)]">.</span>
+            </h2>
+            <div class="mt-10" data-reveal>
+                <a class="contact-email" href={`mailto:${content.contact.email}`}>
+                    {content.contact.email}
+                </a>
+            </div>
+            <div class="mt-14 flex flex-wrap items-center gap-6" data-reveal>
+                {content.contact.socials.map((social) => (
+                    <a
+                        class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--ink-secondary)] transition-colors hover:text-[var(--accent)]"
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        {social.label} ↗
+                    </a>
+                ))}
+            </div>
         </div>
     </section>
 </Layout>
+
+<script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reduced) {
+        gsap.timeline({ defaults: { ease: "power3.out" } })
+            .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.12 })
+            .from(".hero-fade", { y: 24, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, "-=0.45");
+
+        document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+            const target = Number(el.dataset.count);
+            gsap.fromTo(
+                el,
+                { textContent: 0 },
+                {
+                    textContent: target,
+                    duration: 1.4,
+                    ease: "power1.out",
+                    snap: { textContent: 1 },
+                    scrollTrigger: { trigger: el, start: "top 90%" },
+                },
+            );
+        });
+
+        gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
+            gsap.from(el, {
+                y: 36,
+                autoAlpha: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 88%" },
+            });
+        });
+
+        gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((group) => {
+            gsap.from(group.children, {
+                y: 24,
+                autoAlpha: 0,
+                duration: 0.6,
+                stagger: 0.08,
+                ease: "power2.out",
+                scrollTrigger: { trigger: group, start: "top 88%" },
+            });
+        });
+
+        gsap.to(".marquee-track", {
+            xPercent: -50,
+            ease: "none",
+            duration: 28,
+            repeat: -1,
+        });
+    }
+</script>
