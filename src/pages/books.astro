@@ -1,103 +1,90 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import SectionIntro from "@/components/site/SectionIntro.astro";
 import BookShelfCard from "@/components/site/BookShelfCard.astro";
 import booksData from "@/data/books.json";
 import { mapBooks, type RawBook } from "@/lib/books";
 
 const books = mapBooks(booksData as RawBook[]);
-const stats = {
-    total: books.length,
-    recommended: books.filter((book) => book.status === "recommended").length,
-    finished: books.filter((book) => book.status === "read").length,
-    queue: books.filter((book) => book.status === "want-to-read").length,
-};
+// Read books first, then the reading list
+books.sort((a, b) => (a.status === b.status ? 0 : a.status === "read" ? -1 : 1));
 
-const categories = [
-    { id: "all", label: "All" },
-    { id: "recommended", label: "Recommended" },
-    { id: "read", label: "Finished" },
-    { id: "want-to-read", label: "Reading list" },
+const readBooks = books.filter((book) => book.status === "read");
+const queuedBooks = books.filter((book) => book.status === "reading-list");
+const pagesRead = readBooks.reduce((sum, book) => sum + (book.pages || 0), 0);
+const genreCount = new Set(
+    booksData.flatMap((book) => (book as RawBook).Genre || []),
+).size;
+
+const stats = [
+    { value: String(readBooks.length), label: "Books read" },
+    { value: String(queuedBooks.length), label: "On the reading list" },
+    { value: pagesRead.toLocaleString("en-US"), label: "Pages read" },
+    { value: String(genreCount), label: "Genres explored" },
+];
+
+const filters = [
+    { id: "all", label: `All (${books.length})` },
+    { id: "read", label: `Read (${readBooks.length})` },
+    { id: "reading-list", label: `Reading list (${queuedBooks.length})` },
 ];
 ---
 
 <Layout
     title="Library | Bharathkumar Palanisamy"
-    description="A curated library of books that shape Bharathkumar Palanisamy's thinking on software, business, and behavior."
+    description="69 finished books on software, business, and behavior — the inputs behind the engineering judgment."
 >
-    <section class="section-shell">
-        <div class="shell space-y-10">
-            <SectionIntro
-                eyebrow="Library"
-                title="Reading is part of how I sharpen judgment, not just how I collect ideas."
-                description="This shelf spans software, business, behavior, and adjacent fields. It’s here because the best engineering decisions usually borrow from more than engineering."
-            />
+    <section class="section pt-16 md:pt-20">
+        <div class="layout-shell">
+            <p class="section-eyebrow fade-up">Library · Synced from Notion</p>
+            <h1 class="mt-6 font-display text-4xl uppercase leading-[0.96] sm:text-6xl md:text-7xl fade-up fade-delay-1">
+                Books I've<br />read<span class="text-[var(--accent)]">.</span>
+            </h1>
+            <p class="mt-8 max-w-2xl text-lg leading-8 text-[var(--ink-secondary)] fade-up fade-delay-2">
+                Reading is part of how I sharpen judgment, not just collect ideas.
+                This shelf spans software, business, and behavior — the finished
+                reads plus what's queued next. Because the best engineering
+                decisions usually borrow from more than engineering.
+            </p>
 
-            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-                <article class="metric-card">
-                    <strong>{stats.total}</strong>
-                    <span>Total books tracked</span>
-                    <p>A living archive rather than a decorative reading list.</p>
-                </article>
-                <article class="metric-card">
-                    <strong>{stats.recommended}</strong>
-                    <span>Strong recommendations</span>
-                    <p>Books I would gladly point a colleague toward.</p>
-                </article>
-                <article class="metric-card">
-                    <strong>{stats.finished}</strong>
-                    <span>Finished reads</span>
-                    <p>Completed books that actively shaped my thinking.</p>
-                </article>
-                <article class="metric-card">
-                    <strong>{stats.queue}</strong>
-                    <span>Still in queue</span>
-                    <p>Future inputs for better systems and better choices.</p>
-                </article>
+            <div class="hero-rule mt-14 fade-up fade-delay-2"></div>
+
+            <div class="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 fade-up fade-delay-3">
+                {stats.map((stat) => (
+                    <div class="stat-block">
+                        <p class="stat-value">{stat.value}</p>
+                        <p class="stat-label">{stat.label}</p>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
 
-    <section class="section-shell-tight section-surface">
-        <div class="shell space-y-8">
-            <div class="grid gap-4 xl:grid-cols-[1fr_auto_auto] xl:items-center">
-                <div class="surface-card">
-                    <p class="card-kicker">Discovery controls</p>
-                    <p class="card-copy">
-                        Filter by recommendation status, search by title or
-                        author, or sort for quick scanning.
-                    </p>
-                </div>
-
+    <section class="section section-border pt-14 md:pt-16">
+        <div class="layout-shell space-y-10">
+            <div class="flex flex-wrap items-center justify-between gap-4">
                 <div class="flex flex-wrap gap-2">
-                    {categories.map((category) => (
+                    {filters.map((filter) => (
                         <button
                             class:list={[
                                 "filter-button",
-                                category.id === "all"
-                                    ? "button-primary"
-                                    : "button-secondary",
+                                filter.id === "all" ? "button-primary" : "button-secondary",
                             ]}
-                            data-filter={category.id}
-                            data-active={category.id === "all" ? "true" : "false"}
+                            data-filter={filter.id}
+                            data-active={filter.id === "all" ? "true" : "false"}
                             type="button"
                         >
-                            {category.label}
+                            {filter.label}
                         </button>
                     ))}
                 </div>
-
-                <div class="grid gap-3 sm:grid-cols-2">
+                <div class="grid w-full gap-3 sm:w-auto sm:grid-cols-2">
                     <input
                         id="book-search"
                         type="search"
                         placeholder="Search title or author"
-                        class="rounded-full border border-[var(--line)] bg-[var(--bg-elevated)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                        class="input-dark sm:w-64"
                     />
-                    <select
-                        id="book-sort"
-                        class="rounded-full border border-[var(--line)] bg-[var(--bg-elevated)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
-                    >
+                    <select id="book-sort" class="input-dark">
                         <option value="default">Default sort</option>
                         <option value="rating">Top rated</option>
                         <option value="title">Title</option>
@@ -106,7 +93,7 @@ const categories = [
                 </div>
             </div>
 
-            <div id="books-grid" class="grid gap-6 lg:grid-cols-2">
+            <div id="books-grid" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {books.map((book, index) => (
                     <div
                         class="book-item"
@@ -124,11 +111,12 @@ const categories = [
 
             <div
                 id="no-results"
-                class="hidden rounded-[32px] border border-[var(--line)] bg-[var(--bg-elevated)] px-6 py-16 text-center"
+                class="hidden rounded-[var(--radius-sm)] border px-6 py-16 text-center"
+                style="border-color: var(--line); background: var(--bg-elevated);"
             >
-                <p class="font-serif text-3xl">No matching books found.</p>
-                <p class="mt-3 text-sm text-[var(--muted)]">
-                    Reset the filters or try a different search query.
+                <p class="font-display text-2xl uppercase">No matching books<span class="text-[var(--accent)]">.</span></p>
+                <p class="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+                    Reset the filters or try a different search
                 </p>
             </div>
         </div>

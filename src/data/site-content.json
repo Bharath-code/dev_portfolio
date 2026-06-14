@@ -10,10 +10,11 @@
     }
   },
   "navigation": [
-    { "label": "Work", "href": "#work" },
-    { "label": "Skills", "href": "#skills" },
-    { "label": "Experience", "href": "#experience" },
-    { "label": "Contact", "href": "#contact" }
+    { "label": "Work", "href": "/#work" },
+    { "label": "Skills", "href": "/#skills" },
+    { "label": "Writing", "href": "/#writing" },
+    { "label": "Library", "href": "/books" },
+    { "label": "Contact", "href": "/#contact" }
   ],
   "projects": [
     {

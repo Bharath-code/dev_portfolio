@@ -1,1676 +1,2858 @@
 [
-    {
-        "Author": [
-            "Darren Hardy"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": null,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Link": "[www.TheCompoundEffect.com](http://www.TheCompoundEffect.com)",
-        "Name": "The Compound Effect",
-        "No of Pages": 158,
-        "Priority": "Highest",
-        "Publisher": "Manjul Publication",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Jumpstart your income, your life, your success",
-        "Type": "Book",
-        "Start Date": "2022-02-09",
-        "End Date": "2022-02-16",
-        "Purchase Date": "2021-07-02"
-    },
-    {
-        "Author": [
-            "K Annamalai"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2022,
-        "DEFCON": 1,
-        "Genre": [
-            "Biography"
-        ],
-        "Name": "Stepping Beyond Khaki",
-        "No of Pages": 234,
-        "Priority": "Highest",
-        "Publisher": "Bloomsbury Publishing",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Revelations of a real life singham",
-        "Type": "Book",
-        "Start Date": "2022-02-07",
-        "End Date": "2022-02-08"
-    },
-    {
-        "Author": [
-            "R.Gopalakrishnan",
-            "Vidyut Lata Dhir"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "How Deepak Parekh grew HDFC group exponentially",
-        "No of Pages": 141,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Rupa Publications India",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Shaper of Business Institutions",
-        "Type": "Book",
-        "Start Date": "2021-10-04",
-        "End Date": "2021-10-05"
-    },
-    {
-        "Author": [
-            "Harsh Mariwala",
-            "Ram Charan"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "Harsh Realities",
-        "No of Pages": 208,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The Making of Marico",
-        "Type": "Book",
-        "Start Date": "2021-09-27",
-        "End Date": "2021-10-01"
-    },
-    {
-        "Author": [
-            "Amaresh Ojha",
-            "Subhra Moitra"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help",
-            "Fitness"
-        ],
-        "Name": "Fitness Habits",
-        "No of Pages": 178,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Srishti Publishers & Distributors",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Breaking the barriers to fitness",
-        "Type": "Book",
-        "Start Date": "2021-08-15",
-        "End Date": "2021-08-25",
-        "Purchase Date": "2021-08-15"
-    },
-    {
-        "Author": [
-            "David Schwartz"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "The Magic of Thinking Big",
-        "No of Pages": 362,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Vermillion",
-        "Publishing/Release Year": 2016,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The true secret of success - how to earn more, lead fearlessly and live a happier life",
-        "Type": "Book",
-        "Start Date": "2021-06-25",
-        "End Date": "2021-06-30",
-        "Purchase Date": "2021-04-28"
-    },
-    {
-        "Author": [
-            "Michio Kaku"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Physics"
-        ],
-        "Name": "The God Equation",
-        "No of Pages": 198,
-        "Notes Availability": "No",
-        "Priority": "Medium",
-        "Publisher": "Allen Lane",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The quest for a theory of everything",
-        "Type": "Book",
-        "Start Date": "2021-06-23",
-        "End Date": "2021-06-24",
-        "Purchase Date": "2021-06-23"
-    },
-    {
-        "Author": [
-            "Neil DeGrasse Tyson"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Physics"
-        ],
-        "Name": "Astrophysics for People in a Hurry",
-        "No of Pages": 208,
-        "Notes Availability": "No",
-        "Priority": "Medium",
-        "Publisher": "W.W. Norton & Company",
-        "Publishing/Release Year": 2017,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The essential universe, from our most celebrated and beloved astrophysicist",
-        "Type": "Book",
-        "Start Date": "2021-06-16",
-        "End Date": "2021-06-19"
-    },
-    {
-        "Author": [
-            "Jayadevan P.K"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Xiaomi",
-        "No of Pages": 183,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Harper Collins Publishers",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How a start-up disrupted the market and created a cult following",
-        "Type": "Book",
-        "Start Date": "2021-05-06",
-        "End Date": "2021-05-08",
-        "Purchase Date": "2021-05-05"
-    },
-    {
-        "Author": [
-            "Jonah Berger"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 2,
-        "Genre": [
-            "Startup",
-            "Entrepreneurship",
-            "Marketing"
-        ],
-        "Name": "Contagious",
-        "No of Pages": 244,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Simon & Schuster",
-        "Publishing/Release Year": 2013,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How to build word of mouth in the digital age",
-        "Type": "Book",
-        "Start Date": "2021-05-02",
-        "End Date": "2021-05-06"
-    },
-    {
-        "Author": [
-            "Jamie Russo"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 3,
-        "Genre": [
-            "Self Help",
-            "Startup"
-        ],
-        "Name": "The Underdog Paradox",
-        "No of Pages": 111,
-        "Notes Availability": "Yes",
-        "Priority": "High",
-        "Publisher": "New Degree Press",
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Secrets to battling adversity and stories of real life superheroes",
-        "Type": "Book",
-        "Start Date": "2021-05-01",
-        "End Date": "2021-05-02"
-    },
-    {
-        "Author": [
-            "Karthick Kumar"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Don't Startup",
-        "No of Pages": 186,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Notion Press",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "What no one tells you about starting your own business",
-        "Type": "Book",
-        "Start Date": "2021-04-29",
-        "End Date": "2021-04-30"
-    },
-    {
-        "Author": [
-            "Biz Stone"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Things a little bird told me",
-        "No of Pages": 222,
-        "Notes Availability": "No",
-        "Priority": "High",
-        "Publisher": "Pan Books",
-        "Publishing/Release Year": 2014,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Secrets of success from the co-founder of Twitter",
-        "Type": "Book",
-        "Start Date": "2021-04-21",
-        "End Date": "2021-04-22",
-        "Purchase Date": "2021-04-21"
-    },
-    {
-        "Author": [
-            "Allan Dib"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 2,
-        "Genre": [
-            "Marketing"
-        ],
-        "Link": "[www.1pmp.com](http://www.1pmp.com)",
-        "Name": "The 1-Page Marketing Plan",
-        "No of Pages": 225,
-        "Notes Availability": "Yes",
-        "Priority": "High",
-        "Publisher": "Successwise",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Get new customers,Make more money,and stand out from the crowd",
-        "Type": "Book",
-        "Start Date": "2021-04-20",
-        "End Date": "2021-04-29"
-    },
-    {
-        "Author": [
-            "Nir Eyal"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Productivity"
-        ],
-        "Name": "In distract able",
-        "No of Pages": 279,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Bloomsbury Publishing",
-        "Publishing/Release Year": 2019,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How to control your attention and choose your life",
-        "Type": "Book",
-        "Start Date": "2021-04-16",
-        "End Date": "2021-04-19",
-        "Purchase Date": "2021-02-17"
-    },
-    {
-        "Author": [
-            "Cal Newport"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help",
-            "Productivity"
-        ],
-        "Name": "Deep Work",
-        "No of Pages": 296,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Piatkus",
-        "Publishing/Release Year": 2016,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Rules for success in a distracted world",
-        "Type": "Book",
-        "Start Date": "2021-04-13",
-        "End Date": "2021-04-16"
-    },
-    {
-        "Author": [
-            "Tony Hsieh"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Business",
-            "Entrepreneurship",
-            "Startup"
-        ],
-        "Name": "Delivering Happiness",
-        "No of Pages": 289,
-        "Notes Availability": "Yes",
-        "Priority": "High",
-        "Publisher": "Grand Central Publishing",
-        "Publishing/Release Year": 2010,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "A Path to profits, passion, and purpose",
-        "Type": "Book",
-        "Start Date": "2021-04-11",
-        "End Date": "2021-04-12"
-    },
-    {
-        "Author": [
-            "Gabriel Weinberg",
-            "Justin Mares"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Traction",
-        "No of Pages": 213,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Publishing/Release Year": 2015,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How any startup can achieve explosive customer growth",
-        "Type": "Book",
-        "Start Date": "2021-04-01",
-        "End Date": "2021-04-11"
-    },
-    {
-        "Author": [
-            "Colin Bryar",
-            "Bill Carr"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Working backwards",
-        "No of Pages": 274,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Macmillan",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Insights, Stories, and Secrets from Inside Amazon",
-        "Type": "Book",
-        "Start Date": "2021-03-27",
-        "End Date": "2021-03-31",
-        "Purchase Date": "2021-03-13"
-    },
-    {
-        "Author": [
-            "Jason Fried",
-            "David Heinemeier Hansson"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "It doesn't have to be crazy at work",
-        "No of Pages": 225,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Harper Collins Publishers",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2021-03-25",
-        "End Date": "2021-03-27",
-        "Purchase Date": "2021-03-11"
-    },
-    {
-        "Author": [
-            "Raja Rajamannar"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Marketing"
-        ],
-        "Name": "Quantum Marketing",
-        "No of Pages": 200,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Harper Collins Publishers",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Mastering The New Marketing Mindset for Tomorrow's consumers",
-        "Type": "Book",
-        "Start Date": "2021-03-21",
-        "End Date": "2021-03-25"
-    },
-    {
-        "Author": [
-            "John Carreyrou"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 3,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "Bad Blood",
-        "No of Pages": 333,
-        "Notes Availability": "Yes",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Secret and lies in silicon valley startups",
-        "Type": "Book",
-        "Start Date": "2021-03-18",
-        "End Date": "2021-03-20"
-    },
-    {
-        "Author": [
-            "Dhruv Nath",
-            "Sushanto Mitra"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Funding your Startup",
-        "No of Pages": 239,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Funding you start-up and other nightmares",
-        "Type": "Book",
-        "Start Date": "2021-02-26",
-        "End Date": "2021-03-02"
-    },
-    {
-        "Author": [
-            "Bill Gates"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Environment",
-            "Economics"
-        ],
-        "Link": "[www.gatesnotes.com](http://www.gatesnotes.com)",
-        "Name": "How to Avoid a Climate Disaster",
-        "No of Pages": 272,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Allen Lane",
-        "Publishing/Release Year": 2021,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The Solution we have and Breakthrough we need",
-        "Type": "Book",
-        "Start Date": "2021-02-23",
-        "End Date": "2021-02-25",
-        "Purchase Date": "2021-02-23"
-    },
-    {
-        "Author": [
-            "Brad Stone"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 2,
-        "Genre": [
-            "Entrepreneurship",
-            "Startup"
-        ],
-        "Name": "The Upstarts",
-        "No of Pages": 485,
-        "Notes Availability": "No",
-        "Publisher": "Little Brown Company",
-        "Publishing/Release Year": 2017,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How uber, Airbnb,and the killer companies of the new silicon valley are changing the world",
-        "Type": "Book",
-        "Start Date": "2021-02-20",
-        "End Date": "2021-02-23"
-    },
-    {
-        "Author": [
-            "Jake Knapp"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Productivity",
-            "Business"
-        ],
-        "Name": "Sprint",
-        "No of Pages": 264,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Bantam Press",
-        "Publishing/Release Year": 2016,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Solve Big Problems and test new ideas in just five days",
-        "Type": "Book",
-        "Start Date": "2021-02-18",
-        "End Date": "2021-02-20",
-        "Purchase Date": "2021-02-16"
-    },
-    {
-        "Author": [
-            "Brian Tracy"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Sales"
-        ],
-        "Name": "The Psychology of Selling",
-        "No of Pages": 220,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Harper Collins Publishers",
-        "Publishing/Release Year": 2004,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Increase your sales, faster and easier than you ever thought possible",
-        "Type": "Book",
-        "Start Date": "2021-02-12",
-        "End Date": "2021-02-18"
-    },
-    {
-        "Author": [
-            "Alex Kantrowitz"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "Always Day One",
-        "No of Pages": 272,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How the tech titans stay on top and how you can too",
-        "Type": "Book",
-        "Start Date": "2021-02-10",
-        "End Date": "2021-02-12"
-    },
-    {
-        "Author": [
-            "Nir Eyal"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Hooked",
-        "No of Pages": 246,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How to build habit forming products",
-        "Type": "Book",
-        "Start Date": "2021-02-09",
-        "End Date": "2021-02-10",
-        "Purchase Date": "2020-08-19"
-    },
-    {
-        "Author": [
-            "Rahul Rana"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Making Moonshots",
-        "No of Pages": 186,
-        "Notes Availability": "Yes",
-        "Priority": "High",
-        "Publisher": "New Degree Press",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2021-02-05",
-        "End Date": "2021-02-08"
-    },
-    {
-        "Author": [
-            "Darius Foroux"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Productivity"
-        ],
-        "Name": "Do It Today",
-        "No of Pages": 117,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "North Eagle Publishing",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Overcome procrastination, Improve productivity and achieve more meaningful things",
-        "Type": "Book",
-        "Start Date": "2021-02-04",
-        "End Date": "2021-02-05"
-    },
-    {
-        "Author": [
-            "Fraser Doherty MBE"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "48-Hour Startup",
-        "No of Pages": 208,
-        "Notes Availability": "No",
-        "Priority": "Highest",
-        "Publisher": "Thorsons Classics",
-        "Publishing/Release Year": 2016,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "From idea  to launch in 1 weekend",
-        "Type": "Book",
-        "Start Date": "2021-02-01",
-        "End Date": "2021-02-04"
-    },
-    {
-        "Author": [
-            "Bharat Bambawale"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Marketing"
-        ],
-        "Name": "9 Timeless Nuggets",
-        "No of Pages": 192,
-        "Notes Availability": "Yes",
-        "Priority": "Highest",
-        "Publisher": "Penguin Group",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Essential Marketing for the young and ambitious",
-        "Type": "Book",
-        "Start Date": "2021-01-23",
-        "End Date": "2021-01-26",
-        "Purchase Date": "2021-01-23"
-    },
-    {
-        "Author": [
-            "Roopa Pai"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 2,
-        "Genre": [
-            "Economics"
-        ],
-        "Name": "So You Want to Know About Economics",
-        "No of Pages": 176,
-        "Notes Availability": "Yes",
-        "Publisher": "Rupa Publications India",
-        "Publishing/Release Year": 2017,
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2021-01-21",
-        "End Date": "2021-01-21"
-    },
-    {
-        "Author": [
-            "Donald Miller",
-            "J.J. Peterson"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Marketing"
-        ],
-        "Name": "Marketing Made Simple",
-        "No of Pages": 184,
-        "Notes Availability": "Yes",
-        "Publisher": "Harper Collins Publishers",
-        "Publishing/Release Year": 2020,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "A step-by-step story brand guide for any business",
-        "Type": "Book",
-        "Start Date": "2021-01-18",
-        "End Date": "2021-01-20"
-    },
-    {
-        "Author": [
-            "David Bach",
-            "John David Mann"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Finance"
-        ],
-        "Name": "The Latte Factor",
-        "No of Pages": 146,
-        "Notes Availability": "No",
-        "Publisher": "Atria",
-        "Publishing/Release Year": 2019,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Why you don't have to be rich to live rich",
-        "Type": "Book",
-        "Start Date": "2021-01-13",
-        "End Date": "2021-01-13"
-    },
-    {
-        "Author": [
-            "John Doerr"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Link": "[www.whatmatters.com](http://www.whatmatters.com)",
-        "Name": "Measure What Matters",
-        "No of Pages": 282,
-        "Notes Availability": "No",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "OKRs - The Simple Idea That Drives 10x Growth",
-        "Type": "Book",
-        "Start Date": "2021-01-08",
-        "End Date": "2021-01-12"
-    },
-    {
-        "Author": [
-            "Rujuta Diwekar"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Health"
-        ],
-        "Name": "The 12-Week Fitness Project",
-        "No of Pages": 193,
-        "Notes Availability": "No",
-        "Publisher": "Jaggernaut",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The fitness programme that helped 1 lakh+ people transform themselves",
-        "Type": "Book",
-        "Start Date": "2021-01-06",
-        "End Date": "2021-01-07"
-    },
-    {
-        "Author": [
-            "Scott H. Young"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2021,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "Ultra Learning",
-        "No of Pages": 257,
-        "Notes Availability": "No",
-        "Publisher": "Thorsons Classics",
-        "Publishing/Release Year": 2019,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Accelerate your career, Master hard skills and outsmart the competition",
-        "Type": "Book",
-        "Start Date": "2020-12-23",
-        "End Date": "2021-01-01"
-    },
-    {
-        "Author": [
-            "Eric Schmidt",
-            "Jonathan Rosenberg",
-            "Alan Eagle"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Trillion Dollar Coach",
-        "No of Pages": 200,
-        "Notes Availability": "Yes",
-        "Publisher": "John Murray",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The leadership handbook of silicon valley's bill campbell",
-        "Type": "Book",
-        "Start Date": "2020-12-20",
-        "End Date": "2020-12-23"
-    },
-    {
-        "Author": [
-            "Dr. Spencer Johnson"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "Who Moved my cheese?",
-        "No of Pages": 70,
-        "Notes Availability": "Yes",
-        "Publisher": "Vermillion",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "An amazing way to deal with change in your work and in your life",
-        "Type": "Book",
-        "Start Date": "2020-12-18",
-        "End Date": "2020-12-19"
-    },
-    {
-        "Author": [
-            "Rob Fitzpatrick"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "The Mom Test",
-        "No of Pages": 129,
-        "Notes Availability": "Yes",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How to talk to customers and learn if your business is a good idea when everyone is lying to you",
-        "Type": "Book",
-        "Start Date": "2020-12-15",
-        "End Date": "2020-12-17"
-    },
-    {
-        "Author": [
-            "Brian Tracy"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Productivity"
-        ],
-        "Name": "Eat That Frog!",
-        "No of Pages": 119,
-        "Notes Availability": "Yes",
-        "Publisher": "Berrett Koehler",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "21 Great ways to stop procrastinating and get more done in less time",
-        "Type": "Book",
-        "Start Date": "2020-12-09",
-        "End Date": "2020-12-12"
-    },
-    {
-        "Author": [
-            "OG Mandino"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Sales"
-        ],
-        "Name": "The Greatest Salesman in the World",
-        "No of Pages": 89,
-        "Notes Availability": "Yes",
-        "Publisher": "Jaico",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Transform your life and find true fulfillment with the priceless wisdom of ten ancient revealed within",
-        "Type": "Book",
-        "Start Date": "2020-12-08",
-        "End Date": "2020-12-08"
-    },
-    {
-        "Author": [
-            "Ken Blanchard",
-            "Spencer Johnson"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Management"
-        ],
-        "Name": "The New One Minute Manager",
-        "No of Pages": 106,
-        "Notes Availability": "Yes",
-        "Publisher": "Thorsons Classics",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Managing your work and life",
-        "Type": "Book",
-        "Start Date": "2020-12-07",
-        "End Date": "2020-12-07"
-    },
-    {
-        "Author": [
-            "Bob Miglani",
-            "Rehan Yar Khan"
-        ],
-        "Book Type": [
-            "Physical"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "Make Your Own Luck",
-        "No of Pages": 174,
-        "Notes Availability": "Yes",
-        "Publisher": "Fingerprint Classics",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2020-12-01",
-        "End Date": "2020-12-05"
-    },
-    {
-        "Author": [
-            "Harpreet S Groover",
-            "Vibhore Goyal"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Let's Build a Company",
-        "No of Pages": 224,
-        "Notes Availability": "Yes",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "A Startup story minus the bullshit",
-        "Type": "Book",
-        "Start Date": "2020-11-17",
-        "End Date": "2020-11-24"
-    },
-    {
-        "Author": [
-            "Jason Barron"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "The Visual MBA",
-        "No of Pages": 193,
-        "Notes Availability": "Yes",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "A Quick guide to everything you'll learn in two years of business school",
-        "Type": "Book",
-        "Start Date": "2020-11-05",
-        "End Date": "2020-11-17"
-    },
-    {
-        "Author": [
-            "Morgan Housel"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Finance"
-        ],
-        "Name": "The Psychology of Money",
-        "No of Pages": 240,
-        "Notes Availability": "Yes",
-        "Publisher": "Jaico",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Timeless lessons on Wealth, Greed, and Happiness",
-        "Type": "Book",
-        "Start Date": "2020-11-01",
-        "End Date": "2020-11-05"
-    },
-    {
-        "Author": [
-            "Sumyuk Kumar"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Take Off your Startup",
-        "No of Pages": 338,
-        "Notes Availability": "Yes",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How to start a business explained in 145 Startup Stories, 8 Steps to choose new business ideas, 72 concepts to create business plan and 7 scientific formula for team building.",
-        "Type": "Book",
-        "Start Date": "2020-09-27",
-        "End Date": "2020-10-01"
-    },
-    {
-        "Author": [
-            "Ben Horowitz"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "The Hard Thing About Hard Things",
-        "No of Pages": 289,
-        "Notes Availability": "No",
-        "Publisher": "Harper Collins Publishers",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Building a business when there are no easy answers",
-        "Type": "Book",
-        "Start Date": "2020-09-22",
-        "End Date": "2020-09-25"
-    },
-    {
-        "Author": [
-            "Robert Iger"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "The Ride of a Lifetime",
-        "No of Pages": 245,
-        "Notes Availability": "Yes",
-        "Publisher": "Bantam Press",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Lessons in Creative Leadership",
-        "Type": "Book",
-        "Start Date": "2020-09-19",
-        "End Date": "2020-09-21"
-    },
-    {
-        "Author": [
-            "Abhishek Kumar"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Finance"
-        ],
-        "Name": "Master Your Money Master Your Life",
-        "No of Pages": 261,
-        "Notes Availability": "No",
-        "Publisher": "Wisdom Tree",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2020-09-16",
-        "End Date": "2020-09-18"
-    },
-    {
-        "Author": [
-            "Reed Hasting",
-            "Erin Meyer"
-        ],
-        "Book Type 1": [
-            "Ebook"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "No Rules Rules",
-        "No of Pages": 293,
-        "Notes Availability": "Yes",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Netflix and the culture of reinvention",
-        "Type": "Book",
-        "Start Date": "2020-09-11",
-        "End Date": "2020-09-15"
-    },
-    {
-        "Author": [
-            "Satya Nadella"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Hit Refresh",
-        "No of Pages": 288,
-        "Notes Availability": "Yes",
-        "Publisher": "Harper Collins Publishers",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The quest to rediscover Microsoft's soul and imagine a better future for everyone",
-        "Type": "Book",
-        "Start Date": "2020-09-04",
-        "End Date": "2020-09-07"
-    },
-    {
-        "Author": [
-            "Kaustubh Dhargalkar"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Business"
-        ],
-        "Name": "It's Logical",
-        "No of Pages": 232,
-        "Notes Availability": "No",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Innovating Profitable Business Model",
-        "Type": "Book",
-        "Start Date": "2020-08-31",
-        "End Date": "2020-09-04"
-    },
-    {
-        "Author": [
-            "Marc Randolph"
-        ],
-        "Book Type": [
-            "Physical"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Biography"
-        ],
-        "Name": "That Will Never Work",
-        "No of Pages": 311,
-        "Notes Availability": "No",
-        "Publisher": "Endeavour",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The birth of Netflix and the amazing life of an idea",
-        "Type": "Book",
-        "Start Date": "2020-08-28",
-        "End Date": "2020-08-31"
-    },
-    {
-        "Author": [
-            "Duncan Clark"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Biography"
-        ],
-        "Name": "Alibaba",
-        "No of Pages": 294,
-        "Notes Availability": "No",
-        "Publisher": "CCC",
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The house that Jack Ma built",
-        "Type": "Book",
-        "Start Date": "2020-07-01",
-        "End Date": "2020-07-07"
-    },
-    {
-        "Author": [
-            "Ashlee Vance"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Biography"
-        ],
-        "Name": "Elon Musk",
-        "No of Pages": 392,
-        "Notes Availability": "No",
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book",
-        "Start Date": "2020-06-19",
-        "End Date": "2020-06-24"
-    },
-    {
-        "Author": [
-            "Khurshed Batliwala",
-            "Dinesh Ghodke"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Wellness"
-        ],
-        "Name": "Happiness Express",
-        "No of Pages": 311,
-        "Notes Availability": "No",
-        "Publisher": "Westland Publications",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "A Journey to everday well-being",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Ram Charan",
-            "Julia Yang"
-        ],
-        "Book Type 1": [
-            "Hardcover"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "The Amazon Management System",
-        "No of Pages": 162,
-        "Notes Availability": "Yes",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Gary Vaynerchuk"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Entrepreneurship"
-        ],
-        "Name": "Crush It!",
-        "No of Pages": 142,
-        "Notes Availability": "No",
-        "Publisher": "Harper Collins Publishers",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Why now is the time to crush your passion",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Mark Manson"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "The Subtle Art Of Not Giving Fuck",
-        "No of Pages": 210,
-        "Notes Availability": "No",
-        "Publisher": "Harper Collins Publishers",
-        "Score /5": "⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "The counterintuitive approach to living a good Life",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "James Clear"
-        ],
-        "Book Type": [
-            "Physical"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Productivity"
-        ],
-        "Name": "Atomic Habits",
-        "No of Pages": 288,
-        "Notes Availability": "Yes",
-        "Publisher": "Random House Business",
-        "Publishing/Release Year": 2018,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "An Easy and proven way to build good habits and break bad ones",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Jeff Keller"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Self Help"
-        ],
-        "Name": "Attitude is Everything",
-        "No of Pages": 115,
-        "Notes Availability": "Yes",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Pankaj Goyal"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Before You Start Up",
-        "No of Pages": 200,
-        "Notes Availability": "No",
-        "Publisher": "Fingerprint Classics",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Things to be remembered before starting a startup",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Eric Ries"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "The Lean Startup",
-        "No of Pages": 320,
-        "Notes Availability": "No",
-        "Publisher": "Penguin Group",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "How constant innovation creates radically successful businesses",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Peter Theil",
-            "Blake"
-        ],
-        "Book Type": [
-            "Physical"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Startup"
-        ],
-        "Name": "Zero To One",
-        "No of Pages": 210,
-        "Notes Availability": "Yes",
-        "Publisher": "Random House Business",
-        "Publishing/Release Year": 2014,
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Summary": "Notes on startups , or how to build the future",
-        "Type": "Book"
-    },
-    {
-        "Author": [
-            "Walter Issacson"
-        ],
-        "Book Type 1": [
-            "Paperback"
-        ],
-        "Completed Year": 2020,
-        "DEFCON": 1,
-        "Genre": [
-            "Biography"
-        ],
-        "Name": "Steve Jobs",
-        "No of Pages": 568,
-        "Notes Availability": "No",
-        "Publisher": "Abacus",
-        "Score /5": "⭐️⭐️⭐️⭐️⭐️",
-        "Status": "Finished",
-        "Type": "Book"
-    }
+  {
+    "Name": "The Amazon Management System",
+    "Author": [
+      "Julia Yang",
+      "Ram Charan"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "No of Pages": 162,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Shoe Dog",
+    "Author": [
+      "Phil Knight"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 386
+  },
+  {
+    "Name": "Cognitive Fitness",
+    "Author": [
+      "Anil Rajput"
+    ],
+    "Genre": [
+      "Mental Fitness",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Pain is inevitable how to alleviate it and use it to your advantage",
+    "No of Pages": 227
+  },
+  {
+    "Name": "Contagious",
+    "Author": [
+      "Jonah Berger"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Marketing",
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How to build word of mouth in the digital age",
+    "Priority": "Highest",
+    "No of Pages": 244,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Kochland",
+    "Author": [
+      "Christopher Leonard"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The secret history of koch industries and corporate power in america",
+    "No of Pages": 687
+  },
+  {
+    "Name": "The Lean Startup",
+    "Author": [
+      "Eric Ries"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How constant innovation creates radically successful businesses",
+    "No of Pages": 320,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Crushing It",
+    "Author": [
+      "Gary Vaynerchuk"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How Great Entrepreneur build their Business and Influence and how you can,Too",
+    "No of Pages": 271
+  },
+  {
+    "Name": "The Hard Thing About Hard Things",
+    "Author": [
+      "Ben Horowitz"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Building a business when there are no easy answers",
+    "No of Pages": 289,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "That Will Never Work",
+    "Author": [
+      "Marc Randolph"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The birth of Netflix and the amazing life of an idea",
+    "No of Pages": 311,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "What you do is who you are",
+    "Author": [
+      "Ben Horowitz"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to create your business culture",
+    "Priority": "High",
+    "No of Pages": 273
+  },
+  {
+    "Name": "The Upstarts",
+    "Author": [
+      "Brad Stone"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How uber, Airbnb,and the killer companies of the new silicon valley are changing the world",
+    "No of Pages": 485,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Delivering Happiness",
+    "Author": [
+      "Tony Hsieh"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "A Path to profits, passion, and purpose",
+    "Priority": "High",
+    "No of Pages": 289,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "How to avoid loss and earn consistently in the stock market",
+    "Author": [
+      "Prasenjit Paul"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Am easy to understand and practical guide for every Investor",
+    "No of Pages": 227
+  },
+  {
+    "Name": "Think & Grow Rich",
+    "Author": [
+      "Napoleon Hill"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The secret to freedom and success",
+    "No of Pages": 271
+  },
+  {
+    "Name": "The Richest Man in Babylon",
+    "Author": [
+      "George S. Clason"
+    ],
+    "Genre": [
+      "Finance",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The success secrets of the ancients - there most inspiring book on wealth ever written",
+    "No of Pages": 155
+  },
+  {
+    "Name": "The Power of your Subconscious Mind",
+    "Author": [
+      "Dr. Joseph Murphy"
+    ],
+    "Genre": [
+      "Mental Fitness",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Unlock your master key to success",
+    "Priority": "High",
+    "No of Pages": 256
+  },
+  {
+    "Name": "Steve Jobs",
+    "Author": [
+      "Walter Issacson"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "No of Pages": 568,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Elon Musk",
+    "Author": [
+      "Ashlee Vance"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "No of Pages": 392,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Alibaba",
+    "Author": [
+      "Duncan Clark"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "The house that Jack Ma built",
+    "No of Pages": 294,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The Subtle Art Of Not Giving Fuck",
+    "Author": [
+      "Mark Manson"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "The counterintuitive approach to living a good Life",
+    "No of Pages": 210,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Crush It!",
+    "Author": [
+      "Gary Vaynerchuk"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Why now is the time to crush your passion",
+    "No of Pages": 142,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Before You Start Up",
+    "Author": [
+      "Pankaj Goyal"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Things to be remembered before starting a startup",
+    "No of Pages": 200,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Happiness Express",
+    "Author": [
+      "Dinesh Ghodke",
+      "Khurshed Batliwala"
+    ],
+    "Genre": [
+      "Wellness"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "A Journey to everday well-being",
+    "No of Pages": 311,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "No Limits",
+    "Author": [
+      "Mukesh Bansal"
+    ],
+    "Genre": [
+      "Productivity",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The art and science of high performance",
+    "No of Pages": 355
+  },
+  {
+    "Name": "Ready, Study, Go",
+    "Author": [
+      "Dinesh Ghodke",
+      "Khurshed Batliwala"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Smart ways to learn",
+    "No of Pages": 222
+  },
+  {
+    "Name": "48-Hour Startup",
+    "Author": [
+      "Fraser Doherty MBE"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "From idea  to launch in 1 weekend",
+    "Priority": "Highest",
+    "No of Pages": 208,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Meditations and its Methods",
+    "Author": [
+      "Swami Vivekananda"
+    ],
+    "Genre": [
+      "Mental Fitness",
+      "Wellness"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 165
+  },
+  {
+    "Name": "How to develop self-confidence & influence people by public speaking",
+    "Author": [
+      "Dale Carnegie"
+    ],
+    "Genre": [
+      "Communication",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 200
+  },
+  {
+    "Name": "How to Memorize Anything",
+    "Author": [
+      "Aditi Singhal",
+      "Sudhir Singhal"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "The ultimate handbook to explore and improve your memory",
+    "No of Pages": 320
+  },
+  {
+    "Name": "High Output Management",
+    "Author": [
+      "Andrew S. Grove"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 243
+  },
+  {
+    "Name": "Getting to Yes",
+    "Author": [
+      "Roger Fisher",
+      "William Ury"
+    ],
+    "Genre": [
+      "Sales"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Negotiating an agreement without giving in",
+    "No of Pages": 204
+  },
+  {
+    "Name": "100 Dollar Startup",
+    "Author": [
+      "Chris Guillebeau"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Fire your boss, do what you love and work better to live more",
+    "No of Pages": 304
+  },
+  {
+    "Name": "Secret of Success and Happy Heart",
+    "Author": [
+      "Vikas Chadha"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Stories of Inspiration",
+    "No of Pages": 211
+  },
+  {
+    "Name": "Zero to Sold",
+    "Author": [
+      "Arvid Kahl"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to start, run, sell a bootstrapped business",
+    "Priority": "Highest",
+    "No of Pages": 454
+  },
+  {
+    "Name": "The Secret of Leadership",
+    "Author": [
+      "Prakash Iyer"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Stories to awaken, inspire and unleash the leaders within",
+    "Priority": "Highest",
+    "No of Pages": 250
+  },
+  {
+    "Name": "The Corporate Chanakya",
+    "Author": [
+      "Radhakrishnan Pillai"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The successful management by chanakya way",
+    "No of Pages": 318
+  },
+  {
+    "Name": "Never Split the Difference",
+    "Author": [
+      "Chris Voss"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Priority": "High",
+    "No of Pages": 275
+  },
+  {
+    "Name": "Obviously Awesome",
+    "Author": [
+      "April Dunford"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to nail product positioning so that customer Get it, Buy it, Love it",
+    "Priority": "Highest",
+    "No of Pages": 189
+  },
+  {
+    "Name": "The Automatic Millionaire",
+    "Author": [
+      "David Bach"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A powerful one step plan to live and finish rich",
+    "No of Pages": 195
+  },
+  {
+    "Name": "The Lean Product Playbook",
+    "Author": [
+      "Dan Oslen"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to innovate with MVP and rapid customer feedback",
+    "Priority": "Highest",
+    "No of Pages": 309
+  },
+  {
+    "Name": "A Thought to a Million Dollar Startup",
+    "Author": [
+      "Salma Moosa",
+      "Vivek Srinivasan"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Reality depends on your vantage point",
+    "No of Pages": 129
+  },
+  {
+    "Name": "Catalyst",
+    "Author": [
+      "Chandramouli Venkatesan"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The Ultimate strategies on how to win at life and work",
+    "No of Pages": 208
+  },
+  {
+    "Name": "The New Rule of Business",
+    "Author": [
+      "Rajesh Srivastava"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Get ahead or left behind",
+    "Priority": "Highest",
+    "No of Pages": 286
+  },
+  {
+    "Name": "Hyperfocus",
+    "Author": [
+      "Chris Bailey"
+    ],
+    "Genre": [
+      "Productivity",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "How to work less and achieve more",
+    "No of Pages": 216
+  },
+  {
+    "Name": "Drive",
+    "Author": [
+      "Daniel H Pink"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The suprising truth about what motivates us",
+    "No of Pages": 216
+  },
+  {
+    "Name": "The Productivity Project",
+    "Author": [
+      "Chris Bailey"
+    ],
+    "Genre": [
+      "Productivity"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Proven ways to become awesome",
+    "No of Pages": 293
+  },
+  {
+    "Name": "The One Thing",
+    "Author": [
+      "Gary Keller"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The suprising simple truth behind extraordinary  results",
+    "No of Pages": 214
+  },
+  {
+    "Name": "Blitzscaling",
+    "Author": [
+      "Chris Yeh",
+      "Reid Hoffman"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The lightining fast path to building billion dollar companies",
+    "Priority": "Highest",
+    "No of Pages": 326
+  },
+  {
+    "Name": "30 Days",
+    "Author": [
+      "Marc Reklau"
+    ],
+    "Genre": [
+      "Productivity",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Change your habits, Change your life",
+    "No of Pages": 232
+  },
+  {
+    "Name": "Don't Startup",
+    "Author": [
+      "Karthick Kumar"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "What no one tells you about starting your own business",
+    "Priority": "Highest",
+    "No of Pages": 186,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "No Shortcuts",
+    "Author": [
+      "Nistha Tripathi"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Rare insight from 15 successful startup founders",
+    "Priority": "High",
+    "No of Pages": 280
+  },
+  {
+    "Name": "Be a Human Calculator",
+    "Author": [
+      "Rajesh Sarwat"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Mere observation no magic",
+    "No of Pages": 163
+  },
+  {
+    "Name": "Scale Smart",
+    "Author": [
+      "Anirudh Narayan"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to get your first 1000 customers in India",
+    "Priority": "Highest",
+    "No of Pages": 319
+  },
+  {
+    "Name": "Company of One",
+    "Author": [
+      "Paul Jarvis"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Why starting small is the next best thing in business",
+    "No of Pages": 238
+  },
+  {
+    "Name": "Take Off your Startup",
+    "Author": [
+      "Sumyuk Kumar"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How to start a business explained in 145 Startup Stories, 8 Steps to choose new business ideas, 72 concepts to create business plan and 7 scientific formula for team building.",
+    "No of Pages": 338,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "It's Logical",
+    "Author": [
+      "Kaustubh Dhargalkar"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Innovating Profitable Business Model",
+    "No of Pages": 232,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The Art of Thinking Clearly",
+    "Author": [
+      "Rolf Dobeli"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 336
+  },
+  {
+    "Name": "The Practicing Mind",
+    "Author": [
+      "Thomas M. Sterner"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Master any skill or Challenge by learning to love the process",
+    "No of Pages": 164
+  },
+  {
+    "Name": "Creative Confidence",
+    "Author": [
+      "Tom Kelly"
+    ],
+    "Genre": [
+      "Creativity",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Unleashing the creative potential within us all",
+    "Priority": "Highest",
+    "No of Pages": 244
+  },
+  {
+    "Name": "Your Next Five Moves",
+    "Author": [
+      "Patrick Bet-David"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Master the art of Business Strategy",
+    "No of Pages": 320
+  },
+  {
+    "Name": "Above and Beyond",
+    "Author": [
+      "R. Srinivasan"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to build impactful business",
+    "No of Pages": 214
+  },
+  {
+    "Name": "50 Business Classics",
+    "Author": [
+      "Tom Butler-Bowdon"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Your shortcut to the most important ideas on innovation, management, and strategy",
+    "No of Pages": 390
+  },
+  {
+    "Name": "Day to Day Economics",
+    "Author": [
+      "Sathish Y Deodhar"
+    ],
+    "Genre": [
+      "Economics"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Priority": "Medium",
+    "No of Pages": 175
+  },
+  {
+    "Name": "Hit Refresh",
+    "Author": [
+      "Satya Nadella"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The quest to rediscover Microsoft's soul and imagine a better future for everyone",
+    "No of Pages": 288,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Good Strategy/Bad Strategy",
+    "Author": [
+      "Richard Rumelt"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The differences and why it matters",
+    "No of Pages": 321
+  },
+  {
+    "Name": "The Passion Economy",
+    "Author": [
+      "Adam Davidson"
+    ],
+    "Genre": [
+      "Economics"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The new rules for thriving in the twenty first century",
+    "No of Pages": 307
+  },
+  {
+    "Name": "No Rules Rules",
+    "Author": [
+      "Erin Meyer",
+      "Reed Hasting"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Netflix and the culture of reinvention",
+    "No of Pages": 293,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Master Your Money Master Your Life",
+    "Author": [
+      "Abhishek Kumar"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "No of Pages": 261,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The Ride of a Lifetime",
+    "Author": [
+      "Robert Iger"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Lessons in Creative Leadership",
+    "No of Pages": 245,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The CEO Factory",
+    "Author": [
+      "Sudhir Sitapati"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "No of Pages": 241
+  },
+  {
+    "Name": "The Psychology of Money",
+    "Author": [
+      "Morgan Housel"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Timeless lessons on Wealth, Greed, and Happiness",
+    "No of Pages": 240,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Let's Build a Company",
+    "Author": [
+      "Harpreet S Groover",
+      "Vibhore Goyal"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️",
+    "Summary": "A Startup story minus the bullshit",
+    "No of Pages": 224,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Make Your Own Luck",
+    "Author": [
+      "Bob Miglani",
+      "Rehan Yar Khan"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "No of Pages": 174,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The New One Minute Manager",
+    "Author": [
+      "Ken Blanchard",
+      "Spencer Johnson"
+    ],
+    "Genre": [
+      "Management"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Managing your work and life",
+    "No of Pages": 106,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The Greatest Salesman in the World",
+    "Author": [
+      "OG Mandino"
+    ],
+    "Genre": [
+      "Sales"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Transform your life and find true fulfillment with the priceless wisdom of ten ancient revealed within",
+    "No of Pages": 89,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Eat That Frog!",
+    "Author": [
+      "Brian Tracy"
+    ],
+    "Genre": [
+      "Productivity"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "21 Great ways to stop procrastinating and get more done in less time",
+    "No of Pages": 119,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Demand Side Sales",
+    "Author": [
+      "Bob Moesta",
+      "Greg Engle"
+    ],
+    "Genre": [
+      "Sales"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Stop selling and help your customers make progress",
+    "Priority": "Highest",
+    "No of Pages": 224
+  },
+  {
+    "Name": "The Underdog Paradox",
+    "Author": [
+      "Jamie Russo"
+    ],
+    "Genre": [
+      "Self Help",
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "Secrets to battling adversity and stories of real life superheroes",
+    "Priority": "High",
+    "No of Pages": 111,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Making Moonshots",
+    "Author": [
+      "Rahul Rana"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Priority": "High",
+    "No of Pages": 186,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "From Incremental to Exponential",
+    "Author": [
+      "Ismail Amla",
+      "Vivek Wadhwa"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How large companies can see the future and rethink innovation",
+    "No of Pages": 235
+  },
+  {
+    "Name": "Beyond Entrepreneurship 2.0",
+    "Author": [
+      "Bill Lazier",
+      "Jim Collins"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Turning your business into an enduring great company",
+    "Priority": "High",
+    "No of Pages": 340
+  },
+  {
+    "Name": "Swipe to Unlock",
+    "Author": [
+      "Aditya Agashe",
+      "Neel Mehta",
+      "Parth Detroja"
+    ],
+    "Genre": [
+      "Business",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The primer on technology and business strategy",
+    "Priority": "Highest",
+    "No of Pages": 292
+  },
+  {
+    "Name": "Why I Stopped Wearing My Socks",
+    "Author": [
+      "Alok Kejriwal"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 192
+  },
+  {
+    "Name": "Hacking Growth",
+    "Author": [
+      "Morgan Brown",
+      "Sean Ellis"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How today's fastest-growing companies drive breakout success",
+    "Priority": "High",
+    "No of Pages": 345
+  },
+  {
+    "Name": "Life's Amazing Secrets",
+    "Author": [
+      "Gaur Gopal Das"
+    ],
+    "Genre": [
+      "Mental Fitness",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to find balance and purpose in your life",
+    "No of Pages": 168
+  },
+  {
+    "Name": "Mental Models",
+    "Author": [
+      "Peter Hollins"
+    ],
+    "Genre": [
+      "Mental Fitness",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "30 thinking tools that separate the average from the exceptional. Improved decision-making, logical analysis, and problem-solving",
+    "Priority": "Highest",
+    "No of Pages": 118
+  },
+  {
+    "Name": "Climb you way out of hell",
+    "Author": [
+      "Pravin Shekar"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Outlier Marketing to overcome worst-case scenarios and grow your business",
+    "No of Pages": 108
+  },
+  {
+    "Name": "Unscripted",
+    "Author": [
+      "MJ Demarco"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Life, Liberty, and the Pursuit of entrepreneurship",
+    "No of Pages": 406
+  },
+  {
+    "Name": "The Effective Executive",
+    "Author": [
+      "Peter F. Drucker"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The definitive guide to getting the right things done",
+    "Priority": "High",
+    "No of Pages": 206
+  },
+  {
+    "Name": "How to Stop Worrying and Start Living",
+    "Author": [
+      "Dale Carnegie"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Time tested methods for conquering worry",
+    "No of Pages": 155
+  },
+  {
+    "Name": "23 things they don't tell you about capitalism",
+    "Author": [
+      "Ha-Joon Chang"
+    ],
+    "Genre": [
+      "Economics"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 287
+  },
+  {
+    "Name": "The Millionaire Fastlane",
+    "Author": [
+      "MJ Demarco"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Crack the code to wealth and live rich for a lifetime",
+    "No of Pages": 338
+  },
+  {
+    "Name": "Product-Led Growth",
+    "Author": [
+      "Wes Bush"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to build a product that sells itself",
+    "Priority": "Highest",
+    "No of Pages": 278
+  },
+  {
+    "Name": "The Making of a Manager",
+    "Author": [
+      "Julie Zhuo"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "What to do when everyone looks to you",
+    "Priority": "High",
+    "No of Pages": 276
+  },
+  {
+    "Name": "Rapid Idea Generation",
+    "Author": [
+      "Peter Hollins"
+    ],
+    "Genre": [
+      "Creativity"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to create, innovate, conceive, and invent from scratch",
+    "Priority": "Highest",
+    "No of Pages": 199
+  },
+  {
+    "Name": "Poly Math",
+    "Author": [
+      "Peter Hollins"
+    ],
+    "Genre": [
+      "Creativity",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Master multiple discipline, learn new skills, think flexibly, and become an extraordinary autodidact",
+    "No of Pages": 92
+  },
+  {
+    "Name": "Story 10X",
+    "Author": [
+      "Michael Margolis"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Marketing"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Turn the impossible into the inevitable",
+    "No of Pages": 197
+  },
+  {
+    "Name": "The Almanack of Naval Ravikant",
+    "Author": [
+      "Eric Jorgenson"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Priority": "High",
+    "No of Pages": 242
+  },
+  {
+    "Name": "The one-page content Marketing Blueprint",
+    "Author": [
+      "Prafull Sharma"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Step by step guide to launch a winning content marketing strategy in 90 days or less and double your inbound traffic, leads, and sales",
+    "No of Pages": 255
+  },
+  {
+    "Name": "Fall again, Rise again",
+    "Author": [
+      "Sandeep Sharma"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "No of Pages": 200
+  },
+  {
+    "Name": "System Design Interview",
+    "Author": [
+      "Alex Xu"
+    ],
+    "Genre": [
+      "Interview",
+      "System Design"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Priority": "Medium",
+    "No of Pages": 312
+  },
+  {
+    "Name": "Preparing for Product Interviews",
+    "Author": [
+      "Advaith Sridhar",
+      "Akash Ramadoss"
+    ],
+    "Genre": [
+      "Interview"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A Productive guide to landing a PM job",
+    "No of Pages": 116
+  },
+  {
+    "Name": "How I Built This",
+    "Author": [
+      "Guy Raz"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The unexpected paths to success from the world's most inspiring entrepreuneurs",
+    "Priority": "High",
+    "No of Pages": 322
+  },
+  {
+    "Name": "How to Transform your Ideas into Software Products",
+    "Author": [
+      "Poornima Vijayashanker"
+    ],
+    "Genre": [
+      "Computer Science",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A step-by-step guide for validating your ideas and bringing them to life!",
+    "Priority": "Highest",
+    "No of Pages": 329
+  },
+  {
+    "Name": "Loonshots",
+    "Author": [
+      "Safi Bahcall"
+    ],
+    "Genre": [
+      "Creativity"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Nature the crazy ideas that win wars, cure diseases, and transform industries",
+    "No of Pages": 349
+  },
+  {
+    "Name": "How to start a business in india",
+    "Author": [
+      "Simon Daniel"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Generate great business idea, Art of marketing and finance control, Critical 1000 days and many more",
+    "No of Pages": 193
+  },
+  {
+    "Name": "Click",
+    "Author": [
+      "Jogmohan Bhanver",
+      "Komal Bhanver"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The amazing story of e-commerce boom 💥 in india and where it is headed",
+    "No of Pages": 320
+  },
+  {
+    "Name": "Profit First",
+    "Author": [
+      "Mike Michalowicz"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Transform your business from cash eating monster to a money making machine",
+    "Priority": "Highest",
+    "No of Pages": 208
+  },
+  {
+    "Name": "Startup Ideas 2020",
+    "Author": [
+      "Dr. John Phillip"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Build your own company",
+    "Priority": "Highest",
+    "No of Pages": 75
+  },
+  {
+    "Name": "High Growth 💹 Handbook",
+    "Author": [
+      "Elad Gill"
+    ],
+    "Genre": [
+      "Marketing",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Scaling startup from 10 to 10000 people",
+    "Priority": "High",
+    "No of Pages": 344
+  },
+  {
+    "Name": "The Manual for Indian Start-ups",
+    "Author": [
+      "Alok Mittal",
+      "Mena Ganesh",
+      "Sadagopan",
+      "Sriram Subramanya",
+      "Vijaya Kumar ivaturi"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Tools to start and scale up your new venture",
+    "Priority": "Highest",
+    "No of Pages": 193
+  },
+  {
+    "Name": "The Startup Way",
+    "Author": [
+      "Eric Ries"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How entrepreneurial management transforms culture and drives growth",
+    "No of Pages": 370
+  },
+  {
+    "Name": "So You Want to Know About Economics",
+    "Author": [
+      "Roopa Pai"
+    ],
+    "Genre": [
+      "Economics"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "No of Pages": 176,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "41 Tips for Success in Share Market",
+    "Author": [
+      "Mahesh Chandra Kaushik"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 134
+  },
+  {
+    "Name": "A Mind for Numbers",
+    "Author": [
+      "Barbara Oakley"
+    ],
+    "Genre": [
+      "Science",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to excel at math and science (Even if you flanked algebra)",
+    "Priority": "Medium",
+    "No of Pages": 316
+  },
+  {
+    "Name": "The 60 Minute Tech Startup",
+    "Author": [
+      "Ramesh Dontha"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to start a tech company as a side hustle in 1 how a day and get customer in 30 days (or less)",
+    "Priority": "Highest",
+    "No of Pages": 215
+  },
+  {
+    "Name": "So Good They can't Ignore You",
+    "Author": [
+      "Cal Newport"
+    ],
+    "Genre": [
+      "Productivity",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Why skills trump pain in the quest for work you love",
+    "Priority": "High",
+    "No of Pages": 276
+  },
+  {
+    "Name": "Bad Blood",
+    "Author": [
+      "John Carreyrou"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Secret and lies in silicon valley startups",
+    "No of Pages": 333,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The Telomere Effect",
+    "Author": [
+      "Elissa Epel",
+      "Elizabeth Blackburn"
+    ],
+    "Genre": [
+      "Health"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A Revolutionary approach to living younger, healthier and longer",
+    "No of Pages": 326
+  },
+  {
+    "Name": "7 Powers",
+    "Author": [
+      "Hamilton Helmer"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Foundation of business strategy",
+    "Priority": "High",
+    "No of Pages": 210
+  },
+  {
+    "Name": "The Great CEO Within",
+    "Author": [
+      "Matt Mochary"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Tactical guide to building company culture",
+    "No of Pages": 202
+  },
+  {
+    "Name": "Do It Today",
+    "Author": [
+      "Darius Foroux"
+    ],
+    "Genre": [
+      "Productivity"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "Overcome procrastination, Improve productivity and achieve more meaningful things",
+    "Priority": "Highest",
+    "No of Pages": 117,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Atomic Habits",
+    "Author": [
+      "James Clear"
+    ],
+    "Genre": [
+      "Productivity"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "An Easy and proven way to build good habits and break bad ones",
+    "No of Pages": 288,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The Visual MBA",
+    "Author": [
+      "Jason Barron"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "A Quick guide to everything you'll learn in two years of business school",
+    "No of Pages": 193,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Attitude is Everything",
+    "Author": [
+      "Jeff Keller"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "No of Pages": 115,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "The 10 Rules Of Successful Nations",
+    "Author": [
+      "Ruchir Sharma"
+    ],
+    "Genre": [
+      "Economics"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "No of Pages": 235
+  },
+  {
+    "Name": "A Short History Of Nearly Everything",
+    "Author": [
+      "Bill Bryson"
+    ],
+    "Genre": [
+      "History"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A Journey Through Space and Time",
+    "No of Pages": 666
+  },
+  {
+    "Name": "Pragmarketism",
+    "Author": [
+      "Arvind Bhandari",
+      "Trupti Bhandari"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Pragmatic Marketing insights for winning indian consumers",
+    "No of Pages": 308
+  },
+  {
+    "Name": "Internet Marketing",
+    "Author": [
+      "Moutusy Maity"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A practical approach in the Indian context",
+    "No of Pages": 359
+  },
+  {
+    "Name": "Measure What Matters",
+    "Author": [
+      "John Doerr"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "OKRs - The Simple Idea That Drives 10x Growth",
+    "Link": "www.whatmatters.com",
+    "No of Pages": 282,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The Mom Test",
+    "Author": [
+      "Rob Fitzpatrick"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How to talk to customers and learn if your business is a good idea when everyone is lying to you",
+    "No of Pages": 129,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Who Moved my cheese?",
+    "Author": [
+      "Dr. Spencer Johnson"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "An amazing way to deal with change in your work and in your life",
+    "No of Pages": 70,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "Ultra Learning",
+    "Author": [
+      "Scott H. Young"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Accelerate your career, Master hard skills and outsmart the competition",
+    "No of Pages": 257,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Trillion Dollar Coach",
+    "Author": [
+      "Alan Eagle",
+      "Eric Schmidt",
+      "Jonathan Rosenberg"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The leadership handbook of silicon valley's bill campbell",
+    "No of Pages": 200,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "How to Talk to Anyone",
+    "Author": [
+      "Leil Lowndes"
+    ],
+    "Genre": [
+      "Communication",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "92 Little Tricks for Big Success",
+    "Priority": "High",
+    "No of Pages": 321
+  },
+  {
+    "Name": "Funding your Startup",
+    "Author": [
+      "Dhruv Nath",
+      "Sushanto Mitra"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "Funding you start-up and other nightmares",
+    "Priority": "Highest",
+    "No of Pages": 239,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The 12-Week Fitness Project",
+    "Author": [
+      "Rujuta Diwekar"
+    ],
+    "Genre": [
+      "Health"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The fitness programme that helped 1 lakh+ people transform themselves",
+    "No of Pages": 193,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Speak to win",
+    "Author": [
+      "Brian Tracy"
+    ],
+    "Genre": [
+      "Communication",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to present with power in any situation",
+    "Priority": "Highest",
+    "No of Pages": 194
+  },
+  {
+    "Name": "The Latte Factor",
+    "Author": [
+      "David Bach",
+      "John David Mann"
+    ],
+    "Genre": [
+      "Finance"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Why you don't have to be rich to live rich",
+    "No of Pages": 146,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Straight Talk for Startups",
+    "Author": [
+      "Jantoon Reigersman",
+      "Randy Komisar"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "100 insider rules for beating the odds from mastering the fundamentals to selecting investors, fundraising, managing boards, and achieving liquidity",
+    "Priority": "Highest",
+    "No of Pages": 278
+  },
+  {
+    "Name": "Marketing Made Simple",
+    "Author": [
+      "Donald Miller",
+      "J.J. Peterson"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "A step-by-step story brand guide for any business",
+    "Link": "https://rickkettner.com/marketing-made-simple-book-summary/",
+    "No of Pages": 184,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Business made simple",
+    "Author": [
+      "Donald Miller"
+    ],
+    "Genre": [
+      "Business",
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "60 days to master leadership, sales, marketing, execution, management, personal productivity and more.",
+    "Priority": "Highest",
+    "No of Pages": 219
+  },
+  {
+    "Name": "9 Timeless Nuggets",
+    "Author": [
+      "Bharat Bambawale"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Essential Marketing for the young and ambitious",
+    "Priority": "Highest",
+    "No of Pages": 192,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Hooked",
+    "Author": [
+      "Nir Eyal"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How to build habit forming products",
+    "Priority": "Highest",
+    "No of Pages": 246,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Always Day One",
+    "Author": [
+      "Alex Kantrowitz"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "How the tech titans stay on top and how you can too",
+    "Priority": "Highest",
+    "No of Pages": 272,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Deep Work",
+    "Author": [
+      "Cal Newport"
+    ],
+    "Genre": [
+      "Productivity",
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Rules for success in a distracted world",
+    "Priority": "Highest",
+    "No of Pages": 296,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "How to win friends & influence people",
+    "Author": [
+      "Dale Carnegie"
+    ],
+    "Genre": [
+      "Communication",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "The only book you need to lead you to success",
+    "Priority": "Highest",
+    "No of Pages": 278
+  },
+  {
+    "Name": "The Psychology of Selling",
+    "Author": [
+      "Brian Tracy"
+    ],
+    "Genre": [
+      "Sales"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Increase your sales, faster and easier than you ever thought possible",
+    "Priority": "Highest",
+    "No of Pages": 220,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Sprint",
+    "Author": [
+      "Jake Knapp"
+    ],
+    "Genre": [
+      "Business",
+      "Productivity"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Solve Big Problems and test new ideas in just five days",
+    "Priority": "Highest",
+    "Link": "https://www.thesprintbook.com/how",
+    "No of Pages": 264,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Zero To One",
+    "Author": [
+      "Blake",
+      "Peter Theil"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Notes on startups , or how to build the future",
+    "No of Pages": 210,
+    "Completed Year": 2020
+  },
+  {
+    "Name": "How to Avoid a Climate Disaster",
+    "Author": [
+      "Bill Gates"
+    ],
+    "Genre": [
+      "Economics",
+      "Environment"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The Solution we have and Breakthrough we need",
+    "Priority": "Highest",
+    "Link": "www.gatesnotes.com",
+    "No of Pages": 272,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Working backwards",
+    "Author": [
+      "Bill Carr",
+      "Colin Bryar"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Insights, Stories, and Secrets from Inside Amazon",
+    "Priority": "Highest",
+    "No of Pages": 274,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Quantum Marketing",
+    "Author": [
+      "Raja Rajamannar"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Mastering The New Marketing Mindset for Tomorrow's consumers",
+    "Priority": "Highest",
+    "No of Pages": 200,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "It doesn't have to be crazy at work",
+    "Author": [
+      "David Heinemeier Hansson",
+      "Jason Fried"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Priority": "Highest",
+    "No of Pages": 225,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Secrets of Sand Hill Road",
+    "Author": [
+      "Scott Kupor"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Venture Capital and How to get it",
+    "Priority": "Highest",
+    "No of Pages": 275
+  },
+  {
+    "Name": "Limitless",
+    "Author": [
+      "Jim Kwik"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Upgrade your brain, Learn anything faster, and unlock your exceptional life",
+    "Priority": "Highest",
+    "No of Pages": 285
+  },
+  {
+    "Name": "Traction",
+    "Author": [
+      "Gabriel Weinberg",
+      "Justin Mares"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How any startup can achieve explosive customer growth",
+    "Priority": "Highest",
+    "Link": "https://sipreads.com/traction#think",
+    "No of Pages": 213,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "In distract able",
+    "Author": [
+      "Nir Eyal"
+    ],
+    "Genre": [
+      "Productivity"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How to control your attention and choose your life",
+    "Priority": "Highest",
+    "No of Pages": 279,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Good To Great",
+    "Author": [
+      "Jim Collins"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Why some companies make the leap ... and others don't",
+    "Priority": "Highest",
+    "No of Pages": 206
+  },
+  {
+    "Name": "Innovators",
+    "Author": [
+      "Walter Issacson"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How a Group of Inventors, Hackers, Geniuses and Geeks Created the Digital Revolution",
+    "Priority": "Highest",
+    "No of Pages": 488
+  },
+  {
+    "Name": "The 1-Page Marketing Plan",
+    "Author": [
+      "Allan Dib"
+    ],
+    "Genre": [
+      "Marketing"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Get new customers,Make more money,and stand out from the crowd",
+    "Priority": "High",
+    "Link": "www.1pmp.com",
+    "No of Pages": 225,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Things a little bird told me",
+    "Author": [
+      "Biz Stone"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️",
+    "Summary": "Secrets of success from the co-founder of Twitter",
+    "Priority": "High",
+    "No of Pages": 222,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The Start-up J Curve",
+    "Author": [
+      "Howard Love"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The six steps to entrepreneurial success",
+    "Priority": "Highest",
+    "No of Pages": 289
+  },
+  {
+    "Name": "The Startup Playbook",
+    "Author": [
+      "Rajat Bharagava",
+      "Will Herman"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Founder-to-Founder advice from two startup veterans",
+    "Priority": "Highest",
+    "No of Pages": 422
+  },
+  {
+    "Name": "The 4-Hour Work Week",
+    "Author": [
+      "Timothy Ferriss"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Escape the 9-5, Live Anywhere and Join the New Rich",
+    "Priority": "Highest",
+    "No of Pages": 377
+  },
+  {
+    "Name": "The Magic of Thinking Big",
+    "Author": [
+      "David Schwartz"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The true secret of success - how to earn more, lead fearlessly and live a happier life",
+    "Priority": "Highest",
+    "No of Pages": 362,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Mindset",
+    "Author": [
+      "Carol S Dweck"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Changing the way you think to fulfill your potential",
+    "Priority": "Highest",
+    "No of Pages": 264
+  },
+  {
+    "Name": "The Wellness Sense",
+    "Author": [
+      "Om Swami"
+    ],
+    "Genre": [
+      "Wellness"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "A practical guide to your physical and emotional health based on ayurvedic and yogic wisdom",
+    "Priority": "Highest",
+    "No of Pages": 220
+  },
+  {
+    "Name": "Xiaomi",
+    "Author": [
+      "Jayadevan P.K"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "How a start-up disrupted the market and created a cult following",
+    "Priority": "Highest",
+    "No of Pages": 183,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Super Thinking",
+    "Author": [
+      "Gabriel Weinberg",
+      "Lauren McCann"
+    ],
+    "Genre": [
+      "Business",
+      "Self Help"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "Upgrade your reasoning and make better decisions with mental models",
+    "Priority": "Highest",
+    "No of Pages": 318
+  },
+  {
+    "Name": "Astrophysics for People in a Hurry",
+    "Author": [
+      "Neil DeGrasse Tyson"
+    ],
+    "Genre": [
+      "Physics"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The essential universe, from our most celebrated and beloved astrophysicist",
+    "Priority": "Medium",
+    "No of Pages": 208,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The God Equation",
+    "Author": [
+      "Michio Kaku"
+    ],
+    "Genre": [
+      "Physics"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The quest for a theory of everything",
+    "Priority": "Medium",
+    "No of Pages": 198,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The Future is faster than you think",
+    "Author": [
+      "Peter H.Diamandis",
+      "Steven Kotler"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How converging technologies are transforming business, industries, and our lives",
+    "Priority": "High",
+    "No of Pages": 270
+  },
+  {
+    "Name": "Algorithms to Live By",
+    "Author": [
+      "Brian Christian",
+      "Tom Griffiths"
+    ],
+    "Genre": [],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The computer science of human decisions",
+    "Priority": "Highest",
+    "No of Pages": 262
+  },
+  {
+    "Name": "Fitness Habits",
+    "Author": [
+      "Amaresh Ojha",
+      "Subhra Moitra"
+    ],
+    "Genre": [
+      "Fitness",
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Breaking the barriers to fitness",
+    "Priority": "Highest",
+    "No of Pages": 178,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "Rework",
+    "Author": [
+      "David Heinemeier Hansson",
+      "Jason Fried"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Change the way you work forever",
+    "Priority": "Highest",
+    "No of Pages": 273
+  },
+  {
+    "Name": "Harsh Realities",
+    "Author": [
+      "Harsh Mariwala",
+      "Ram Charan"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "The Making of Marico",
+    "Priority": "Highest",
+    "No of Pages": 208,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The 5 AM Club",
+    "Author": [
+      "Robin Sharma"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Own your morning and elevate your life",
+    "Priority": "Highest",
+    "No of Pages": 314
+  },
+  {
+    "Name": "Digital Minimalism",
+    "Author": [
+      "Cal Newport"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Choosing a Focused Life in a Noisy World",
+    "Priority": "Highest",
+    "No of Pages": 254
+  },
+  {
+    "Name": "Radical Condor",
+    "Author": [
+      "Kim Scott"
+    ],
+    "Genre": [
+      "Entrepreneurship",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How to get what you want by saying what you mean",
+    "Priority": "Medium",
+    "No of Pages": 280
+  },
+  {
+    "Name": "Start Your Own Enterprise",
+    "Author": [
+      "Prateek Jain"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The must know-how guide for an entrepreneur",
+    "Priority": "Highest",
+    "No of Pages": 294
+  },
+  {
+    "Name": "The Personal MBA",
+    "Author": [
+      "Josh Kaufman"
+    ],
+    "Genre": [
+      "Entrepreneurship"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "A world class business education in a single volume",
+    "Priority": "Highest",
+    "No of Pages": 436
+  },
+  {
+    "Name": "The Business of Platforms",
+    "Author": [
+      "Annabelle Gawer",
+      "David B. Yoffie",
+      "Michael A. Cusumano"
+    ],
+    "Genre": [
+      "Business",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Strategy in the age of Digital Competition, Innovation, and Power",
+    "Priority": "Highest",
+    "No of Pages": 237
+  },
+  {
+    "Name": "Why We Sleep",
+    "Author": [
+      "Matthew Walker"
+    ],
+    "Genre": [
+      "Health",
+      "Science"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "The new science of sleep and dreams",
+    "Priority": "Highest",
+    "No of Pages": 342
+  },
+  {
+    "Name": "Range",
+    "Author": [
+      "David Epstein"
+    ],
+    "Genre": [
+      "Science",
+      "Self Help"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "How Generalists Triumph in a Specialized World",
+    "Priority": "Highest",
+    "No of Pages": 305
+  },
+  {
+    "Name": "How Deepak Parekh grew HDFC group exponentially",
+    "Author": [
+      "R.Gopalakrishnan",
+      "Vidyut Lata Dhir"
+    ],
+    "Genre": [
+      "Business"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Shaper of Business Institutions",
+    "Priority": "Highest",
+    "No of Pages": 141,
+    "Completed Year": 2021
+  },
+  {
+    "Name": "The System Design Interview",
+    "Author": [
+      "Lewis C. Lin",
+      "Shivam P. Patel"
+    ],
+    "Genre": [
+      "Computer Science",
+      "Interview",
+      "System Design"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Featuring the PEDALS Methods",
+    "Priority": "Highest",
+    "No of Pages": 252
+  },
+  {
+    "Name": "Masters of Scale",
+    "Author": [
+      "Deron Triff",
+      "June Cohen",
+      "Reid Hoffman"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Surprising truths from the world's most successful entrepreneurs",
+    "Priority": "Highest",
+    "No of Pages": 257
+  },
+  {
+    "Name": "Cracking the Coding Interview",
+    "Author": [
+      "Gayle Laakmann Mcdowell"
+    ],
+    "Genre": [
+      "Computer Science",
+      "Interview"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "189 Programming Questions and Solutions",
+    "Priority": "Highest",
+    "No of Pages": 542
+  },
+  {
+    "Name": "The Cold Start Problem",
+    "Author": [
+      "Andrew Chen"
+    ],
+    "Genre": [
+      "Marketing",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Using network effect to scale your product",
+    "Priority": "Highest",
+    "No of Pages": 370
+  },
+  {
+    "Name": "Continuous Discovery Habits",
+    "Author": [
+      "Teresa Torres"
+    ],
+    "Genre": [
+      "Product",
+      "Startup"
+    ],
+    "Status": "Yet to start",
+    "Type": "Book",
+    "Summary": "Discover products that creates customer value and business value",
+    "Priority": "Highest",
+    "No of Pages": 232
+  },
+  {
+    "Name": "Stepping Beyond Khaki",
+    "Author": [
+      "K Annamalai"
+    ],
+    "Genre": [
+      "Biography"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Revelations of a real life singham",
+    "Priority": "Highest",
+    "No of Pages": 234,
+    "Completed Year": 2022
+  },
+  {
+    "Name": "The Compound Effect",
+    "Author": [
+      "Darren Hardy"
+    ],
+    "Genre": [
+      "Self Help"
+    ],
+    "Status": "Finished",
+    "Type": "Book",
+    "Score /5": "⭐️⭐️⭐️⭐️⭐️",
+    "Summary": "Jumpstart your income, your life, your success",
+    "Priority": "Highest",
+    "Link": "www.TheCompoundEffect.com",
+    "No of Pages": 158
+  },
+  {
+    "Name": "Getting Acquired",
+    "Author": [
+      "Andrew Gazdecki"
+    ],
+    "Genre": [
+      "Startup"
+    ],
+    "Status": "Reading",
+    "Type": "Book",
+    "Summary": "How I built and sold my SaaS Startup",
+    "Priority": "Highest",
+    "No of Pages": 217
+  }
 ]

@@ -1,56 +1,41 @@
 ---
 import type { MappedBook } from "@/lib/books";
-import { ArrowUpRight, BookOpenText, Star } from "lucide-react";
 
 interface Props {
     book: MappedBook;
 }
 
 const { book } = Astro.props;
+const isRead = book.status === "read";
+const filled = "★".repeat(book.rating);
+const empty = "★".repeat(Math.max(0, 5 - book.rating));
 ---
 
-<article class="surface-card bookshelf-card">
-    <div class="flex items-start justify-between gap-4">
-        <div>
-            <p class="card-kicker">{book.genre}</p>
-            <h3 class="card-title text-[1.35rem]">{book.title}</h3>
-            <p class="meta-note mt-2">{book.author}</p>
-        </div>
-        <span class="status-pill">{book.status.replaceAll("-", " ")}</span>
+<article class="book-card">
+    <div class="flex items-start justify-between gap-3">
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent-text)]">{book.genre}</p>
+        <span class:list={["book-badge", isRead ? "is-read" : "is-queued"]}>
+            {isRead ? "Read" : "On the list"}
+        </span>
     </div>
 
-    {book.review && <p class="card-copy mt-5">{book.review}</p>}
+    <h3 class="mt-3 font-display text-lg uppercase leading-tight md:text-xl">{book.title}</h3>
+    <p class="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--ink-muted)]">{book.author}</p>
 
-    <dl class="mt-6 grid gap-3 sm:grid-cols-3">
-        <div class="metric-row">
-            <dt class="inline-flex items-center gap-2">
-                <Star className="h-3.5 w-3.5" />
-                Rating
-            </dt>
-            <dd>{book.rating || "n/a"}/5</dd>
-        </div>
-        <div class="metric-row">
-            <dt class="inline-flex items-center gap-2">
-                <BookOpenText className="h-3.5 w-3.5" />
-                Pages
-            </dt>
-            <dd>{book.pages || "n/a"}</dd>
-        </div>
-        <div class="metric-row">
-            <dt>Finished</dt>
-            <dd>{book.year || "Reading list"}</dd>
-        </div>
-    </dl>
+    {book.review && <p class="mb-5 mt-4 text-sm leading-6 text-[var(--ink-secondary)]">{book.review}</p>}
 
-    {book.link !== "#" && (
-        <a
-            class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--ink)] transition-transform duration-200 hover:translate-x-1"
-            href={book.link}
-            target="_blank"
-            rel="noreferrer"
-        >
-            Find book
-            <ArrowUpRight className="h-4 w-4" />
-        </a>
-    )}
+    <div class="mt-auto flex items-center justify-between gap-4 border-t pt-4" style="border-color: var(--line);">
+        {isRead && book.rating > 0 ? (
+            <span class="book-stars" aria-label={`Rated ${book.rating} out of 5`}>
+                {filled}<span class="dim">{empty}</span>
+            </span>
+        ) : (
+            <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-muted)]">
+                {isRead ? "Finished" : "Want to read"}
+            </span>
+        )}
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-muted)]">
+            {book.pages ? `${book.pages} pages` : ""}{book.pages && isRead && book.year ? " · " : ""}{isRead && book.year ? book.year : ""}
+        </span>
+    </div>
 </article>

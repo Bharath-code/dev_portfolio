@@ -1,6 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import content from "@/data/site-content.json";
+import { getLatestPosts } from "@/lib/blog";
+
+const posts = await getLatestPosts(content.blogConfig, 4);
 
 const marqueeItems = [
     "React 19",
@@ -34,23 +37,42 @@ const stats = [
                 {content.availability.status} · {content.availability.location}
             </div>
 
-            <h1 class="mt-10">
-                <span class="mask block"><span class="hero-display hero-line block">Frontend</span></span>
-                <span class="mask block"><span class="hero-display hero-line block">Engineer<span class="text-[var(--accent)]">.</span></span></span>
-                <span class="mask block mt-4"><span class="hero-serif hero-line block text-3xl sm:text-4xl md:text-5xl">building AI-integrated products that ship.</span></span>
-            </h1>
+            <div class="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+                <div>
+                    <h1>
+                        <span class="mask block"><span class="hero-display hero-line block">Frontend</span></span>
+                        <span class="mask block"><span class="hero-display hero-line block">Engineer<span class="text-[var(--accent)]">.</span></span></span>
+                        <span class="mask block mt-4"><span class="hero-serif hero-line block text-3xl sm:text-4xl md:text-5xl">building AI-integrated products that ship.</span></span>
+                    </h1>
 
-            <div class="mt-12 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-end">
-                <p class="max-w-xl text-lg leading-8 text-[var(--ink-secondary)] hero-fade">
-                    {content.hero.bio}
-                </p>
-                <div class="flex flex-wrap gap-3 md:justify-end hero-fade">
-                    <a class="button-primary" href={content.hero.cta.primary.href}>
-                        {content.hero.cta.primary.label}
-                    </a>
-                    <a class="button-secondary" href={content.hero.cta.secondary.href}>
-                        {content.hero.cta.secondary.label}
-                    </a>
+                    <p class="mt-10 max-w-xl text-lg leading-8 text-[var(--ink-secondary)] hero-fade">
+                        {content.hero.bio}
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3 hero-fade">
+                        <a class="button-primary" href={content.hero.cta.primary.href}>
+                            {content.hero.cta.primary.label}
+                        </a>
+                        <a class="button-secondary" href={content.hero.cta.secondary.href}>
+                            {content.hero.cta.secondary.label}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-photo hero-fade">
+                    <div class="hero-photo-frame">
+                        <img
+                            src="/profile-pic-2.png"
+                            alt="Bharathkumar Palanisamy"
+                            width="320"
+                            height="400"
+                            loading="eager"
+                        />
+                        <p class="hero-photo-tag">
+                            <span>Bharathkumar</span>
+                            <span class="acc">●</span>
+                            <span>EST. 2015</span>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -190,6 +212,38 @@ const stats = [
             </div>
         </div>
     </section>
+
+    <!-- WRITING -->
+    {posts.length > 0 && (
+        <section id="writing" class="section section-border">
+            <div class="layout-shell">
+                <div class="flex items-end justify-between gap-6" data-reveal>
+                    <div>
+                        <p class="section-eyebrow">Writing</p>
+                        <h2 class="section-title">Notes from<br />the build.</h2>
+                    </div>
+                    <span class="section-index hidden md:block">04</span>
+                </div>
+
+                <div class="mt-14">
+                    {posts.map((post) => (
+                        <a class="post-row" href={post.url} target="_blank" rel="noreferrer" data-reveal>
+                            <p class="post-row-date">{post.date}</p>
+                            <h3 class="post-row-title">{post.title}</h3>
+                            <span class="pill">{post.platform}</span>
+                        </a>
+                    ))}
+                </div>
+
+                <div class="mt-10" data-reveal>
+                    <a class="link-arrow" href="/blog">
+                        All writing
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    )}
 
     <!-- CONTACT -->
     <section id="contact" class="section section-border">

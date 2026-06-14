@@ -234,7 +234,7 @@
 
   .hero-display {
     @apply font-display uppercase;
-    font-size: clamp(3rem, 10.5vw, 8.5rem);
+    font-size: clamp(2.75rem, 7.5vw, 6.75rem);
     line-height: 0.94;
     letter-spacing: -0.015em;
   }
@@ -256,6 +256,43 @@
   .hero-rule {
     height: 1px;
     background: var(--line);
+  }
+
+  .hero-photo {
+    @apply relative w-full max-w-[280px] md:max-w-[320px];
+    transform: rotate(2deg);
+    transition: transform 350ms ease;
+  }
+
+  .hero-photo:hover {
+    transform: rotate(0deg);
+  }
+
+  .hero-photo-frame {
+    @apply overflow-hidden rounded-[var(--radius-sm)] border;
+    border-color: var(--line-strong);
+    background: var(--bg-elevated);
+    box-shadow: 10px 10px 0 var(--accent);
+  }
+
+  .hero-photo-frame img {
+    @apply w-full object-cover;
+    aspect-ratio: 4 / 5;
+    filter: grayscale(100%) contrast(1.06);
+    transition: filter 400ms ease;
+  }
+
+  .hero-photo:hover .hero-photo-frame img {
+    filter: grayscale(0%) contrast(1);
+  }
+
+  .hero-photo-tag {
+    @apply flex items-center justify-between gap-2 border-t px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-secondary)];
+    border-color: var(--line-strong);
+  }
+
+  .hero-photo-tag .acc {
+    color: var(--accent);
   }
 
   .stat-block {
@@ -394,6 +431,81 @@
 
   .xp-role {
     @apply mt-1 font-mono text-xs uppercase tracking-[0.16em] text-[var(--accent-text)];
+  }
+
+  /* ---- books ---- */
+
+  .book-card {
+    @apply flex h-full flex-col rounded-[var(--radius-sm)] border p-6 transition-colors duration-200;
+    border-color: var(--line);
+    background: var(--bg-elevated);
+  }
+
+  .book-card:hover {
+    border-color: var(--accent);
+  }
+
+  .book-badge {
+    @apply inline-flex items-center rounded-[var(--radius-sm)] border px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.16em];
+  }
+
+  .book-badge.is-read {
+    border-color: rgba(212, 245, 60, 0.4);
+    color: var(--accent);
+  }
+
+  .book-badge.is-queued {
+    border-color: var(--line);
+    color: var(--ink-muted);
+  }
+
+  .book-stars {
+    @apply font-mono text-sm tracking-[0.25em];
+    color: var(--accent);
+  }
+
+  .book-stars .dim {
+    color: var(--ink-muted);
+    opacity: 0.4;
+  }
+
+  .input-dark {
+    @apply w-full rounded-[var(--radius-sm)] border bg-[var(--bg-elevated)] px-4 py-3 font-mono text-sm text-[var(--ink)] outline-none transition-colors;
+    border-color: var(--line-strong);
+  }
+
+  .input-dark:focus {
+    border-color: var(--accent);
+  }
+
+  /* ---- writing ---- */
+
+  .post-row {
+    @apply grid items-baseline gap-x-6 gap-y-2 border-t py-6 md:grid-cols-[150px_minmax(0,1fr)_auto] md:py-7;
+    border-color: var(--line);
+    transition: background 250ms ease;
+  }
+
+  .post-row:last-of-type {
+    @apply border-b;
+    border-color: var(--line);
+  }
+
+  .post-row:hover {
+    background: var(--accent-soft);
+  }
+
+  .post-row-date {
+    @apply font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-muted)];
+  }
+
+  .post-row-title {
+    @apply text-lg font-bold leading-snug md:text-xl;
+    transition: color 250ms ease;
+  }
+
+  .post-row:hover .post-row-title {
+    color: var(--accent);
   }
 
   /* ---- contact ---- */

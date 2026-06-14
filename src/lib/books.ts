@@ -11,6 +11,8 @@ export interface RawBook {
     "Completed Year"?: number;
 }
 
+export type BookStatus = "read" | "reading-list";
+
 export interface MappedBook {
     title: string;
     author: string;
@@ -18,7 +20,8 @@ export interface MappedBook {
     link: string;
     rating: number;
     review?: string;
-    status: "recommended" | "read" | "want-to-read";
+    status: BookStatus;
+    priority?: string;
     pages?: number;
     year?: number;
 }
@@ -34,14 +37,7 @@ export function mapBooks(booksData: RawBook[]): MappedBook[] {
             ? (raw["Score /5"].match(/⭐️/g) || []).length
             : 0;
 
-        let status: "recommended" | "read" | "want-to-read";
-        if (rating === 5 || raw.Priority === "Highest") {
-            status = "recommended";
-        } else if (raw.Status === "Finished") {
-            status = "read";
-        } else {
-            status = "want-to-read";
-        }
+        const status: BookStatus = raw.Status === "Finished" ? "read" : "reading-list";
 
         return {
             title: raw.Name,
@@ -51,6 +47,7 @@ export function mapBooks(booksData: RawBook[]): MappedBook[] {
             rating,
             review: raw.Summary,
             status,
+            priority: raw.Priority,
             pages: raw["No of Pages"],
             year: raw["Completed Year"]
         };
