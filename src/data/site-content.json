@@ -31,7 +31,26 @@
         "98+ stars and 15 forks — scans 50+ repositories with fuzzy search and workspace switching",
         "Contribution graph visualization and time-machine commit navigation in the terminal",
         "15 tagged releases with cross-platform Homebrew distribution"
-      ]
+      ],
+      "caseStudy": {
+        "problem": "Developers accumulate dozens of Git repositories on one machine — work projects, side projects, forks, experiments. Finding which ones have uncommitted changes, unpushed commits, or stale branches means cd-ing into each and running git status by hand. There was no fast way to see the state of every repo at once without leaving the terminal.",
+        "approach": "git-scope is a terminal UI that scans every Git repository under a directory and shows their status in a single view. Built in Go with Bubble Tea, it runs as one dependency-free binary, starts instantly, and stays in the terminal where developers already work. Fuzzy search and workspace switching keep 50+ repos navigable, and an inline contribution graph plus time-machine view bring history browsing into the same window.",
+        "decisions": [
+          {
+            "title": "A TUI, not a web dashboard",
+            "detail": "A terminal UI ships as one static binary — no runtime, no server, no browser tab. It launches in milliseconds and works over SSH, which is the right home for a tool you reach for between commands."
+          },
+          {
+            "title": "Local-only, zero telemetry",
+            "detail": "git-scope reads the local filesystem and never phones home — no account, no daemon, no network calls. That keeps it trustworthy for scanning private and client repositories."
+          },
+          {
+            "title": "Homebrew + tagged releases",
+            "detail": "Distributing via Homebrew across 15 cross-platform releases made install and upgrade a one-liner — the friction drop that turned early interest into repeat users."
+          }
+        ],
+        "outcome": "git-scope reached 98 GitHub stars across 15 releases and is in daily use scanning 50+ repositories at a glance. It validated that a focused, local-first terminal tool can find real adoption with no backend and no web app."
+      }
     },
     {
       "slug": "rivaleye",

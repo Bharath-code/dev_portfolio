@@ -80,6 +80,36 @@ const nextProject = getNextProject(slug as string);
         </div>
     </section>
 
+    {project.caseStudy && (
+        <section class="section section-border">
+            <div class="layout-shell max-w-3xl space-y-14">
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">The problem</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.problem}</p>
+                </div>
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">Approach</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.approach}</p>
+                </div>
+                <div class="space-y-6" data-reveal>
+                    <p class="section-eyebrow">Key decisions &amp; tradeoffs</p>
+                    <div class="grid gap-px overflow-hidden rounded-xl border" style="border-color: var(--line); background: var(--line);">
+                        {project.caseStudy.decisions.map((d) => (
+                            <div class="space-y-2 bg-[var(--bg)] p-6">
+                                <h3 class="font-display text-base uppercase">{d.title}</h3>
+                                <p class="text-[15px] leading-7 text-[var(--ink-secondary)]">{d.detail}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">Outcome</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.outcome}</p>
+                </div>
+            </div>
+        </section>
+    )}
+
     {nextProject && (
         <section class="section section-border">
             <div class="layout-shell">

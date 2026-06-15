@@ -5,6 +5,18 @@ export interface Metric {
     value: string;
 }
 
+export interface CaseStudyDecision {
+    title: string;
+    detail: string;
+}
+
+export interface CaseStudy {
+    problem: string;
+    approach: string;
+    decisions: CaseStudyDecision[];
+    outcome: string;
+}
+
 export interface Project {
     title: string;
     slug: string;
@@ -13,6 +25,7 @@ export interface Project {
     link: string;
     metrics: Metric[];
     highlights: string[];
+    caseStudy?: CaseStudy;
 }
 
 export interface SecondaryProject {

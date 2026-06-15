@@ -2,8 +2,28 @@
 import Layout from "@/layouts/Layout.astro";
 import content from "@/data/site-content.json";
 import { getLatestPosts } from "@/lib/blog";
+import { fetchRepoStatsByUrls } from "@/lib/github";
+import GitHubHeatmap from "@/components/ui/GitHubHeatmap.astro";
 
 const posts = await getLatestPosts(content.blogConfig, 4);
+
+// Live GitHub stars at build time; falls back to JSON values when GITHUB_TOKEN is absent.
+const repoStats = await fetchRepoStatsByUrls(
+    content.projects.map((p) => p.link).filter(Boolean) as string[],
+);
+
+const repoKey = (url?: string) =>
+    url?.match(/github\.com\/[^/]+\/([^/]+)/)?.[1]?.replace(/\.git$/, "").toLowerCase() ?? null;
+
+const liveMetrics = (project: (typeof content.projects)[number]) => {
+    const live = repoStats.get(repoKey(project.link) ?? "");
+    if (!live) return project.metrics;
+    return project.metrics.map((m) =>
+        /stars?/i.test(m.label) ? { ...m, value: String(live.stargazerCount) } : m,
+    );
+};
+
+const gitScopeStars = repoStats.get("git-scope")?.stargazerCount;
 
 const marqueeItems = [
     "React 19",
@@ -22,13 +42,19 @@ const marqueeItems = [
 
 const stats = [
     { value: 30, suffix: "+", label: "Products shipped" },
-    { value: 98, suffix: "+", label: "GitHub stars · git-scope" },
+    { value: gitScopeStars ?? 98, suffix: gitScopeStars ? "" : "+", label: "GitHub stars · git-scope" },
     { value: 3, suffix: "", label: "npm packages published" },
     { value: 10, suffix: "+", label: "Years building" },
 ];
 ---
 
 <Layout title="Bharathkumar Palanisamy | Frontend Engineer · AI-Integrated Products">
+    <!-- LOADER -->
+    <div id="loader" class="loader" aria-hidden="true">
+        <span id="loader-count" class="loader-count font-mono">0</span>
+    </div>
+    <noscript><style>#loader { display: none; }</style></noscript>
+
     <!-- HERO -->
     <section class="section pt-16 md:pt-24">
         <div class="layout-shell">
@@ -49,10 +75,10 @@ const stats = [
                         {content.hero.bio}
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3 hero-fade">
-                        <a class="button-primary" href={content.hero.cta.primary.href}>
+                        <a class="button-primary" href={content.hero.cta.primary.href} data-magnetic>
                             {content.hero.cta.primary.label}
                         </a>
-                        <a class="button-secondary" href={content.hero.cta.secondary.href}>
+                        <a class="button-secondary" href={content.hero.cta.secondary.href} data-magnetic>
                             {content.hero.cta.secondary.label}
                         </a>
                     </div>
@@ -133,7 +159,7 @@ const stats = [
                                 ))}
                             </div>
                             <p class="font-mono text-xs uppercase tracking-[0.16em] text-[var(--ink-muted)]">
-                                {project.metrics.map((m) => `${m.value} ${m.label}`).join(" · ")}
+                                {liveMetrics(project).map((m) => `${m.value} ${m.label}`).join(" · ")}
                             </p>
                         </div>
                         <span class="project-row-arrow">
@@ -213,6 +239,9 @@ const stats = [
         </div>
     </section>
 
+    <!-- ACTIVITY -->
+    <GitHubHeatmap />
+
     <!-- WRITING -->
     {posts.length > 0 && (
         <section id="writing" class="section section-border">
@@ -280,12 +309,15 @@ const stats = [
     gsap.registerPlugin(ScrollTrigger);
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const loader = document.getElementById("loader");
 
-    if (!reduced) {
+    function playHero() {
         gsap.timeline({ defaults: { ease: "power3.out" } })
             .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.12 })
             .from(".hero-fade", { y: 24, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, "-=0.45");
+    }
 
+    function setupScroll() {
         document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
             const target = Number(el.dataset.count);
             gsap.fromTo(
@@ -322,11 +354,91 @@ const stats = [
             });
         });
 
-        gsap.to(".marquee-track", {
-            xPercent: -50,
-            ease: "none",
-            duration: 28,
-            repeat: -1,
+        // Heatmap cells pop in as a diagonal wave on scroll.
+        const cells = gsap.utils.toArray<SVGRectElement>(".gh-cell");
+        if (cells.length) {
+            gsap.from(cells, {
+                scale: 0,
+                autoAlpha: 0,
+                duration: 0.4,
+                ease: "back.out(1.7)",
+                immediateRender: false,
+                stagger: { each: 0.0025, from: "start" },
+                scrollTrigger: { trigger: "#activity", start: "top 75%" },
+            });
+        }
+
+        // Marquee reacts to scroll velocity, then settles back.
+        const mq = gsap.to(".marquee-track", { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
+        let settle: ReturnType<typeof gsap.delayedCall> | null = null;
+        ScrollTrigger.create({
+            onUpdate: (self) => {
+                const dir = self.direction || 1;
+                const speed = gsap.utils.clamp(1, 6, 1 + Math.abs(self.getVelocity()) / 300);
+                gsap.to(mq, { timeScale: dir * speed, duration: 0.25, overwrite: true });
+                settle?.kill();
+                settle = gsap.delayedCall(0.4, () =>
+                    gsap.to(mq, { timeScale: 1, duration: 1, overwrite: true }),
+                );
+            },
         });
+    }
+
+    function setupMagnetic() {
+        if (!window.matchMedia("(pointer: fine)").matches) return;
+        document.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((el) => {
+            const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" });
+            const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" });
+            el.addEventListener("pointermove", (e) => {
+                const r = el.getBoundingClientRect();
+                xTo((e.clientX - r.left - r.width / 2) * 0.4);
+                yTo((e.clientY - r.top - r.height / 2) * 0.4);
+            });
+            el.addEventListener("pointerleave", () => {
+                xTo(0);
+                yTo(0);
+            });
+        });
+    }
+
+    function runLoader() {
+        const countEl = document.getElementById("loader-count");
+        const obj = { v: 0 };
+        return gsap
+            .timeline()
+            .to(obj, {
+                v: 100,
+                duration: 0.9,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    if (countEl) countEl.textContent = String(Math.round(obj.v));
+                },
+            })
+            .to(
+                loader,
+                {
+                    yPercent: -100,
+                    duration: 0.65,
+                    ease: "power4.inOut",
+                    onComplete: () => loader?.classList.add("loader-done"),
+                },
+                "+=0.1",
+            );
+    }
+
+    if (reduced) {
+        loader?.remove();
+    } else {
+        setupScroll();
+        setupMagnetic();
+        if (sessionStorage.getItem("introSeen")) {
+            loader?.remove();
+            playHero();
+        } else {
+            runLoader().then(() => {
+                sessionStorage.setItem("introSeen", "1");
+                playHero();
+            });
+        }
     }
 </script>
