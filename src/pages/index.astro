@@ -54,6 +54,43 @@ const stats = [
         <span id="loader-count" class="loader-count font-mono">0</span>
     </div>
     <noscript><style>#loader { display: none; }</style></noscript>
+    <script is:inline>
+        (function () {
+            var loader = document.getElementById("loader");
+            var countEl = document.getElementById("loader-count");
+            var html = document.documentElement;
+            var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (reduced || sessionStorage.getItem("introSeen")) {
+                if (loader) loader.remove();
+                window.__introDone = true;
+                return;
+            }
+
+            html.classList.add("intro-active");
+            sessionStorage.setItem("introSeen", "1");
+
+            var start;
+            function tick(now) {
+                if (!start) start = now;
+                var p = Math.min((now - start) / 900, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                if (countEl) countEl.textContent = Math.round(eased * 100);
+                if (p < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    if (loader) loader.classList.add("loader-wipe");
+                    setTimeout(function () {
+                        window.__introDone = true;
+                        if (window.__playHero) window.__playHero();
+                        else html.classList.remove("intro-active");
+                        if (loader) loader.remove();
+                    }, 660);
+                }
+            }
+            requestAnimationFrame(tick);
+        })();
+    </script>
 
     <!-- HERO -->
     <section class="section pt-16 md:pt-24">
@@ -309,12 +346,12 @@ const stats = [
     gsap.registerPlugin(ScrollTrigger);
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const loader = document.getElementById("loader");
 
     function playHero() {
         gsap.timeline({ defaults: { ease: "power3.out" } })
             .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.12 })
             .from(".hero-fade", { y: 24, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, "-=0.45");
+        document.documentElement.classList.remove("intro-active");
     }
 
     function setupScroll() {
@@ -401,44 +438,16 @@ const stats = [
         });
     }
 
-    function runLoader() {
-        const countEl = document.getElementById("loader-count");
-        const obj = { v: 0 };
-        return gsap
-            .timeline()
-            .to(obj, {
-                v: 100,
-                duration: 0.9,
-                ease: "power2.inOut",
-                onUpdate: () => {
-                    if (countEl) countEl.textContent = String(Math.round(obj.v));
-                },
-            })
-            .to(
-                loader,
-                {
-                    yPercent: -100,
-                    duration: 0.65,
-                    ease: "power4.inOut",
-                    onComplete: () => loader?.classList.add("loader-done"),
-                },
-                "+=0.1",
-            );
-    }
-
-    if (reduced) {
-        loader?.remove();
-    } else {
+    if (!reduced) {
         setupScroll();
         setupMagnetic();
-        if (sessionStorage.getItem("introSeen")) {
-            loader?.remove();
-            playHero();
-        } else {
-            runLoader().then(() => {
-                sessionStorage.setItem("introSeen", "1");
-                playHero();
-            });
-        }
+    }
+
+    // The inline script runs the loader (so it isn't blocked by this bundle).
+    // Hand off the hero reveal whenever both sides are ready.
+    const intro = window as typeof window & { __playHero?: () => void; __introDone?: boolean };
+    intro.__playHero = playHero;
+    if (intro.__introDone && document.documentElement.classList.contains("intro-active")) {
+        playHero();
     }
 </script>
