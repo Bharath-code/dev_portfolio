@@ -58,15 +58,35 @@
       "description": "Competitive intelligence SaaS that monitors competitor pricing, tech stack, and branding across 4 global regions — every change arrives as an AI tactical brief, not just a notification.",
       "tags": ["Next.js 16", "React 19", "Tailwind 4", "Gemini", "Supabase"],
       "link": "https://github.com/Bharath-code/rivaleye",
+      "demo": "https://rivaleye.vercel.app",
       "metrics": [
-        { "label": "AI Vision", "value": "Gemini" },
-        { "label": "Regions", "value": "4" }
+        { "label": "Monitoring Regions", "value": "4" },
+        { "label": "API Routes", "value": "14" }
       ],
       "highlights": [
         "Full-stack Next.js 16 + React 19 app with Supabase Postgres, RLS auth, and Trigger.dev background jobs",
         "3-scraper fallback pipeline (Firecrawl, Playwright, Cheerio) with Gemini Vision for branding analysis",
         "Geo-aware price monitoring from 4 regions plus competitor Core Web Vitals tracking"
-      ]
+      ],
+      "caseStudy": {
+        "problem": "Founders and product teams track competitors by manually re-checking their sites — pricing pages, changelogs, landing pages. Regional price tests, quiet tech-stack changes, and rebranding signals slip through unnoticed. Generic page monitors exist, but they send raw 'this page changed' diffs: all noise, no meaning, and no answer to the only question that matters — what should I do about it?",
+        "approach": "RivalEye scans competitor sites daily from 4 regions (US, EU, India, Global), diffs pricing, tech stack, and branding, and turns each meaningful change into an AI tactical brief — what happened, why it matters, what to do next. It's a complete production SaaS shipped solo: Supabase Postgres with RLS auth, Trigger.dev background jobs, a 3-scraper crawling pipeline with Gemini Vision analysis, Dodo Payments billing with plan limits and quotas, and alerting via email and Slack.",
+        "decisions": [
+          {
+            "title": "A 3-scraper fallback pipeline",
+            "detail": "Scraping is the flakiest part of any monitoring product — sites block bots, render client-side, or change structure. RivalEye tries Firecrawl first, falls back to Playwright, then Cheerio, so one vendor outage or one hostile site never silences monitoring for a competitor."
+          },
+          {
+            "title": "Meaningfulness before notification",
+            "detail": "Noise kills monitoring tools. A diff engine with meaningfulness checks and alert rules decides whether a change deserves attention at all; only then does the AI generate a tactical brief. Users get a handful of briefs worth reading, not a feed of trivial DOM changes."
+          },
+          {
+            "title": "Vision AI for branding, not DOM diffs",
+            "detail": "Repositioning shows up visually — logo tweaks, palette shifts, typography changes — long before it shows up in markup. Screenshots stored in Cloudflare R2 are analyzed by Gemini Vision, catching signals a text diff can't see."
+          }
+        ],
+        "outcome": "RivalEye is live at rivaleye.vercel.app with a free tier and a $49/mo Pro plan. As a solo build it covers the full surface of a production SaaS — auth, multi-tenant data isolation, billing, background jobs, abuse detection, and a Vitest suite — and proves out an AI product thesis: the value isn't detecting change, it's deciding which changes matter and saying what to do about them."
+      }
     },
     {
       "slug": "ai-cost-guard",
@@ -98,7 +118,26 @@
         "Repo-aware capture: every command stored with cwd, repo, and timestamp context in SQLite",
         "AI-powered semantic search plus project memory that rehydrates 'how we run this project'",
         "Strict privacy controls — pause capture, ignore sensitive patterns, delete locally, zero telemetry"
-      ]
+      ],
+      "caseStudy": {
+        "problem": "Terminal work is high-leverage and strangely ephemeral. Developers re-google commands they know they've run before, forget the first three commands after cloning each repo, and repeat the same workflows across projects. Shell history technically has the answers, but it's a flat list of strings — no repo context, no timestamps that mean anything, no way to ask 'how do I run this project?'",
+        "approach": "Recall hooks into the shell and captures every command with its context — repo, working directory, timestamp — into a local SQLite database. Full-text search finds the exact command you ran last time, scoped to the repo you're in; project memory rehydrates 'how we run this project' from startup patterns and recent commands. An optional AI layer adds semantic search on top, but the CLI is fully useful without it. Distributed via a Homebrew tap with an auto-updated formula.",
+        "decisions": [
+          {
+            "title": "Local-first is the product, not a feature",
+            "detail": "Shell history is some of the most sensitive data a developer has — tokens, hostnames, file paths. Recall stores everything in local SQLite with no accounts, no cloud sync, and no telemetry. A command-memory tool that phones home would never earn the trust it needs to be left running."
+          },
+          {
+            "title": "AI is opt-in, search works without it",
+            "detail": "Semantic search only activates when the user explicitly configures API keys or a local model. Full-text search over structured context covers most lookups with zero setup and zero network calls — the AI layer is an upgrade, not a dependency. No AI feature runs without explicit opt-in."
+          },
+          {
+            "title": "Capture with an off switch, everywhere",
+            "detail": "A tool that records commands sits one bad default away from being a keylogger. Recall ships with pause capture, ignore rules for sensitive command patterns, local deletion, and a two-mode hook install that shows you exactly what's added to your shell rc — nothing is appended without consent."
+          }
+        ],
+        "outcome": "Recall shipped as a public beta on Homebrew with capture, repo-aware search, and project memory production-ready, while experimental features (workflow replay, background embedding) stay gated behind a flag. It's a working answer to a daily developer problem — and a case study in shipping AI-adjacent tooling where privacy constraints shape the architecture instead of being bolted on."
+      }
     }
   ],
   "secondaryProjects": [
@@ -174,7 +213,7 @@
       "company": "Independent",
       "role": "Product Engineer — Developer Tools & AI",
       "period": "2021 — Present",
-      "description": "Designed, built, and shipped 30+ products end-to-end: git-scope (98+ GitHub stars, Homebrew distribution), npm libraries (ai-cost-guard, loopkit, debugg), and AI SaaS products like RivalEye built on Next.js 16, React 19, and Gemini. Daily practice in AI-assisted engineering — agents, RAG pipelines, guardrails — while owning everything from UI craft to deployment."
+      "description": "In 2021 I left consulting to build products end-to-end — I wanted to own every decision from architecture to launch, not one slice of a delivery pipeline. Since then I've designed, built, and shipped 30+ products solo: git-scope (98+ GitHub stars, Homebrew distribution), npm libraries (ai-cost-guard, loopkit, debugg), and production SaaS like RivalEye — auth, billing, background jobs, and AI pipelines included. Five years of shipping alone taught me velocity, ruthless scope-cutting, and daily hands-on AI engineering: agents, RAG, guardrails. Now I'm looking to bring that end-to-end speed to a team building something bigger than one person can."
     },
     {
       "company": "Accenture",

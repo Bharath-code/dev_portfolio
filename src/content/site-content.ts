@@ -23,6 +23,7 @@ export interface Project {
     description: string;
     tags: string[];
     link: string;
+    demo?: string;
     metrics: Metric[];
     highlights: string[];
     caseStudy?: CaseStudy;

@@ -61,19 +61,18 @@ const stats = [
             var html = document.documentElement;
             var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-            if (reduced || sessionStorage.getItem("introSeen")) {
+            if (reduced) {
                 if (loader) loader.remove();
                 window.__introDone = true;
                 return;
             }
 
             html.classList.add("intro-active");
-            sessionStorage.setItem("introSeen", "1");
 
             var start;
             function tick(now) {
                 if (!start) start = now;
-                var p = Math.min((now - start) / 900, 1);
+                var p = Math.min((now - start) / 450, 1);
                 var eased = 1 - Math.pow(1 - p, 3);
                 if (countEl) countEl.textContent = Math.round(eased * 100);
                 if (p < 1) {
@@ -85,7 +84,7 @@ const stats = [
                         if (window.__playHero) window.__playHero();
                         else html.classList.remove("intro-active");
                         if (loader) loader.remove();
-                    }, 660);
+                    }, 400);
                 }
             }
             requestAnimationFrame(tick);
@@ -324,6 +323,13 @@ const stats = [
                 </a>
             </div>
             <div class="mt-14 flex flex-wrap items-center gap-6" data-reveal>
+                <a
+                    class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--accent-text)] transition-colors hover:text-[var(--accent)]"
+                    href="/Bharathkumar_Resume.pdf"
+                    download="Bharathkumar-Palanisamy-Resume.pdf"
+                >
+                    Résumé (PDF) ↓
+                </a>
                 {content.contact.socials.map((social) => (
                     <a
                         class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--ink-secondary)] transition-colors hover:text-[var(--accent)]"
@@ -373,7 +379,7 @@ const stats = [
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
             gsap.from(el, {
                 y: 36,
-                autoAlpha: 0,
+                opacity: 0.25,
                 duration: 0.8,
                 ease: "power3.out",
                 scrollTrigger: { trigger: el, start: "top 88%" },
@@ -383,7 +389,7 @@ const stats = [
         gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((group) => {
             gsap.from(group.children, {
                 y: 24,
-                autoAlpha: 0,
+                opacity: 0.25,
                 duration: 0.6,
                 stagger: 0.08,
                 ease: "power2.out",
