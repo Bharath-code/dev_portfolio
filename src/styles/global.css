@@ -564,7 +564,55 @@
   }
 }
 
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: var(--accent);
+  color: var(--bg);
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.loader-wipe {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* Hero stays hidden beneath the loader until the intro hands off, set
+   before first paint by the inline script so there's no flash. */
+.intro-active .hero-line {
+  transform: translateY(110%);
+}
+
+.intro-active .hero-fade {
+  opacity: 0;
+}
+
+.loader-count {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(4rem, 18vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.loader-count::after {
+  content: "%";
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

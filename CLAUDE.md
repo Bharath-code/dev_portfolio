@@ -36,15 +36,16 @@ No linter or test suite is configured. TypeScript type checking runs implicitly 
 
 - Tailwind CSS + `src/styles/global.css` for component utilities.
 - Design uses CSS custom properties (`--bg`, `--ink`, `--accent`, etc.) defined in `:root`. Use these variables — not hardcoded colors — for consistency with the light/dark theme toggle.
-- Typography: `font-sans` (Inter), `font-serif` (Instrument Serif), `font-mono` (JetBrains Mono).
+- Typography: `font-sans` (Manrope), `font-display` (Archivo Black), `font-serif` (Instrument Serif), `font-mono` (JetBrains Mono). Fonts are bundled via `@fontsource/*` imports in `Layout.astro`.
 - Layout utility classes: `.layout-shell` (max-width container), `.section`, `.card`, `.pill`, `.button-primary`, `.button-secondary`.
 
 ### Components
 
-- `src/components/ui/` — Full page sections (Hero, NavBar, Footer, Skills, Experience, ContactSection, etc.) and interactive widgets.
+- The homepage (`index.astro`) assembles all of its sections inline; `Layout.astro` provides the header/footer. There is no separate per-section component for the home page.
+- `src/components/ui/` — Shared building blocks used by routes: `Heading`, `NextProject` (project detail pages), and the GitHub data-viz components (`GitHubHeatmap`, `LanguageChart`, `RepoShowcase`) which read from `src/lib/github.ts`.
 - `src/components/site/` — Reusable card components (ProjectShowcaseCard, BookShelfCard, PostCard, SectionIntro).
-- `ImpactMetrics.tsx` is the only React component — used for client-side interactivity where needed. All others are `.astro`.
-- GSAP (`gsap`) is used for animations (Preloader, scroll effects). Three.js (`three`) powers `ThreeVisual.astro`.
+- All components are `.astro`. The React integration is installed but no React component currently ships on any page.
+- GSAP (`gsap`) powers the homepage hero and scroll-reveal animations (inline `<script>` in `index.astro`).
 
 ## Env vars
 

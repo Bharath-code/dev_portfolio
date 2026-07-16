@@ -65,8 +65,19 @@ const nextProject = getNextProject(slug as string);
                         ))}
                     </dl>
                     <div class="mt-6 flex flex-col gap-3">
+                        {project.demo && (
+                            <a
+                                class="button-primary"
+                                href={project.demo}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                View live app
+                            </a>
+                        )}
                         <a
-                            class="button-primary"
+                            class={project.demo ? "button-secondary" : "button-primary"}
                             href={project.link}
                             target="_blank"
                             rel="noreferrer"
@@ -79,6 +90,36 @@ const nextProject = getNextProject(slug as string);
             </div>
         </div>
     </section>
+
+    {project.caseStudy && (
+        <section class="section section-border">
+            <div class="layout-shell max-w-3xl space-y-14">
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">The problem</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.problem}</p>
+                </div>
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">Approach</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.approach}</p>
+                </div>
+                <div class="space-y-6" data-reveal>
+                    <p class="section-eyebrow">Key decisions &amp; tradeoffs</p>
+                    <div class="grid gap-px overflow-hidden rounded-xl border" style="border-color: var(--line); background: var(--line);">
+                        {project.caseStudy.decisions.map((d) => (
+                            <div class="space-y-2 bg-[var(--bg)] p-6">
+                                <h3 class="font-display text-base uppercase">{d.title}</h3>
+                                <p class="text-[15px] leading-7 text-[var(--ink-secondary)]">{d.detail}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div class="space-y-4" data-reveal>
+                    <p class="section-eyebrow">Outcome</p>
+                    <p class="text-lg leading-8 text-[var(--ink-secondary)]">{project.caseStudy.outcome}</p>
+                </div>
+            </div>
+        </section>
+    )}
 
     {nextProject && (
         <section class="section section-border">
