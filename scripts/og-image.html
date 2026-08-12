@@ -1,0 +1,166 @@
+<!-- ponytail: hand-rolled HTML -> Chrome headless screenshot. See npm run og. -->
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: "Archivo Black";
+    src: url("../node_modules/@fontsource/archivo-black/files/archivo-black-latin-400-normal.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 400;
+    src: url("../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 700;
+    src: url("../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2") format("woff2");
+  }
+
+  :root {
+    --bg: #0b0b0b;
+    --ink: #f2f0ea;
+    --muted: #8a8a82;
+    --accent: #d4ff3f;
+  }
+
+  * { margin: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "JetBrains Mono", monospace;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow {
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    right: -220px;
+    top: -260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 255, 63, 0.18), transparent 65%);
+  }
+
+  .bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background: var(--accent);
+  }
+
+  .wrap {
+    position: relative;
+    height: 100%;
+    padding: 54px 60px 52px 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+  }
+
+  /* ponytail: source photo has a pink gradient ring baked in — scale past it
+     rather than re-export the asset. Swap for a pre-cropped square if you have one. */
+  .portrait {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex: none;
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.62);
+    filter: grayscale(1) contrast(1.08) brightness(1.04);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 82px;
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+    text-transform: uppercase;
+    white-space: nowrap; /* ponytail: lines are hand-broken, never reflow */
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    border-top: 2px solid rgba(242, 240, 234, 0.14);
+    padding-top: 28px;
+  }
+
+  .sub {
+    font-size: 21px;
+    color: var(--muted);
+  }
+
+  .url {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+</style>
+
+<div class="grid"></div>
+<div class="glow"></div>
+<div class="bar"></div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><span class="dot"></span>BHARATHKUMAR</div>
+    <div class="portrait"><img src="../public/profile-pic-2.png" alt="" /></div>
+  </div>
+
+  <h1><em>AI</em> product engineer<br />shipping real<br />products, solo.</h1>
+
+  <footer>
+    <div class="sub">10+ products shipped · React · TypeScript · AI agents</div>
+    <div class="url">bharathkumar.dev</div>
+  </footer>
+</div>
