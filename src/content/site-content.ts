@@ -78,6 +78,7 @@ export interface SiteContent {
 
 // Re-export the JSON as the typed site content
 import data from "@/data/site-content.json";
+import { fetchRepoStatsByUrls } from "@/lib/github";
 
 export const siteContent: SiteContent = data as SiteContent;
 
@@ -94,4 +95,25 @@ export function getNextProject(currentSlug: string): Project | undefined {
     if (currentIndex === -1) return undefined;
     const nextIndex = (currentIndex + 1) % siteContent.projects.length;
     return siteContent.projects[nextIndex];
+}
+
+const repoKey = (url?: string) =>
+    url?.match(/github\.com\/[^/]+\/([^/]+)/)?.[1]?.replace(/\.git$/, "").toLowerCase() ?? null;
+
+// ponytail: one fetch per build, memoized by promise. Every page that renders
+// project metrics shares it, so the homepage and detail pages can't disagree.
+let statsPromise: ReturnType<typeof fetchRepoStatsByUrls> | null = null;
+
+export function getRepoStats() {
+    return (statsPromise ??= fetchRepoStatsByUrls(
+        siteContent.projects.map(p => p.link).filter(Boolean) as string[],
+    ));
+}
+
+export async function getLiveMetrics(project: Project): Promise<Metric[]> {
+    const live = (await getRepoStats()).get(repoKey(project.link) ?? "");
+    if (!live) return project.metrics;
+    return project.metrics.map(m =>
+        /stars?/i.test(m.label) ? { ...m, value: String(live.stargazerCount) } : m,
+    );
 }

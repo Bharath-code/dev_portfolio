@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import {
     getAllProjectSlugs,
+    getLiveMetrics,
     getNextProject,
     getProjectBySlug,
 } from "@/content/site-content";
@@ -20,6 +21,7 @@ if (!project) {
 }
 
 const nextProject = getNextProject(slug as string);
+const metrics = await getLiveMetrics(project);
 ---
 
 <Layout
@@ -57,7 +59,7 @@ const nextProject = getNextProject(slug as string);
                 <aside class="card">
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink-muted)]">Metrics</p>
                     <dl class="mt-5 grid gap-3">
-                        {project.metrics.map((metric) => (
+                        {metrics.map((metric) => (
                             <div class="rounded-lg border px-4 py-3" style="border-color: var(--line);">
                                 <dt class="metric-label">{metric.label}</dt>
                                 <dd class="metric-value">{metric.value}</dd>
