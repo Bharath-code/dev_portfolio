@@ -342,6 +342,30 @@
       "href": "https://github.com/Bharath-code/insta-hashtag-tracker",
       "category": "Backend · AWS",
       "summary": "Instagram Graph API ingestion pipeline — Postgres metadata, S3 asset copy, dedupe, cursor-paginated API, deployed on ECS Fargate with RDS and SQS."
+    },
+    {
+      "title": "Signet",
+      "href": "https://signet-ruby.vercel.app",
+      "category": "AI · Web App",
+      "summary": "Paste a company website and Signet reads its logo, colors, and fonts to build a polished, email-safe signature in seconds. Works in Gmail, Outlook, and Apple Mail."
+    },
+    {
+      "title": "SecretScrub",
+      "href": "https://github.com/Bharath-code/secret-scrub",
+      "category": "Rust · Local-First",
+      "summary": "Turns logs, configs, and incident bundles into reviewed safe copies before you paste them into an AI tool. Detects secrets, swaps in consistent semantic placeholders, preserves structure — all on-device, originals never uploaded."
+    },
+    {
+      "title": "FolderMind",
+      "href": "https://github.com/Bharath-code/foldermind",
+      "category": "macOS App",
+      "summary": "Native SwiftUI file organizer for macOS — a visual rule builder that sorts folders automatically, with onboarding tuned to get you to your first sorted file in under 90 seconds. Notarized DMG with Sparkle auto-updates."
+    },
+    {
+      "title": "CaffeineBar",
+      "href": "https://github.com/Bharath-code/caffeinebar",
+      "category": "macOS App",
+      "summary": "A macOS menu bar app that logs each coffee in one click and plays increasingly unhinged sounds as your intake climbs — gentle concern at cup 3, a full ambulance by cup 5. Funny enough to share, useful enough to keep."
     }
   ],
   "skillCategories": [
