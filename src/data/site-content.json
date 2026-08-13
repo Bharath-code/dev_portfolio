@@ -24,11 +24,11 @@
       "tags": ["Go", "Bubbletea", "TUI", "Homebrew"],
       "link": "https://github.com/Bharath-code/git-scope",
       "metrics": [
-        { "label": "GitHub Stars", "value": "98+" },
+        { "label": "GitHub Stars", "value": "113" },
         { "label": "Releases", "value": "15" }
       ],
       "highlights": [
-        "98+ stars and 15 forks — scans 50+ repositories with fuzzy search and workspace switching",
+        "Scans 50+ repositories at a glance with fuzzy search and instant workspace switching",
         "Contribution graph visualization and time-machine commit navigation in the terminal",
         "15 tagged releases with cross-platform Homebrew distribution"
       ],
@@ -49,7 +49,7 @@
             "detail": "Distributing via Homebrew across 15 cross-platform releases made install and upgrade a one-liner — the friction drop that turned early interest into repeat users."
           }
         ],
-        "outcome": "git-scope reached 98 GitHub stars across 15 releases and is in daily use scanning 50+ repositories at a glance. It validated that a focused, local-first terminal tool can find real adoption with no backend and no web app."
+        "outcome": "git-scope passed 100 GitHub stars across 15 releases and is in daily use scanning 50+ repositories at a glance. It validated that a focused, local-first terminal tool can find real adoption with no backend and no web app."
       }
     },
     {
@@ -213,7 +213,7 @@
       "company": "Independent",
       "role": "Product Engineer — Developer Tools & AI",
       "period": "2021 — Present",
-      "description": "In 2021 I left consulting to build products end-to-end — I wanted to own every decision from architecture to launch, not one slice of a delivery pipeline. Since then I've designed, built, and shipped 10+ products solo: git-scope (98+ GitHub stars, Homebrew distribution), npm libraries (ai-cost-guard, loopkit, debugg), and production SaaS like RivalEye — auth, billing, background jobs, and AI pipelines included. Five years of shipping alone taught me velocity, ruthless scope-cutting, and daily hands-on AI engineering: agents, RAG, guardrails. Now I'm looking to bring that end-to-end speed to a team building something bigger than one person can."
+      "description": "In 2021 I left consulting to build products end-to-end — I wanted to own every decision from architecture to launch, not one slice of a delivery pipeline. Since then I've designed, built, and shipped 10+ products solo: git-scope (100+ GitHub stars, Homebrew distribution), npm libraries (ai-cost-guard, loopkit, debugg), and production SaaS like RivalEye — auth, billing, background jobs, and AI pipelines included. Five years of shipping alone taught me velocity, ruthless scope-cutting, and daily hands-on AI engineering: agents, RAG, guardrails. Now I'm looking to bring that end-to-end speed to a team building something bigger than one person can."
     },
     {
       "company": "Accenture",

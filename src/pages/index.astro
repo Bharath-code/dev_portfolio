@@ -2,28 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 import content from "@/data/site-content.json";
 import { getLatestPosts } from "@/lib/blog";
-import { fetchRepoStatsByUrls } from "@/lib/github";
+import { getLiveMetrics, getRepoStats } from "@/content/site-content";
 import GitHubHeatmap from "@/components/ui/GitHubHeatmap.astro";
 
 const posts = await getLatestPosts(content.blogConfig, 4);
 
 // Live GitHub stars at build time; falls back to JSON values when GITHUB_TOKEN is absent.
-const repoStats = await fetchRepoStatsByUrls(
-    content.projects.map((p) => p.link).filter(Boolean) as string[],
+const metricsBySlug = new Map(
+    await Promise.all(
+        content.projects.map(
+            async (p) => [p.slug, await getLiveMetrics(p as any)] as const,
+        ),
+    ),
 );
+const liveMetrics = (project: (typeof content.projects)[number]) =>
+    metricsBySlug.get(project.slug) ?? project.metrics;
 
-const repoKey = (url?: string) =>
-    url?.match(/github\.com\/[^/]+\/([^/]+)/)?.[1]?.replace(/\.git$/, "").toLowerCase() ?? null;
-
-const liveMetrics = (project: (typeof content.projects)[number]) => {
-    const live = repoStats.get(repoKey(project.link) ?? "");
-    if (!live) return project.metrics;
-    return project.metrics.map((m) =>
-        /stars?/i.test(m.label) ? { ...m, value: String(live.stargazerCount) } : m,
-    );
-};
-
-const gitScopeStars = repoStats.get("git-scope")?.stargazerCount;
+const gitScopeStars = (await getRepoStats()).get("git-scope")?.stargazerCount;
 
 const marqueeItems = [
     "React 19",
