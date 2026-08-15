@@ -5,8 +5,14 @@
     "subtitle": "React · TypeScript · AI Agents · Developer Tools",
     "bio": "A decade of turning ambiguity into shipped software. Deep frontend craft, working backend fluency, and hands-on AI engineering — RAG, tool calling, guardrails — proven across 10+ products I've built and shipped solo.",
     "cta": {
-      "primary": { "label": "See my work", "href": "#work" },
-      "secondary": { "label": "Get in touch", "href": "#contact" }
+      "primary": {
+        "label": "See my work",
+        "href": "#work"
+      },
+      "secondary": {
+        "label": "Get in touch",
+        "href": "#contact"
+      }
     }
   },
   "navigation": [
@@ -21,11 +27,22 @@
       "slug": "git-scope",
       "title": "git-scope",
       "description": "A fast terminal UI to see the status of every Git repository on your machine. Contribution graphs, time-machine history, and batch operations — distributed via Homebrew.",
-      "tags": ["Go", "Bubbletea", "TUI", "Homebrew"],
+      "tags": [
+        "Go",
+        "Bubbletea",
+        "TUI",
+        "Homebrew"
+      ],
       "link": "https://github.com/Bharath-code/git-scope",
       "metrics": [
-        { "label": "GitHub Stars", "value": "113" },
-        { "label": "Releases", "value": "15" }
+        {
+          "label": "GitHub Stars",
+          "value": "113"
+        },
+        {
+          "label": "Releases",
+          "value": "15"
+        }
       ],
       "highlights": [
         "Scans 50+ repositories at a glance with fuzzy search and instant workspace switching",
@@ -50,18 +67,88 @@
           }
         ],
         "outcome": "git-scope passed 100 GitHub stars across 15 releases and is in daily use scanning 50+ repositories at a glance. It validated that a focused, local-first terminal tool can find real adoption with no backend and no web app."
+      },
+      "demoMedia": {
+        "src": "/demos/git-scope.webp",
+        "alt": "git-scope terminal UI: repository list with fuzzy search, contribution graph, and commit navigation",
+        "caption": "Fuzzy search across 50+ repos, contribution graph, and time-machine commit navigation — all in the terminal."
+      }
+    },
+    {
+      "title": "RegressGuard",
+      "slug": "regressguard",
+      "description": "A regression guard built for the AI agent loop: record a known-good baseline, and after an agent edits your app, know exactly what broke before it reaches a human.",
+      "tags": [
+        "Go",
+        "MCP",
+        "AI Agents",
+        "CLI",
+        "Homebrew"
+      ],
+      "link": "https://github.com/Bharath-code/regressGuard",
+      "demoMedia": {
+        "src": "/demos/regressguard.gif",
+        "alt": "An AI agent breaks an API contract; rg check blocks the commit and names the culprit file; the agent fixes it and the check goes green",
+        "caption": "Break → detect → fix → green. The agent verifies its own work through the MCP server, with no human in the loop."
+      },
+      "metrics": [
+        {
+          "label": "Releases",
+          "value": "2"
+        },
+        {
+          "label": "Interfaces",
+          "value": "MCP · CLI · CI"
+        }
+      ],
+      "highlights": [
+        "Ships as an MCP server, so Claude Code and Cursor can verify their own edits and self-correct before a human sees the diff",
+        "Same engine runs as a plain CLI for humans and CI — two commands, no test-writing",
+        "Auto-detects test command, framework, and dev server URL on `rg init`",
+        "Distributed via Homebrew tap and a one-line install script"
+      ],
+      "caseStudy": {
+        "problem": "When an AI coding agent edits an app it can silently break an API contract — a removed field, a changed status code, a test that now fails — and still report success. The failure surfaces later, in review or in production, long after the context that caused it is gone.",
+        "approach": "Record a known-good baseline before the agent session, then diff against it afterward and name exactly what regressed. The critical design bet was where that check runs: not as a CI step after the fact, but inside the agent’s own loop as an MCP server, so the agent verifies itself and self-corrects with zero extra steps.",
+        "decisions": [
+          {
+            "title": "MCP server first, CLI second",
+            "detail": "A CI-only check catches regressions after the agent has already declared success. Exposing snapshot/check/status as MCP tools puts verification inside the loop, which is the difference between catching a break and preventing one. The same engine still runs as a CLI so humans and CI are not second-class."
+          },
+          {
+            "title": "Baseline over written tests",
+            "detail": "Asking users to write tests before they can benefit is a non-starter at the moment they need this most. Recording actual observed behavior as the baseline gets useful coverage in under 15 seconds, at the cost of only catching regressions against exercised paths."
+          },
+          {
+            "title": "Shipping as `rg`, colliding with ripgrep",
+            "detail": "ripgrep also installs as `rg`, so whichever lands first on PATH wins and `rg check` could silently run the wrong binary. Rather than rename, the pre-commit hook and GitHub Action use absolute paths, `rg doctor` detects the collision, and the README leads with the warning — the ergonomic name kept, the failure mode made loud instead of silent."
+          }
+        ],
+        "outcome": "RegressGuard is early — two tagged releases and a Homebrew tap — but it answers a problem that only exists because agents now write code unsupervised. Building it clarified where AI tooling actually belongs: not wrapped around the agent as a gate, but handed to the agent as a tool it can call on itself."
       }
     },
     {
       "slug": "rivaleye",
       "title": "RivalEye",
       "description": "Competitive intelligence SaaS that monitors competitor pricing, tech stack, and branding across 4 global regions — every change arrives as an AI tactical brief, not just a notification.",
-      "tags": ["Next.js 16", "React 19", "Tailwind 4", "Gemini", "Supabase"],
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "Tailwind 4",
+        "Gemini",
+        "Supabase"
+      ],
       "link": "https://github.com/Bharath-code/rivaleye",
       "demo": "https://rivaleye.vercel.app",
       "metrics": [
-        { "label": "Monitoring Regions", "value": "4" },
-        { "label": "API Routes", "value": "14" }
+        {
+          "label": "Monitoring Regions",
+          "value": "4"
+        },
+        {
+          "label": "API Routes",
+          "value": "14"
+        }
       ],
       "highlights": [
         "Full-stack Next.js 16 + React 19 app with Supabase Postgres, RLS auth, and Trigger.dev background jobs",
@@ -92,10 +179,21 @@
       "slug": "ai-cost-guard",
       "title": "ai-cost-guard",
       "description": "Open-source TypeScript guardrails for AI applications — block risky prompts, enforce budgets before model calls, and control multi-tenant LLM spend. Published on npm.",
-      "tags": ["TypeScript", "LLM Guardrails", "npm", "Open Source"],
+      "tags": [
+        "TypeScript",
+        "LLM Guardrails",
+        "npm",
+        "Open Source"
+      ],
       "metrics": [
-        { "label": "npm", "value": "v1.0" },
-        { "label": "Focus", "value": "AI Safety" }
+        {
+          "label": "npm",
+          "value": "v1.0"
+        },
+        {
+          "label": "Focus",
+          "value": "AI Safety"
+        }
       ],
       "link": "https://github.com/Bharath-code/ai-cost-guard",
       "highlights": [
@@ -108,11 +206,22 @@
       "slug": "recall",
       "title": "Recall",
       "description": "Local-first command memory for developers. Captures terminal commands with repo context so you can find exactly what you ran last time — with AI-powered search, no cloud required.",
-      "tags": ["TypeScript", "SQLite", "AI Search", "Local-first"],
+      "tags": [
+        "TypeScript",
+        "SQLite",
+        "AI Search",
+        "Local-first"
+      ],
       "link": "https://github.com/Bharath-code/recall",
       "metrics": [
-        { "label": "Privacy", "value": "Local-first" },
-        { "label": "Search", "value": "AI + FTS" }
+        {
+          "label": "Privacy",
+          "value": "Local-first"
+        },
+        {
+          "label": "Search",
+          "value": "AI + FTS"
+        }
       ],
       "highlights": [
         "Repo-aware capture: every command stored with cwd, repo, and timestamp context in SQLite",
@@ -188,24 +297,111 @@
       "href": "https://github.com/Bharath-code/tabZero",
       "category": "Extension",
       "summary": "Svelte new-tab replacement focused on daily workflow and zero distraction."
+    },
+    {
+      "title": "MCP Audit",
+      "href": "https://github.com/Bharath-code/mcp-scope",
+      "category": "AI Tooling",
+      "summary": "Behavioral audit for MCP servers — measures how often Claude actually picks each tool, plus the context-tax token cost of your definitions. Cloudflare Workers, Durable Objects, D1, Haiku evals."
+    },
+    {
+      "title": "Magpie",
+      "href": "https://bharath-code.github.io/magpie/",
+      "category": "AI Governance",
+      "summary": "Scanner that finds AI systems missing from a company’s compliance register by reading source code. Publishes its own measured recall (66% on held-out code) rather than claiming completeness."
+    },
+    {
+      "title": "CompetePulse",
+      "href": "https://github.com/Bharath-code/competepulse",
+      "category": "AI SaaS",
+      "summary": "Slack-native competitive change agent — crawl/diff pipeline with a materiality classifier and eval harness, HITL battlecards, and billing. pnpm monorepo on Cloudflare Workers."
+    },
+    {
+      "title": "DeepWork Tab",
+      "href": "https://github.com/Bharath-code/deepwork-tab",
+      "category": "Chrome Extension",
+      "summary": "Your editor has a focus mode; your browser doesn’t. A hard tab cap, a calm intercept screen, and a queue that makes closing a tab feel safe."
+    },
+    {
+      "title": "Hashtag Pipeline",
+      "href": "https://github.com/Bharath-code/insta-hashtag-tracker",
+      "category": "Backend · AWS",
+      "summary": "Instagram Graph API ingestion pipeline — Postgres metadata, S3 asset copy, dedupe, cursor-paginated API, deployed on ECS Fargate with RDS and SQS."
+    },
+    {
+      "title": "Signet",
+      "href": "https://signet-ruby.vercel.app",
+      "category": "AI · Web App",
+      "summary": "Paste a company website and Signet reads its logo, colors, and fonts to build a polished, email-safe signature in seconds. Works in Gmail, Outlook, and Apple Mail."
+    },
+    {
+      "title": "SecretScrub",
+      "href": "https://github.com/Bharath-code/secret-scrub",
+      "category": "Rust · Local-First",
+      "summary": "Turns logs, configs, and incident bundles into reviewed safe copies before you paste them into an AI tool. Detects secrets, swaps in consistent semantic placeholders, preserves structure — all on-device, originals never uploaded."
+    },
+    {
+      "title": "FolderMind",
+      "href": "https://github.com/Bharath-code/foldermind",
+      "category": "macOS App",
+      "summary": "Native SwiftUI file organizer for macOS — a visual rule builder that sorts folders automatically, with onboarding tuned to get you to your first sorted file in under 90 seconds. Notarized DMG with Sparkle auto-updates."
+    },
+    {
+      "title": "CaffeineBar",
+      "href": "https://github.com/Bharath-code/caffeinebar",
+      "category": "macOS App",
+      "summary": "A macOS menu bar app that logs each coffee in one click and plays increasingly unhinged sounds as your intake climbs — gentle concern at cup 3, a full ambulance by cup 5. Funny enough to share, useful enough to keep."
     }
   ],
   "skillCategories": [
     {
       "title": "Frontend Engineering",
-      "tags": ["React 19", "Next.js (App Router)", "TypeScript", "Astro", "Svelte 5", "Tailwind CSS", "GSAP", "Radix UI"]
+      "tags": [
+        "React 19",
+        "Next.js (App Router)",
+        "TypeScript",
+        "Astro",
+        "Svelte 5",
+        "Tailwind CSS",
+        "GSAP",
+        "Radix UI"
+      ]
     },
     {
       "title": "AI Engineering",
-      "tags": ["LLM Integration", "RAG & Vector Search", "Tool Calling & Agents", "Prompt Engineering", "AI Guardrails & Cost Control", "Gemini · OpenAI · Claude"]
+      "tags": [
+        "LLM Integration",
+        "RAG & Vector Search",
+        "Tool Calling & Agents",
+        "Prompt Engineering",
+        "AI Guardrails & Cost Control",
+        "Gemini · OpenAI · Claude"
+      ]
     },
     {
       "title": "Backend & Data",
-      "tags": ["Node.js", "Go", "Supabase (Postgres + RLS)", "Convex", "SQLite", "REST APIs", "Trigger.dev"]
+      "tags": [
+        "Node.js",
+        "Go",
+        "Supabase (Postgres + RLS)",
+        "Convex",
+        "SQLite",
+        "REST APIs",
+        "Trigger.dev"
+      ]
     },
     {
       "title": "Shipping & Quality",
-      "tags": ["Vite", "Bun", "Playwright", "GitHub Actions", "Vercel", "Cloudflare", "PostHog", "Core Web Vitals"]
+      "tags": [
+        "Vite",
+        "Bun",
+        "Playwright",
+        "GitHub Actions",
+        "Vercel",
+        "Cloudflare",
+        "PostHog",
+        "Core Web Vitals"
+      ]
     }
   ],
   "experience": [
@@ -231,7 +427,11 @@
   "availability": {
     "status": "Open to opportunities",
     "location": "India · Remote-friendly",
-    "roles": ["Frontend Engineer", "Product Engineer", "AI Application Engineer"]
+    "roles": [
+      "Frontend Engineer",
+      "Product Engineer",
+      "AI Application Engineer"
+    ]
   },
   "blogConfig": {
     "devto": "iam_pbk",
@@ -240,9 +440,18 @@
   "contact": {
     "email": "kumarbharath63@gmail.com",
     "socials": [
-      { "label": "GitHub", "href": "https://github.com/Bharath-code/" },
-      { "label": "LinkedIn", "href": "https://linkedin.com/in/bharathkumar-palanisamy" },
-      { "label": "X", "href": "https://x.com/iam_pbk" }
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Bharath-code/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/bharathkumar-palanisamy"
+      },
+      {
+        "label": "X",
+        "href": "https://x.com/iam_pbk"
+      }
     ]
   }
 }
