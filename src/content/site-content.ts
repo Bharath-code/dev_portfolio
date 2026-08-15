@@ -24,6 +24,7 @@ export interface Project {
     tags: string[];
     link: string;
     demo?: string;
+    demoMedia?: { src: string; alt: string; caption?: string };
     metrics: Metric[];
     highlights: string[];
     caseStudy?: CaseStudy;
