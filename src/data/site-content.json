@@ -18,23 +18,28 @@
   "navigation": [
     {
       "label": "Work",
-      "href": "/#work"
+      "href": "/#work",
+      "key": "W"
     },
     {
       "label": "Skills",
-      "href": "/#skills"
+      "href": "/#skills",
+      "key": "S"
     },
     {
       "label": "Writing",
-      "href": "/#writing"
+      "href": "/#writing",
+      "key": "R"
     },
     {
       "label": "Library",
-      "href": "/books"
+      "href": "/books",
+      "key": "L"
     },
     {
       "label": "Contact",
-      "href": "/#contact"
+      "href": "/#contact",
+      "key": "C"
     }
   ],
   "projects": [

@@ -60,7 +60,7 @@ export interface SiteContent {
             secondary: { label: string; href: string };
         };
     };
-    navigation: { label: string; href: string }[];
+    navigation: { label: string; href: string; key: string }[];
     blogConfig: { devto: string; medium: string };
     projects: Project[];
     secondaryProjects: SecondaryProject[];

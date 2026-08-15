@@ -117,7 +117,19 @@
   }
 
   .site-nav-link {
-    @apply rounded-[var(--radius-sm)] px-3 py-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-[var(--ink-secondary)] transition-colors duration-150;
+    @apply flex items-center gap-2 rounded-[var(--radius-sm)] px-3 py-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-[var(--ink-secondary)] transition-colors duration-150;
+  }
+
+  .site-nav-key {
+    @apply grid h-4 w-4 place-items-center rounded-[3px] border font-mono text-[10px] leading-none tracking-normal;
+    border-color: var(--line);
+    color: var(--ink-muted);
+  }
+
+  .site-nav-link:hover .site-nav-key,
+  .site-nav-link:focus-visible .site-nav-key {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .site-nav-link:hover,

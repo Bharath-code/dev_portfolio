@@ -116,7 +116,12 @@ const jsonLd = {
                     </a>
                     <nav class="site-nav hidden md:flex" aria-label="Primary">
                         {content.navigation.map((item) => (
-                            <a class="site-nav-link" href={item.href}>
+                            <a
+                                class="site-nav-link"
+                                href={item.href}
+                                data-nav-key={item.key.toLowerCase()}
+                            >
+                                <kbd class="site-nav-key">{item.key}</kbd>
                                 {item.label}
                             </a>
                         ))}
@@ -165,5 +170,31 @@ const jsonLd = {
                 </div>
             </footer>
         </div>
+
+        <script>
+            const targets = new Map(
+                [...document.querySelectorAll<HTMLAnchorElement>("[data-nav-key]")].map(
+                    (link) => [link.dataset.navKey, link.href],
+                ),
+            );
+
+            document.addEventListener("keydown", (event) => {
+                if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+                const target = event.target as HTMLElement | null;
+                if (
+                    target?.isContentEditable ||
+                    ["INPUT", "TEXTAREA", "SELECT"].includes(target?.tagName ?? "")
+                ) {
+                    return;
+                }
+
+                const href = targets.get(event.key.toLowerCase());
+                if (!href) return;
+
+                event.preventDefault();
+                window.location.href = href;
+            });
+        </script>
     </body>
 </html>
